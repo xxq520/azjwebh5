@@ -1,0 +1,85 @@
+.express .s-cont{
+    /* margin-right:0.4444rem; */
+    float: right;
+}
+.express .s-cont .rightIco{
+    width: .4rem;
+    height: .6rem;
+    /* display: block; */
+    background: url(../images/right_Ico.png) no-repeat;
+    background-size: .4rem .6rem;
+    /* position: absolute;
+    top: 50%;
+    right: 0.4rem;
+    margin-top: 0.2999rem !important; */
+}
+.expressFee-mask{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background:rgba(0,0,0,.3);
+    z-index:1001;
+     display:none;
+}
+.expressFee-mask div{
+    position:absolute;
+    bottom:0%;
+    left:0;
+    width:100%;
+}
+.show{
+    display:block;
+}
+/* .show div{
+    bottom:0%;
+    transition:all .5s linear;
+} */
+.expressFee-mask div p{
+    background:#fff;
+    height:2.1777rem;
+    display:flex;
+    align-items:center;
+    border-bottom:1px solid #f2f2f2;
+}
+.expressFee-mask div p:not(:last-child){
+    justify-content:space-between;
+    padding:0 0.5333rem;
+}
+.expressFee-mask div p span{
+    font-size:0.6666rem;
+}
+.expressFee-mask div p .select-btn{
+    height:0.8888rem;
+    width:0.8888rem;
+    border:1px solid #999;
+    border-radius:50%;
+}
+.expressFee-mask div p .selected{
+    /* background:url();
+    background-size:0.8888rem 0.8888rem;*/
+    background:#ff3143;
+    border:none;
+}
+.expressFee-mask div .cancel-btn{
+    justify-content:center;
+}
+.goodsPrices .express{
+    padding: .5rem 0;
+}
+.goodsPrices .express span{
+    font-size: .75rem;
+    color: #212121;
+}
+.goodsPrices .express span .rightIco{
+    /* margin-right: .5rem; */
+    margin-top:.7rem !important;
+}
+/**
+#logisticsType {
+    float: left;
+    font-size: .75rem;
+    color: #212121;
+}
+*/

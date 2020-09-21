@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/pop-up.css" />
+    <title>Document</title>
+
+</head>
+<style>
+
+</style>
+
+<body>
+
+    <!-- 抵扣券弹框 -->
+    <div class="showModal">
+        <div class="CouponInfo">
+            <!--关闭按钮-->
+            <div class="iconClose"><img src="./img/icon_close.png" alt=""></div>
+            <div class="infoBox">
+                <!-- 头部标题 -->
+                <div class="topTitle">
+                    <p>喜获消费券</p>
+                </div>
+                <div class="infoDetail">
+                    <p>百业惠盟会员的专属福利，以金币的形式使用，1 金币=1人民币。</p>
+                </div>
+                <div class="btn">进入专区</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./js/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+
+        // 点击按钮显示弹框
+        $('button').click(function () {
+            $('.showModal').css('display', 'block');
+        })
+
+
+        // 点击按钮隐藏弹框
+        $('.CouponInfo .iconClose').click(function () {
+            $('.showModal').css('display', 'none');
+        })
+    })
+</script>

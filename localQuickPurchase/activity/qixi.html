@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>七夕专题活动</title>
+	<link rel="stylesheet" type="text/css" href="/localQuickPurchase/activity/lib/Hui/css/hui.css"/>
+    <link rel="stylesheet" href="css/qixiCommon.css">
+    <link rel="stylesheet" href="css/qixi.css">
+</head>
+<body>
+    <div class="container">
+        <!-- header -->
+        <div class="header-con">
+            <i class="icons back-btn" onclick="goBack()"></i>
+            <h1>七夕专题活动</h1>
+            <i class="icons share-btn" onclick="share()"></i>
+        </div>
+        <!-- banner -->
+        <div class="banner-con">
+            <img src="images/qixi/banner.png" alt="">
+        </div>
+        <!-- 优惠券 -->
+        <div class="coupon-con">
+             <a href="javascript:void(0);" class="coupon-item" style="visibility: hidden;">
+                <span class="text1">满&yen;599减&yen;200</span>
+                <span class="text2">立即领取</span>
+                <span class="text3">帕纳蒂诗美妆</span>
+            </a>
+            <a href="javascript:void(0);" class="coupon-item"  style="visibility: hidden;">
+                <span class="text1">满&yen;599减&yen;200</span>
+                <span class="text2">立即领取</span>
+                <span class="text3">帕纳蒂诗美妆</span>
+            </a>
+            <a href="/localQuickPurchase/distributionVA/receiveCoupons" class="coupon-more">
+                <span>更多优惠券</span>
+            </a>
+        </div>
+        <!-- tab -->
+        <div class="nav-con">
+            <span class="cur" onclick="tabToggle(0)">7.7折专场</span>
+            <span  onclick="tabToggle(1)">满减优惠</span>
+            <span onclick="tabToggle(2)">七夕专宠</span>
+        </div>
+        <!-- content -->
+        <div class="nav-list">
+        <!-- 7.7专场 -->
+        <div class="con-item zca" style="display:block;">
+            <!-- <div class="con-body">
+                <div class="con-header">
+                    <p class="con-title">爱TA就要一起健健康康</p>
+                </div>
+                <div class="con-list">
+                    <div class="con-items radius-t">
+                        <div class="lf img-con">
+                            <img src="images/qixi/img1.png" alt="">
+                        </div>
+                        <div class="rf prod-con">
+                            <p class="prod-name">妮维雅(NIVEA)晶纯白皙白泡沫洁面乳150G晶纯白皙白泡沫洁面乳150G</p>
+                            <p><span class="n-price">&yen;188</span><span class="o-price">&yen;288</span></p>
+                            <a href="javascript:void(0);" class="buy-btn">立即抢购</a>
+                        </div>
+                        
+                    </div>
+                    <div class="con-items">
+                        <div class="lf img-con">
+                            <img src="images/qixi/img1.png" alt="">
+                        </div>
+                        <div class="rf prod-con">
+                            <p class="prod-name">妮维雅(NIVEA)晶纯白皙白泡沫洁面乳150G</p>
+                            <p><span class="n-price">&yen;188</span><span class="o-price">&yen;288</span></p>
+                            <a href="javascript:void(0);" class="buy-btn">立即抢购</a>
+                        </div>
+                    </div>
+                    <div class="con-items">
+                        <div class="lf img-con">
+                            <img src="images/qixi/img1.png" alt="">
+                        </div>
+                        <div class="rf prod-con">
+                            <p class="prod-name">妮维雅(NIVEA)晶纯白皙白泡沫洁面乳150G</p>
+                            <p><span class="n-price">&yen;188</span><span class="o-price">&yen;288</span></p>
+                            <a href="javascript:void(0);" class="buy-btn">立即抢购</a>
+                        </div>
+                    </div>
+                    <p class="more-btn radius-b">更多惊喜<a href="javascript:void(0);"></a></p>
+                </div>
+            </div> -->
+        </div>
+        <!-- 满减优惠 -->
+        <div class="con-item yh">
+            <!--<div class="con-body">
+                <div class="con-header">
+                    <p class="con-title">爱TA就要一起健健康康</p>
+                </div>
+                <div class="con-list">
+                    <div class="con-items radius-t">
+                        <div class="lf img-con">
+                            <img src="images/qixi/img1.png" alt="">
+                        </div>
+                        <div class="rf prod-con">
+                            <p class="prod-name">妮维雅(NIVEA)晶纯白皙白泡沫洁面乳150G</p>
+                            <p>
+                                <span class="n-price">&yen;188</span>
+                                <span class="o-price">&yen;288</span>
+                            </p>
+                            <a href="javascript:void(0);" class="buy-btn">立即抢购</a>
+                        </div>
+                    </div>
+                    <div class="con-items">
+                        <div class="lf img-con">
+                            <img src="images/qixi/img1.png" alt="">
+                        </div>
+                        <div class="rf prod-con">
+                            <p class="prod-name">妮维雅(NIVEA)晶纯白皙白泡沫洁面乳150G</p>
+                            <p>
+                                <span class="n-price">&yen;188</span>
+                                <span class="o-price">&yen;288</span>
+                            </p>
+                            <a href="javascript:void(0);" class="buy-btn">立即抢购</a>
+                        </div>
+                    </div>
+                    <div class="con-items">
+                        <div class="lf img-con">
+                            <img src="images/qixi/img1.png" alt="">
+                        </div>
+                        <div class="rf prod-con">
+                            <p class="prod-name">妮维雅(NIVEA)晶纯白皙白泡沫洁面乳150G</p>
+                            <p>
+                                <span class="n-price">&yen;188</span>
+                                <span class="o-price">&yen;288</span>
+                            </p>
+                            <a href="javascript:void(0);" class="buy-btn">立即抢购</a>
+                        </div>
+                    </div>
+                    <p class="more-btn radius-b">更多惊喜<a href="javascript:void(0);"></a></p>
+                </div>
+            </div> -->
+        </div>
+        <!-- 七夕专宠 -->
+        <div class="con-item zc">
+            <div class="con-header">
+                <p class="con-title">爱你就要宠你</p>
+            </div>
+            <div class="mian zc-content">
+                <!--<div class="con-list">
+                    <div class="con-items mask-con">
+                        <div class="img-con lf">
+                            <img src="images/qixi/img1.png" alt="">
+                        </div>
+                        <div class="prod-con rf">
+                            <p class="prod-name">妮维雅(NIVEA)晶纯白皙白泡沫洁面乳150G</p>
+                            <p class="time-con">
+                                <span class="time-text">倒计时:</span>
+                                <input type="number" value="10" class="inputs">
+                                <i>:</i>
+                                <input type="number" value="21" class="inputs">
+                                <i>:</i>
+                                <input type="number" value="00" class="inputs">
+                            </p>
+                            <div class="price-con">
+                                <p class="lf">
+                                    <span class="n-price">&yen;199</span>
+                                    <span class="o-price">&yen;299</span>
+                                </p>
+                                <a href="javascript:void(0);" class="buy-btn rf">立即抢购</a>
+                            </div>
+                        </div>
+                        已售完遮罩层    
+                        <div class="mask-con"></div>
+                    </div>
+                    <div class="con-items">
+                        <div class="img-con lf">
+                            <img src="images/qixi/img1.png" alt="">
+                        </div>
+                        <div class="prod-con rf">
+                            <p class="prod-name">妮维雅(NIVEA)晶纯白皙白泡沫洁面乳150G</p>
+                            <p class="time-con">
+                                <span class="time-text">倒计时:</span>
+                                <input type="number" value="10" class="inputs">
+                                <i>:</i>
+                                <input type="number" value="21" class="inputs">
+                                <i>:</i>
+                                <input type="number" value="00" class="inputs">
+                            </p>
+                            <div class="price-con">
+                                <p class="lf">
+                                    <span class="n-price">&yen;199</span>
+                                    <span class="o-price">&yen;299</span>
+                                </p>
+                                <a href="javascript:void(0);" class="buy-btn rf">立即抢购</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="con-list">
+                    <div class="con-items">
+                        <div class="img-con lf">
+                            <img src="images/qixi/img1.png" alt="">
+                        </div>
+                        <div class="prod-con rf">
+                            <p class="prod-name">妮维雅(NIVEA)晶纯白皙白泡沫洁面乳150G</p>
+                            <p class="time-con">
+                                <span class="time-text">倒计时:</span>
+                                <input type="number" value="10" class="inputs">
+                                <i>:</i>
+                                <input type="number" value="21" class="inputs">
+                                <i>:</i>
+                                <input type="number" value="00" class="inputs">
+                            </p>
+                            <div class="price-con">
+                                <p class="lf">
+                                    <span class="n-price">&yen;199</span>
+                                    <span class="o-price">&yen;299</span>
+                                </p>
+                                <a href="javascript:void(0);" class="buy-btn rf">立即抢购</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="con-list">
+                    <div class="con-items">
+                        <div class="img-con lf">
+                            <img src="images/qixi/img1.png" alt="">
+                        </div>
+                        <div class="prod-con rf">
+                            <p class="prod-name">妮维雅(NIVEA)晶纯白皙白泡沫洁面乳150G</p>
+                            <p class="time-con">
+                                <span class="time-text">倒计时:</span>
+                                <input type="number" value="10" class="inputs">
+                                <i>:</i>
+                                <input type="number" value="21" class="inputs">
+                                <i>:</i>
+                                <input type="number" value="00" class="inputs">
+                            </p>
+                            <div class="price-con">
+                                <p class="lf">
+                                    <span class="n-price">&yen;199</span>
+                                    <span class="o-price">&yen;299</span>
+                                </p>
+                                <a href="javascript:void(0);" class="buy-btn rf">立即抢购</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="share-block hui-text-center dis_share" style="height: auto">
+        <div class="bringIn">分享活动</div>
+        <ul class="share-content">
+
+        </ul>
+        <ul style="overflow: hidden;">
+            <li class="copylink"><img
+                src="/localQuickPurchase/distributionApp/images/share_icon_5.png" />
+                <p>二维码链接</p></li>
+            <li class="shopCode" value="0" onclick='qrCode()'><img
+                src="/localQuickPurchase/distributionApp/images/share_icon_4.png" />
+                <p>二维码</p></li>
+            <!-- <li class="makePosters" value="0" ><img
+                src="/localQuickPurchase/distributionApp/images/goodsLink.png" />
+                <p>保存海报</p></li> -->
+        </ul>
+        <div class="hui-text-center" style="padding: 0 0 1rem;" id="closeShare">
+            <img src="/localQuickPurchase/distributionApp/images/classfiyImg2.png" onclick="hiddend()" width="20">
+        </div>
+    </div>
+    <!-- 二维码 -->
+	<div class="mask" onclick="qeCodehiddend()">
+        <div class="ewmcode" value="0">
+            <img src="" />
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/localQuickPurchase/activity/lib/Hui/js/hui.js"></script>
+    <script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js"></script>
+	<script type="text/javascript" src="/localQuickPurchase/distribution/js/zclip/clipboard.js"></script>
+	<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/soshm.js"></script>
+    <script type="text/javascript" src="js/qixi.js"></script>
+    <script type="text/javascript">
+        var acBatch = getQueryString("acBatch");
+        tabToggle(actityType);
+        tabToggleData(0);
+        tabToggleData(1);
+        tabToggleData(2);
+        findDetailByActBatch(acBatch)
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name = "format-detection" content = "telephone=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>购物车</title>
+		<link rel="stylesheet" href="../static/common/lib/Hui/css/hui.css">
+		<link rel="stylesheet" href="css/main.css">
+		<script type="text/javascript" src="../static/common/lib/jquery.min.js"></script>
+		<script type="text/javascript" src="../static/common/js/common.js"></script>
+		<style>
+		#backPersonalCenter{
+				width: 38px;
+                height: 44px;
+                font-family: "hui-font";
+                line-height: 44px;
+                text-align: center;
+                position: absolute;
+                z-index: 20;
+                left: 0px;
+                top: 0px;
+         }
+         #backPersonalCenter img{
+         		width:70%;
+         		margin-top: .3rem;
+         }
+         /* 购物车数量样式 */
+	     .number{
+				display: inline-block;
+			    font-size: 12px;
+			    width: 0.8rem;
+			    height: 0.8rem;
+			    border-radius: 0.4rem;
+			    background: red;
+			    color: #fff;
+			    vertical-align: top;
+			    margin-left: -0.8rem;
+	      }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="hui-header">
+			<div id="backPersonalCenter" onclick="javascript:history.go(-2);"><img src="../static/images/back.png"/></div>
+				<h1>购物车</h1>
+				<div class="handle-btns">
+					<!-- <span class="handle-btn handle-share"></span> " -->
+				</div>
+			</header>
+	<div class="noShopping-content">
+		<div class="shoppingContent-img"><img src="../static/images/shopCarImg3.png"></div>
+		<div class="textImg"><img src="../static/images/shopCarImg18.png"></div>
+	</div>
+<!-- 			<div id="hui-footer"> -->
+<!-- 				<%@ include file="../../common/footer.jsp" %> -->
+<!-- 			</div> -->
+<!--<div id="hui-footer">
+    <a class="w20"  href="${path}/distributionVA/index/distributionIndex" id="nav-home">
+        <img src="${path}/distributionApp/images/home_02.png" />
+        <div class="hui-footer-text">首页</div>
+    </a>
+    <a class="w20"   id="nav-type" href="${path}/distributionVA/classify/classify">
+        <img src="${path}/distributionApp/images/type_02.png" />
+        <div class="hui-footer-text">分类</div>
+    </a>
+     <script>
+    	//普通用户底部菜单栏
+    	if(distributorType == 1 && consumer != 2){
+    		//console.log($(".w20"));
+   			      
+    	}
+    	//vip用户底部菜单栏
+    	/*if(distributorType == 1 && consumer == 2){
+    		&lt;%&ndash; href='${path}/distributionVA/goodmanage' &ndash;%&gt;
+    		var Vip = 	"<a class='w20' id='nav-home-seq'>"+
+					        "<img src='${path}/distributionApp/images/shop_02.png' />"+
+					        "<div class='hui-footer-text'>店主精品</div>"+
+				        "</a>"
+				        
+			document.write(Vip);
+	       
+			//console.log($(".w20"));
+    	}*/
+    	//分销商或代理商菜单栏
+    	if(distributorType == 2 || distributorType == 3){
+   			var distributor = 	"<a  class='w20' href='${path}/distributionVA/store' id='nav-shop'>"+
+					    	        "<img src='${path}/distributionApp/images/shop_02.png' />"+
+					    	        "<div class='hui-footer-text'>店铺</div>"+
+					    	    "</a>"
+					    	    
+			document.write(distributor);
+					    	    
+   			//console.log($(".w20"));		    	    
+    	}
+    </script>
+    
+    <a class="w20 active"  id="nav-car" href="javascript:void(0)">
+        <img src="${path}/distributionApp/images/car_01.png" />
+        <!-- <p class="number">0</p> -->
+        <!--<div class="hui-footer-text">购物车</div>
+    </a>
+    <a class="w20"  id="nav-mine" href="${path}/distributionVA/personal/index">
+        <img src="${path}/distributionApp/images/mine_02.png" />
+        <div class="hui-footer-text">我的</div>
+    </a>
+</div> -->
+		</div>
+	</body>
+	<script type="text/javascript" src="../static/common/js/bottomTag.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../static/common/js/footer.js" charset="utf-8"></script>
+	<script>
+		//如果菜单栏地部为普通用户将w20调整w25
+		if(distributorType == 1){
+			var w20 = $(".w20");
+			var length = w20.length;
+			for(var i = 0;i < length; i++){
+				w20[i].setAttribute("class","w25");
+			}
+		}
+        $("#nav-car").addClass("active");
+        $("#nav-car").find("img").attr("src","/cart/static/images/car_01.png");
+		
+		$("body").on('click', '#nav-home-seq', function() {
+			window.location.href="/distributionVA/goodmanage/" + mydSeq;
+		});
+	</script>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>利是规则说明</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        
+
+        .mainBox {
+            color: #444;
+            padding-top: 40px;
+            height: 100%;
+            padding-bottom: 40px;
+
+        }
+
+        .mint-header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-image: url('./azj_lhb_bgimage_tab.png');
+            background-size: 100% 105%;
+            z-index: 1000;
+        }
+
+        .mint-header-title {
+            font-size: 16px;
+        }
+
+        .mintui {
+            font-size: 24px;
+        }
+        .content{
+            width: 100%;
+        }
+        .content img{
+        width: 100%;
+        margin-top: -5px;
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background: #EB313D;
+            text-align: center;
+            line-height: 40px;
+            color:#fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <div v-cloak class="mainBox">
+            <header class="mint-header">
+                <mt-button icon="back" slot="left" @click="goback"></mt-button>
+                <h1 class="mint-header-title">利是规则</h1>
+            </header>
+               <div class="content">
+                     <img src="./170222.png" alt="">
+               </div>
+
+            <div class="footer" @click="toUse">去使用</div>
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./index.js"></script>
+    <script src="./jquery.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                pageNum: 1,
+                List: [],
+                pageSize: 10,
+                loading: false,
+                loadend: false
+            },
+
+            mounted: function () {
+
+
+            },
+            methods: {
+
+                //上拉加载
+            toUse:function(){
+                window.location.href = '/localQuickPurchase/coupons/html/wyf.html'
+            },
+                // 返回上层
+                goback: function () {
+                    window.history.go(-1)
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>

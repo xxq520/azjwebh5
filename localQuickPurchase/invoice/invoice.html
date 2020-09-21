@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>invoice</title>
+    <link rel="stylesheet" href="css/invoice.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/hui.css">
+</head>
+<body>
+    <div class="invoice-wrap">
+        <div class="header"><a class="backBtn"></a>开具发票</div>
+        <!-- 发票内容 -->
+        <div class="content">
+            <!-- 发票类型选择 -->
+           <div class="nav">
+                <h2>发票类型</h2>
+                <ul>
+                    <li id="common" class="active">普通发票</li>
+                    <li id="tax">增值税专用发票</li>
+                </ul>
+           </div>
+            <!-- 表单内容 -->
+            <div class="invoice-type">
+                <!-- 普通发票 -->
+                <div class="type-li current" id="plain">
+                    <div class="title">
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">抬头类型</div>
+                                <!-- <input type="radio" value="1" name="gender" id="g1" checked="checked" onchange="showSelectRes(this);" /><label for="g1">个人</label><br />
+            <input type="radio" value="2" name="gender" id="g2" onchange="showSelectRes(this);" /><label for="g2">单位</label> -->
+                            <div class="radio">
+                                <span><i class="act" id="personage"></i>个人</span>
+                                <span><i id="units"></i>单位</span>
+                            </div>
+                            </div>
+                            <div class="hui-form-items">
+                                <div class="hui-form-items-title">发票内容</div>
+                                <input type="text" disabled="disabled" class="hui-input hui-input-clear" name="delatls" value="商品明细"/>
+                            </div>
+                        
+                    </div>
+                <!-- 个人 -->
+                    <div class="info curr" id="personal">
+                        <div class="infoBgc ">
+                    
+                            <div class="hui-form-items">
+                                <div class="hui-form-items-title">收票抬头姓名：</div>
+                                <input type="text" class="hui-input hui-input-clear" name="username1" placeholder="请输入收票抬头姓名" />
+                            </div>
+                            <div class="hui-form-items">
+                                <div class="hui-form-items-title">身份证号码：</div>
+                                <input type="text" class="hui-input hui-input-clear" name="idNum1" placeholder="请输入身份证号码" />
+                            </div>
+                            <div class="hui-form-items">
+                                <div class="hui-form-items-title">收票人手机：</div>
+                                <input type="tel" class="hui-input hui-input-clear" name="phoneNum1" placeholder="请输入收票人手机号码" />
+                            </div>
+                            <div class="hui-form-items">
+                                <div class="hui-form-items-title">收票人邮箱：</div>
+                                <input type="email" class="hui-input hui-input-clear" name="email1" placeholder="请输入收票人邮箱" />
+                            </div>
+    
+                            
+            
+                        </div>
+                        <div class="btn">
+                            <button class="submit">确定</button>
+                            <button class="cancel">取消</button>
+                        </div>
+                    </div>
+                    <!-- 单位 -->
+                    <div class="info" id="company">
+                        <div class=" infoBgc">
+                                <div class="hui-form-items">
+                                    <div class="hui-form-items-title">发票抬头：</div>
+                                    <input type="text" class="hui-input hui-input-clear" name="title2" placeholder="请输入公司发票抬头" />
+                                </div>
+                                <div class="hui-form-items">
+                                    <div class="hui-form-items-title">纳税人识别号：</div>
+                                    <input type="number" class="hui-input hui-input-clear" name="shuihao2" placeholder="请输入纳税人识别号" />
+                                </div>
+                                <div class="hui-form-items">
+                                    <div class="hui-form-items-title">收票抬头姓名：</div>
+                                    <input type="text" class="hui-input hui-input-clear" name="username2" placeholder="请输入收票抬头姓名" />
+                                </div>
+                                <div class="hui-form-items">
+                                    <div class="hui-form-items-title">身份证号码：</div>
+                                    <input type="text" class="hui-input hui-input-clear" name="idNum2" placeholder="请输入身份证号码" />
+                                </div>
+                                <div class="hui-form-items">
+                                    <div class="hui-form-items-title">收票人手机：</div>
+                                    <input type="tel" class="hui-input hui-input-clear" name="phoneNum2" placeholder="请输入收票人手机号码" />
+                                </div>
+                                <div class="hui-form-items">
+                                    <div class="hui-form-items-title">收票人邮箱：</div>
+                                    <input type="email" class="hui-input hui-input-clear" name="email2" placeholder="请输入收票人邮箱" />
+                                </div>
+        
+                                
+                        </div>
+                        <div class="btn">
+                            <button class="submit">确定</button>
+                            <button class="cancel">取消</button>
+                        </div> 
+                    </div>
+                    
+                </div>
+                <!-- 增值税发票 -->
+                <div class="type-li" id="vat">
+                    <div class="title">
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">发票内容</div>
+                            <input type="text" disabled="disabled" class="hui-input hui-input-clear" name="delatls" readonly value="商品明细"/>
+                        </div>
+                    </div>
+                    <div class=" infoBgc">
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">发票抬头：</div>
+                            <input type="text" class="hui-input hui-input-clear" name="title" placeholder="请输入公司发票抬头" />
+                        </div>
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">纳税人识别号：</div>
+                            <input type="number" class="hui-input hui-input-clear" name="shuihao" placeholder="请输入纳税人识别号" />
+                        </div>
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">收票抬头姓名：</div>
+                            <input type="text" class="hui-input hui-input-clear" name="username" placeholder="请输入收票抬头姓名" />
+                        </div>
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">身份证号码：</div>
+                            <input type="text" class="hui-input hui-input-clear" name="idNum" placeholder="请输入身份证号码" />
+                        </div>
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">收票人手机：</div>
+                            <input type="tel" class="hui-input hui-input-clear" name="phoneNum" placeholder="请输入收票人手机号码" />
+                        </div>
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">收票人邮箱：</div>
+                            <input type="email" class="hui-input hui-input-clear" name="email" placeholder="请输入收票人邮箱" />
+                        </div>
+                    </div>
+                    <!-- 地址 -->
+                    <div class="address infoBgc">
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">地址:</div>
+                            <input type="text" class="hui-input hui-input-clear" name="address" placeholder="请输入地址"/>
+                        </div>
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">电话:</div>
+                            <input type="tel" class="hui-input hui-input-clear" name="telNum" placeholder="请输入电话"/>
+                        </div>
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">开户行:</div>
+                            <input type="text" class="hui-input hui-input-clear" name="bank" placeholder="请输入开户银行"/>
+                        </div>
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">账号:</div>
+                            <input type="number" class="hui-input hui-input-clear" name="account" placeholder="请输入账号"/>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <button class="submit">确定</button>
+                        <button class="cancel">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/hui.js"></script>
+<script src="/localQuickPurchase/distributionApp/js/common.js" type="text/javascript"></script>
+<script src="/localQuickPurchase/js/verify.js" type="text/javascript"></script>
+<script src="js/invoice.js"></script>
+<script>
+   $(function () {  
+    //  发票类型  导航
+       $('.nav li').click(function(){
+           $(this).addClass('active').siblings().removeClass('active');
+         var thatIdx= $(this).index();
+         $('.invoice-type > div').eq(thatIdx).addClass('current').siblings().removeClass('current');
+       })
+
+        //    普通发票 个人 单位选择
+        $('.radio span ').click(function(){
+            $(this).children('i').addClass('act');
+            $(this).siblings().children('i').removeClass('act');
+            var thatIdx = $(this).index();
+            $('div .info').eq(thatIdx).addClass('curr').siblings().removeClass('curr');
+        })
+
+        // 点击确认提交
+        // $('div .submit').click(function(){
+        // var title = $('.hui-form-items input[name="title"]');
+        // var shuihao = $('.hui-form-items input[name="shuihao"]');
+        // var username = $('.hui-form-items input[name="username"]');
+        // var idNum = $('.hui-form-items input[name="idNum"]');
+        // var phoneNum = $('.hui-form-items input[name="idNum"]');
+        // var email = $('.hui-form-items input[name="email"]');
+        // var address = $('.hui-form-items input[name="address"]');
+        // var telNum = $('.hui-form-items input[name="telNum"]');
+        // var bank = $('.hui-form-items input[name="bank"]');
+
+
+        
+
+            // var title = $('.hui-form-items input[name="title"]');
+            // console.log(title);
+        
+            
+            // if($('.hui-form-items input[name="title"] ').val() == ''){
+            //     hui.toast('发票抬头不能为空');
+            //     return;
+            // }
+
+
+
+
+            // if($('.hui-form-items input[name="shuihao"] ').val() == ''){
+            //         hui.toast('请输入纳税人识别号')
+            //         return;
+            //     }
+            //     if($('.hui-form-items input[name="shuihao"] ').val().length != 15 &&　$('.hui-form-items input[name="shuihao"] ').val().length !=18 &&　$('.hui-form-items input[name="shuihao"] ').val().length　!= 20){
+            //         hui.toast('请输入正确的纳税人识别号');
+            //         return;
+            //     }
+                // if($('.hui-form-items input[name="username"]').val() == ''){
+                //     hui.toast('请输入收票抬头姓名');
+                //     return;
+                // }
+            //     if($('.hui-form-items input[name="idNum"]').val() == ''){
+            //         hui.toast('身份证号码不能为空');
+            //         return;
+            //     }
+               
+
+          
+        // })
+
+    })
+
+
+    // // 校验身份证号码
+function isCardNo(card) {
+  // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
+  let reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+  return reg.test(card);
+}
+
+
+
+</script>

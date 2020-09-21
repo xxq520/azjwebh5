@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	    <meta name = "format-detection" content = "telephone=no">
+		<title>爱之家商城售后订单管理</title>
+		<link rel="stylesheet" href="css/mui.css" />
+		<link rel="stylesheet" href="css/mui.picker.min.css"/>
+		<link rel="stylesheet" href="../distributionApp/lib/Hui/css/hui.css">
+		<link rel="stylesheet" href="../distributionApp/css/main.css">
+		<link rel="stylesheet" href="../distributionApp/css/style.css">
+		<link rel="stylesheet" href="css/orderCustomer.css">
+		<link rel="stylesheet" href="css/shipments.css" />
+	</head>
+	<body style="background:#efeff4;">
+	<!-- header nav	-->
+	<header class="hui-header topBarsearch"><a href="javascript:;" class="go-back"><i
+			class="tb-left-ico font-ico">&#xe936;</i></a>
+		<h1>已发货</h1>
+		<div class="shareTop shareBotton" id="shareTops">
+			<img class="saveinfo"  src="images/icon_day@3x.png" data-options='{"type":"date","beginYear":1900,"endYear":2100}' id="pickerck"/>
+		</div>
+	</header>
+	<!-- 搜索	-->
+	<div class="endingRefund-con" style="margin-top: 2.65rem">
+		<img src="images/icon_search.png" alt="">
+		<input type="text" placeholder="请输入订单号或商品名查询" style="border: none;">
+		<button id="search-btn" style="padding: 0">搜索</button>
+	</div>
+
+
+	<div class="Pendingrefund">
+		<div class="endingRefund-box"></div>
+	</div>
+	<div class="dropdown" style="display: none; height: 200px;padding: 30px 0;"> <img src="./images/qs.png" alt=""></div>
+
+<!--
+		<div class="cli-all">
+			<div class="cli-header">
+				<span class="yfh">已发货</span>
+				<img class="cli-return" src="images/back-btn.png"/>
+				<img class="saveinfo"  src="images/icon_day@3x.png" data-options='{"type":"date","beginYear":1900,"endYear":2100}' id="pickerck"/>
+			</div>
+			<div style="width: 100%;margin-top: 3.5rem;">
+				<div class="graddlecdiv">
+					<img src="images/common_nav_btn_search.png@2x.png" class="btnsearch" />
+					<input class="btninput" placeholder="请输入订单号或商品名查询"/>
+					<button class="grabble">搜索</button>
+				</div>
+			</div>
+			<div id="orderlist"></div>
+            <div class="dropdown" style="display: none"> <img src="./images/qs.png" alt=""></div>
+		</div>
+
+-->
+	</body>
+	<script src="../js/jquery-2.0.0.min.js"></script>
+	<script src="js/mui.min.js"></script>
+	<script src="js/mui.js"></script>
+	<script src="js/mui.picker.js"></script>
+	<script src="js/mui.dtpicker.js"></script>
+	<script src="../distributionApp/lib/Hui/js/hui.js"></script>
+	<script type="text/javascript" src="../activity/lib/Hui/js/hui-refresh-load-more.js"></script>
+	<script src="../../common/js/common.js"></script>
+	<script src="js/shipments.js"></script>
+</html>

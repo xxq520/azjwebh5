@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <!-- <title>百业惠盟-消费券 分享中专页</title>-->
+    <title>百业惠盟-消费券</title>
+    <link rel="stylesheet" href="/localQuickPurchase/activity/css/hui.css">
+</head>
+<body>
+</body>
+</html>
+<script type="text/javascript" src="/localQuickPurchase/activity/js/jquery.min.js"></script>
+<script type="text/javascript" src="/common/js/tag.js"></script>
+<script type="text/javascript" src="/common/js/common.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/activity/js/hui.js"></script>
+<script>
+    var shareSeq = getQueryString("shareSeq");
+    var id = getQueryString("id");
+    if(shareSeq != null && shareSeq != "") {
+        shareSeq = shareSeq.split("?")[0];
+        setCookie("shareSeq", shareSeq, 1);
+    }
+    // 判断是否登录
+    function noLogin(){
+        hui.confirm('为了给您提供完整的服务，请登录后再进行该操作', ['暂不登录','马上登录'], function(){
+            setCookie("loginRetrunUrl",window.location.href);
+            loginPage();
+        });
+    }
+    $(function () {
+        if(!isLogin()){
+            noLogin();
+            return;
+        }else{
+            window.location.href ="/localQuickPurchase/couponBaiYeAction/buy?shareSeq="+shareSeq+"&seq="+seq+"&id="+id;
+        }
+    })
+</script>

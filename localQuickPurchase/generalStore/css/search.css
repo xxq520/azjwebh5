@@ -1,0 +1,25 @@
+*{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+.container{padding:0 12px;max-width: 640px;margin:0 auto;position:relative;}
+.main{overflow: hidden;}
+.header{height: 49px;background:#e4393c;padding:0 12px;}
+.header .back-ico{position:absolute;top: .15rem;left:0;height:2.1rem;}
+.header .back-ico .font-ico{font-size:1rem;color:#fff;height:2.1rem;line-height:2.1rem;width:2rem;text-align:center;}
+.header .sear-box{position:relative;padding-right:45px;width: 90%;height: 28px;line-height: 28px;float:left;border-radius: 4px;margin-top: 9px;margin: 9px 0 0 10%;}
+.header .sear-box input{width:100%;padding-left: 28px;height: 28px;border-radius: 4px;outline: none;}
+.header .btn-search {position:absolute;color:#fff;top:0;right:0;}
+.header .sear-box .search-ico{position: absolute;width:18px;height: 18px;top:9px;left:6px;text-align: center;}
+.search-title{box-sizing:content-box;-webkit-box-sizing:content-box;font-weight: 100;font-size: 14px;height: 1.33rem;line-height: 1.33rem;color:#4c4c4c;background:#f2f2f2;padding-top:8px;}
+.hot-search-list{overflow: hidden;}
+.bs{box-shadow: 0 1px 8px 2px #E6E6E6;}
+.hot-search{overflow: hidden;}
+.hot-search-item{float:left;width:33.33%;height: 4.4rem;line-height:4.4rem;border-bottom: 1px solid #e6e6e6;font-size: 0.71rem;text-align: center;}
+.hot-search-item.active a{color:#e4393c;}
+.hot-search-item.active a::after{content: "";position: absolute;display: inline-block;width: 8px;height: 8px;border-radius: 50%;background:#e4393c;}
+.hot-search-item a{position:relative;width:100%;display:inline-block;height:1.33rem;line-height:1.33rem;text-align:center;border-right: 1px solid #E6E6E6;}
+.hot-search-item:nth-child(3n+3) a{border-right: 0;}
+.recently-search-list .recently-search-item{height: 2rem;line-height: 2rem;font-size: 0.7rem;border-bottom: 1px solid #e6e6e6;}
+.recently-search-list .recently-search-item a{display: block;height: 100%;}
+.recently-search-list .recently-search-item .recently-search-icon{margin-right: 8px;}
+.recently-search-list .recently-search-item .arrow-right{float:right;color:#999;}
+.recently-search .clear-records{height: 2rem;line-height: 2rem;}
+.recently-search .clear-records a{display: block;height: 100%;text-align: center;font-size: 0.7rem;color:#808080;}

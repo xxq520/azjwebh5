@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .hui-button.J-submit-next{background: #999;color:#fff;}
+    </style>
+    <meta charset="UTF-8">
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>找回密码</title>
+    <link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/sry.css">
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>找回密码</h1>
+</header>
+<div class="main_container hui-common-padding">
+    <form id="findBack">
+        <div class="hui-form margint generalform">
+            <div class="hui-form-items">
+                <input type="tel" oninput="colorOnchange(this)" id="mobile" class="hui-input hui-input-clear font-md" name="phone" maxlength="11" placeholder="请输入手机号码"  />
+            </div>
+            <div class="hui-form-items img-code-con">
+                <input type="text" class="hui-input" name="yzm" value="" maxlength="4" id="imgCodeInput"/>
+                <div class="img-code" id="imgCode">
+                    <img src="" width="" />
+                </div>
+            </div>
+            <div class="hui-form-items">
+                <input type="text" oninput="colorOnchange(this)" id="captcha" class="hui-input font-md" name="smscode" maxlength="4" placeholder="请输入验证码" checkType="string" checkData="1," checkMsg="请输入验证码" />
+                <button id="verification" type="button" class="hui-button hui-fl J-code-but" state="sent" onclick="verificationCode(this)">获取验证码</button>
+            </div>
+            <button type="button" class="hui-button hui-button-large J-submit-next" id="next" onclick="theNextStep()">下一步</button>
+            <p class="yellowtips msgtips"></p>
+            <div class="agreementtips">登录代表您已阅读并同意 <a href="../static/userProtocol.html" >《爱之家商城用户服务协议》</a></div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="/common/lib/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui-form.js"></script>
+<script type="text/javascript" src="/common/js/tag.js"></script>
+<script type="text/javascript" src="../static/js/findback.js?v=2"></script>
+</body>
+</html>
+<script>
+    function colorOnchange(t){
+        var id = $(t).attr("id");
+        var val = $(t).val();
+
+        if(id == "mobile"){
+            if(isPoneAvailable(val)){
+                $(".hui-button.J-submit-next").css({"background":"#d52c2c","color":"#fff"})
+            }else{
+                $(".hui-button.J-submit-next").css({"background":"#999","color":"#fff"})
+            }
+        }else if(id == "captcha"){
+            var _pwd=$("#captcha").val().length;
+            if(_pwd > 3){
+                $(".hui-button.J-submit-next").css({"background":"#d52c2c","color":"#fff"})
+            }else{
+                $(".hui-button.J-submit-next").css({"background":"#999","color":"#fff"})
+            }
+        }
+    }
+
+</script>

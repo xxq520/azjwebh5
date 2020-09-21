@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name = "format-detection" content = "telephone=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>登录</title>
+		<link rel="stylesheet" href="../static/common/lib/Hui/css/hui.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="../static/css/hupeng.css" />
+		<link rel="stylesheet" href="../static/common/css/pj.css"/>
+		<link rel="stylesheet" href="../static/common/css/comfirmUpgrade.css">
+		<style type="text/css">
+			.container .hui-header .color_gray{width: 1.0rem;margin-left: 0.46rem;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="hui-header">
+				<div id="header-text1" class="hui-icons  hui-icons-left color_gray pull-left"></div>
+				<h1>登录</h1>
+				<div class="handle-btns">
+					<!-- <span class="handle-btn handle-share"></span> -->
+				</div>
+			</header>
+			<div class="noLogin-content">
+				<div class="noLogin-contentImg"><img src="${path}/distributionApp/images/shopCarImg1.png"></div>
+				<div class="loginBtn" onclick="loignBut()">
+					<a href="#">登录</a>
+				</div>
+				<div class="registerBtn" onclick="registBut()">
+					<a href="#">注册</a>
+				</div>
+				<div class="instruction">您还未登录哦，请点击<span>登录/注册</span></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../static/common/lib/Hui/js/hui.js"></script>
+	<script type="text/javascript" src="../static/common/lib/jquery.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../static/common/js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../static/common/js/common.js" ></script>
+	<script type="text/javascript" src="../static/common/lib/Hui/js/hui-refresh-load-more.js" ></script>
+	<script type="text/javascript" src="../static/common/js/bottomTag.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		hui('#header-text1').click(function(){
+			hui.back(-2);
+		});
+		
+		function loignBut(){
+			var loginRetrunUrl = document.referrer;
+			setCookie("loginRetrunUrl",loginRetrunUrl);
+			window.location.href = "/localQuickPurchase/distributionVA/login/passwordLogin";
+		}
+		function registBut(){
+			var loginRetrunUrl = document.referrer;
+			setCookie("loginRetrunUrl",loginRetrunUrl);
+			window.location.href = "/localQuickPurchase/distributionVA/login/register";
+		}
+	</script>
+</html>

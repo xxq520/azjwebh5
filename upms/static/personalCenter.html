@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+    <link rel="stylesheet" href="/common/css/main.css">
+    <link rel="stylesheet" href="/common/css/style.css">
+    <link rel="stylesheet" href="/common/css/comfirmUpgrade.css">
+    <link rel="stylesheet" href="/upms/static/css/order.css">
+    <link rel="stylesheet" type="text/css" href="/localQuickPurchase/distributionApp/css/store.css"/>
+    <script type="text/javascript" src="/common/lib/jquery.min.js" charset="utf-8"></script>
+</head>
+<body class="bg_light">
+<!-- 该样式为分享插件样式，需放在body，不然调用插件时会被插件重新替换-->
+<style>
+    /* 复制提示 */
+    .copy-tips {
+        position: fixed;
+        z-index: 999;
+        top: 30%;
+        left: 50%;
+        margin: 0 0 -20px -80px;
+        background-color: rgba(0, 0, 0, 0.2);
+        filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#30000000,
+        endColorstr=#30000000);
+        padding: 6px;
+    }
+
+    .copy-tips-wrap {
+        padding: 10px 20px;
+        text-align: center;
+        border: 1px solid #F4D9A6;
+        background-color: #FFFDEE;
+        font-size: 14px;
+    }
+
+    .share-content {
+        margin-top: 1rem;
+    }
+
+    .share-content .soshm-item {
+        margin: 0;
+        width: 25%;
+    }
+
+    .soshm-item .soshm-item-text {
+        display: block;
+        font-size: 14px;
+        color: #212121;
+        font-size: 0.512rem;
+        margin-top: 4px;
+    }
+
+    .dis_share ul li {
+        margin-top: 1rem !important;
+    }
+
+    .share-block ul {
+        height: auto;
+    }
+
+    .share-block .share-content .soshm-item .soshm-item-icon {
+        width: 40%;
+        height: auto;
+        margin-top: 2px;
+    }
+
+    .soshm-item-icon img {
+        height: auto !important;
+    }
+
+    .ewmcode {
+        position: fixed;
+        margin-top: 80px;
+        text-align: center;
+        top: 1rem;
+        left: 0;
+        right: 0;
+        width: 68%;
+        margin: 0 auto;
+        z-index: 1000;
+    }
+
+    .share-block {
+        position: fixed;
+    }
+
+    .share-block ul li img {
+        width: 50%;
+    }
+
+    .personal_detail img {
+        float: left;
+    }
+
+    .link-txt {
+        display: block;
+        text-align: center;
+    }
+
+    .order_ul {
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .order_ul li {
+        float: none;
+        display: inline-block;
+    }
+
+    #hui-toast-msg {
+        font-size: 13px;
+        max-width: 300px
+    }
+
+    .personal_detail .mobile {
+        margin: 0.2rem 0 0 0.5rem;
+        border: 1px solid #fff;
+        color: #fff;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.3rem;
+        font-size: 0.5rem;
+    }
+
+    .personal_userName ~ .pull-left {
+        margin-top: 0.2rem;
+    }
+
+    /*hui框架confirm事件弹窗样式*/
+    #hui-dialog-msg {
+        font-size: 15px;
+        text-align: left;
+        line-height: normal;
+    }
+
+    .tip {
+        position: absolute;
+        color: red;
+        float: left;
+        margin-top: 38px;
+    }
+
+    .order_ul li {
+        width: 25%;
+    }
+
+    .addDisplay {
+        display: none
+    }
+
+    .scancode .set-goods-3 {
+        position: fixed;
+        margin: 5.3333rem auto;
+    }
+
+    .messageThree {
+        position: relative;
+    }
+
+    .messageThree span {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: .4rem;
+        width: 6px;
+        height: 6px;
+        background: #e4393c;
+        border-radius: 50%;
+    }
+
+    .hui-list ul li .picture_img {
+        height: 1.3rem;
+        width: 1.3rem;
+        margin-top: .5rem;
+        margin-right: 0.8rem;
+    }
+
+    #main{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #img{
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: .5rem;
+    }
+    .margin-t-3{
+        /*margin-bottom: 2rem;*/
+    }
+
+    .scancode .set-goods-3 {
+        height: 8.5rem;
+    }
+
+    /*百业惠盟个人中心样式*/
+    .wfy-balance {
+        float: right;
+        color: #fca302;
+    }
+    .wfy_img {
+        width: 15px!important;
+        height: 15px!important;
+        margin-top: 0.5rem;
+        margin-left: 0.1rem;
+    }
+    .showModal {
+        width: 100%;
+        height: 100%;
+        /* position: relative; */
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        background-color: rgba(000, 000, 000, .5);
+        z-index: 1000;
+    }
+
+    /* 显示 */
+    /* .isSee {
+        display: block;
+    } */
+
+    .showModal .CouponInfo {
+        /* width: 12.1778rem; */
+        width:11.7333rem ;
+        /* height: 18.6222rem; */
+        position: absolute;
+        /* background: url('./img/bgr2@3x.png') no-repeat; */
+        background-size: 100%;
+        padding-top: 1.2222rem;
+        background-clip: padding-box;
+        margin: auto;
+        margin-top: 4.6222rem;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: visible;
+    }
+
+    /* 关闭按钮 */
+    .showModal .CouponInfo .iconClose {
+        position: absolute;
+        top: 0;
+        right: -.4rem;
+        width: .8rem;
+        height: .8rem;
+        border-radius: 50%;
+        /* background-color: red; */
+        background: url('/localQuickPurchase/distributionApp/images/classfiyImg2.png') no-repeat;
+        background-size: 100%;
+        text-align: center;
+        line-height: .8rem;
+        background-color: #fff;
+    }
+
+    .showModal .CouponInfo .infoBox {
+        /* width: 100%; */
+        width: 11.7333rem;
+        height: 18rem;
+        box-sizing: border-box;
+        padding: 1.2rem .6222rem 0;
+        margin-top: 1.0444rem;
+        border: .0889rem solid #eb3349;
+        background-color: #fff;
+        position: relative;
+        overflow: visible;
+        overflow-y: auto;
+
+    }
+
+    .showModal .CouponInfo .infoBox::after {
+        content: '';
+        width: 2.4444rem;
+        height: 1.7333rem;
+        position: absolute;
+        top: -1.9333rem;
+        left: 2.0667rem;
+        background: url('/localQuickPurchase/coupons/images/zhuangshi@2x.png') no-repeat ;
+        background-size: 100%;
+    }
+
+    .showModal .CouponInfo .infoBox::before {
+        content: "";
+        width: 2.4444rem;
+        height: 1.7333rem;
+        position: absolute;
+        /* bottom: -1.9333rem; */
+        bottom: .4444rem;
+        right: -.4444rem;
+        background: url('/localQuickPurchase/coupons/images/zhuangshi@2x.png') no-repeat ;
+        background-size: 100%;
+
+    }
+
+    .showModal .CouponInfo .topTitle {
+        width: 9.5556rem;
+        height: 1.4444rem;
+        background: url('/localQuickPurchase/coupons/images/hudie@2x.png') no-repeat ;
+        background-size: 100%;
+        position: absolute;
+        top: 1.2rem;
+        left:1.0444rem;
+        text-align: center;
+        color: #ffffff;
+        font-size: .5333rem;
+        z-index: 1;
+
+    }
+
+    .showModal .CouponInfo .infoBox .topTitle p {
+        line-height: 1.0444rem;
+    }
+
+
+    .showModal .CouponInfo .infoBox .infoDetail {
+        font-size: .4444rem;
+        text-align: center;
+    }
+
+    .showModal .CouponInfo .infoBox .infoDetail span {
+        /* display: inline-block; */
+        color: #ffffff;
+        background-color: #f45c43;
+        line-height: .7556rem;
+        position: relative;
+        padding-left: 1.1111rem ;
+        padding-right: .5333rem;
+        border-radius: .3556rem;
+
+    }
+    .showModal .CouponInfo .infoBox .infoDetail span i {
+        width: .8222rem;
+        height: .7556rem;
+        /* display: inline-block; */
+        position: absolute;
+        top: -.0667rem;
+        left: 0;
+        background: url('/localQuickPurchase/coupons/images/tuoyuan@2x.png') no-repeat;
+        background-size: 100%;
+        font-style: normal;
+        font-size: .2222rem
+    }
+
+    .showModal .CouponInfo .infoBox .infoDetail p {
+        text-align: left;
+        margin: .5333rem 0;
+    }
+
+    /* 商家订单中心   */
+    .merchant-panel {
+        margin-top: .4rem;
+        margin-bottom: .4rem;
+        width: 17rem;
+        padding: .6rem .45rem .48rem .9rem;
+        background-color: #fff;
+    ;
+    }
+
+    .merchant-operation {
+        margin-left: .33rem;
+    }
+    .merchant-panel .merchant-title {
+        font-size: calc((16/45)*2rem);
+        color: #212121;
+    }
+
+
+    .operation-item {
+        float: left;
+        margin-top: .5rem;
+        text-align: center;
+        width: 2.5rem;
+        margin-right: 2.1rem;
+    }
+    .operation-item img {
+        width: 1.14rem;
+        height: 1.14rem;
+    }
+    .operation-item p {
+        font-size:  calc((14/45)*2rem);
+        /*color: #666;*/
+    }
+    /*清除浮动代码*/
+    .clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+    .clearfloat{zoom:1}
+    /*直播帶貨*/
+    .liveShop{
+        display: none;
+    }
+</style>
+
+<!--登录后-->
+<div class="personal_info personal_info2" >
+    <div class="personal_icon">
+        <img class="personal_icon_message" src="/localQuickPurchase/distributionApp/images/icon_top_msg.png" style="float: left;">
+        <span style="color: white;margin-left: 4.8rem;width: 100%;text-align: center;">个人中心</span>
+        <a href="../static/setup.html"><img src="/localQuickPurchase/distributionApp/images/iocn_setting_img.png"></a>
+    </div>
+    <div class="personal_detail d_personal_detail hui-text-center " style="width: 95%">
+        <img id="personal_img" class="userInfo" src="/localQuickPurchase/distributionApp/images/_logo.png"
+             onerror="this.src='/localQuickPurchase/distributionApp/images/_logo.png'" style="border-radius: 100%;width: 20%; height: 63%;" />
+        <div id="personal_userName" class="userInfo"></div>
+        <span class="pull-left" style="margin-top: 0.4rem;"><span
+                class="mobile userInfo"></span></span> <span
+            class="font-lg pull-right userInfo" style="margin-top:0rem"><img style="width: 1.3rem; height: 1.2rem;" src="/localQuickPurchase/distributionApp/images/img_qrcode.png"/></span>
+        <p class="tip applysClick" style="display: none;"></p>
+    </div>
+</div>
+
+<!--升级文案弹窗-->
+<div class="scancode" id="scancode1" style="display: none;">
+    <div class="set-goods-3" style="height: 15rem">
+        <div class="set-goods-3-content" style="overflow: auto; height: 88%;">
+            <div class="hui-list">
+                <p class="font-md-3 margin-t-3" style="text-align: left;">成为“为爱为家”的爱之家商城尊享经销商的超级福利:</p>
+                <p class="font-md-3 margin-t-3" style="text-align: left;">1、自购更省钱，成为经销商后，您自购本商城的商品享有超值优惠。</p>
+                <p class="font-md-3 margin-t-3" style="text-align: left;">2、享有爱之家商城全品类商品的网络分享经营权。</p>
+                <p class="font-md-3 margin-t-3" style="text-align: left;">3、通过您分享的好友在爱之家商城购物后，您能获得销售返佣</p>
+                <p class="font-md-3 margin-t-3" style="text-align: left;">4、您可以发展属于您的下属代理商,其分享后成功销售的业绩，您亦享有一定的返佣回报。</p>
+                <p class="font-md-3 margin-t-3" style="text-align: left;">5、享有爱之家商城为尊享经销商量身订制的其他福利。</p>
+                <p class="font-md-3 margin-t-3"
+                   style="display: none; text-align: left;" id="six">6、现在只需一次消费满3000即可升级为尊享经销商。</p>
+                <p class="font-md-3 margin-t-3" style="text-align: left;">合理合法赚钱光荣！但是名额有限，赶紧行动吧!</p>
+            </div>
+            <div class="set-goods-3-bottom" style="position: absolute; bottom: 0.5rem; left: 1.1rem; right: 1.1rem; margin: 0;">
+                <button class="set-button-left">不好</button>
+                <button class="set-button-right" id="consent">好</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--升级文案弹窗2019-11-20-->
+<div id="popup" style="position: fixed; background: rgba(0, 0, 0, 0.5); top: 0px; left: 0px; width: 100%; height: 100%; z-index: 9999; display: none;">
+    <div class="popup animated bounceIn">
+
+        <div class="popup-head bd-bot">
+            <div class="popup-title">消息通知</div>
+            <b id="btn-close" class="btn-close"></b>
+        </div>
+
+        <div class="popup-body bd-bot">
+            <div class="welcome-txt" >
+                尊贵的爱之家用户:
+            </div>
+        </div>
+        <div class="popup-footer">
+            <div class="duty show">
+                <p>您已经达到升级爱之家代理商的条件，升级后可享受：“自购更省钱，分享能赚钱”的代理商待遇。是否现在就升级呢？</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="wel-btns">
+            <div class="btn-cancel">拒绝</div>
+            <div class="btn-sure">同意</div>
+        </div>
+
+    </div>
+</div>
+
+<!--升级方式选择div-->
+<div class="scancode" style="display: none;" id="distributorScancode">
+    <div class="set-goods-3" >
+        <div class="set-goods-3-title" style="padding-top: 0.3rem;">
+            选择升级方式
+            <img src="/localQuickPurchase/distributionApp/images/closeIco.png" style="padding-top: 15px;"/>
+        </div>
+        <div class="set-goods-3-content">
+            <ul class="hui-list">
+                <li id="agent_choice" class="agent_choice" onclick="choiceType(this)" data-type="1"  data-id="1">
+                    <span class="pull-left font-md-3 color_gray2">为我招募20位代理商</span>
+                    <div  class="pull-right" style="height: 100%;">
+                        <img  src="/localQuickPurchase/distributionApp/images/check2.png" />
+                    </div>
+
+                </li>
+                <li id="agent_choice" class="agent_choice" onclick="choiceType(this)"  data-type="1" data-id="2">
+                    <span class="pull-left font-md-3 color_gray2">一次性购买3000元商品</span>
+                    <div class="pull-right" style="height: 100%;">
+                        <img  src="/localQuickPurchase/distributionApp/images/check2.png" />
+                    </div>
+                </li>
+            </ul>
+            <div class="set-goods-3-bottom">
+                <button class="set-button-left">取消</button>
+                <button class="set-button-right" id="commit">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--收益div-->
+<div id="container">
+    <div id="main">
+        <!--累计收益-->
+        <div class="hui-wrap">
+            <div class="swiper hui-swipe" id="swipe">
+                <div class="swiper-item hui-swipe-item">
+                    <div id="totalEarnings">
+                        <span class="get">
+                            <span class="title1" id="earnings">近三个月收益（￥）</span>
+                            <span class="num1 totalEarnings">0.00</span>
+                        </span>
+                    </div>
+                    <div class="desc">
+                        <div id="stayEarnings">
+                            <span class="titile2">待收收益</span>
+                            <span class="num2 stayEarnings">0.00</span>
+                        </div>
+                        <div id="countEarningsAndShop">
+                            <span class="titile2">优惠总额</span>
+                            <span class="num2 countEarningsAndShop">0.00</span>
+                        </div>
+                        <div id="todayEarnings">
+                            <span class="titile2">今日收益</span>
+                            <span class="num2 todayEarnings">0.00</span>
+                        </div>
+                        <div id="monthEarnings">
+                            <span class="titile2">本月收益</span>
+                            <span class="num2 monthEarnings">0.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-item hui-swipe-item">
+                    <div>
+                        <span class="get">
+                            <span class="title1">本月销售额（￥）</span>
+                            <span class="num1 monthAmount">0.00</span>
+                        </span>
+                    </div>
+                    <div class="desc">
+                        <div>
+                            <span class="titile2">今日访问量</span>
+                            <span class="num2 dsitrPv">0</span>
+                        </div>
+                        <div>
+                            <span class="titile2">今日订单数</span>
+                            <span class="num2 orderNum">0</span>
+                        </div>
+                        <div>
+                            <span class="titile2">VIP人数</span>
+                            <span class="num2 vipNum">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--提现-->
+        <div class='distribution_detail' style="margin-bottom: .5rem;">
+            <div class='total-sale font-md withdraw-block'>
+                <img class='pull-left padding-t-4' id="img"
+                     src='/localQuickPurchase/distributionApp/images/icon_money.png'/>
+                <div class='pull-left withdraw-text'><span class='sale-title'>我的零钱</span><br>
+                    <span class='sale-num color_gray' id='balance'>"+ balance +"</span></div>
+            </div>
+            <div class='pull-right withdraw-btn'><span class='withdraw-content font-md'>提现</span></div>
+        </div>
+
+
+        <!--商家订单中心 -->
+        <div class="merchant-panel" style="display: none">
+            <p class="merchant-title">商家订单中心</p>
+            <div class="merchant-operation clearfloat" >
+                <div class="operation-item" data-num="1">
+                    <img src="../static/images/icon_shipments@2x.png" alt="">
+                    <p>待发货</p>
+                </div>
+                <div class="operation-item" data-num="2">
+                    <img src="../static/images/icon_receiving@2x.png" alt="">
+                    <p>已发货</p>
+                </div>
+                <div class="operation-item" data-num="3">
+                    <img src="../static/images/icon_refund@2x.png" alt="">
+                    <p>售后订单</p>
+                </div>
+            </div>
+        </div>
+
+        <!--订单中心-->
+        <div class="order">
+            <div class="order-info my_order" style="margin-left: 0;">
+                <span class="title" style="width: 4rem">订单中心</span>
+                <span class="all order-item" i="0">
+							<span class="count"></span>查看全部订单>
+						</span>
+            </div>
+            <div class="order-desc orderList">
+                <div i="1" class="order-item">
+                    <img src="/localQuickPurchase/distributionApp/images/store/grzx_dd_dfk.png"/>
+                    <span>待付款</span>
+                </div>
+                <div i="2" class="order-item">
+                    <img src="/localQuickPurchase/distributionApp/images/store/grzx_dd_dfh.png"/>
+                    <span>待发货</span>
+                </div>
+                <div i="3" class="order-item">
+                    <img src="/localQuickPurchase/distributionApp/images/store/grzx_dd_dsk.png"/>
+                    <span>待收货</span>
+                </div>
+                <div i="6" class="order-item">
+                    <img src="/localQuickPurchase/distributionApp/images/store/grzx_dd_dwc.png"/>
+                    <span>待评论</span>
+                </div>
+                <div i="4" class="order-item">
+                    <img src="/localQuickPurchase/distributionApp/images/store/grzx_dd_tk.png"/>
+                    <span>退款/售后</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--功能div-->
+<div id="content-box"></div>
+
+<!--底部导航栏div-->
+<div id="hui-footer">
+    <script>
+        //获取网页上的url后的参数
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+    </script>
+</div>
+
+<script>
+    var addressStr = "<li class='address'><a class='hui-arrow' ><img src='../static/images/address-icon.png' />地址管理</a></li>";
+    $(".aList ul").prepend(addressStr);
+</script>
+
+<!--二维码-->
+<div class="share-block hui-text-center dis_share" style="height: auto">
+    <ul class="share-content">
+
+    </ul>
+    <ul style="overflow: hidden;">
+        <li class="copylink"><img
+                src="../static/images/share_icon_5.png"/>
+            <p>二维码链接</p></li>
+        <li class="shopCode" value="0"><img
+                src="../static/images/share_icon_4.png"/>
+            <p>二维码</p></li>
+    </ul>
+    <div class="hui-text-center" style="padding: 0 0 1rem;"
+         id="closeShare">
+        <img src="../static/images/classfiyImg2.png" width="20">
+    </div>
+</div>
+
+<!-- 抵扣券弹框 -->
+<div class="showModal">
+    <div class="CouponInfo">
+        <!--关闭按钮-->
+        <div class="iconClose"></div>
+        <div class="topTitle">
+            <p></p>
+        </div>
+        <div class="infoBox">
+            <!-- 头部标题 -->
+            <%--<div class="topTitle">
+            <p>百业惠盟抵扣券介绍</p>
+        </div>
+            <div class="infoDetail">
+                <span class="titel"><i>1.</i>如何获得金币？</span>
+                <p>百业惠盟会员的专属福利，以金币的形式使用，1 金币=1人民币。</p>
+            </div>
+            <div class="infoDetail">
+                <span class="titel"><i>1.</i>如何获得金币？</span>
+                <p>在百业惠盟购买会员后，非经销商用户登陆爱之家 商城即可获得365个金币。</p>
+            </div>
+            <div class="infoDetail">
+                <span class="titel"><i>1.</i>如何获得金币？</span>
+                <p>在百业惠盟购买会员后，非经销商用户登陆爱之家 商城即可获得365个金币。</p>
+            </div>
+            <div class="infoDetail">
+                <span class="titel"><i>1.</i>如何获得金币？</span>
+                <p>在百业惠盟购买会员后，非经销商用户登陆爱之家 商城即可获得365个金币。</p>
+            </div>
+
+            <div class="infoDetail">
+                <span class="titel"><i>1.</i>如何获得金币？</span>
+                <p>在百业惠盟购买会员后，非经销商用户登陆爱之家 商城即可获得365个金币。</p>
+            </div>--%>
+
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script type="text/javascript" charset="utf-8" src="/common/js/token.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/js/common.js?v=32"></script>
+<script type="text/javascript" charset="utf-8" src="/common/js/footer.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/lib/Hui/js/hui-tab.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/lib/Hui/js/hui-swipe.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/lib/Hui/js/hui-refresh-load-more.js"></script>
+<script type="text/javascript" charset="utf-8" src="../static/js/soshm.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../static/js/clipboard.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../static/js/customer.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/js/tag.js"></script>
+<script type="text/javascript" charset="utf-8" src="../static/js/personalIndex.js?v=2"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/store/store.js?v1=1"></script>
+<script type="text/javascript">
+    window.onpageshow = function (event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+
+    // var inviteEnterprise = "<li id='inviteEnterprise' style='display:none'><a class='hui-arrow' href='#' > <img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_upgrade_enterprise.png' />升级企业级经销商</a></li>";
+    //当用户角色为普通用户或vip用户
+    var userHtml = "";
+    var balance = "0.00";
+    var  refreshed = getQueryString("refreshed");
+    var couponsResult = null;
+    var wfyBalance = 0.0;
+
+    //没有登录的用户强制跳转至未登录个人中心页面
+    (function(){
+        if (!isLogin()) {
+            noLoginPage();
+            return;
+        }
+    })();
+
+    if(refreshed != ""){
+        var  v = getQueryString("v");
+        if(v == ""){
+            var thisUrl = location.href
+            if(thisUrl.indexOf("?") < 0){
+                thisUrl += "?v=1";
+            }else{
+                thisUrl += "&v=1";
+            }
+            window.location.href = thisUrl;
+        }
+    }
+
+    $.ajax({
+        type : 'GET',
+        dataType : 'json',
+        contentType: "application/json;charset=utf-8",
+        url : '/localQuickPurchase/give/wfy',
+        data :{"seq":seq},
+        async : false,
+        success : function(data){
+            couponsResult = data.data.wfyCoupons.result;
+            if (couponsResult != null){
+                wfyBalance = couponsResult.balance;
+            }
+            var hanld = data.data.hanld;
+            var bigTitle = data.data.bigTitle;//
+            var html = "";
+            $('.topTitle p').html(bigTitle);
+            var num = 0;
+            for (var i = 0; i < hanld.length; i++) {
+                num++;
+                var title = hanld[i].title;
+                var text = hanld[i].text;
+                html += '<div class="infoDetail">';
+                html += '<span class="titel"><i>'+num+'.</i>'+title+'</span>';
+                html += '<p>'+text+'</p>';
+                html += '</div>';
+            }
+            $('.infoBox').html(html);
+        }
+    });
+
+    if(isRoleConsumer() || isRoleVip()){
+
+        userHtml += "<div class='hui-list bg_white margin-t-3 aList'>";
+        userHtml += "<ul class='content-ul'>";
+        if (couponsResult != null){
+            userHtml += "<li><img class='picture_img' src='/localQuickPurchase/coupons/images/jinbi@2x.png' />百业惠盟消费券<img class='wfy_img' src='/localQuickPurchase/coupons/images/quse.png' /><span class='wfy-balance'>剩余消费券："+wfyBalance+"</span></li>";
+        }
+        userHtml +=
+            "<li class='skiller' style='display:none;'><a href='/upms/static/goods_shopper_apply/merchandise.html' class='hui-arrow'><img class='picture_img' src='/upms/static/goods_shopper_apply/azj_mine_bar_icon_skill@3x.png' />秒杀申请活动</a></li>"+
+            "<li><a class='hui-arrow 'href='/localQuickPurchase/distributionVA/exclusiveInvite'><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_invite.png' />邀请有礼</a></li>"+
+            "<li class='liveShop'><a class='hui-arrow 'href='/pages/liveRooms.html'><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_live.png' />直播带货</a></li>"+
+            "<li id = 'couponButton'><a href='/localQuickPurchase/distributionVA/couponCardBag' class='hui-arrow' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_coupon.png' />我的优惠劵</a></li>"+
+            "<li><a class='hui-arrow bigLecture' onclick='bigLecture()'><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_group.png' />我的分享群</a></li>"+
+            "<li class='customer'><a href='/localQuickPurchase/distributionVA/customer/menu?type=1' class='hui-arrow' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_service.png' />客服中心</a></li>"+
+            "<li class='link-item'><a class='hui-arrow' href='/localQuickPurchase/distributionVA/videoUserOne'> <img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_newHand.png' class='item-ico' />新手指南</a></li>"+
+            "<li id='brand_join' style='display:block'><a class='hui-arrow'  ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_enter.png' />商家入驻</a></li>"+
+            "<li id='distributor' style='display:none'><a class='hui-arrow' href='#' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_upgrade.png' />升级代理商</a></li>"+
+            // "<li id='agent' style='display:none'><a class='hui-arrow' href='#' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_upgrade_jing_agentx.png' />升级经销商</a></li>"+
+            //inviteEnterprise+
+
+            "</ul>"+
+            "</div>";
+
+    }
+
+    //当用户角色为分销商
+    if(isRoleAgent()){
+        userHtml += "<div class='hui-list bg_white margin-t-3 aList'>";
+        userHtml += "<ul class='content-ul'>";
+        if (couponsResult != null){
+            userHtml += "<li><img class='picture_img' src='/localQuickPurchase/coupons/images/jinbi@2x.png' />百业惠盟消费券<img class='wfy_img' src='/localQuickPurchase/coupons/images/quse.png' /><span class='wfy-balance'>剩余消费券："+wfyBalance+"</span></li>";
+        }
+        userHtml +=
+            "<li class='skiller' style='display:none;'><a href='/upms/static/goods_shopper_apply/merchandise.html' class='hui-arrow'><img class='picture_img' src='/upms/static/goods_shopper_apply/azj_mine_bar_icon_skill@3x.png' />秒杀申请活动</a></li>"+
+            "<li><a class='hui-arrow ' href='/localQuickPurchase/distributionVA/exclusiveInvite'><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_invite.png' />邀请有礼</a></li>"+
+            "<li class='liveShop'><a class='hui-arrow 'href='/pages/liveRooms.html'><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_live.png' />直播带货</a></li>"+
+            "<li id = 'couponButton'><a href='/localQuickPurchase/distributionVA/couponCardBag' class='hui-arrow' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_coupon.png' />我的优惠劵</a></li>"+
+            "<li id = 'mySupplier'><a href='/localQuickPurchase/mySupplier/mySupplier.html' class='hui-arrow' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_group.png' />我的供应商</a></li>"+
+            "<li><a class='hui-arrow bigLecture' onclick='bigLecture()'><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_group.png' />我的分享群</a></li>"+
+            "<li class='customer'><a href='/localQuickPurchase/distributionVA/customer/menu?type=1' class='hui-arrow' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_service.png' />客服中心</a></li>"+
+            "<li class='link-item'><a class='hui-arrow' href='/localQuickPurchase/distributionVA/videoUserOne'> <img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_newHand.png' class='item-ico' />新手指南</a></li>"+
+            "<li id='brand_join' style='display:block'><a class='hui-arrow'  ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_enter.png' />商家入驻</a></li>"+
+            // "<li id='agent' style='display:none'><a class='hui-arrow' href='#' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_upgrade_jing_agentx.png' />升级经销商</a></li>"+
+            // inviteEnterprise+
+            "</ul>"+
+            "</div>";
+    }
+
+    //当用户角色为经销商
+    if(isRoleDealer()){
+        userHtml += "<div class='hui-list bg_white margin-t-3 aList'>";
+        userHtml += "<ul class='content-ul'>";
+        if (couponsResult != null){
+            userHtml += "<li><img class='picture_img' src='/localQuickPurchase/coupons/images/jinbi@2x.png' />百业惠盟消费券<img class='wfy_img' src='/localQuickPurchase/coupons/images/quse.png' /><span class='wfy-balance'>剩余消费券："+wfyBalance+"</span></li>";
+        }
+        userHtml +=
+            "<li class='skiller' style='display:none;'><a href='/upms/static/goods_shopper_apply/merchandise.html' class='hui-arrow'><img class='picture_img' src='/upms/static/goods_shopper_apply/azj_mine_bar_icon_skill@3x.png' />秒杀申请活动</a></li>"+
+            "<li><a class='hui-arrow ' href='/localQuickPurchase/distributionVA/exclusiveInvite'><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_invite.png' />邀请有礼</a></li>"+
+            "<li class='liveShop'><a class='hui-arrow 'href='/pages/liveRooms.html'><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_live.png' />直播带货</a></li>"+
+            "<li id = 'couponButton'><a href='/localQuickPurchase/distributionVA/couponCardBag' class='hui-arrow' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_coupon.png' />我的优惠劵</a></li>"+
+            "<li id = 'mySupplier'><a href='/localQuickPurchase/mySupplier/mySupplier.html' class='hui-arrow' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_group.png' />我的供应商</a></li>"+
+            "<li><a class='hui-arrow bigLecture' onclick='bigLecture()'><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_group.png' />我的分享群</a></li>"+
+            "<li class='customer'><a href='/localQuickPurchase/distributionVA/customer/menu?type=1' class='hui-arrow' ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_service.png' />客服中心</a></li>"+
+            "<li class='link-item'><a class='hui-arrow' href='/localQuickPurchase/distributionVA/videoUserOne'> <img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_newHand.png' class='item-ico' />新手指南</a></li>"+
+            "<li id='brand_join'><a class='hui-arrow'  ><img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_enter.png' />商家入驻</a></li>"+
+            "<li id='zhiSheng'><a class='hui-arrow' href='/localQuickPurchase/distributionVA/applys' > <img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon_check.png' />申请审核</a></li>"+
+            "<li id='userManagement' style='display:none;'><a class='hui-arrow' href='/localQuickPurchase/distributionVA/index/userManagement' > <img class='picture_img' src='/localQuickPurchase/distributionApp/images/icon-agent.png' />代理商管理</a></li>"+
+            "<li id='userManagement2' style='display:none;'><a class='hui-arrow' href='/localQuickPurchase/distributionVA/index/userManagement?type=2' > <img  class='picture_img' src='/localQuickPurchase/distributionApp/images/icon-dis.png' />经销商管理</a></li>"+
+            "</ul>"+
+            "</div>";
+    };
+
+    (function(){
+        $("#content-box").html(userHtml);
+        $.ajax({
+            type : "POST",//定义提交的类型
+            // url : "http://192.168.1.84:10000/localQuickPurchase/goods/activity/apply/shopper",//本地
+            url : "/localQuickPurchase/goods/activity/apply/shopper",
+            dataType : "json",//设置返回值得类型
+            contentType:'application/json;charset=UTF-8',
+            data : JSON.stringify({shopSeq : seq}),
+            async : false,//是否异步请求，false为同步
+            success : function(data) {//成功返回值执行函数
+                if(data.code === 200 && data.data === 1){
+                    $(".skiller").show();
+                    $(".merchant-panel").show();
+                    // 如果是店鋪並且有商品 則展示直播带货
+                    $(".liveShop").show();
+                }
+            },
+        });
+    })();
+
+    //消费者1、2分享应用
+    //var urlVal; //分享地址
+    var href = window.location.href;
+    var urlVal = href.substring(0,href.indexOf("distributionVA/"))+"distributionVA/personal/shareApp";
+    var distributorSeq = seq;
+    var home = "?home=1";
+    var appUrl = href.substring(0,href.indexOf("localQuickPurchase/"));
+    var ewmCode = appUrl + "localQuickPurchase/shareQRCode/personalIndexURL?urlVal="+urlVal;
+
+    var userType;//用户类型 1:普通消费者, 2:VIP, 3:分销商(代理商), 4:代理商
+    var superiorType;//上级类型 0:没有上级, 2:分销商(代理商), 3:代理商, 4:代理商
+    var upgradeApplyState; /*0无操作,1已经提交申请,2升级被上级拒绝(没有三次)3升级被上级拒绝了三次4升级代理商已经填写资料5达到升级代理商条件可以去填写资料6还没达到升级代理商条件7用户自己选择升级代理商方式8升级被拒绝用户已经投诉了三次9用户升级成功10升级代理商申请被驳回11当前角色发生变化*/
+    var isConsumption=false;//是否满足升级条件
+    var upgradeMessage;//提示语
+    var sumOfConsumption;
+    var shielding;//隐藏功能
+    var choiceWay;//用户升级方式:0 招募20人, 1 消费一定的额度
+    var upgradeType;//用户升级代理商类型：1 升级代理商 2 升级企业级代理商
+    var loginUserType = getLoginUserType();
+
+    //判断用户类型  common  无效
+    $("#nav-mine").addClass("active");
+    $("#nav-mine").find("img").attr("src", "../static/images/mine_01.png");
+
+    $("#closeShare").click(function () {
+        hiddend();
+    });
+    function hiddend() {
+        $("html,body").css("overflow", "visible");
+        hui.dialogClose();
+        $(".share-block").slideUp(200);
+        $(".ewmcode").hide();
+    };
+
+    $(document).on("click", "#hui-mask", function () {
+        hiddend();
+    });
+
+    hui('#shareApp').click(function () {
+        var u = navigator.userAgent;
+        var isappwebview = u.indexOf('app_webview') > -1;
+        if (isappwebview) {
+            // 分享
+            share520Love(urlVal, '自购省钱 分享赚钱-爱之家商城', '打造1小时生活圈、体验社交新零售的便捷与便利、实现线上线下无缝对接的新理念平台',
+                '', '.share-content');
+        } else {
+            share520LoveWeb(urlVal, '自购省钱 分享赚钱-爱之家商城', '打造1小时生活圈、体验社交新零售的便捷与便利、实现线上线下无缝对接的新理念平台',
+                '', '.share-content');
+            hui.dialogBase();
+            $(".share-block").slideDown(200);
+        }
+    });
+
+    // 复制链接
+    var clipboard = new Clipboard('.copylink', {
+        // 点击copy按钮，直接通过text直接返回复印的内容
+        text: function () {
+            return urlVal;
+        }
+    });
+
+    clipboard.on('success', function (e) {
+        var $copysuc = $("<div class='copy-tips'><div class='copy-tips-wrap'>☺ 复制成功</div></div>");
+        $("body").find(".copy-tips").remove().end().append($copysuc);
+        $(".copy-tips").fadeOut(2000);
+        e.clearSelection();
+    });
+
+    clipboard.on('error', function(e) {
+        hui.toast('复制失败!');
+    });
+    console.log(ewmCode);
+    $(function () {
+        if($(".ewmcode").length == 0){
+            var weixinCode = '<div class="ewmcode" style="display:none;" value="0"><img src=""/></div>';
+            $("body").append(weixinCode);
+        }
+        $(".ewmcode img").attr("src", "/localQuickPurchase/shareQRCode/personalIndexURL?urlVal=" + urlVal);
+        $.getScript("//kefu.easemob.com/webim/easemob.js?tenantId=35647&hide=true&sat=false");
+        $(".shopCode").click(function (e) {
+            e.stopPropagation();
+            var ewmcodeVal = $(".shopCode").attr("value");
+            if(ewmcodeVal == "1"){
+                $(".ewmcode").hide();
+                $(".shopCode").attr("value","0");
+            } else {
+                $(".ewmcode").show();
+                $(".shopCode").attr("value","1");
+            }
+        })
+
+    })
+
+    //信息盒子
+    $("body").on('click', '.hui-icons-message', function() {
+        window.location.href="/localQuickPurchase/distributionVA/messageThree";
+    });
+
+    //订单
+    $("body").on('click', '.order_id', function() {
+        window.location.href="/localQuickPurchase/distributionVA/order/index";
+    });
+
+    var json;
+
+    //底部优化
+    $("#hui-footer").css("height","inherit")
+    var footerH=$("#hui-footer").height()+10;
+    $("body").css("paddingBottom",footerH)
+
+    //点击订单(待付款,代发货,待收货,退款/收货)按钮
+    function toOrderDetail(t) {
+        var i = Number($(t).attr("i"));
+        setCookie("tabNum", i);
+        window.location.href = "/localQuickPurchase/distributionVA/order/index";
+    }
+
+    //跳转消息盒子
+    $(document).on('click','.personal_icon_message',function(){
+        if(isRoleConsumer() || isRoleVip()){
+            window.location.href="/localQuickPurchase/distributionVA/messageTwo";
+        }else{
+            window.location.href="/localQuickPurchase/distributionVA/messageThree";
+        }
+    });
+
+    //提现的跳转
+    $('.withdraw-btn').on('click',function(){
+        window.location.href="/localQuickPurchase/distributionVA/withdrawal";
+    });
+
+    //如果菜单栏地部为普通用户将w20调整w25
+    if(isRoleConsumer()){
+        var w20 = $(".w20");
+        var length = w20.length;
+        for(var i = 0;i < length; i++){
+            w20[i].setAttribute("class","w25");
+        }
+    }
+
+    //进入到二维码页面
+    $(".userInfo").click(function () {
+        window.location.href = "/localQuickPurchase/distributionVA/personal/meQRCode";
+    });
+    //进入进入审核页面
+    $(".applysClick").click(function () {
+        window.location.href = "/localQuickPurchase/distributionVA/applys";
+    });
+    //进入地址管理页面
+    $(".address").click(function () {
+        window.location.href = "/localQuickPurchase/generalStore/html/address.jsp?v=2";
+    });
+
+    $(function () {
+        $("#closeShare").click(function () {
+            hui.dialogClose();
+            $(".share-block").slideUp(200);
+        })
+        if(warrant == 1){
+            $("#userManagement").show();
+        }else if(warrant == 3){
+            $("#userManagement").show();
+            $("#userManagement2").show();
+        }
+    });
+
+
+    //点击申请成为代理商
+    $("#distributor").click(function(){
+
+        if(upgradeApplyState == 8) {
+            hui.alert("您的升级投诉已经提交，请等待平台处理.", "确认", function(){
+            });
+            return;
+        }
+
+        if(upgradeApplyState == 2) {
+            hui.confirm('您申请成为\'代理商\'的请求被拒绝,您还可以再次申请', ['取消','确定'], function() {
+                if(userType == 1 || userType == 2){
+                    if(submitApply()){
+                        hui.toast("操作成功~")
+                        findUserMessage();
+                    };
+                }
+            },function(){
+            });
+            return;
+        }
+
+        if(upgradeApplyState == 3) {
+            hui.confirm('您的代理商申请被拒绝被拒绝三次了,您可以向平台投诉', ['取消','确定'], function() {
+                window.location.href='/localQuickPurchase/distributionVA/applyComplaint';
+            },function(){
+            });
+            return;
+        }
+
+        if(upgradeApplyState == 1) {
+            hui.alert('尊贵的爱之家商城用户，您的申请已经收到，请您耐心等候审核，通过后您即成为“为爱为家爱之家”的爱之家商城代理商，获得“自购更省钱，分享能赚钱”的代理商待遇。谢谢！', '确定', function() {
+            });
+        } else {
+            if(isConsumption) {
+                $("#popup").css('display','block');
+                return ;
+            }
+            var messageApp = "";
+            messageApp += '<p>爱之家商城尊贵代理商的超级福利:</p>';
+            messageApp += '<p>1.自购省钱,成为尊贵代理商后，您自购商城商品有更超值优惠。</p>';
+            messageApp += '<p>2.享有爱之家商城全品类商品网络分享经营权。</p>';
+            messageApp += '<p>3.通过您分享的好友在爱之家商城购物后，您能获得返佣提成。</p>';
+            messageApp += '<p>4.享有爱之家商城为代理商临时量身订制的其他福利。</p>';
+            messageApp += '<p>合理合法赚钱光荣！但是名额有限，赶紧行动吧!</p>';
+            hui.confirm(messageApp, ['取消','确定'], function(){
+                window.location.href="/localQuickPurchase/distributionVA/index" + home;
+            },function(){
+            });
+        }
+    });
+
+    //点击申请成为经销商
+    $("#agent").click(function(){
+        hui.alert('抱歉！成为本商城的经销商必须先成为百业惠盟的运营商。详情可咨询在线客服或致电400-180-2520。谢谢！',"确定", function() {
+        });
+    });
+
+    //检查用户是否满足升级条件及用户类型判断
+    if(isLogin()) {
+        findUserMessage();
+    }
+    function findUserMessage() {
+        //alert(loginUserType);
+        $.ajax({
+            type : "POST",//定义提交的类型
+            contentType: "application/json;charset=utf-8",
+            url : "/localQuickPurchase/dOrders/findUserConsumptionOrder",
+            dataType : "json",//设置返回值得类型
+            data : JSON.stringify({"seq" : seq, "userTypeApp":loginUserType, "isNewType" : true}),
+            async : true,//是否异步请求，false为同步
+            success : function(data) {//成功返回值执行函数
+                if (data.code == 200) {
+                    var data = data.data;
+                    isConsumption = data.isConsumption;
+                    userType = data.userType;
+                    superiorType = data.superiorType;
+                    //console.log(superiorType);
+                    upgradeApplyState = data.upgradeApplyState;
+                    upgradeMessage = data.upgradeMessage;
+                    sumOfConsumption = data.sumOfConsumption;
+                    shielding = data.shielding;
+                    choiceWay = data.choiceWay;
+                    upgradeType = data.upgradeType;
+                    var shopperUserType = data.shopperUserType;
+                    //普通用户
+                    if(userType == 1 && superiorType == 0) {
+                        $("#distributor").show();
+                        if(shielding == 0) {
+                            $("#agent").show();
+                        }
+                    }
+                    //vip用户
+                    if(userType == 2) {
+                        if(superiorType == 3) {
+                            if(shielding != 3 && shielding != 1) {
+                                $("#agent").show();
+                            }
+                            $("#distributor").show();
+                            if(shielding != 3 && shielding != 2) {
+                                //        $("#inviteEnterprise").show();
+                            }
+                        }
+                    }
+
+                    //代理商
+                    if(userType == 3) {
+                        if(shielding == 0) {
+                            $("#agent").show();
+                            //  $("#inviteEnterprise").show();
+                        }
+                        if(shielding != 3){
+                            if(shielding == 1) {
+                                //     $("#inviteEnterprise").show();
+                            }
+                            if(shielding == 2) {
+                                $("#agent").show();
+                            }
+                        }
+                    }
+                    if(shopperUserType == "2" || shopperUserType == "5"){
+                        //$("#agent").hide();
+                        //$("#inviteEnterprise").hide();
+                        // $("#brand_join").hide();
+                    }
+
+                    //非会员和没有上级的代理商弹窗引导去绑定关系
+                    if(superiorType != 100) {
+                        if (superiorType == 0 || userType == 1) {
+                            //获取用户绑定弹窗次数
+                            var bindingWindows = getCookie("bindingWindows");
+                            if (bindingWindows != "three") {
+                                //修改绑定弹窗次数的值
+                                setBindingWindowsVal(bindingWindows);
+                                hui.confirm(alertMessage, ['下次再说', '立即绑定'], function () {
+                                    window.location.href = "/localQuickPurchase/distributionVA/personal/bindingRole";
+                                });
+                            }
+                        }
+                    }
+
+                    //升级成功
+                    if(upgradeApplyState == 9) {
+                        hui.alert("恭喜您，您申请的代理商身份已经审核通过，请重新登录爱之家，即可享受“自购更省钱，分享能赚钱”的代理商待遇了。", "确认", function(){
+                            loginOffByBack();
+                            setTimeout(function () {
+                                noLoginPage();
+                            }, 1000);
+                        });
+                    }
+
+                    if(upgradeApplyState == 11) {
+                        hui.alert("当前角色发生变化，请重新登录", "确认", function(){
+                            loginOffByBack();
+                            setTimeout(function () {
+                                noLoginPage();
+                            }, 1000);
+                        });
+                    }
+
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+            }
+        });
+    }
+
+    var bodyHeight=parseFloat($('body').css('height'))+parseFloat($('#hui-footer').css('height'))+10;
+    $('.scancode').css('height',bodyHeight+"px");
+    $('body').on('click', '#consent', function() {
+        if(isRoleConsumer()) {
+            window.location.href="/localQuickPurchase/distributionVA/index" + home;
+        }
+        if(userType == 3 && upgradeApplyState == 0) {
+            $("#scancode1").hide();
+            $("#distributorScancode").show();
+        }
+    });
+
+    //保存商家入驻信息
+    var m_merchantEnter = {};
+
+    //初始化商家的入住信息
+    function initMerchantEnter(){
+        m_merchantEnter = isMerchantEnter();
+        if(m_merchantEnter != null && m_merchantEnter != ''){
+            var code = m_merchantEnter.code;
+            //code = 210;
+            if(code == 210){
+                $("#merchantEnter").addClass("addDisplay");
+                var notification = getCookie("notification");
+            }
+        }
+    }
+    //商家入驻入口
+    function merchantEnterEvent(){
+        var merchantEnter =  m_merchantEnter;
+        var m_code = merchantEnter.code;
+        if(m_code == 200){
+            location.href = "/localQuickPurchase/distributionVA/localeRecruit/merchantEnter";
+        }else if(m_code == 330){
+            hui.alert(merchantEnter.msg, "确认", function(){
+                //loginOffByBack();
+                setTimeout(function () {
+                    window.location.href="/localQuickPurchase/distributionVA/localeRecruit/anewMerchantEnter";
+                }, 1000);
+
+            });
+        }else if(m_code == 400){
+
+        }else{
+            //if(m_code != 210){
+            hui.alert(merchantEnter.msg);
+            //}
+        }
+    }
+
+    /*大讲堂：建群*/
+    function bigLecture(){
+        try {
+            insertPerson();
+            window.action.accessGroupInfo();
+            //location.href = "/localQuickPurchase/distributionVA/big/Lecture";
+        } catch (e) {
+            hui.alert("请在最新版爱之家APP使用此功能!");
+        }
+    }
+
+    function insertPerson(){
+        $.ajax({
+            type : "POST",
+            url : "/localQuickPurchase/bigHall/insertMsgGroup",
+            dataType : "json", //设置返回值得类型
+            data : {
+                "seq" : seq
+            },
+            async : false, //是否异步请求，false为同步
+            success : function(data) {
+                var code = data.code;
+                console.log(code);
+            }
+        })
+    }
+
+    //升级企业级代理商
+    // $("#inviteEnterprise").click(function () {
+    //     location.href = "/localQuickPurchase/distributionVA/enterpriseLevelAgent";
+    // });
+
+    //进入品牌入驻信息填写页
+    $(document).on('click', '#brand_join', function () {
+        $.ajax({
+            type: "get",//定义提交的类型
+            url: "/localQuickPurchase/brandSquare/queryEntityBySeq",
+            dataType: "json",//设置返回值得类型
+            data: {
+                "seq": seq
+            },
+            async: false,//是否异步请求，false为同步
+            success: function (data) {//成功返回值执行函数
+                if (data.code == 200) {
+                    location.href = "/localQuickPurchase/distributionVA/brandSquare/supplierCompanyInfo";
+                    return;
+                } else {
+                    hui.toast("商家不能入驻");
+                    return;
+                }
+            },
+        });
+    });
+
+    /* 累计收益相关*/
+    //ifLogin();//验证是否登录
+    //判断用户类型
+    /*$("#nav-shop").addClass("active");
+    $("#nav-shop").find("img").attr("src","/localQuickPurchase/distributionApp/images/shop_01.png");*/
+
+    function noLoginAllHide(){
+        $("#main").hide();
+    }
+    $(function(){
+        if(!isLogin()){
+            //没登录隐藏显示（收益、订单列表、零钱）
+            noLoginAllHide();
+            return;
+        }
+        initCount();
+        var swipe = new huiSwpie('#swipe');
+        swipe.autoPlay = false;
+        swipe.indicatorOn = true;
+        swipe.loop = true;
+        swipe.speed = 300;
+        swipe.run();
+        $("#swipe").css('height','calc((157/45)*2rem)');
+    });
+
+    //订单详情跳转
+    $(".order-item").click(function(){
+        var i=Number($(this).attr("i"));
+        setCookie("tabNum",i);
+        window.location.href = "/localQuickPurchase/distributionVA/order/index";
+    });
+
+    // 点击按钮显示弹框
+    $('.wfy_img').click(function(){
+        $('.showModal').css('display','block');
+    })
+
+
+    // 点击按钮隐藏弹框
+    $('.CouponInfo .iconClose').click(function () {
+        $('.showModal').css('display','none');
+    })
+</script>
+
+<!--升级业务代码,原tag.jsp中-->
+<script type="text/javascript">
+/*
+    $(function(){
+        try{
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            $("body").append(unescape("%3Cspan style='display: none;' id='cnzz_stat_icon_1275444738'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1275444738' type='text/javascript'%3E%3C/script%3E"));
+        }catch (e) {
+
+        }
+    });
+*/
+
+    var ids;
+    var choiceWay;
+    var u = navigator.userAgent;
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+    $('body').on('click', '#commit', function() {
+        var s;
+        $('.hui-list').children("li").each(function(i) {
+            if($(this).attr("data-type") == 0) {
+                s = 0;
+            }
+        });
+        if(s == null) {
+            hui.toast('请选择升级方式');
+            return;
+        }
+        $(".scancode").hide();
+        if(submitApply()){
+            audit(ids,0,choiceWay,1);
+        }
+        findUserMessage();
+    });
+
+    $('body').on('click','.set-goods-3-title img',function(){
+        $(".scancode").hide();
+    });
+
+    $('body').on('click','.set-goods-3-bottom .set-button-left',function(){
+        $(".scancode").hide();
+    });
+
+    function choiceType(ele){
+        var data=$(ele).attr("data-type");
+        var $img = $(ele).find("img");
+        console.info($img.attr("src"));
+        if(data == 1){
+            id=$(ele).attr("data-id");
+            if(id == 1)
+                choiceWay = 0;
+            if(id == 2)
+                choiceWay = 1;
+            $(ele).find("img").attr("src","/localQuickPurchase/distributionApp/images/check.png");
+            $(ele).attr("data-type","0");
+            $(ele).attr("data-type","0").siblings().find("img").attr("src","/localQuickPurchase/distributionApp/images/check2.png");
+            $(ele).attr("data-type","0").siblings().attr("data-type","1");
+        }else{
+            $(ele).find("img").attr("src","/localQuickPurchase/distributionApp/images/check2.png");
+            $(ele).attr("data-type","1");
+        }
+    };
+
+    $(".client-name").text(userName);
+
+    $(".btn-close,.btn-cancel").click(function(){
+        $("#popup").hide();
+    });
+
+
+    $(".btn-sure").click(function(){
+        $.ajax({
+            type : "post",	//定义提交的类型9
+            contentType : "application/json;charset=utf-8",
+            url : "/localQuickPurchase/dApplicationAction/submitApply",
+            dataType : "json",	//设置返回值得类型
+            data : JSON.stringify({"seq" : parseInt(seq)}),
+            async : false,	//是否异步请求，false为同步
+            success : function(data) {
+                if(data.code == 200){
+                    $("#popup").hide();
+                    if((isRoleConsumer() && userType == 1) || (superiorType == 2 && userType == 2)) {
+                        hui.alert("升级成功,请退出重新登录", "确认", function(){
+                            loginOffByBack();
+                            setTimeout(function () {
+                                noLoginPage();
+                            }, 1000);
+
+                        });
+                    } else {
+                        hui.alert("尊贵的爱之家商城用户，您的申请已经收到，请您耐心等候审核，通过后您即成为“为爱为家爱之家”的爱之家商城代理商，获得“自购更省钱，分享能赚钱”的代理商待遇。谢谢！", "确认", function(){
+                            findUserMessage();
+                        });
+                    }
+
+                }
+            }
+        });
+    });
+
+    //默认隐藏
+    $(function(){
+        var footer = document.querySelector(".popup-footer");
+        footer.classList.toggle("hide");
+    });
+
+    function audit(id,operationType,choiceWay,recordType) {
+        $.ajax({
+            type : "POST",
+            url : "/localQuickPurchase/dApplicationAction/updateApplyRecord",
+            dataType : "json", //设置返回值得类型
+            data : {
+                "seq" : seq,
+                "id" : id,
+                "operationType" : operationType,//0:同意, 1:拒绝
+                "choiceWay" : choiceWay,//0 招募20人, 1 消费一定的额度, 2 分销商自己选择
+                "recordType" : recordType//0:vip的申请, 1:分销商的申请, 2:普通用户选择
+            },
+            async : false, //是否异步请求，false为同步
+            success : function(data) {
+                if(data.code == 200) {
+                    var data = data.data;
+                    hui.toast('操作成功!!!');
+                }
+            },
+        });
+    }
+
+    function submitApply() {
+        var bool = false;
+        $.ajax({
+            type : "POST",//定义提交的类型
+            contentType: "application/json;charset=utf-8",
+            url : "/localQuickPurchase/dApplicationAction/submitApply",
+            dataType : "json",//设置返回值得类型
+            data : JSON.stringify({"seq" : seq}),
+            async : false,//是否异步请求，false为同步
+            success : function(data) {//成功返回值执行函数
+                if (data.code == 200) {
+                    //hui.toast("操作成功~");
+                    bool = true;
+                } else {
+                    hui.toast("操作失败,请重试！");
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            }
+        });
+        return bool;
+    }
+
+    function choiceWayMessage(choiceWay){
+        var choiceWayMessage = "“招募20位代理商升级方式”";
+        if(choiceWay == 1 ){
+            choiceWayMessage = "“一次性购买3000元商品升级方式”";
+        }else if(choiceWay == 0){
+            choiceWayMessage = "“招募20位代理商升级方式”";
+        }else if(choiceWay == null || choiceWay == ""){
+            //处理旧数据代理商拒绝代理商的申请
+            choiceWayMessage = "升级方式";
+        }
+        return choiceWayMessage;
+    }
+
+
+    // 查看是否有小红点
+    $.ajax({
+        type : 'POST',
+        dataType : 'json',
+        url : '/localQuickPurchase/dApplicationAction/findApplyRecords',
+        data : {
+            "seq" : seq,
+            "queryType" : 0
+        },
+        async : true,	//是否异步请求，false为同步
+        success : function(data){
+            if(data.code == 200) {
+                if(data.data.relation.totalCount>0){
+                    //显示小红点
+                    $(".hui-arrow").css("class","point point_list");
+                    if($("#zhiSheng")){
+                        $("#zhiSheng .hui-arrow").append("<span style='width: 8px; height: 8px;border-radius: 5px;background-color: #f00; position: absolute;top: 45%;right: 5%;'></span>")
+                    }
+                }
+            }
+        },
+        error : function(data){
+        }
+    });
+
+
+    /*点击跳转消费券记录*/
+    $('body').on('click','.wfy-balance',function () {
+        window.location.href="/localQuickPurchase/voucher/voucher.html";
+    });
+
+    /** 商家订单中心跳转*/
+    $('.operation-item').on('click',function () {
+       var num =  $(this).attr('data-num');
+       //待发货
+       if (num == 1){
+           window.location.href="/localQuickPurchase/orderCustomer/shipments.html?deilverStatus=" + num;
+       }
+       //已发货
+       if(num == 2){
+           window.location.href="/localQuickPurchase/orderCustomer/shipments.html?deilverStatus=" + num;
+       }
+       //售后订单
+       if (num == 3){
+           window.location.href="/localQuickPurchase/orderCustomer/orderCustomer.html";
+       }
+    });
+
+
+</script>
+</html>

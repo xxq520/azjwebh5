@@ -1,0 +1,209 @@
+body{
+	background:#e9e9e9;
+}
+body,
+h1,h2,h3,h4,h5,h6,
+dl,dd,
+p{
+	margin:0;
+}
+h1,h2,h3,h4,h5,h6,
+strong,
+b{
+	font-weight:normal;
+}
+ol,
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+i,
+em{
+	font-style:normal;
+}
+a{
+	text-decoration:none;
+	color:#666;
+	-webkit-tap-highlight-color:transparent;
+}
+img{
+	width:auto;
+	max-width:100%;
+	border:none;
+}
+/* main */
+.main{
+	width:100%;
+	max-width:750px;
+	overflow:hidden;
+	margin:0 auto;
+	background:white;
+}
+.toplen{
+	overflow:hidden;
+	height:3rem;
+	position: relative;
+	text-align: center;
+}
+.toplen .goback{
+	position: absolute;
+	width:2.4rem;
+	height:2.4rem;
+	left:0;
+	top:0.3rem;
+	background:url('../../images/upgrade/jiantou.svg') no-repeat center;
+	background-size:auto 80%;
+}
+.toplen .toptext{
+	overflow:hidden;
+	max-width:60%;
+	line-height:3rem;
+	font-size:1.3rem;
+	display:inline-block;
+	color:#595959;
+}
+
+/**/
+.head-top{
+	overflow:hidden;
+	margin-bottom:0.6rem;
+}
+/**/
+.azj-text{
+	overflow:hidden;
+	width:86%;
+	margin:0 auto 1rem;
+}
+.azj-text span{
+	display:block;
+	margin-bottom:1.2rem;
+}
+.azj-text ul{
+	overflow:hidden;
+}
+.azj-text li{
+	padding-left:0.8rem;
+	font-size:1.1rem;
+	line-height:1.4em;
+	margin-bottom:0.6rem;
+	background:url('../../images/upgrade/dian.png') no-repeat left 0.5em;
+	background-size:0.4em auto;
+	color:#706152;
+}
+
+/* listem */
+.listem{
+	width:86%;
+	overflow:hidden;
+	margin:0 auto 1rem;
+	padding-top:0.6rem;
+	position:relative;
+}
+.listem .lm-title{
+	position: absolute;
+	left:0;
+	top:0;
+	z-index:2;
+}
+.listem .lm-title p{
+	position: relative;
+	font-size:1.2rem;
+	line-height:1.8em;
+	padding:0 1rem 0 0.5rem;
+	background:#fcda90;
+	color:#5a310c;
+	box-shadow: 0 0 0.3rem #5e5145;
+}
+.listem .lm-title p i{
+	position: absolute;
+	right:-0.5rem;
+	bottom:-0.5rem;
+	width:1rem;
+	height:1rem;
+	transform: rotate(45deg);
+	background:#706152;
+}
+
+.lm-text{
+	overflow:hidden;
+	position:relative;
+	padding:2.5rem 1rem 0.4rem 1rem;
+	background:#706152;
+	z-index:1;
+}
+.lm-text li{
+	padding-left:0.8rem;
+	font-size:1.1rem;
+	line-height:1.4em;
+	background:url('../../images/upgrade/wdian.png') no-repeat left 0.5em;
+	background-size:0.4em auto;
+	color:white;
+	margin-bottom:0.6rem;
+}
+.lm-text span{
+	position: absolute;
+	right:-0.6rem;
+	bottom:-0.6rem;
+	width:1.2rem;
+	height:1.2rem;
+	transform: rotate(45deg);
+	background:white;
+}
+.subbtn{
+	width:88%;
+	overflow:hidden;
+	margin:0 auto;
+	padding:0.6rem 0 2rem;
+}
+.subbtn a{
+	display:block;
+	width:100%;
+	font-size:1.35rem;
+	line-height:2.5em;
+	text-align: center;
+	background: -webkit-linear-gradient(#ffeba5, #fcd578); /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(#ffeba5, #fcd578); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(#ffeba5, #fcd578); /* Firefox 3.6 - 15 */
+	background: linear-gradient(#ffeba5, #fcd578); /* 标准的语法 */
+	color:#5a310c;
+	border-radius:0.2rem;
+	/*-moz-box-shadow:0 0 .2rem 0 .2rem #c7a85f inset; For Firefox3.6+ */
+	/*-webkit-box-shadow:0 0 .2rem 0 .2rem #c7a85f inset; For Chrome5+, Safari5+ */
+	box-shadow:0 -.2rem .2rem #c7a85f inset;/* For Latest Opera */
+}
+
+
+
+@media screen and (max-width:780px){
+	html
+	{
+		font-size:20px !important;
+	}
+	img
+	{
+		width:100%;
+	}
+}
+@media screen and (max-width:600px){
+	html
+	{
+		font-size:calc((100vw/600)*20) !important;
+	}
+}
+@media screen and (max-width:360px){
+	html
+	{
+		font-size:12px !important;
+	}
+}
+
+
+
+
+
+
+
+
+
+

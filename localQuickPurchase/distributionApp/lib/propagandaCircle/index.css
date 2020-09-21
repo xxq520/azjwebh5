@@ -1,0 +1,254 @@
+﻿
+/*公共样式*/
+.fs10{font-size: 0.4444rem;}.fs11{font-size: 0.4888rem;}.fs12{font-size: 0.5333rem;}.fs13{font-size: 0.5777rem;}.fs14{font-size: 0.6222rem;}.fs15{font-size: 0.6666rem;}.fs16{font-size: 0.7111rem;}.fs17{font-size: 0.7555rem;}.fs18{font-size: 0.8rem;}
+
+.limit2{
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	box-orient: vertical;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	line-clamp: 2;
+	-webkit-line-clamp: 2;
+	-moz-line-clamp: 2;
+	overflow: hidden;
+}
+.pcolr{
+	color: #E61128;
+}
+.opcolr{
+	color: #CCC;
+	text-decoration: line-through;
+}
+
+.container{
+	position: relative;
+	height: 100vh;
+	background: #F5F5F5;
+	max-width:750px;
+	margin:0 auto;
+}
+.header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #DB0020;
+	height: 1.9555rem;
+	z-index: 10;
+}
+.header p{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.header p span{
+	color:#fff;
+}
+
+/* main */
+.main{
+	padding-top:1.9777rem;
+	/*padding-top:2.2222rem;*/
+}
+/* tab */
+.tab{
+	/*display: box;              !* OLD - Android 4.4- *!*/
+	/*display: -webkit-box;      !* OLD - iOS 6-, Safari 3.1-6 *!*/
+	/*display: -moz-box;         !* OLD - Firefox 19- (buggy but mostly works) *!*/
+	/*display: -ms-flexbox;      !* TWEENER - IE 10 *!*/
+	/*display: -webkit-flex;     !* NEW - Chrome *!*/
+	/*display: flex;*/
+	/*align-items: center;*/
+	width: 100%;
+	background: #fff;
+	height: 1.9555rem;
+	position:relative;
+}
+.tab .border{
+	border-right: 1px solid #ddd;
+	height: 0.6666rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top:-.3333rem;
+}
+.tab p{
+	width: 100%;
+	/*display: box;              !* OLD - Android 4.4- *!*/
+	/*display: -webkit-box;      !* OLD - iOS 6-, Safari 3.1-6 *!*/
+	/*display: -moz-box;         !* OLD - Firefox 19- (buggy but mostly works) *!*/
+	/*display: -ms-flexbox;      !* TWEENER - IE 10 *!*/
+	/*display: -webkit-flex;     !* NEW - Chrome *!*/
+	/*display: flex;*/
+	/*justify-content: space-between;*/
+	/*align-items: center;*/
+}
+.tab p .taggle{
+	/*display: inline-block;*/
+	position: absolute;
+	/*text-align: center;*/
+	padding: 0.4444rem 0;
+	color:#999;
+	top: 0;
+	/*margin: 0 auto;*/
+}
+.tab p .taggle:first-child{
+	left: 16%;
+}
+.tab p .taggle:last-child{
+	right: 16%;
+}
+.tab p .active{
+	color:#f00;
+	border-bottom:1px solid #f00;
+}
+/* boomList */
+.boomList{
+	position:relative;
+}
+.boomList .boomItem{
+	position: relative;
+	margin-top: 0.4444rem;
+	background:#fff;
+	display: box;              /* OLD - Android 4.4- */
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;
+	justify-content: flex-start;
+	padding: 0.4444rem;
+}
+/* extendList */
+.extendList{
+	position:relative;
+	display: none;
+}
+.extendList .extendItem{
+	position: relative;
+	margin-top: 0.4444rem;
+	background:#fff;
+	display: box;              /* OLD - Android 4.4- */
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;
+	justify-content: flex-start;
+	padding: 0.4444rem;
+}
+
+.avatar{
+	height:1.7333rem;
+	width:1.7333rem;
+	border-radius:50%;
+	overflow: hidden;
+	margin-right:0.4444rem;
+}
+.avatar img{
+	height:100%;
+	width:100%;	
+}
+.faquanMain{
+	position:relative;
+	-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+	-moz-box-flex: 1;         /* OLD - Firefox 19- */
+	width: 20%;               /* For old syntax, otherwise collapses. */
+	-webkit-flex: 1;          /* Chrome */
+	-ms-flex: 1;              /* IE 10 */
+	flex: 1;
+}
+.faquanMain .title{
+	position: relative;
+	/*display: box;              !* OLD - Android 4.4- *!*/
+	/*display: -webkit-box;      !* OLD - iOS 6-, Safari 3.1-6 *!*/
+	/*display: -moz-box;         !* OLD - Firefox 19- (buggy but mostly works) *!*/
+	/*display: -ms-flexbox;      !* TWEENER - IE 10 *!*/
+	/*display: -webkit-flex;     !* NEW - Chrome *!*/
+	/*display: flex;*/
+	/*justify-content: space-between;*/
+	/*align-items: center;*/
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.4444rem;
+}
+.faquanMain .title .share{
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: .1111rem .4444rem;
+	border-radius:25px;
+	background:#FCF6EA;
+	color:#f00;
+}
+.faquanMain .title .share img{
+	/*width: 0.5333rem;*/
+	/*height: 0.5111rem;*/
+	margin-right:0.2222rem;
+}
+.faquanMain .commission{
+	margin-bottom: 0.5333rem;
+	color:#f00;
+}
+.faquanMain .goDetails{
+	margin-bottom: 0.4444rem;
+}
+.faquanMain .goDetails a{
+	color: #f00;
+}
+.faquanMain .imgList{
+	margin-bottom:0.4444rem;
+}
+.faquanMain .imgList img{
+	height: 8rem;
+}
+.faquanMain .time{
+	margin-bottom:0.4444rem;
+}
+.faquanMain .commentList{
+	padding: 0.4444rem;
+	background: #f5f5f5;
+	position: relative;
+}
+.faquanMain .commentList .commentItem{
+	color: #666;
+}
+.faquanMain .commentList .commentItem .copyBox{
+	position: relative;
+	text-align: right;
+}
+.faquanMain .commentList .commentItem .copy{
+	/*display: inline-block;*/
+	color: #f00;
+	padding:0.1111rem 0.4444rem;
+	border-radius:25px;
+	background: #FCF6EA;
+}
+.faquanMain .commentList .commentItem .copy img{
+	color: #f00;
+	margin-right: 0.2222rem;
+	height: 0.5333rem;
+	width:0.4444rem;
+}
+.sanjiaoxing{
+	position: absolute;
+	top: -0.3333rem;
+	left: 0.8888rem;
+}
+.triangle_border_up{
+    width:0;
+    height:0;
+    border-width:0 0.3333rem 0.3333rem;
+    border-style:solid;
+    border-color:transparent transparent #f5f5f5;/*透明 透明  灰*/
+    position:relative;
+}

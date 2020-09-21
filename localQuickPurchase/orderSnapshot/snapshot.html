@@ -1,0 +1,589 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>交易快照</title>
+	<meta name="Description" content="爱之家商城分享">
+	<meta itemprop="image"
+		content="https://ndhimg.520shq.com//UploadFile/small_FXImg/20190307/2019030715032258349.jpeg">
+	<link rel="shortcut icon" href="https://ndhimg.520shq.com//UploadFile/small_FXImg/20190307/2019030715032258349.jpeg"
+		type="image/x-icon">
+	<link rel="icon" href="https://ndhimg.520shq.com//UploadFile/small_FXImg/20190307/2019030715032258349.jpeg"
+		type="image/x-icon">
+	<meta itemprop="name" content="爱之家商城">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="email=no">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="/localQuickPurchase/distributionApp/lib/Hui/css/hui.css">
+	<link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/main.css">
+	<link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/style.css">
+	<link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/hcx.css?v=1">
+	<link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/goodsAttr.css">
+	<script type="text/javascript" src="/common/lib/jquery/js/jquery-2.0.0.min.js"></script>
+	<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+	<style type="text/css">
+		/* ----------2018.5.15 商品详情新版样式 ------- begin ----------- */
+		.hui-header {
+			border-bottom: 1px solid #e2e2e2 !important;
+			display: flex;
+		}
+
+		.hui-header h1 {
+			font-size: 18px;
+			height: 44px;
+			line-height: 44px;
+			overflow: hidden;
+			padding: 0px 38px 0px 38px;
+			text-align: center;
+			font-weight: 400;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			color: #212121;
+			flex: 1;
+		}
+
+		/* ----------2018.5.15 商品详情新版样式 ------- end ----------- */
+		.imgBox img {
+			width: 100%;
+			height: 100%;
+		}
+
+
+		.hui-tab-active .g-title {
+			border-bottom: 2px solid #e4393c !important;
+		}
+
+		.hui-tab-title div {
+			width: 33% !important;
+			font-size: 0.6rem;
+			border-bottom: none;
+			line-height: 40px;
+		}
+
+		.hui-tab-title div {
+			height: 42px;
+			line-height: 42px;
+			float: left;
+			text-align: center;
+			width: 20%;
+			border-bottom: 2px solid #F4F5F6;
+		}
+
+		.hui-tab-item {
+			position: relative !important;
+		}
+
+		.gPrice {
+			color: red;
+		}
+
+		.paramItem {
+			border-bottom: 1px solid #e6e6e6;
+			display: flex;
+		}
+
+		.paramItem span {
+			width: 66%;
+		}
+
+		/* .soshm-pop-sites{margin-top:200px;} */
+		/* 复制提示 */
+		.goodsImg img {
+			width: 100%;
+			height: auto;
+		}
+
+		.imgAndTxt img {
+			width: 100%;
+			height: auto;
+			margin-top: -1px;
+		}
+
+		.goodsList .goodsItem .gImg img {
+			height: 7rem;
+		}
+
+		.imgBox {
+			height: inherit
+		}
+
+		.goodsList .goodsItem .gDetail {
+			line-height: unset;
+			font-size: .68rem;
+		}
+
+		.goodsList .goodsItem .label {
+			padding: 1px 0;
+			display: flex;
+			align-items: center;
+			width: 91%;
+		}
+
+		.goodsList .goodsItem .label span:last-child {
+			max-width: 2rem;
+			white-space: unset;
+			overflow: hidden;
+			word-wrap: unset;
+			word-break: break-all;
+			text-overflow: ellipsis;
+		}
+
+		.goodsList .goodsItem .gDetail .gName {
+			width: 91%;
+			font-size: .68rem;
+			white-space: unset;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			overflow: hidden;
+			word-wrap: break-word;
+			word-break: break-all;
+			height: 1.9rem;
+			overflow: hidden;
+		}
+
+		/*图标字体开始*/
+		@font-face {
+			font-family: 'fontello';
+			src: url('/localQuickPurchase/generalStore/font/fontello.eot?23036015');
+			src:
+				url('/localQuickPurchase/generalStore/font/fontello.eot?23036015#iefix') format('embedded-opentype'),
+				url('/localQuickPurchase/generalStore/font/fontello.woff?23036015') format('woff'),
+				url('/localQuickPurchase/generalStore/font/fontello.ttf?23036015') format('truetype'),
+				url('/localQuickPurchase/generalStore/font/fontello.svg?23036015#fontello') format('svg');
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		.font-ico {
+			font-family: "fontello";
+			font-style: normal;
+			font-weight: bold;
+			speak: none;
+			display: inline-block;
+			text-decoration: inherit;
+			vertical-align: top;
+			color: #000;
+			font-size: 0.9rem;
+			margin: 0 0 0 .1rem;
+		}
+
+		/*图标字体结束*/
+		.go-back {
+			height: 44px;
+			line-height: 44px;
+			width: 10%;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.imgBox {
+			position: relative;
+			width: 100%;
+		}
+
+		.imgBox .hui-swipe-item i.logo-618 {
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 2rem;
+			width: 3rem;
+			height: 3rem;
+		}
+
+		.goodsImg {
+			width: auto;
+			height: auto;
+		}
+
+		.hui-swipe-indicator {
+			display: block;
+			font-size: 0.6rem;
+			border-radius: 10px;
+			background-color: rgba(255, 255, 255, 0.5);
+			width: 12%;
+			top: 10px;
+			bottom: unset;
+			text-align: center;
+			left: 83%;
+		}
+
+		.goodsPage-item {
+			padding-bottom: 0.52rem;
+		}
+
+		.goodsBox {
+			width: 100%;
+			padding: 0 1%;
+		}
+
+		.imgBox .bofang {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -40px;
+			margin-top: -40px;
+			width: 80px;
+			height: 80px;
+			z-index: 100;
+		}
+
+		.imgBox .videoss .vediotav {
+			display: flex;
+			width: 100%;
+			height: 30px;
+			font-size: 14px;
+			background-color: #3f3f3f;
+			color: #FFF;
+		}
+
+		.imgBox .videoss .vediotav p {
+			flex: 1;
+			text-align: center;
+			line-height: 30px;
+
+		}
+
+		.imgBox .videoss .vediotav img {
+			width: 20px;
+			height: 20px;
+			margin: 5px;
+		}
+
+		.shareTop {
+			position: relative;
+			width: 36px;
+			height: 36px;
+			top: 5px;
+			margin-top: 0;
+			right: 7px;
+			background: transparent;
+		}
+
+		/* 返回按钮img样式 */
+		.backImg {
+			width: 0.5rem;
+		}
+
+		/* 商品的名称如果超出两行则显示省略号 */
+		.goodsName {
+			text-overflow: -o-ellipsis-lastline;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			line-clamp: 2;
+			-webkit-box-orient: vertical;
+		}
+
+		.prBox {
+			display: flex;
+			border-bottom: 1px solid rgba(238, 238, 238, 1);
+			line-height: 2.2rem;
+		}
+
+		.prBox .prItem {
+			flex: 1;
+		}
+
+		.prBox .prItem.price-txt .fs-06 {
+			font-size: 0.6rem;
+		}
+
+		.pirce {
+			color: #DB0020;
+		}
+
+		.imgBox {
+			border-bottom: 0;
+		}
+
+		.goodsDetail {
+			display: flex;
+			border-bottom: 1px solid rgba(238, 238, 238, 1);
+			line-height: 2rem;
+		}
+
+		.goodsDetail label {
+			font-size: .6rem;
+			font-weight: 500;
+			color: rgba(102, 102, 102, 1);
+		}
+
+		.goodsDetail span {
+			font-size: .6rem;
+			font-weight: 500;
+			color: rgba(51, 51, 51, 1);
+			padding-left: 0.2rem;
+		}
+
+		.title-container {
+			border-bottom: 1px solid rgba(238, 238, 238, 1)
+		}
+
+		.hui-tab-title {
+			border-bottom: 0;
+		}
+
+		.title-container .hui-tab-title {
+			width: 100%;
+		}
+
+		.hui-tab {
+			background-color: #fff;
+			padding-bottom: 0.6rem;
+		}
+
+		.title-container .hui-tab-title div {
+			border: none;
+			font-size: 0.7rem;
+			margin-top: 0.3rem;
+		}
+
+		.title-container .hui-tab-active {
+			background-color: transparent;
+			color: #DB0020FF;
+			border: none !important;
+		}
+
+		.title-container .hui-tab-title div.border-r {
+			border-right: 1px solid rgba(238, 238, 238, 1) !important;
+		}
+
+		.title-container .hui-tab-title {
+			height: 2rem;
+		}
+
+		.imgAndTxt>div {
+			padding: 0 0.3rem;
+			font-size: 0.8rem;
+		}
+
+		.detailBox {
+			padding: .45rem .4rem;
+		}
+
+		.detailBox .name-txt {
+			color: rgba(51, 51, 51, 1);
+		}
+
+		.txtHeader {
+			font-size: 20px;
+			color: #212121;
+			font-weight: bold;
+		}
+
+		.title-container .hui-tab-title div {
+			width: 33.1% !important;
+		}
+
+		.prBox .prItem.price-txt .value {
+			font-size: 0.85rem;
+		}
+
+		.prBox .prItem.price-txt .icon-price {
+			font-size: 0.75rem;
+		}
+
+		.hui-fr {
+			float: none !important;
+		}
+		.one-line {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		div#div-onchat{
+			top: 80% !important;
+		}
+	</style>
+</head>
+<body>
+	<header class="hui-header topBarsearch"><a href="javascript:;" class="go-back" onclick="goBack()"><i
+				class="tb-left-ico font-ico">&#xe936;</i></a>
+		<h1>交易快照</h1>
+		<div class="shareTop shareBotton" id="shareTops"></div>
+	</header>
+	<div class="hui-wrap">
+		<!-- 商品信息展示 -->
+		<div class="goodsPage">
+			<div class="goodsPage-item">
+				<!-- 商品轮播图区域 -->
+				<div class="imgBox">
+					<div class="hui-swipe" id="swipe2">
+					</div>
+				</div>
+				<div class="detailBox">
+					<div class="name-txt goodsName"></div>
+					<div class="prBox">
+						<div class="price-txt prItem styleColor pirce">
+							<label>价格：</label><i class="icon-price">¥</i><span
+								class="value orderPrice distributionPrice">0</span>
+						</div>
+						<div class="price-txt prItem styleColor pirce">
+							<label>优惠: </label><i class="fs-06">¥ </i><span
+								class="discountPrice distributionPrice">0</span>
+						</div>
+					</div>
+					<div class="goodsDetail">
+						<label>数量：</label><span class="goodsNum count"></span>
+					</div>
+					<div class="goodsDetail">
+						<label>规格：</label><span class="goodsNum spec"></span>
+					</div>
+					<div class="goodsDetail">
+						<label>运费：</label><span class="goodsNum freight">￥0.00</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- tab选项卡切换 -->
+		<div class="hui-tab">
+			<div class="title-container" style="position: absolute;z-index: 1;">
+				<div class="hui-tab-title">
+					<div class="btn-tab hui-tab-active border-r">图文详情</div>
+					<div class="btn-tab border-r">规格参数</div>
+					<div class="btn-tab">购买须知</div>
+				</div>
+			</div>
+			<div class="hui-tab-body good-introduce" style="margin-top: 2.4rem; overflow: auto; ">
+				<!-- tab图文详情展示的内容 -->
+				<div class="hui-tab-item hui-list no-padding" style="display: block;">
+					<div class="imgAndTxt">
+						<div style="text-align:center;"></div>
+					</div>
+				</div>
+				<!--tab参数规格  -->
+				<div class="hui-tab-item hui-list no-padding" style="display: none;">
+					<div class="paramList"></div>
+				</div>
+				<!--tab购买须知-->
+				<div class="hui-tab-item hui-list no-padding" style="display: none;">
+					<div class="txtBox"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/Hui/js/hui-tab.js"></script>
+	<script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/Hui/js/hui-swipe2.js"></script>
+	<script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/custoner.js"></script>
+	<script src="/common/js/common.js"></script>
+	<script type="text/javascript">
+		var dataObj=window.location.search.slice(1);
+		dataObj=dataObj.split("&");
+		var prevData={};
+		for(var i=0;i<dataObj.length;i++){
+            prevData[dataObj[i].split("=")[0]]=dataObj[i].split("=")[1]
+		}
+		console.log(prevData.orderSku)
+		var snapshotOrder = {
+			//用户seq
+			"seq": seq,
+			//订单单号
+			"orderNo": prevData.orderno,
+			//订单商品SKU
+			"orderSku": prevData.orderSku
+		}
+		//当前快照商品订单详情对象
+		var orderDetail = {}
+		//获取当前订单快照
+		$.ajax({
+			type: "post", //定义提交的类型9
+			url: "/localQuickPurchase/order/snapshot/goods/details",
+			// url: "http://192.168.1.84:10000/localQuickPurchase/order/snapshot/goods/details",
+			dataType: "json", //设置返回值得类型
+			contentType: "application/json;charset=utf-8",
+			data: JSON.stringify(snapshotOrder),
+			async: false, //是否异步请求，false为同步
+			success: function (res) {
+				if (res.code == 200) {
+					orderDetail = res.data;
+					initPageData()
+				} else {
+					hui.toast("交易快照加载失败,请稍后再试!");
+				}
+			}
+		})
+		//初始化页面数据
+		function initPageData() {
+			var myPlayer;
+			// 获取商品详情
+			var imgText = '';
+			var logoStyle = "display:none;"
+			// 设置商品轮播图
+			var goodsImg = orderDetail.listGoodsImg
+			for (var i = 0; i < goodsImg.length; i++) {
+				var goodsImgPath = goodsImg[i].goodsImgPath;
+				imgText += '<div class="hui-swipe-item"><i class="logo-618" style="' + logoStyle + '"></i><img src="' + goodsImgPath + '"/></div>';
+			}
+			$("#swipe2").html(imgText);
+			//设置商品名称
+			$(".goodsName").html(orderDetail.goodsName);
+			//商品价格
+			$(".orderPrice").html(orderDetail.price);
+			//商品优惠
+			$(".discountPrice").html(orderDetail.preferentialHowMany || 0);
+			//订单的数量
+			$(".count").html(orderDetail.count);
+			//订单的规格
+			$(".spec").html(orderDetail.orderSpec);
+			//商品的运费
+			$(".freight").html('￥' + (orderDetail.freight || '0.00'));
+			//图文详情
+			$(".imgAndTxt>div").html(orderDetail.introduction);
+			//规格参数
+			var parameter = '';
+			orderDetail.parameter.forEach(function (element) {
+				parameter += '<li class="paramItem"><label class="paramName">' + element.pName + '</label><span class="paramValue checked one-line">' + element.pDName + '</span></li>'
+			});
+			$(".paramList").html(parameter);
+			//购买须知
+			$(".txtBox").html(orderDetail.purchaseNotes)
+		}
+		// 图片轮播初始化
+		var swipe2 = new huiSwpie('#swipe2');
+		swipe2.autoPlay = false;
+		swipe2.speed = 500;//切换图片的时间
+		swipe2.delay = 5000;//切换图片后停顿的时间  毫秒
+		swipe2.run();
+		//商品图文详情tab切换
+		$(".btn-tab").on("click", function () {
+			var idx = $(this).index();
+			$(this).addClass("hui-tab-active").siblings().removeClass("hui-tab-active")
+			$(".good-introduce .hui-tab-item").eq(idx).show();
+			$(".good-introduce .hui-tab-item").eq(idx).siblings(".hui-tab-item").hide();
+		});
+        function goBack(){
+            var u = navigator.userAgent;
+            var isappwebview = u.indexOf('app_webview') > -1;
+            // 如果不是app打开的  则返回首页
+            if(isappwebview){
+                try {
+                    //如果没有上一页尝试返回原生
+                    // 调app原生返回  webview
+                    window.action.app_back();
+                } catch (e) {
+                }
+                try {
+                    var json = {'function':'goBack'};
+                    window.webkit.messageHandlers.goBack.postMessage(json);
+                } catch (e) {
+                }
+            }else{
+                window.history.go(-1);
+            }
+		}
+	</script>
+
+</body>
+
+</html>

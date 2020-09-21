@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="爱之家商城分享" />
+    <link rel="shortcut icon" href="http://nfxts.520shq.com/localQuickPurchase/distributionApp/images/azj.png" type="image/x-icon" />
+    <meta itemprop="image" content="http://nfxts.520shq.com/localQuickPurchase/distributionApp/images/azj.png"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="http://nfxts.520shq.com/localQuickPurchase/distributionApp/images/azj.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./style.css">
+    <title></title>
+    <meta name="Description" content="爱之家商城分享">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mainBox {
+            color: #444;
+            background-color: #9a1617;
+        }
+
+        .mint-header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .mint-header-title {
+            font-size: 16px;
+        }
+
+        .mint-header .filter .screen {
+            width: 20px;
+        }
+        .posters {
+            width: 100%;
+
+        }
+
+        .posters img {
+            width: 100%;
+            margin: 0;
+        }
+
+        .Levitation {
+            position: fixed;
+            right: 4%;
+            bottom: 25%;
+            z-index: 99999;
+
+        }
+        .Levitation .kufu ,.totop{
+         width: 30px;
+        height: 90px;
+        }
+        .Levitation .kufu img,.totop img{
+            width: 100%;
+            height: 100%;
+        }
+        .swiper {
+            background-image: url('./nhj_bgimage_bkms_1.png');
+            background-size: 100% 100%;
+            position: relative;
+            height: 230px;
+            padding: 15px 5px;
+        }
+        .swiper .tishi {
+            position: absolute;
+            top: 30%;
+            right: 2%;
+        }
+        .swiper ul {
+            width: 100%;
+            height: 230px;
+            background-color: #9a1617;
+            list-style: none;
+            display: flex;
+            overflow: auto;
+        }
+        .recommended {
+            width: 30%;
+            padding: 8px;
+            height: 210px;
+            background-image: url('./nhj_bgimage_bkms_2.png');
+            background-size: 100% 100%;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 5px;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+        .recommended .shopimg {
+            width: 90%;
+            height: 45%;
+        }
+        .recommended .pirce {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .maix {
+            background-image: url('./bgc.png');
+            background-repeat: repeat-y;
+            background-size: 100% ;
+        }
+        .maix .header {
+            background-image: url('./header.png');
+            background-size: 100% 100%;
+            width: 100%;
+            height: 68px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #faec72;
+            font-size: 16px;
+        }
+
+
+
+        .maix ul {
+            padding: 10px 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            list-style: none;
+
+        }
+
+        .maix .merchandise {
+            width: 49%;
+            background-color: #fff;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            font-size: 14px;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+
+
+        .maix .merchandise .shopimg {
+            width: 100%;
+            height: 150px;
+        }
+        .maix .merchandise .yichu {
+            height: 40px;
+            line-height: 20px;
+            padding: 0 5px;
+            overflow: hidden;
+        }
+        .maix .merchandise .pirce {
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .maix .merchandise .pirce img {
+            width: 38px;
+            height: 32px;
+        }
+
+        .footer {
+            width: 100%;
+            height: 86px;
+        }
+
+        .maix .footer img {
+            width: 100%;
+
+        }
+
+        .share-block {
+            width: 100%;
+            height: 6.5rem;
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+            background: white;
+            display: none;
+        }
+        .share-block .bringIn {
+            font-size: 1rem;
+            color: #e4393c;
+            margin: .75rem 0;
+            text-align: center;
+        }
+        .share-block .explain {
+            font-size: .5rem;
+            padding: 0 2rem;
+        }
+        .soshm {
+            text-align: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .share-content {
+            margin-top: 1rem;
+        }
+        .share-block ul {
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .share-block .fuzhi{
+
+            list-style: none;
+            display: flex;
+            justify-content: flex-start;
+            margin:15px 0;
+        }
+        .share-block .fuzhi li{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           width: 25%;
+            font-size: 12px;
+
+        }
+        .share-block .fuzhi li img{
+           width: 50px;
+            height: 50px;
+        }
+        .soshm-item {
+             width: 20%;
+            height: 50px;
+
+            cursor: pointer;
+        }
+        .soshm-item-icon {
+
+            width: 40px!important;
+            height: 40px!important;
+
+        }
+        .hui-text-center{
+            text-align: center;
+        }
+        .soshm-item .soshm-item-text {
+            display: block;
+            font-size: 14px;
+            color: #212121;
+            font-size: 0.512rem;
+            margin-top: 4px;
+        }
+        .mask {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            display: none;
+        }
+
+        .ewmcode {
+            position: fixed;
+            text-align: center;
+            top: 3rem;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            z-index: 15;
+            width: 100%;
+            text-align: center;
+        }
+        .ewmcode img{
+          width: 200px;
+            height: 200px;
+
+        }
+        .mint-button img {
+            width: 12px;
+            height: 20px;
+        }
+            /* 复制提示 */
+        .copy-tips{position:fixed;z-index:999;top:30%;left:50%;margin:0 0 -20px -80px;
+            background-color:rgba(0, 0, 0, 0.2);filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr=#30000000, endColorstr=#30000000);padding:6px;}
+        .copy-tips-wrap{padding:10px 20px;text-align:center;border:1px solid #F4D9A6;
+            background-color:#FFFDEE;font-size:14px;}
+
+    </style>
+
+
+</head>
+
+<body>
+<p style="width: 0px;height: 0px;opacity:0;">好货，低至1折起，速抢中</p>
+    <div id="app">
+        <div v-cloak class="mainBox">
+            <header class="mint-header">
+                <mt-button><img src="./03427.png" class="screen" @click="goback"></mt-button>
+
+                <h1 class="mint-header-title">年货专题活动</h1>
+                <p style="width: 0px;height: 0px;opacity:0;">好货，低至1折起，速抢中</p>
+                <div class="filter" @click="newShare" id="shareTops" style="display: none">
+                    <img src="./newShare.png" class="screen">
+                </div>
+            </header>
+            <div class="posters">
+                <img src="./tap1.png">
+            </div>
+            <div class="Levitation">
+                <div class="kufu">
+                    <img src="./nhj_icon_kefu.png" @click="agent()">
+                </div>
+                <div class="totop">
+                    <img src="./nhj_icon_returntop.png" @click="totop">
+                </div>
+            </div>
+            <div class="swiper" v-if="popularShow">
+                        <ul>
+                            <li v-for="item in category"  class="recommended"
+                                @click="shopDetails(item)">
+                                <img :src="item.thumbnail" class="shopimg">
+                                <p style="height: 40px;line-height: 20px;overflow: hidden;padding: 0 5px;">{{item.goodsName}}</p>
+                                <div class="pirce">
+                                    <p style="color: #666;text-decoration: line-through;">原价:{{item.comparativePrice}}
+                                    </p>
+                                    <p style="color: #f00; line-height: 30px;">特价:<span
+                                            style="font-size: 16px;">￥{{ item.actualPrice }}</span>
+                                    </p>
+                                    <img src="./nhj_icon_bkms_1.png" @click="toshop(item)">
+                                </div>
+                            </li>
+                        </ul>
+
+                <div class="tishi">
+                    <img src="./nhj_icon_bkms_2.png">
+                </div>
+            </div>
+            <div class="maix" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading"
+                infinite-scroll-distance="3">
+                <div class="Snacks" v-for="ctype in merchandiseList">
+                    <div class="header">
+                        <div style="margin-top: 13px;">{{ctype.name}}<span
+                                style="color:#d39170; font-size: 14px;" v-show="ctype.introduce">--{{ctype.introduce}}</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li v-for="item in ctype.list" class="merchandise" @click="shopDetails(item)">
+                            <img :src="item.goodsImageUrl" class="shopimg">
+                            <p class="yichu">{{item.goodsName}}</p>
+                            <div class="pirce">
+                                <div>
+                                    <p style="color: #f00;" v-if="item.discounts">会员立减{{item.discounts}}元 </p>
+                                    <p style="color: #f00; line-height: 30px;">活动价￥:<span
+                                            style="font-size: 18px;">{{ item.actualPrice }}</span>
+                                    </p>
+                                </div>
+
+                                <img src="./nhj_category_btn_1@2x.png" @click="toshop(item)">
+
+
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="footer">
+                    <img src="./nhj_bgimage_low.png" >
+                </div>
+
+            </div>
+            <div class="codeImg" style="display: none">
+                <div class="writeBox">
+                    <span class="focusgz"></span>
+                    <span><button class="del">X</button></span>
+                    <div class="ewmcode_Img" value="1">
+                        <img src="">
+                    </div>
+                    <span class="deepress">长按识别二维码加关注</span>
+                </div>
+            </div>
+
+            <!-- 二维码 -->
+            <div class="mask">
+                <div class="ewmcode" value="0">
+                    <img src="" />
+                </div>
+            </div>
+            <div class="share-block hui-text-center dis_share" style="height: auto;">
+                <div class="bringIn">分享商品</div>
+                <p class="explain">只要你的好友通过你的链接买此商品，你就能得到此商品的利润哦~</p>
+                <ul class="share-content">
+                </ul>
+                <ul style="overflow:hidden;" class="fuzhi">
+                    <li class="copylink">
+                        <img src="/localQuickPurchase/distributionApp/images/share_icon_5.png" />
+                        <p>二维码链接</p>
+                    </li>
+                    <li class="shopCode" value="0">
+                        <img src="/localQuickPurchase/distributionApp/images/share_icon_4.png" />
+                        <p>二维码</p>
+                    </li>
+                </ul>
+                <div class="hui-text-center" style="padding:0 0 1rem;" id="closeShare"><img src="/localQuickPurchase/distributionApp/images/classfiyImg2.png" width="20"> </div>
+            </div>
+        </div>
+    </div>
+   
+    <script type="text/javascript" src="/localQuickPurchase/js/vue.js"></script>
+    <script src="./index.js"></script>
+    <script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/common/js/common.js?v=5"></script>
+    <script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/soshm.min.js"></script>
+    <script type="text/javascript" src="/localQuickPurchase/distributionApp/js/soshm.js"></script>
+    <script type="text/javascript" src="/localQuickPurchase/distributionApp/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/Hui/js/hui.js" ></script>
+    <script src="/common/js/share.js"></script>
+    <script src="/common/js/common.js"></script>
+
+
+    <script>
+
+
+        //判断是否是微信打开的
+        // h5如果是的话，则隐藏h5的分享按钮
+
+        var _href = window.location.href;
+        var appUrl =_href;
+        var urlVal = _href.substring(0,_href.indexOf("newyear.html"))+"newyear.html";
+
+        /*判断是否是第二次分享的，则修改为当前分享的seq*/
+        var shareSeq = getQueryString("shareSeq");
+        if(shareSeq != null && shareSeq != "") {
+            shareSeq = shareSeq.split("?")[0];
+            if(shareSeq!=0){
+                setCookie("shareSeq", shareSeq, 1);
+            }
+            appUrl = urlVal+"?shareSeq="+seq;
+        }
+
+
+        if(_href.indexOf("?") < 0){
+            appUrl = _href+"?shareSeq="+seq;
+            window.location.href=appUrl;
+        }
+
+        if(!is_weixin2()){
+            $("#shareTops").show();
+        }else {
+            $(function () {
+             initConfig("上爱之家，为爱为家囤年货","好货，低至1折起，速抢中",appUrl,"http://nfxts.520shq.com/localQuickPurchase/distributionApp/images/azj.png");
+            })
+        }
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i)=="micromessenger") {
+            //ios的ua中无miniProgram，但都有MicroMessenger（表示是微信浏览器）
+            wx.miniProgram.getEnv(function (res) {
+                if (res.miniprogram) {
+                    $("#shareTops").show();
+                }
+            })
+        }
+
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                category: [],
+                categorylist: 0,
+                seckillFieldId: '',
+                page: 1,
+                seq: 5764584,
+                merchandiseList: [],
+                 pageSize: 2,
+                loading:false,
+                firstTime:1,
+                scrollTop:0,
+                popularShow:true,
+            },
+
+            mounted:function() {
+
+                 if(localStorage.getItem("firstTime")){
+                  this.firstTime = localStorage.getItem("firstTime");
+                 }
+                  if(localStorage.getItem("newPage")){
+                    this.page = localStorage.getItem("newPage");
+                  }
+                   if(localStorage.getItem("scrollTop")){
+                    this.scrollTop = localStorage.getItem("scrollTop");
+                    document.body.scrollTop = document.documentElement.scrollTop = this.scrollTop;
+                   }
+                if(this.firstTime==1){
+
+                    this.getGoods();
+                    this.popularId();
+                }else{
+                    this.merchandiseList=JSON.parse(localStorage.getItem("merchandiseList"));
+                    this.category = JSON.parse(localStorage.getItem("category"));
+                    console.log(this.merchandiseList)
+
+                }
+                window.addEventListener('scroll', this.handleScroll, true)
+
+                localStorage.removeItem("merchandiseList");
+                localStorage.removeItem("firstTime");
+                localStorage.removeItem("newPage");
+                localStorage.removeItem("scrollTop");
+                localStorage.removeItem("category");
+
+            },
+
+            methods: {
+                //获取滚动条
+                handleScroll:function() {
+                    this.$nextTick(function(){
+                        this.scrollTop = document.body.scrollTop || document.documentElement.scrollTop ||
+                            window.pageXOffset
+                       
+                    })
+                },
+
+                //获取爆款
+                popularId:function() {
+               
+                    var that = this
+                    $.ajax({
+                        url: '/localQuickPurchase/sgMongoAction/seckillField',
+                        type: 'get',
+
+                        dataType: 'json',
+                        success: function (res) {
+                            console.log(res.code ,'96');
+                            if (res.code = 200 && res.data) {
+                                that.seckillFieldId = res.data[0].seckillFieldId;
+                                return that.popular()
+
+                            } else {
+                                that.popularShow = false;
+                            }
+                        }
+                    })
+                },
+                popular:function() {
+                
+                    var  that = this
+                    $.ajax({
+                        url: 'http://nfxts.520shq.com/localQuickPurchase/sgMongoAction/seckillGoods',
+                        type: 'get',
+                        data: {
+                            seckillId: that.seckillFieldId
+                        },
+                        dataType: 'json',
+                        success: function (res) {
+                            if (res.code = 200 && res.data) {
+                                that.category = res.data.list
+
+                            }
+                        }
+                    })
+                },
+                //获取商品数据
+                getGoods:function() {
+                    this.page = 1;
+                    this.loadMore();
+                },
+                //上拉加载
+                loadMore:function() {
+                    this.loading = true;
+                    var param = {
+                        code: "year_2019",
+                        seq: seq,
+                        page: this.page,
+                        pageSize: this.pageSize,
+                    }
+                  
+                    var that = this;
+                    $.ajax({
+                        type : "post", //定义提交的类型9
+                        url :"http://nfxts.520shq.com/localQuickPurchase/goods/activity/detail/query",
+                        dataType : "json", //设置返回值得类型
+                        contentType : "application/json;charset=utf-8",
+                        data : JSON.stringify(param),
+                        async : false, //是否异步请求，false为同步
+                        success: function (res) {
+                            console.log(res,'98')
+                            if (res.code == 200) {
+                                if (that.page > res.data.totalPage) {
+                                    that.loadend = true;
+                                    that.loading = true;
+                                    return false;
+                                };
+                                that.page++;
+                                that.merchandiseList = that.merchandiseList.concat(res.data.list);
+                                that.loading = false;
+
+                                console.log(that.merchandiseList, '21')
+                            }
+                        }
+                    })
+                },
+                // 返回上层
+                goback:function() {
+                     localStorage.removeItem("merchandiseList");
+                     localStorage.removeItem("firstTime");
+                     localStorage.removeItem("newPage");
+                     localStorage.removeItem("scrollTop");
+                    localStorage.removeItem("category");
+               try{
+                        //判断是否是app
+                        var u = navigator.userAgent;
+                        var isappwebview = u.indexOf('app_webview') > -1;
+                        // 如果不是app打开的  则返回首页
+                        if(isappwebview){
+                            try {
+                                //如果没有上一页尝试返回原生
+                                // 调app原生返回  webview
+                                window.action.app_back();
+                            } catch (e) {
+                            }
+                            try {
+                                var json = {'function':'goBack'};
+                                window.webkit.messageHandlers.goBack.postMessage(json);
+                            } catch (e) {
+                            }
+                        }else{
+                            window.location.href="/localQuickPurchase/distributionVA/index";
+                        }
+                }catch(e){
+                }
+              },
+                //分享
+                newShare:function() {
+
+                    //判断是否是app
+                    var u = navigator.userAgent;
+                    var isappwebview = u.indexOf('app_webview') > -1;
+                    var shareTitle="上爱之家，为爱为家囤年货";
+                    if(isappwebview){
+                        // 分享
+                        share520Love(appUrl,shareTitle,'好货，低至1折起，速抢中','','.share-content');
+                    } else{
+                        share520LoveWeb(appUrl,shareTitle,'好货，低至1折起，速抢中','','.share-content');
+                        hui.dialogBase();
+                        $(".share-block").slideDown(100);
+                    }
+                    // appUrl=encodeURIComponent(appUrl);
+                    // 商品二维码
+                    $(".ewmcode img").attr("src","/localQuickPurchase/shareQRCode/stringQRCode?urlVal=" + appUrl);
+                    $(".ewmcode").hide();
+
+                    // 复制链接
+                    var clipboard = new Clipboard('.copylink', {
+                        // 点击copy按钮，直接通过text直接返回复印的内容
+                        text: function() {
+                            return appUrl;
+                        }
+                    });
+
+                    clipboard.on('success', function(e) {
+                        var $copysuc = $("<div class='copy-tips'><div class='copy-tips-wrap'>☺ 复制成功</div></div>");
+                        $("body").find(".copy-tips").remove().end().append($copysuc);
+                        $(".copy-tips").fadeOut(2000);
+                        e.clearSelection();
+                    });
+                    clipboard.on('error', function(e) {
+                        hui.toast('复制失败!');
+                    });
+
+                    $(function () {
+                        $("#closeShare").click(function () {
+                            hiddend();
+                        })
+                        function hiddend(){
+                            $("html,body").css("overflow","visible");
+                            hui.dialogClose();
+                            $(".share-block").slideUp(200);
+                            $(".ewmcode").hide();
+                        }
+
+                        $(document).on("click","#hui-mask",function(){
+                            hiddend();
+                        });
+                        $(".shopCode").click(function(){
+                            var ewmcodeVal = $(".ewmcode").attr("value");
+                            if(ewmcodeVal == "0"){
+                                $(".mask").show();
+                                $(".ewmcode").show();
+                                $(".ewmcode").attr("value","1");
+                            } else{
+                                $(".mask").hide();
+                                $(".ewmcode").hide();
+                                $(".ewmcode").attr("value","0");
+                            }
+                        });
+
+                        // 点击分享后弹出的背景层
+                        $(".mask").click(function(){
+                            $(".sharebox").removeClass('active');
+                            $(".specBtn").hide();
+                            $(".numBox").hide();
+                            $(".ewmcode").hide();
+                            $(".mask").hide();
+                            $(".ewmcode").attr("value","0");
+                        });
+
+                    })
+
+
+                },
+                //联系客服
+                agent:function() {
+                    window.location.href="/localQuickPurchase/distributionVA/customer/dialog";
+                },
+                //返回顶部
+                totop:function() {
+
+                    document.body.scrollTop = document.documentElement.scrollTop = 0
+                },
+                //跳转商品详情
+                shopDetails:function(goods) {
+                   localStorage.setItem("merchandiseList", JSON.stringify(this.merchandiseList));
+                   localStorage.setItem("firstTime", 2);
+                    localStorage.setItem("newPage", this.page);
+                    localStorage.setItem("scrollTop", this.scrollTop);
+                    localStorage.setItem("category", JSON.stringify(this.category));
+                    if (goods.isActivityGoods != null && goods.isActivityGoods == "1"){
+                        window.location.href= "/localQuickPurchase/distributionVA/seckill/sgDetail?goodsId=" + goods.goodsId + "&distributorSeq=0&shareSeq="+seq;
+                    } else {
+                        window.location.href="/localQuickPurchase/distributionVA/goodsDetail/"+goods.goodsId+"/0/"+seq;
+                    }
+                },
+                //跳转去购买
+                toshop:function(goods) {
+                    localStorage.setItem("merchandiseList", JSON.stringify(this.merchandiseList));
+                    localStorage.setItem("firstTime", 2);
+                    localStorage.setItem("newPage", this.page);
+                  localStorage.setItem("scrollTop", this.scrollTop);
+                    localStorage.setItem("category", JSON.stringify(this.category));
+                    if (goods.isActivityGoods != null && goods.isActivityGoods == "1"){
+                        window.location.href= "/localQuickPurchase/distributionVA/seckill/sgDetail?goodsId=" + goods.goodsId + "&distributorSeq=0&shareSeq="+seq;
+                    } else {
+                        window.location.href="/localQuickPurchase/distributionVA/goodsDetail/"+ goods.goodsId+"/0/"+seq;
+                    }
+                }
+            }
+
+        })
+    </script>
+
+
+<!--分享页-->
+
+</body>
+
+</html>

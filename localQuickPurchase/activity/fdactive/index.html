@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父亲节活动专场</title>
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/selfMain.css">
+    <style>
+        *{padding:0;margin:0;font-style:normal;font-weight:normal;border:0 none;}
+        a{text-decoration:none;color:#fff;}
+        img{width:100%;border:0;}
+        html{background:url('images/bg.png') no-repeat center;background-size:cover}
+        .header-con{position:relative;height:1.96rem;border-bottom:1px solid #91a19d;background-color:#fff;}
+        .header-con .btns-icon{display:block;position:absolute;top:50%;left:.53rem;margin-top:-.445rem;width:.89rem;height:.89rem;background-repeat:no-repeat;background-size:contain;background-position:left center;}
+        .header-con .back-btns{background-image:url('images/back-btn.png')}
+        .header-con .share-btns{background-image:url('images/share-btn.png');left:auto;right:.53rem;}
+        .header-con .title{text-align:center;font-size:.76rem;line-height:1.96rem;}
+        .product-con{padding:0 .51rem;}
+        .product-con .product-list{overflow:hidden;background-image:url('images/bg1_05.png');background-repeat:repeat-y;background-size:cover;margin-top:-.11rem;padding:0 .44rem;}
+        .product-con .product-item{overflow:hidden;margin-bottom:2.66rem;padding-left:1rem;padding-right:1rem;}
+        .product-con .product-item:last-child{margin-bottom:.5rem;}
+        .product-con .product-img{width:2.69rem;float:left;}
+        .product-con .product-img img{width:3.87;display:block;margin:0 auto;}
+        .product-con .product-info{float:right;width:8.82rem;}
+        .product-con .product-item:nth-child(2n) .product-img{float:right;}
+        .product-con .product-item:nth-child(2n) .product-info{float:left;}
+        .product-con .product-title{color:#003f82;font-size:.58rem;font-weight:bold;}
+        .product-con .product-earn{color:#003f82;font-size:.53rem;font-weight:bold;margin-top:.11rem;}
+        .product-con .product-earn span{font-size:.71rem;font-weight:bold;}
+        .product-con .price-con{overflow:hidden;border:1px solid #aeb1e6;width:8.82rem;height:1.4rem;margin-top:.44rem;}
+        .product-con .price-box{font-size:.44rem;font-weight:bold;float:left;margin-left:.11rem;}
+        .product-con .discount{position:relative;color:#d1194a;}
+        .product-con .discount-price{display:block;position:absolute;left:3.2rem;top:-.05rem;font-size:1rem;}
+        .product-con .original{color:#06182a;text-decoration: line-through;}
+        .product-con .btns{float:right;margin-top:.32rem;margin-right:.4rem;}
+        .product-con .btns a{display:block;background:url('images/bg1@3x.png') no-repeat center;background-size:contain;width:2.8rem;height:.8rem;text-align:center;line-height:.8rem;font-size:.4rem;}
+        .product-con .product-footer{margin-bottom:1.11;margin-top:-1px;}
+        #hui-load-more{font-size:.62rem;text-align:center;padding:.8rem 0;}
+        .hui-refresh-icon{font-size:.62rem;text-align:center;padding:.9rem 0;}
+    </style>
+</head>
+<body>
+    <div class="header-con">
+        <i class="btns-icon back-btns" onclick="goBack(this)"></i>
+        <h1 class="title">父亲节活动专场</h1>
+        <!-- <i class="btns-icon share-btns"></i> -->
+    </div>
+    <div id="refreshContainer" class="hui-refresh">
+     	<div class="hui-refresh-icon"></div>
+        <div class="hui-refresh-content hui-list">
+        	<div class="banner-con">
+        		<img src="images/banner.png" alt="">
+    		</div>
+		    <div class="product-con">
+		        <div class="product-header">
+		           <img src="images/bg1_03.png" alt="">
+		        </div>
+		        <div class="product-list">
+		            <!-- <div class="product-item">
+		                <div class="product-img">
+		                    <img src="images/product-img.png" alt="">
+		                </div>
+		                <div class="product-info">
+		                    <h3 class="product-title">产品名称产品名称产品 名称产品名称产</h3>
+		                    <p class="product-earn">赚￥
+		                        <span>36.66</span>元</p>
+		                    <div class="price-con">
+		                        <div class="price-box">
+		                            <p class="discount">抢购价：&yen;
+		                                <span class="discount-price">59</span>
+		                            </p>
+		                            <p class="original">原价：&yen;
+		                                <span>78</span>
+		                            </p>
+		                        </div>
+		                        <div class="btns">
+		                            <a href="javascript:void(0);">立即抢购</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>  -->
+		        </div>
+		        <div class="product-footer">
+		            <img src="images/bg1_07.png" alt="">
+		        </div>
+		    </div>
+    	</div>
+    </div>
+</body>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js"></script>
+	<script type="text/javascript" src="../lib/Hui/js/hui.js"></script>
+	<script type="text/javascript" src="../lib/Hui/js/hui-refresh-load-more.js" charset="utf-8"></script>
+<script type="text/javascript">
+		console.log("活动页面");
+		//引用百度统计
+		var _hmt = _hmt || [];
+/*		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?57760ed3c8fe28c8a3ac0e142fabdab6";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+            try{
+                var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                $("body").append(unescape("%3Cspan style='display:none;'  id='cnzz_stat_icon_1275444738'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1275444738' type='text/javascript'%3E%3C/script%3E"));
+            }catch (e) {
+            }
+		})();*/
+		function jumpGoodsDeteail(str){
+			if(seq ==''|| seq == null){
+				seq = 0;
+			}
+			window.location.href="/localQuickPurchase/distributionVA/goodsDetail/"+str+"/0/"+seq
+		}
+		function goBack(obj){
+			try{
+	    		// 调app原生返回  
+	    		window.action.app_back();
+	    	}catch(e){
+	    	}
+	    	setTimeout(function(){
+	    		hui.back();
+	    	}, 200);
+			
+		}
+		var page = 1;
+		var columnName = "父亲节";
+		hui.refresh('#refreshContainer', refresh);
+		hui.loadMore(getMore);
+		function getMore(){
+			$.ajax({
+				url: '/localQuickPurchase/selectionGoods/SelectionGoodsCom',
+				type: 'POST',
+				data: '{"columnName": "'+ columnName +'","pageIndex":'+page+',"pageSize":10}',
+				contentType:'application/json;charset=UTF-8',
+				success:function(result){
+					var com = result.data.list;
+					if(com != null){
+						var  _html = "";
+						for(var i=0;i<com.length;i++){
+							_html += getHtml(com[i])
+						};
+						page ++;
+						$('.product-list').append(_html);
+						//重置加载更多状态
+			            hui.resetLoadMore();
+					} else{
+						hui.endRefresh();
+						hui.endLoadMore(true, '没有更多了...');
+					} 
+					  //结束刷新
+		            hui.endRefresh();
+				},
+				error:function(result){
+					hui.closeLoading();
+		            //hui.upToast('连接服务器失败！');
+		            hui.endRefresh();
+				}
+			})
+		}
+		//下拉刷新
+		function refresh(){
+			page =1;
+			  $('.product-list').html("");
+ 		    $.ajax({
+				url: '/localQuickPurchase/selectionGoods/SelectionGoodsCom',
+				type: 'POST',
+				data: '{"columnName": "'+ columnName +'","pageIndex":'+page+',"pageSize":10}',
+				contentType:'application/json;charset=UTF-8',
+				success:function(result){
+					var com = result.data.list;
+					if(com != null){
+						var  _html = "";
+						for(var i=0;i<com.length;i++){
+							_html += getHtml(com[i])
+						};
+						page ++;
+			            $('.product-list').append(_html);
+			            //重置加载更多状态
+			            hui.resetLoadMore();
+					}else{
+						hui.endRefresh();
+						hui.endLoadMore(true, '没有更多了...');
+					}
+		            //结束刷新
+		            hui.endRefresh();
+		           
+				},
+				error:function(result){
+					hui.closeLoading();
+		            //hui.upToast('连接服务器失败！');
+		            hui.endRefresh();
+				}
+			})
+		   
+		}
+		function getHtml(goodsInfo){
+			var _html = ""
+			if(goodsInfo != null){
+				_html = "<div class='product-item'>"+
+				"<div class='product-img'><img src='"+ goodsInfo.thumbnail +"' alt=''></div>"+
+			    "<div class='product-info'>"+
+			    "<h3 class='product-title'>"+ goodsInfo.goodsName +"</h3>"+
+			    "<div class='price-con'><div class='price-box'>"+
+			    "<p class='discount'>抢购价：&yen;<span class='discount-price'>"+ goodsInfo.goodsProStandard[0].distributionPrice +"</span></p>"+
+			    "<p class='original'>原价：&yen;<span>"+ goodsInfo.goodsProStandard[0].goodsPrice +"</span></p>"+
+			    "</div><div class='btns'><a href='javascript:void(0);' onclick='jumpGoodsDeteail(\""+ goodsInfo.goodsId +"\")'>立即抢购</a></div>"+
+			    "</div></div></div>";
+			}
+			return _html;
+		};
+	</script>
+</html>

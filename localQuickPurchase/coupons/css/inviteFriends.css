@@ -1,0 +1,76 @@
+body {
+    background: #fff;
+}
+#ivtFrid .hui-header {
+    background: #fff;
+    border-bottom: 0.02px solid #000;
+}
+#ivtFrid #hui-back:before {
+    color: #333;
+}
+#ivtFrid .hui-header .ricon {
+    margin: auto;
+}
+#ivtFrid .hui-header h1 {
+    font-size: .7556rem;
+    color:#212121;
+    padding-left:80px;
+    width: 64%;
+}
+#ivtFrid .hui-header .ricon {
+    font-size: .6667rem /* 30/45 */;
+    color:#666666;
+}
+/*  */
+#ivtFrid .content{
+    border-top: .4444rem solid #f5f5f5;
+    padding: .4444rem;
+    margin-top: 1.9777rem;
+    font-size: .6222rem;
+    color:#666666;
+}
+#ivtFrid .content .line{
+    margin-bottom: .5556rem;
+}
+#ivtFrid .content .mwrap{
+    width: 100%;
+    padding: .6667rem .2222rem;
+    border: .0222rem solid #efefef;
+    border-radius: 5px;
+    box-shadow: .011rem .0001rem 0.3rem .01rem #efefef;
+    overflow: hidden;
+    margin-bottom: .5556rem;
+}
+#ivtFrid .content .mwrap .money , .unit{
+    font-size: .7111rem;
+    color: #212121;
+}
+#ivtFrid .content .mwrap .money {
+    float: left;
+}
+#ivtFrid .content .mwrap .unit {
+    float: right;
+}
+#ivtFrid .content .name , .remy{
+    display: inline-block;
+}
+#ivtFrid .content .name , .deduction{
+    display: inline-block;
+}
+#ivtFrid .content .hui-input {
+    width: 80%;
+    display: inline-block;
+}
+
+#ivtFrid .btn {
+    display: block;
+    font-size: .7111rem;
+    color:#fff;
+    background: #ff0060;
+    width: 5.7778rem;
+    height: 1.7778rem;
+    border-radius: 8px;
+    border-style: none;
+    margin: 3.4444rem auto;
+}
+/* 点击赠送弹窗 */

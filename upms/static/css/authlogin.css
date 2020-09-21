@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+p,h1,h2,h3,h4,h5,h6,dl,dt,dd,input{
+    border: none;
+    list-style: none;
+}
+/*div,ul,a,li,img,p,textarea,span,b{*/
+    /*box-sizing: border-box;*/
+/*}*/
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+img{
+    max-width: 100%;
+    width: 100%;
+}
+body{
+    width: 100%;
+}
+
+
+@media screen and (max-width:320px){html{font-size:20px !important;}}
+@media screen and (min-width:320px){html{font-size:20px;}}
+@media screen and (min-width:340px){html{font-size:21.25px;}}
+@media screen and (min-width:360px){html{font-size:22.5px;}}
+@media screen and (min-width:380px){html{font-size:23.75px;}}
+@media screen and (min-width:400px){html{font-size:25px;}}
+@media screen and (min-width:440px){html{font-size:27.5px;}}
+@media screen and (min-width:480px){html{font-size:30px;}}
+@media screen and (min-width:520px){html{font-size:32.5px;}}
+@media screen and (min-width:560px){html{font-size:35px;}}
+@media screen and (min-width:600px){html{font-size:37.5px;}}
+@media screen and (min-width:640px){html{font-size:40px;}}
+@media screen and (min-width:680px){html{font-size:42.5px;}}
+@media screen and (min-width:720px){html{font-size:45px;}}
+@media screen and (min-width:750px){html{font-size:46.875px;}}

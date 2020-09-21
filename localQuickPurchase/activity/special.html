@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" type="text/css" href="css/style.css?v1=1"/>
+<link rel="stylesheet" type="text/css" href="css/special.css?v1=1"/>
+<title></title>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<span class="back" onclick="goBack(this)">
+				<img src="images/back.jpg" alt="" />
+			</span>
+			<span class="title">罗莱家纺专题活动</span>
+			<span class="share">
+				&nbsp;
+				<!-- <img src="images/share.jpg"/> -->
+			</span>
+		</div>
+		<div id="main">
+			<div class="head">
+				<img src="images/png/banner@2x.png"/>
+			</div>
+			<div class="product">
+				<div class="fuli">
+					<div class="fuli1" onclick="goReceiveCoupons()">
+						<div class="quan1">
+							<img src="images/png/youhq2@2x.png"/>
+						</div>
+						<div class="quan2">
+							<img src="images/png/youhq1@2x.png"/>
+						</div>
+					</div>
+					<div class="fuli2">
+						<img src="images/png/tit@2x.png"/>
+					</div>
+				</div>
+				<ul class="product-list">
+					<!--<li class="product-item">
+						<div class="pro-img">
+							<img src="images/png/banner@2x.png"/>
+						</div>
+						<div class="pro-desc">
+							<p class="pro-title">蓝莲花冰丝席三件套1.5床VGM268</p>
+							<p class="pro-quan">【领券满减优惠】+ 产品方案</p>
+						</div>
+						<div class="pro-price">
+							<p>
+								<span class="yuan">￥</span>
+								<span class="new">298</span>
+								<span class="old">￥222</span>
+							</p>
+						</div>
+					</li>-->
+				</ul>
+				<div class="none"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js"></script>
+	<script type="text/javascript" src="js/special.js?v1=1"></script>
+	<script type="text/javascript">
+	function goBack(obj){
+		try{
+    		// 调app原生返回  
+    		window.action.app_back();
+    	}catch(e){
+    	}
+    	setTimeout(function(){
+    		history.go(-1);
+    	}, 200);
+		
+	}
+	//去领券中心
+	function goReceiveCoupons(){
+		location.href="/localQuickPurchase/distributionVA/receiveCoupons"
+		
+	}
+		console.log("活动页面");
+		//引用百度统计
+		var _hmt = _hmt || [];
+	/*	(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?57760ed3c8fe28c8a3ac0e142fabdab6";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+            try{
+                var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                $("body").append(unescape("%3Cspan style='display:none;'  id='cnzz_stat_icon_1275444738'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1275444738' type='text/javascript'%3E%3C/script%3E"));
+            }catch (e) {
+            }
+		})();*/
+		function jumpGoodsDeteail(str){
+			if(seq ==''|| seq == null){
+				seq = 0;
+			}
+			window.location.href="/localQuickPurchase/distributionVA/goodsDetail/"+str+"/0/"+seq
+		}
+		
+	</script>
+</body>
+</html>

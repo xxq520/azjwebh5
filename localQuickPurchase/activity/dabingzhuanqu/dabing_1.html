@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>笑工优选</title>
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/lib/Hui/css/hui.css">
+</head>
+<body>
+    <div class="dbzq dbzq3">
+        <!-- top -->
+        <div class="top">
+            <img src="images/banner-img.png" alt="">
+            <img src="images/jieshao-img.png" alt="">
+        </div>
+    <!-- nav -->
+    <div class="nav-box">
+        <ul class="nav-list">
+            <li marker="dabingGrin"  onclick="switchTab(this,'dabingzhuanqu')"class="nav-item cur">笑工优选</li>
+            <li marker="dabingSagawa" onclick="switchTab(this,'dabingzhuanqu')" class="nav-item">天天特价</li>
+            <li marker="dabingArrival" onclick="switchTab(this,'dabingzhuanqu')" class="nav-item">每日上新</li>
+            <li marker="dabingQuality" onclick="switchTab(this,'dabingzhuanqu')" class="nav-item">严选精品</li>
+        </ul>
+    </div>
+    <div class="item-list">
+        <div class="item dabingzhuanqu dabingGrin">
+            <p class="title">[笑工优选]</p>
+            <ul class="shop-list " id="dabingGrin">
+               <!-- <li class="shop-item dabingGrin">
+                    <div class="img-box">
+                        <img src="images/goods-img.png" alt="">
+                    </div>
+                    <div class="shop-text">
+                        <p class="text">贵州正品天朝上品贵人酒53度柔和酱香型纯粮食收藏酒水礼盒装</p>
+                        <p class="price-box"><span class="cur-price">&yen;399</span><span class="old-price">&yen;499</span></p>
+                        <a href="javascript:void(0);" class="buy-btn">立即购买</a>
+                    </div>
+                </li>-->
+            </ul>
+        </div>
+        <div class="item dabingzhuanqu dabingSagawa" style="display:none;">
+            <p class="title">[天天特价]</p>
+            <ul class="shop-list" id="dabingSagawa">
+
+            </ul>
+        </div>
+        <div class="item dabingzhuanqu dabingArrival" style="display:none;">
+            <p class="title">[每日上新]</p>
+            <ul class="shop-list" id="dabingArrival">
+
+            </ul>
+        </div>
+        <div class="item dabingzhuanqu dabingQuality" style="display:none;">
+            <p class="title">[严选精品]</p>
+            <ul class="shop-list" id="dabingQuality">
+
+            </ul>
+        </div>
+    </div>
+    
+    <div class="item azj">
+        <p class="title">[爱之家专区]</p>
+        <p class="azj-text"> 爱之家商城 真品平台精选品质好商品，为消费者提供超值优惠价格和会员专享服务。
+            平台精选居家、美妆、食品、服饰箱包等品质真品，通过线上平台直供消费者，去市场成本，优化供应链，
+            真正降低零售成本，为会员带来品质生活体验。</p>
+        <div class="download-box">
+            <div class="download-con">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="images/azjqrcode.png" alt="">
+                        <span>扫一扫,下载爱之家</span>
+                    </div>
+                    <div class="btn-box">
+                        <a href="http://ndhimg.520shq.com/apk/520aizhijia.apk">
+                            <img src="images/download-android-img.png" alt="">
+                        </a>
+                        <a href="https://itunes.apple.com/cn/app/520%E7%88%B1%E4%B9%8B%E5%AE%B6/id1329942009?mt=8">
+                            <img src="images/download-ios-img.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-box">
+            <ul class="nav-list">
+                <li marker="dabingGost" onclick="switchTab(this,'aizhijiazhuanqu')" class="nav-item cur">热销榜</li>
+                <li marker="dabingTangible" onclick="switchTab(this,'aizhijiazhuanqu')" class="nav-item">真实惠</li>
+                <li marker="dabingBounds" onclick="switchTab(this,'aizhijiazhuanqu')" class="nav-item">限量购</li>
+            </ul>
+        </div>
+        <div class="aizhijiazhuanqu goods-list dabingGost" id="dabingGost" >
+
+        </div>
+        <div class="aizhijiazhuanqu goods-list dabingTangible" id="dabingTangible" style="display:none;">
+
+        </div>
+        <div class="aizhijiazhuanqu goods-list dabingBounds" id="dabingBounds" style="display:none;">
+            <!--<div class="goods-item">
+                <a href="javascript:void(0);">
+                    <div class="img-box">
+                        <img src="images/goods-b-img.png" alt="">
+                    </div>
+                <div class="desc-con">
+                    <p class="goods-desc">2瓶包邮 真果真香芦荟柚子茶1 kg 果肉饮料浓浆果酱 长兴花</p>
+                    <p><span class="cur-price"><i class="sm">&yen;</i>25.<i class="sm">54</i></span><span class="old-price">&yen;55.55</span></p>
+                </div>
+                </a>
+            </div>-->
+        </div>
+
+    </div>
+    <a href="javascript:void(0);" class="btns"  onclick="goIndex();" >进入爱之家商城</a>
+</div>
+</body>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/activity/visitCount.js"></script>
+<script type="text/javascript" src="js/dabing.js?v=1"></script>
+<script type="text/javascript">
+
+    initData();
+</script>
+</html>

@@ -1,0 +1,37 @@
+/***修改价格***/
+@charset "utf-8";
+html,body{background:#f2f2f2;}
+.goodsDetail-header{position: relative;top: 0;left: 0;width:100%;background:#E43A3D;height: 1.83rem;line-height: 1.83rem;z-index: 9999;}
+.goodsDetail-header .get-back{margin-left: 0.42rem;position: absolute;z-index: 100;}
+.goodsDetail-header .get-back i{color: #FFFFFF;}
+.goodsDetail-header .header-text{font-size: 0.75rem;color:#FFFFFF;text-align: center;position: relative;}
+.good-content{margin-top: 10px;padding:30px 12px;background:#FFFFFF;}
+.layout-wrapper .content{background:#f2f2f2;}
+.good-content .good-pic{position: relative;width:30%;padding-top: 30%;float: left;}
+.good-content .good-pic img{position: absolute;left: 0;top:0;width:100%;height: 100%;}
+.good-content .good-info{overflow: hidden;padding-left: 0.5rem;}
+.good-content .good-info .good-info-item {height:1.5rem;line-height:1.5rem;overflow:hidden;position:relative;}
+.good-content .good-info .shop-name{font-size: 0.85rem;color: #333333;margin:0.8rem 0 0.8rem 0;}
+.good-content .good-info .factory-price,.good-content .good-info .cost-price,.good-content .good-info .org-price{font-size: 0.6rem;color:#666;margin-bottom: 0.2rem;}
+.good-content .good-info .cost-price span {color:#666;}
+.good-info .change-price{font-size: 0.6rem;color:#666;margin-left:.2rem;top:0;display: inline-block; position: relative;}
+.good-info .change-handle{display:inline-block;width:2.5rem;height: 1.2rem;margin-left: 5px;vertical-align: middle;}
+.good-info .change-handle input{display: block;width:100%;height: 85%;padding:0 10px;line-height: 1.2rem;text-align: center;font-size: 0.6rem;}
+.change-tips {margin:10px 0;font-size: 0.5rem;line-height: 0.8rem;}
+.change-tips .warning-ico {margin-right: 2px;color: red;}     
+.collect-handle {font-size: 0.5rem;}
+.collect-handle .collect-icon{display:inline-block;width: 0.75rem;height: 0.75rem;font-size:0;text-align: center;line-height: 0.75rem;background: #ababab;border-radius: 50%;margin-right: 5px;vertical-align: middle;margin-top:-2px;}
+.collect-handle .font-ico{font-size: 0.5rem;color:#eee3e3;line-height: 0.75rem;}
+.btn-change{line-height: 1.67rem;height: 1.67rem;width:85%;color:#FFFFFF;background: #E4393C;text-align: center;font-size: 0.75rem;margin:1rem 12px;border-radius: 4px;}
+.p_txt {font-size: 0.6rem;line-height:1.5rem;color:#666;left:0;top:0;display: inline-block;width: 50%;}
+.p_txt:first {margin-right:.3rem;}
+.p_txt span {color:#666;}
+.common-box {color:#F00}
+
+/*新样式*/
+.cp-banner{box-shadow: 0px 0px 8px 5px #CCC;margin-top: -1.8rem;}
+    
+.cp-banner .banner-content{left: 0px;top: 0px;}
+
+
+

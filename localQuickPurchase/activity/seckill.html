@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="/localQuickPurchase/activity/lib/Hui/css/hui.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/seckill.css"/>
+	<style type="text/css">
+		.pro-details .count-down .timer {
+		    /*font-size: 0.3111rem !important;*/
+		    color: #222;
+		    display:flex;
+		    align-items:center;
+		}
+		.pro-details .count-down .timer span{
+			text-align:center;
+		    display:inline-block;
+		    /* height:0.5rem;
+		    width:0.4555rem; */
+		    /*border:1px solid #ccc;
+		    border-radius:0.1999rem;*/
+		}
+		#main .products .coupon-area .pro-list .pro-item .pro-details .pro-title p{
+			display: -webkit-box;
+		    -webkit-box-orient: vertical;
+		    box-orient: vertical;
+		    -webkit-line-clamp: 3;
+		    line-clamp: 3;
+		    overflow: hidden;
+		    word-wrap: break-word;
+		    word-break: break-all;
+		    padding-bottom: 0.16rem;
+	    }
+   		#main .products .sec-kill-area .pro-list .pro-item .pro-details .pro-title p{
+			display: -webkit-box;
+		    -webkit-box-orient: vertical;
+		    box-orient: vertical;
+		    -webkit-line-clamp: 3;
+		    line-clamp: 3;
+		    overflow: hidden;
+		    word-wrap: break-word;
+		    word-break: break-all;
+		    padding-bottom: 0.16rem;
+	    }
+	    #hui-load-more{
+			font-size:0.5333rem;
+			height:0.5333rem;
+			line-height:0.6rem;
+		}
+		.hui-loading-text{
+			font-size:0.5333rem;
+			/*height:0.5333rem;*/
+			line-height:0.8rem;
+		}
+		.hui-loading{
+			margin:0;
+		}
+		.hui-loading-wrap{
+			display:flex;
+			align-items:center;
+		}
+	</style>
+    <title></title>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<p><img class="back" onclick="goBack(this)" src="images/back.jpg"/><span>荣事达活动专场</span><img src="images/share.jpg" style="visibility:hidden" class="share"/></p>
+		</div>
+		<div id="main">
+			<div class="banner">
+				<img src="./images/seckill/seckillbanner.png"/>
+			</div>
+			<div class="coupon">
+				<div class="coupon-item">
+					<p class="coupon-title">
+						<span class="yuan">￥</span>
+						<span class="much">300</span>
+						<span class="name">
+							<span>YUAN</span>
+							<span>优惠券</span>
+						</span>
+					</p>
+					<p class="coupon-btn">立即领取</p>
+					<p class="full-cut">满2000元使用</p>
+				</div>
+				<div class="coupon-item">
+					<p class="coupon-title">
+						<span class="yuan">￥</span>
+						<span class="much">120</span>
+						<span class="name">
+							<span>YUAN</span>
+							<span>优惠券</span>
+						</span>
+					</p>
+					<p class="coupon-btn">立即领取</p>
+					<p class="full-cut">满1000元使用</p>
+				</div>
+				<div class="coupon-item">
+					<p class="coupon-title">
+						<span class="yuan">￥</span>
+						<span class="much">50</span>
+						<span class="name">
+							<span>YUAN</span>
+							<span>优惠券</span>
+						</span>
+					</p>
+					<p class="coupon-btn">立即领取</p>
+					<p class="full-cut">满500元使用</p>
+				</div>
+			</div>
+			<div class="tab">
+				<span class="seckill-tab active">秒杀专区</span>
+				<span class="coupon-tab">优惠券专区</span>
+			</div>
+			<div class="products">
+				<div class="sec-kill-area hui-wrap">
+					<div id="refreshContainer" class="hui-refresh">
+				        <div class="hui-refresh-icon"></div>
+				        <div class="hui-refresh-content hui-list">
+							<div class="pro-list" id="seckillList">
+							
+							</div>
+							<script type="text/template" id="seckill">
+								<div class="pro-item">
+									<div class="pro-img">
+										<div>
+											<img src="{img}"/>
+										</div>
+										<img src="./images/seckill/selled.png" class="selled"/>
+									</div>
+									<div class="pro-details">
+										<div class="pro-title">
+											<p>{title}</p>
+										</div>
+										<div class="count-down">
+											<p id="{timer}"  class="timer">
+												<!--<input type="text" class="day" readonly="readonly" value=""/><span>天</span>
+												<input type="text" class="hours" id="hours" readonly="readonly" value=""/><span>时</span>
+												<input type="text" class="min" id="min" readonly="readonly" value=""/><span>分</span>
+												<input type="text" class="sec" readonly="readonly" value=""/><span>秒</span>-->
+											</p>
+										</div>
+										<!--<div class="progress">
+											<div class="hui-progress">
+										        <span class="progressBar"></span>
+										    </div>
+										    <span class="selled-desc">已售{number}%</span>
+										</div>-->
+										<div class="pro-price">
+											<div class="price">
+												<span class="new-price">￥{price}<span class="old-price">￥{oldPrice}</span></span>
+											</div>
+											<div class="go-buy">
+												<span class="go-buy-btn" onclick="goodsJump('{goodsId}','{index}')">立即抢购</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								</script>
+				        </div>
+				    </div>
+				</div>
+				<div class="coupon-area" style="display: none;">
+					<div class="pro-list" id="couponList">
+					
+					</div>
+					<script type="text/template" id="couponTemp">
+						<div class="pro-item">
+							<div class="pro-img">
+								<div>
+									<img src="{img}"/>
+								</div>
+								<img src="./images/seckill/selled.png" class="selled" style="display:none;"/>
+							</div>
+							<div class="pro-details">
+								<div class="pro-title">
+									<p>{title}</p>
+								</div>
+								<!--<div class="coupon-info">
+									<p>满300减50元，满100减10元</p>
+								</div>-->
+								<div class="pro-price">
+									<div class="price">
+										<span class="new-price">￥{price}<span class="old-price">￥{oldPrice}</span></span>
+									</div>
+									<div class="go-buy">
+										<button class="go-buy-btn" onclick="goodsJump('{goodsId}','{index}')">立即抢购</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="/localQuickPurchase/activity/lib/Hui/js/hui.js"></script>
+<script src="/localQuickPurchase/activity/lib/Hui/js/hui-refresh-load-more.js"></script>
+<script src="/localQuickPurchase/distributionApp/js/common.js"></script>
+<script src="js/seckill.js"></script>
+</html>

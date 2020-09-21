@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绑定账号</title>
+    <link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+    <link rel="stylesheet" href="../static/css/authlogin.css" />
+    <link rel="stylesheet" href="../static/css/sry.css">
+    <style>
+        .hoverTab{
+            background-color:#58a5f3;
+        }
+        .codeInput{
+            display: none;
+        }
+        .itemShow{
+            display: block;
+        }
+        header {
+            width: 100%;
+            height:2rem /* 90/45 */;
+            border-bottom: .04rem solid #ccc
+        }
+        header img{
+            width: .6667rem /* 30/45 */;
+            height: .8889rem /* 40/45 */;
+            margin-left: .5556rem /* 25/45 */;
+            margin-top: .5556rem /* 25/45 */;
+        }
+        header span{
+            font-size: .8rem /* 36/45 */;
+            color: #212121;
+            margin-left: 4.2222rem /* 190/45 */;
+        }
+        .content{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        /* tips区域 */
+        .content .tips{
+            text-align: center;
+            font-size: .5778rem /* 26/45 */;
+            margin-top: .8889rem /* 40/45 */;
+        }
+        .current{
+            background-color:#58a5f3;
+            color: #fff;
+        }
+        .content .tips .left{
+            display: inline-block;
+            border: .026rem solid #58a5f3;
+            width: 5.1333rem /* 231/45 */;
+            height: 1.3778rem /* 62/45 */;
+            line-height:1.3778rem  ;
+            border-radius:20px 0px 0px 20px;
+        }
+        .content .tips .right{
+            display: inline-block;
+            width: 5rem /* 225/45 */;
+            height: 1.35rem /* 62/45 */;
+            line-height:1.3778rem  ;
+            border-radius:0px 20px 20px 0px;
+            border: .026rem solid #58a5f3;
+            border-left: none;
+            margin-left:-.19rem /* 6/45 */
+        }
+        /* 表单区域 */
+        .content .codeInput{
+            margin-top: 1.7778rem /* 80/45 */;
+        }
+        .content .codeInput .mobile .delet{
+            width: 1rem /* 45/45 */;
+            height: 1rem;
+            margin-right: .4444rem /* 20/45 */;
+            vertical-align: middle;
+        }
+        .content .codeInput .mobile input{
+            font-size: .6667rem /* 30/45 */;
+            width: 12.1778rem ;
+            height: 97%;
+        }
+        .content .codeInput .code input{
+            font-size: .6667rem /* 30/45 */;
+            width: 9.2rem ;
+            height: 97%;
+        }
+        .content .codeInput .mobile .mine{
+            margin-left: .4444rem /* 20/45 */;
+            vertical-align: middle;
+        }
+        .content .codeInput .code .codeIcon{
+            margin-left: .4444rem /* 20/45 */;
+            vertical-align: middle;
+        }
+        .content .codeInput .mobile img{
+            width: .8rem /* 30/45 */;
+            height: .8rem /* 36/45 */;
+        }
+        .content .codeInput .code img{
+            width: .8rem /* 30/45 */;
+            height: .8rem /* 36/45 */;
+        }
+        .content .codeInput .mobile {
+            width: 15.5556rem /* 700/45 */;
+            height: 2rem /* 90/45 */;
+            border: .0444rem  solid #bfbfbf;
+            border-radius: .1778rem /* 8/45 */
+        }
+        .content .codeInput .code {
+            width: 15.5556rem /* 700/45 */;
+            height: 2rem /* 90/45 */;
+            border: .0444rem  solid #bfbfbf;
+            margin-top: 1.1111rem /* 50/45 */;
+            border-radius: .1778rem /* 8/45 */
+        }
+        .content .codeInput .code .inoutCode{
+            color: #f46868;
+            font-size: .6rem /* 27/45 */;
+            margin-left: .6rem /* 27/45 */;
+        }
+        .content .codeInput .password input{
+            font-size: .6667rem /* 30/45 */;
+            width: 12.1778rem ;
+            height: 97%;
+        }
+        .content .codeInput .password .delet{
+            width: 1rem ;
+            height: 1rem;
+            margin-right: .4444rem;
+            vertical-align: middle;
+        }
+        .content .codeInput .password .lock{
+            margin-left: .4444rem /* 20/45 */;
+            vertical-align: middle;
+        }
+        .content .codeInput .password img{
+            width: .8rem;
+            height: .8rem;
+        }
+        .content .codeInput .password {
+            width: 15.5556rem /* 700/45 */;
+            height: 2rem /* 90/45 */;
+            border: .0444rem  solid #bfbfbf;
+            margin-top: 1.1111rem /* 50/45 */;
+            border-radius: .1778rem /* 8/45 */
+        }
+        #pad{
+            color: #bfbfbf;
+            margin-right:-.1778rem /* 8/45 */
+        }
+
+        /* 立即绑定过按钮 */
+        .logBtn{
+            margin-top: 2.6667rem /* 120/45 */;
+        }
+        .content .telLog button{
+            background-color: #58a5f3;
+            color: #fff;
+            width: 15.5556rem /* 700/45 */;
+            height: 2rem /* 90/45 */;
+            border-style: none;
+            border-radius: .1778rem /* 8/45 */;
+            font-size: .6667rem /* 30/45 */
+        }
+        #newpwdtip{
+            color: #f46868;
+            font-size: .5556rem /* 25/45 */;
+            margin-top: .4444rem /* 20/45 */;
+            padding-left: .5556rem /* 25/45 */;
+        }
+        .content .codeInput .s2{
+            padding-right: 2.1556rem /* 97/45 */;
+        }
+        .content .codeInput .code .valicate{
+            display: inline-block;
+            width: 4.4rem;
+            height: 1.3rem;
+            margin-top: .2222rem;
+            position: absolute;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航区 -->
+    <header>
+        <a ><img src="../static/images/left-login.png" alt="" id="btn_back" onclick="goBack('#btn_back')" /></a>
+        <span>绑定手机号码</span>
+    </header>
+    <!-- 左侧绑定已有账号区 -->
+    <div class="content">
+        <div class="codeInput" id="tab1">
+            <div class="mobile">
+                <img src="../static/images/mine.png" alt="" class="mine">
+                <input type="text" id="tel1" name="phone" placeholder="请输入手机号码" maxlength="11" >
+                <img src="../static/images/delet.png" alt="" class="delet" >
+            </div>
+            <div class="code img-code-con" style="display:none">
+                <span class="s2"></span>
+                <input id="codeimg" type="text" class="mobileText" placeholder="请输入图形验证码" maxlength="4">
+                <img class="valicate" id="imgCode" src="" alt="">
+            </div>
+            <div class="code">
+                <img src="../static/images/codeIcon.png" alt="" class="codeIcon">
+                <input type="text" id="code1" placeholder="请输入验证码" maxlength="6">
+                <span id="pad">|</span>
+                <span class="inoutCode" onclick="verificationCode(this)" state="sent"> 获取验证码</span>
+            </div>
+            <!--<span id="newpwdtip" >*新用户密码默认取手机号后六位</span>-->
+            <div class="logBtn" >
+                <div class="telLog"><button type="button" >立即绑定</button></div>
+            </div>
+        </div>
+        
+    </div>
+    <script type="text/javascript" src="/common/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+    <script type="text/javascript" src="/common/lib/Hui/js/hui-form.js"></script>
+    <script type="text/javascript" src="/common/js/common.js"></script>
+    <script type="text/javascript" src="/common/js/tag.js"></script>
+    <script type="text/javascript" src="/upms/static/js/common.js" ></script>
+    <script type="text/javascript" src="/upms/static/js/loading.js"></script>
+    <script type="text/javascript" src="/upms/static/js/login.js"></script>
+    <script type="text/javascript" src="/common/js/token.js"></script>
+    <script type="text/javascript">
+        var weChatCode = getQueryString("code");
+        $(function () {
+            /* 删除情况表单 */ 
+            $('.delet').click(function () {
+                document.getElementById('tel1').value = "";
+            })
+            //['取消','确定']
+            hui.confirm('为了您有更好的购物体检，建议您绑定手机号', ['绑定已有账号','绑定新账号'], function(){
+                //console.log('确认后执行...');   itemShow
+                location.href='/upms/static/register.html?code='+ weChatCode;
+            },function(){
+                //console.log('取消后执行...');
+                $("#tab1").addClass("itemShow");
+            });
+        });
+
+
+        //* 表单验证区 */
+       	$(document).on('click','.telLog',function(){
+            var tel1 = document.getElementById('tel1').value;
+            var code1 = document.getElementById('code1').value;
+            var telReg = /^1[3|4|5|7|8|9]\d{9}$/;
+            if (telReg.test(tel1) == false) {
+                hui.toast('请输入正确的手机号码!');
+                return
+                
+            }else if (tel1 == "" || code1 == "") {
+                hui.toast('输入框不能为空')
+                return;
+            }
+            var weChatBind = {
+                mobile: tel1,
+                captcha: code1,
+                code: weChatCode
+            };
+            loadingdate("号码绑定中,请稍等");
+        	$.ajax({
+        		type : "POST",//定义提交的类型
+        		url : "/upms/userBind/weChatBindMobile",
+        		dataType : "json",//设置返回值得类型
+        		contentType:"application/json;charset=utf-8",
+				data : JSON.stringify(weChatBind),
+        		async : false,//是否异步请求，false为同步
+                success: function (data) {//成功返回值执行函数
+                    clearLoading();
+                    if (data.code == 1000) {
+                        var isSuccess = weChatLogin(weChatCode);
+                        if (isSuccess) {
+                            var bindMsg = bindRelation();
+                            if (bindMsg != null && bindMsg != "") {
+                                hui.alert(bindMsg, "确定", function () {
+                                    loginRefreshToken();
+                                    loginSuccess();
+                                });
+                                return;
+                            }
+                            hui.iconToast('登录成功!');
+                            loginSuccess();
+                        }
+                    } else if (data.code == 1010) {
+                        hui.toast("手机号验证码错误!");
+                        return;
+                    } else if (data.code == 1002) {
+                        hui.toast("手机号绑定失败!");
+                        return;
+                    } else {
+                        hui.toast("网络异常,请稍后再试!");
+                        return;
+                    }
+                },
+                error:function(res) {
+                    clearLoading();
+                    if(res.status === 500) {
+                        hui.iconToast("请求超时，请稍后再试", "error");
+                    }
+                }
+        	});
+       	});
+        
+       	var count = 0;//控制获取验证码事件
+
+        //检查当前用户填写的手机号码是否已绑定微信号
+        function verificationCode(object){
+        	//获取手机号
+        	var userPhone = $("input[name=phone]").val();
+        	var imgCode = $("#codeimg").val();
+        	if(imgCode == null){
+        		imgCode="";
+        	}
+        	if(!isPoneAvailable(userPhone)){
+        		hui.toast("请输入正确的手机号码！");
+        		return;
+        	}
+        	if($(object).attr("state")=="ban"){
+        		return;
+        	}
+        	$.ajax({
+        		type : "get",//定义提交的类型
+        		url : "/upms/weChat/isBindWeiXin",
+        		dataType : "json",//设置返回值得类型
+        		data : {
+        			"mobile" : userPhone
+        		},
+        		async : false,//是否异步请求，false为同步
+        		success : function(data) {//成功返回值执行函数
+        			if(data.code==1007) {
+        				sendCode(userPhone,object,imgCode);
+        			} else if(data.code==1001){
+        				hui.toast("手机号已绑定其它微信号!");
+        				return;
+        			} else {
+        				hui.toast("网络异常,请稍后再试!");
+        				return;
+        			}
+        		},
+        		error: function(XMLHttpRequest, textStatus, errorThrown) {  
+        	            console.log('error');  
+        	            console.log(XMLHttpRequest.status);  
+        	            console.log(XMLHttpRequest.readyState);  
+        	            console.log(textStatus);  
+        	    }
+        	});
+        }
+
+        //发送验证码
+        function sendCode(userPhone,object,code) {
+        	$.ajax({
+        		type : "post",//定义提交的类型
+        		url : "/upms/basic/sendCode",
+        		dataType : "json",//设置返回值得类型
+        		data : {
+        			"mobile" : userPhone,
+        			"code":code
+        		},
+        		async : false,//是否异步请求，false为同步
+        		success : function(data) {//成功返回值执行函数
+        			if(data.code == 1000){
+        				hui.toast("验证码发送成功！");
+        				var obj = $(object);
+        				count = countdown(obj,userPhone);
+        				if(count != 1){
+        					hui.toast("验证码已发送!");
+        					return;
+        				}
+        			} else if(data.code == 1010) {
+        				$(".img-code-con").show();
+        				var random = Math.random();
+        				$("img[id='imgCode']").attr("src","/upms/basic/validateCode?random=" + random+"&mobile="+userPhone);
+                        refreshImgCode(userPhone);
+        				hui.toast(data.message);
+        			}else{
+        				hui.toast("发送频繁！");
+        				return;
+        			}
+        		},
+        		error: function(XMLHttpRequest, textStatus, errorThrown) {  
+        	            console.log('error');  
+        	            console.log(XMLHttpRequest.status);  
+        	            console.log(XMLHttpRequest.readyState);  
+        	            console.log(textStatus);  
+        	    }
+        	});
+        }
+        
+        //手动刷新图片验证码
+        function refreshImgCode(userPhone){
+        	$(document).on("click","#imgCode",function(){
+        		$("img[id='imgCode']").attr("src","/upms/basic/validateCode?time="+ new Date().toLocaleTimeString()+"&mobile="+userPhone)
+        	})
+        }
+        
+        /*倒计时*/
+        function countdown(obj,mobile){
+        	count = count+1;
+        	var countdown = 60;
+        	var smsTime;
+        	if($(obj).attr("state")=="sent"){
+        		if(mobile == null || mobile==""){
+        			return false;
+        		}
+        		if(!isPoneAvailable(mobile)){
+        			hui.toast('请输入正确的手机号码');
+        			return false; 
+        		}
+        		$(obj).attr("state", "ban");
+        		$(obj).css("color","#262626");
+        		var smsTime = setInterval(function() {
+        			--countdown;
+        			if (countdown == 0) {
+        				clearInterval(smsTime);
+        				$(obj).css("color","#f35f5f");
+        				$(obj).html("重发验证码");
+        				$(obj).attr("state", "sent");
+        				count = 0;
+        			} else {
+        				$(obj).html(countdown + "秒后重发");
+        			}
+        		}, 1000);
+        	}
+        	return count;
+        }
+
+        //首页
+    	function goBack(obj){
+    		window.location.href="/localQuickPurchase/distributionVA/index";
+    	}
+    </script>
+</body>
+</html>

@@ -1,0 +1,1259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta name = "format-detection" content = "telephone=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport"
+		  content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>商品详情</title>
+	<link rel="stylesheet" href="/goods/css/hui/hui.css">
+	<link rel="stylesheet" href="/goods/css/main.css">
+	<link rel="stylesheet" href="/goods/css/style.css">
+	<link rel="stylesheet" href="/goods/css/hcx.css">
+	<link rel="stylesheet" href="/goods/css/funing.css">
+	<link rel="stylesheet" href="/goods/css/goodsAttr.css">
+	<style type="text/css">
+		/* ----------2018.5.15 商品详情新版样式 ------- begin ----------- */
+		.hui-header h1 {
+			font-size: 18px;
+			height: 44px;
+			line-height: 46px;
+			overflow: hidden;
+			padding: 0px 38px 0px 38px;
+			text-align: center;
+			font-weight: 400;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			color: #212121;
+		}
+		.checkedMore {
+			width: 38px;
+			line-height: 42px;
+			text-align: center;
+			position: absolute;
+			z-index: 1;
+			right: 10px;
+			top: 0px;
+		}
+		.checkedMore img {
+			width: 1.25rem;
+			margin-top: 0.8rem;
+		}
+		.pull-right {
+			float: right !important;
+		}
+		.prBox .pull-right .ob {
+			display: inline-block;
+			text-align: center;
+			color: #ff0000;
+			font-size: 0.384rem;
+			/* width: 1rem; */
+			border: 1px solid #ff0000;
+			height: 0.6rem;
+			line-height: 0.65rem;
+		}
+		.prBox .pull-right .sale_goods {
+			display: inline-block;
+			padding-right: 0.3rem;
+			border-right: 1px solid #717171;
+			line-height: 0.6rem;
+		}
+		/* ----------2018.5.15 商品详情新版样式 ------- end ----------- */
+
+		/* ----------2018.5.18 限时秒杀砍掉加入购物车功能 -- 样式 begin 开放功能需去掉样式----- */
+		.dtFooter .dtItem.dtRight {
+			width: 100%;
+		}
+		.specBtn .specBtn-item {
+			width: 100%;
+		}
+		/* ----------2018.5.18 限时秒杀砍掉加入购物车功能 -- 样式 begin ----- */
+
+		.imgBox img{width: 100%;height: 100%;}
+		.hui-header {
+			border-bottom: 1px solid #e2e2e2 !important;
+		}
+
+		.hui-tab-active .g-title {
+			border-bottom: 2px solid #e4393c !important;
+		}
+		.hui-tab-title div {
+			width: 33% !important;
+			font-size: 0.6rem;
+			border-bottom: none;
+			line-height: 40px;
+		}
+		.hui-tab-title div {
+			height: 42px;
+			line-height: 42px;
+			float: left;
+			text-align: center;
+			width: 20%;
+			border-bottom: 2px solid #F4F5F6;
+		}
+
+		.headerBox {
+			width: 80%;
+			height: 100%;
+			margin: 0 auto;
+		}
+		.hui-tab-item{
+			position:relative !important;
+		}
+		.headerBox .headerItem {
+			width: 50%;
+			float: left;
+		}
+
+		.headerBox .headerItem.active .g-title {
+			border-bottom: 2px solid #e4393c;
+			color:#e4393c;
+		}
+
+		.pt_header {
+			margin: 44px 0;
+		}
+
+		.gPrice {
+			color: red;
+		}
+
+		.paramItem {
+			border-bottom: 1px solid #e6e6e6;
+		}
+		/* .soshm-pop-sites{margin-top:200px;} */
+		/* 复制提示 */
+		.copy-tips {
+			position: fixed;
+			z-index: 999;
+			top: 30%;
+			left: 50%;
+			margin: 0 0 -20px -80px;
+			background-color: rgba(0, 0, 0, 0.2);
+			filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#30000000,
+			endColorstr=#30000000);
+			padding: 6px;
+		}
+
+		.copy-tips-wrap {
+			padding: 10px 20px;
+			text-align: center;
+			border: 1px solid #F4D9A6;
+			background-color: #FFFDEE;
+			font-size: 14px;
+		}
+
+		.goodsImg img {
+			width: 100%;
+			height: auto!important;
+		}
+		.goodsImg {
+			height: auto!important;
+		}
+		.imgAndTxt img {
+			width: 100%;
+			height: auto;
+		}
+
+		.goodsList .goodsItem .gImg img {
+			height: 7rem;
+		}
+
+
+		.share-content {
+			margin-top: 1rem;
+		}
+
+		.share-content .soshm-item {
+			margin: 0;
+			width: 25%;
+		}
+
+		.soshm-item .soshm-item-text {
+			display: block;
+			font-size: 14px;
+			color: #212121;
+			font-size: 0.512rem;
+			margin-top: 4px;
+		}
+
+		.share-block ul {
+			height: auto;
+		}
+
+		.share-block .share-content .soshm-item .soshm-item-icon {
+			width: 40%;
+			height: auto;
+			margin-top: 2px;
+		}
+
+		.soshm-item-icon img {
+			height: auto !important;
+		}
+
+		.ewmcode {
+			position: fixed;
+			margin-top: 80px;
+			text-align: center;
+			top: 1rem;
+			left: 0;
+			right: 0;
+			width: 80%;
+			margin: 0 auto;
+			z-index: 1000;
+		}
+
+		.share-block {
+			position: fixed;
+		}
+
+		.mask {
+			opacity: 1;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 998;
+			position:fixed;
+		}
+
+		.ewmcode {
+			width: 68%;
+			text-align: center;
+		}
+
+		.imgBox {
+			height: inherit
+		}
+		.imgBox .hui-swipe-item .logo-618{
+			display:block;
+			position:absolute;
+			right:0;
+			top:2rem;
+			width:3rem;
+			height:3rem;
+			background:url("/localQuickPurchase/distributionApp/images/618logo.jpg") no-repeat center;
+			background-size:contain;
+		}
+		.share-block ul li img {
+			width: 50%;
+		}
+
+		.sltBox .sltGood .sltDetail .slt-stock {
+			font-size: .68rem;
+			line-height: 1.08rem;
+		}
+
+		.styleColors {
+			color: #999999;
+		}
+		/*图标字体开始*/
+		@font-face {
+			font-family: 'fontello';
+			src: url('/common/font/fontello.eot?23036015');
+			src:
+					url('/common/font/fontello.eot?23036015#iefix')
+					format('embedded-opentype'),
+					url('/common/font/fontello.woff?23036015')
+					format('woff'),
+					url('/common/font/fontello.ttf?23036015')
+					format('truetype'),
+					url('/common/font/fontello.svg?23036015#fontello')
+					format('svg');
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		.font-ico {
+			font-family: "fontello";
+			font-style: normal;
+			font-weight: normal;
+			speak: none;
+			display: inline-block;
+			text-decoration: inherit;
+			vertical-align: top;
+			color: #000;
+			font-size: 1.25rem;
+			margin: 0 0 0 .1rem;
+		}
+		/*图标字体结束*/
+		.go-back {
+			position: absolute;
+			left: 5%;
+			top: 0;
+			height: 2.5rem;
+			line-height: 2rem;
+			width: 10%;
+			text-align: left;
+			cursor: pointer;
+		}
+
+		body {
+			padding-bottom: 2.4rem;
+		}
+		.adressN{font-size: .68rem;}
+		.adressN span{float:left;}
+		.adressN .shopAddress{width:70%;margin-left:8px;}
+		.sltBox .numBox label em{font-size: 70%;
+			line-height: 100%;
+			font-style: normal;
+			color: #e4393c;}
+
+		#spec {color: #130101}
+		/*  .sltBox {height : 75%} */
+
+		.specName {
+			border-top: 1px solid #e2e2e2;
+			width: 90%;
+			margin: 0 auto;
+		}
+		.nogood{color:#ccc;}
+		.sltBox {
+			width: 100%;
+			height: 20rem !important;
+			overflow: auto;
+			position: fixed;
+			left: 0;
+			background: #fff;
+			border-top: 1px solid #e2e2e2;
+			z-index: 1003;
+			transition: all .5s;
+		}
+		.sltBox .sltGood .sltImg {
+			width: 30% !important;
+			height: 5rem;
+			border: 1px solid #e2e2e2;
+			float: left;
+			text-align: center;
+		}
+		.sltBox .sltGood .sltDetail {
+			float: left;
+			padding-left: .6rem;
+			padding-top: 0rem !important;
+			width: 65% !important;
+		}
+		.sltBox .sltGood .sltDetail .slt-txt {
+			font-size: .6rem !important;
+			line-height: 1.08rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+		}
+
+		.specBtn {
+			width: 100%;
+			height: 44px;
+			line-height: 44px;
+			position: fixed;
+			background: #fff;
+			bottom: 0;
+		}
+		.spec-box .spec-list .spec-item {
+			width: auto;
+			height: auto;
+			font-size: .6rem;
+			line-height: 0.8rem !important;
+			border-radius: .6rem;
+			float: left;
+			padding: .2rem .8rem;
+			background: rgb(245,245,245);
+			margin: .2rem .4rem;
+		}
+		.spec-box .spec-list {
+			border-bottom: 1px solid #e2e2e2;
+			padding: .4rem 0 !important;
+		}
+		.spec-box .spec-list .spec-title {
+			font-size: .7rem !important;
+			color: #212121;
+			line-height: 1.2rem;
+		}
+		.sltBox .numBox {
+			position: fixed;
+			bottom: 44px;
+		}
+		.spec-box {
+			border-top: 1px solid #e2e2e2;
+			width: 90%;
+			margin: 0 auto;
+			height: 9.5rem;
+			overflow: auto;
+		}
+		.g-titles{ color:red;}
+		.imgBox{
+			position:relative;
+		}
+		.poster{
+			position:absolute;
+			left:0;
+			right:0;
+			bottom:5%;
+			width:20%;
+			margin:0 auto;
+			border-radius:1rem;
+			background:rgba(0,0,0,0.3);
+			color:#d4d8d6;
+			height:1.5rem;
+			line-height:1.5rem;
+			font-size:0.6rem;
+			z-index:100;
+		}
+		.buyyel {
+			color: #fff !important;
+			background: #ffcc00 !important;
+			border-top: 1px solid #ffcc00 !important;
+		}
+		.selfConfessed {font-size:14px}
+		.manageBottom .mbItem.mb30 {
+			width: 40%!important;
+		}
+		#hui-dialog-in {
+			background: rgb(205, 204, 198)!important;
+		}
+		.good-introduce .hui-tab-item{position:relative;}
+
+		.goodsList .goodsItem .gDetail {
+			width: 95%!important;
+		}
+		/*定时器样式*/
+		.show-time {
+			border-top: 1px solid #e2e2e2;
+			/* border-bottom: 1px solid #e2e2e2; */
+			margin-top: .4rem;
+			font-size: .72rem;
+			color: #ad9312;
+			line-height: 42px;
+			position: relative;
+		}
+		.specBox {
+			margin-top: .0rem!important;
+		}
+		.goodsColor {
+			color: #a7a7a7;
+		}
+		.manageBottom{
+			display: none;
+		}
+		.date-con{overflow:hidden;padding:10px 10px 10px;height:1rem;line-height:1rem;border-top: 1px solid #eeeeee;}
+		.date-title{float:left;}
+		.date-info{float:right;}
+		.date-con span{
+			font-size:.6rem;
+			color:#666;
+
+		}
+		.date-info .date-info-text{
+			margin-right:5px;
+		}
+		.date-con .date-text{
+			padding:.1rem;
+			background-color:#666;
+			color:#fff;
+			border-radius:1px;
+			font-size:.4rem
+		}
+		.date-con .date-icon{
+			font-size:.6rem;
+			/*margin:0 .3rem;*/
+		}
+		/*选中规格样式*/
+		.active {
+			color: #fff;
+			background-color: #db0020 !important;
+			border-bottom: none !important;
+			position: relative;
+			overflow: visible;
+		}
+	</style>
+</head>
+<body>
+<header class="hui-header"> <a href="javascript:;"
+							   class="go-back"><i class="tb-left-ico font-ico">&#xe936;</i></a>
+	<div class="shareTop" id="shareTops"></div>
+	<h1>商品详情</h1>
+</header>
+<div class="hui-wrap">
+	<div class="goodsPage">
+		<div class="goodsPage-item">
+			<div class="imgBox">
+				<div class="hui-swipe" id="swipe2">
+					<!--<div class="hui-swipe-item"><img src="<%=path%>/distributionApp/images/goods.png"/></div>
+					<div class="hui-swipe-item"><img src="<%=path%>/distributionApp/images/goods.png"/></div>
+					<div class="hui-swipe-item"><img src="<%=path%>/distributionApp/images/goods.png"/></div>
+					<div class="hui-swipe-item"><img src="<%=path%>/distributionApp/images/goods.png"/></div>-->
+				</div>
+				<div class="poster makePosters" style="text-align:center;">保存海报</div>
+			</div>
+			<!-- 618活动小广告图  start-->
+			<!--<div class="banner-img">
+			<img src="/goods/images/banner-sm.jpg" />
+		</div>-->
+			<!-- 618活动小广告图  end-->
+			<div class="detailBox">
+				<div class="name-txt goodsName">
+					<!-- 耐克新款roshow01轻快跑步鞋48521#4544555 -->
+				</div>
+				<div class="prBox hui-list">
+					<span class="pull-left font-md color_red"><!--分享好友下单立赚20.00元--></span>
+					<a class="pull-right"><img id="shareTops" style="height: 0.55rem;" src="/goods/images/gd_share.png"></a>
+				</div>
+				<div class="prBox">
+					<div class="price-txt prItem styleColor">
+						<label>秒杀价格：</label><i>&yen;</i><span
+							class="value distributionPrice"> <!-- 138.5 -->
+							</span>
+						<!-- <span class="att">￥238.0</span> -->
+					</div>
+					<div class="pull-right">
+						<span class="ob">严选</span>
+						<!-- <span class="font-md-3 color_gray2" id="marketNum">已售1089</span> -->
+						<span class="font-md-3 color_gray2 surplus_goods" style="display:none">剩余数量</span>
+					</div>
+					<!-- <div class="num-txt prItem"><label>库存量：</label><span class="value">10000</span><span class="att">件</span></div> -->
+				</div>
+				<div class="prBox">
+					<div class="price-txt prItem goodsColor">
+						<label>原价：</label><s><i>&yen;</i><span
+							class="value goodsPrice"> <!-- 138.5 -->
+							</span>
+					</s>
+					</div>
+				</div>
+				<div class="prBox">
+					<div class="num-txt prItem logisticsPrice">免运费</div>
+					<div class="num-txt prItem distance"><span class="value range"></span></div>
+				</div>
+				<div class="adressN"><span>商家地址:</span><span class="shopAddress"></span></div>
+
+				<!-- <div class="selfConfessed" style="display:none">
+                    剩余活动量：<span class="selfConfessed-num">10</span>
+                </div> -->
+				<!--定时器-->
+				<div class="date-con">
+					<span class="date-title">活动时间:</span>
+					<span class="date-title data-time"></span>
+					<div class="date-info"><span class="date-info-text"></span>
+						<span class="date-text hour" id="hour">00</span>
+						<i class="date-icon">:</i>
+						<span class="date-text minute" id="minute">00</span>
+						<i class="date-icon">:</i>
+						<span class="date-text second" id="second">00</span></div>
+				</div>
+
+				<div class="specBox buyBtn">选择规格<span class="checkedSpec"></span>
+					<span class="checkedMore">
+						<img src="/localQuickPurchase/distributionApp/images/gd_spec.png">
+					</span>
+				</div>
+				<div class="hui-tab">
+					<div class="title-container"  style="position: absolute;z-index: 1;">
+						<div class="hui-tab-title">
+							<div class="btn-tab">商品介绍</div>
+							<div class="btn-tab">规格参数</div>
+							<div class="btn-tab">购买须知</div>
+						</div>
+					</div>
+					<!--通知tab-->
+					<div class="hui-tab-body good-introduce" style="margin-top: 2.7rem;">
+						<div class="hui-tab-item hui-list no-padding">
+							<!-- 618活动大广告图 start -->
+							<!-- <div class="active-banner-box">
+							<img src="/goods/images/618banner.png" />
+						</div> -->
+							<!-- 618活动大广告图 end -->
+							<div class="imgAndTxt">
+								<img src="/goods/images/inst.png" />
+							</div>
+						</div>
+						<div class="hui-tab-item hui-list no-padding">
+							<div class="paramList"></div>
+							<div class="goodsImg">
+								<!--<img src="/goods/images/goods.png" />-->
+							</div>
+							<div class="recommendBox goodsBox">
+								<div class="goodsBox-header">商品推荐</div>
+								<div class="goodsList"></div>
+							</div>
+						</div>
+						<!--消息tab-->
+						<div class="hui-tab-item hui-list no-padding">
+							<div class="txtBox">
+
+								<div class="txtItem">
+									<div class="txtHeader">正品保障</div>
+									<div class="txtContent">
+										爱之家商品由中国联合保险承保正品保证险，品质保证，100%正品，假一赔十。</div>
+									<div class="txtHeader">服务保证</div>
+									<div class="txtContent">
+										爱之家商城为您提供“专业质检”“严选品牌商”“7天无理由退货”等服务，让您轻松购物有保障。</div>
+									<div class="txtHeader">发货时间</div>
+									<div class="txtContent">
+										买家付款成功后的36小时内完成发货，一般配送时间在1-3天。</div>
+									<div class="txtHeader">商品包邮</div>
+									<div class="txtContent">
+										爱之家支持全场包邮，部分偏远地区（如港澳台、新疆、西藏、内蒙古、青海等）除外。</div>
+									<div class="txtHeader">七天退换</div>
+									<div class="txtContent">
+										用户自收到爱之家商品之日起，在保证商品不影响第二次销售的前提下，7天内可享受无理由退换货（秒杀/活动商品除外）。</div>
+									<div class="txtHeader">退货运费</div>
+									<div class="txtContent">
+										非产品质量问题产生退货，由买家承担运费；如产品质量有问题，由供货商承担运费，买家先垫付邮费，待确认收货后联系平台客服处理退货运费。</div>
+									<div class="txtHeader">退款手续费</div>
+									<div class="txtContent">
+										您发起的退款申请将会产生1%的银行退款手续费，非商品质量问题发起的退货退款，该项费用将由买家承担。</div>
+								</div>
+							</div>
+							<div class="recommendBox goodsBox">
+								<div class="goodsBox-header">商品推荐</div>
+								<div class="goodsList"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="goodsPage-item">
+		<div class="hui-tab-item hui-list pt_header">
+			<div class="hui-tab">
+				<div class="title-container"  style="position: fixed;z-index: 1;">
+					<div class="hui-tab-title">
+						<div>商品介绍</div>
+						<div>规格参数</div>
+						<div>购买须知</div>
+					</div>
+				</div>
+				&lt;!&ndash;通知tab&ndash;&gt;
+				<div class="hui-tab-body" style="margin-top: 2.7rem;">
+					<div class="hui-tab-item hui-list no-padding">
+						<div class="imgAndTxt">
+							<img src="/goods/images/inst.png" />
+						</div>
+					</div>
+					<div class="hui-tab-item hui-list no-padding">
+						<div class="paramList"></div>
+						<div class="goodsImg">
+							<img src="/goods/images/goods.png" />
+						</div>
+						<div class="recommendBox goodsBox">
+							<div class="goodsBox-header">商品推荐</div>
+							<div class="goodsList"></div>
+						</div>
+					</div>
+					&lt;!&ndash;消息tab&ndash;&gt;
+					<div class="hui-tab-item hui-list no-padding">
+						<div class="txtBox">
+
+							<div class="txtItem">
+								<div class="txtHeader">正品保障</div>
+								<div class="txtContent">
+									爱之家商品由中国联合保险承保正品保证险，品质保证，100%正品，假一赔十。</div>
+								<div class="txtHeader">服务保证</div>
+								<div class="txtContent">
+									爱之家商城为您提供"专业质检""严选品牌商""7天无理由退货"等服务，让您轻松购物有保障。</div>
+								<div class="txtHeader">发货时间</div>
+								<div class="txtContent">
+									买家付款成功后的48小时内完成发货，一般配送时间在1-3天。</div>
+								<div class="txtHeader">商品包邮</div>
+								<div class="txtContent">
+									爱之家支持全场包邮，部分偏远地区（如港澳台、新疆、西藏、内蒙古等）除外</div>
+								<div class="txtHeader">七天退换</div>
+								<div class="txtContent">
+									用户自收到爱之家商品（会员升级包除外）之日起，在保证商品不影响第二次销售的前提下，7天内可享受无理由退换货。</div>
+								<div class="txtHeader">退货运费</div>
+								<div class="txtContent">
+									非产品质量问题产生退货，由买家承担运费；如产品质量有问题，由爱之家承担运费，买家先垫付邮费，待确认收货后联系平台客服处理退货运费。</div>
+							</div>
+						</div>
+						<div class="recommendBox goodsBox">
+							<div class="goodsBox-header">商品推荐</div>
+							<div class="goodsList"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>-->
+	</div>
+</div>
+</div>
+<!-- 底部管理栏 -->
+
+<!-- 消费者的底部管理栏 -->
+<div class="dtFooter">
+	<div class="dtItem dtRight buyBtn">立即购买</div>
+</div>
+<!-- 二维码 -->
+<div class="mask">
+	<div class="ewmcode" value="0">
+		<img src="" />
+	</div>
+</div>
+
+<div class="sltBox">
+	<div class="closeBtn"></div>
+	<div class="sltGood">
+		<div class="sltImg goodsImg">
+			<img src="" />
+		</div>
+		<div class="sltDetail">
+			<div class="slt-txt styleColor slt-price"></div>
+			<div class="slt-stock styleColors slt-stock">
+				起卖量：<span class="stock-num"></span>
+			</div>
+			<div class="slt-txt slt-spec">选择规格</div>
+		</div>
+	</div>
+	<!--商品规格 -- 渲染-->
+	<div class="spec-box" id="wrap1">
+	</div>
+	<div class="numBox" style="display:none;">
+		<label>数量<em id="singular"><!--(最大下单数911)--></em></label>
+		<div class="nbox">
+			<div class="nbox-item nbox-reduce"></div>
+			<div class="nbox-item nbox-input">
+				<input type="text" class="nbox-txt" maxlength="3" name="numValue" value="1" />
+			</div>
+			<div class="nbox-item nbox-add"></div>
+		</div>
+	</div>
+
+	<div class="specBtn" style="display:none;">
+		<div class="specBtn-item buyNow" num="goodsId" residual="quantity">立即购买</div>
+	</div>
+</div>
+<div class="share-block hui-text-center dis_share" style="height: auto">
+	<div class="bringIn">分享商品</div>
+	<p class="explain">只要你的好友通过你的链接买此商品，你就能得到此商品的利润哦~</p>
+	<ul class="share-content">
+
+	</ul>
+	<ul style="overflow: hidden;">
+		<li class="copylink"><img src="/goods/images/share_icon_5.png" />
+			<p>二维码链接</p></li>
+		<li class="shopCode" value="0"><img src="/goods/images/share_icon_4.png" />
+			<p>二维码</p></li>
+	</ul>
+	<div class="hui-text-center" style="padding: 0 0 1rem;" id="closeShare">
+		<img src="/goods/images/classfiyImg2.png" width="20">
+	</div>
+</div>
+
+<script type="text/javascript" src="/goods/js/jquery.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/tag.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js?v=1"></script>
+<script type="text/javascript" src="/goods/js/sry.js"></script>
+<script type="text/javascript" src="/goods/js/hui/hui.js"></script>
+<script type="text/javascript" src="/goods/js/hui/hui-tab.js"></script>
+<script type="text/javascript" src="/goods/js/hui/hui-swipe.js"></script>
+<script type="text/javascript" src="/goods/js/clipboard.js"></script>
+<script type="text/javascript" src="/goods/js/toolUtils.js"></script>
+<script type="text/javascript" src="/goods/js/soshm.js"></script>
+<script type="text/javascript" src="/goods/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/common/js/userRole.js"></script>
+<script type="text/javascript" src="/common/js/footer.js"></script>
+<script type="text/javascript" src="/common/js/token.js"></script>
+<script type="text/javascript" src="/common/js/browser.min.js"></script>
+<script type="text/javascript" src="/goods/js/sgDetail.js"></script>
+<script type="text/javascript">
+    var shareSeq = getQueryString("shareSeq"); // 分享该商品的用户seq
+    //普通用户
+    if(isRoleConsumer()) {
+            if(shareSeq != null && shareSeq != "") {
+                setCookie("shareSeq",shareSeq,1);
+            } else {
+                setCookie("shareSeq",shareSeq,1);
+            }
+    }
+    if (shareSeq == undefined || shareSeq == ""){
+        shareSeq = 0;
+	}
+    console.log(shareSeq);
+    var shopSeq = 0;// 商品的seq
+    var supplierSeq = 0;// 商品供货商的seq
+    var goodsName = "";// 商品名
+    var urlVal = window.location.href;// 该商品的地址
+    var salesVolume = 1;// 起卖量
+    var orderSku = "";
+    var spec = "";//商品规格
+	var goodsSkuList = [];
+    // 初始化商品详情
+    goodsInit();
+    // 初始化
+    hotSale();
+	/**
+	 * uuid 的获取
+	 */
+    var _uuid = $.cookie('uuid');
+    if(_uuid == null) {
+        var uuid = guid();
+        $.cookie('uuid', uuid, { expires: 1, path: '/' });
+    }
+
+    /**
+	 * 分享相关操作
+	 */
+    //点击分享弹出层
+    $("body").on("click","#shareTops",function() {
+        if(!isLogin()){
+            setCookie("loginRetrunUrl",urlVal);
+            noLogin();
+        } else{
+            // 分享
+            var appUrl = shareURL;
+            //判断是否是app
+            var u = navigator.userAgent;
+            var shareGoodsPic = $(".hui-swipe-item").find("img:first").attr("src");
+            var isappwebview = u.indexOf('app_webview') > -1
+            if(isappwebview){
+                //点击分享
+                share520Love(appUrl,goodsName,'',shareGoodsPic,'.share-content');
+            } else{
+                share520LoveWeb(appUrl,goodsName,'',shareGoodsPic,'.share-content');
+                hui.dialogBase();
+                $(".share-block").slideDown(200);
+            }
+        }
+
+
+    });
+    // 请求获取“商品二维码”
+    $(".ewmcode img").attr("src","/goods/seckillGoods/goodsCode/"+goodsId+"/"+userSeq);
+    $(".ewmcode").hide();
+    // 点击“复制链接”执行的操作
+    var clipboard = new Clipboard('.copylink', {
+        // 点击copy按钮，直接通过text直接返回复印的内容
+        text: function() {
+            var link = shareURL;
+            return link;
+        }
+    });
+    //“复制成功”的提示
+    clipboard.on('success', function(e) {
+        var $copysuc = $("<div class='copy-tips'><div class='copy-tips-wrap'>☺ 复制成功</div></div>");
+        $("body").find(".copy-tips").remove().end().append($copysuc);
+        $(".copy-tips").fadeOut(2000);
+        e.clearSelection();
+    });
+    clipboard.on('error', function(e) {
+        hui.toast('复制失败!');
+    });
+	//二维码图片的点击事件
+    $(".shopCode").click(function(){
+        var ewmcodeVal = $(".ewmcode").attr("value");
+        if(ewmcodeVal == "0"){
+            $(".mask").show();
+            $(".ewmcode").show();
+            $(".ewmcode").attr("value","1");
+        } else{
+            $(".mask").hide();
+            $(".ewmcode").hide();
+            $(".ewmcode").attr("value","0");
+        }
+    });
+
+    /**
+	 *  点击“保存海报” 执行的操作
+	 */
+    $(".makePosters").click(function(){
+        var href = window.location.href;
+        var urlsub= href.substring(0,href.indexOf("distributionVA/"));
+        var urlstr= shareURL;
+        //调手机原生去下载；
+        var u = navigator.userAgent;
+        var isappwebview = u.indexOf('app_webview') > -1
+        if(isappwebview){
+            // 调app原生图片保存
+            var  downImgParam= urlsub + "sgMongoAction/makePostersIO"+"?seq="+seq+"&goodsId="+goodsId + "&url="+urlstr;
+            window.action.downImg(downImgParam);
+        }else{
+            downLoadImg("${path}/sgMongoAction/makePostersIO"+"?seq="+seq+"&goodsId="+goodsId + "&url="+urlstr,"shareRecuit.png");
+        }
+    });
+    /**
+	 * 点击分享后弹出的背景层
+	 */
+    $(".mask").click(function(){
+        $(".sharebox").removeClass('active');sltHide();
+        $(".specBtn").hide();
+        $(".numBox").hide();
+        $(".ewmcode").hide();
+        $(".ewmcode").attr("value","0");
+    });
+
+    /**
+	 * “商品介绍”
+	 * “规格参数”
+	 * “购买须知”
+	 *  tab 切换事件
+     */
+    $(".btn-tab").on("click",function(){
+        var idx = $(this).index();
+        $(this).addClass("hui-tab-active").siblings().removeClass("hui-tab-active")
+        $(".good-introduce .hui-tab-item").eq(idx).show();
+        $(".good-introduce .hui-tab-item").eq(idx).siblings(".hui-tab-item").hide();
+    });
+    $(".hui-tab-title div").eq(0).click();
+    var vh = $(".sltBox").height()+100;
+    function sltHide(){
+        $(".mask").fadeOut("slow");
+        $(".sltBox").css("bottom",-vh);
+    }
+    hui(".hui-tab-title div").click(function(){
+        var currentIndex=$(".hui-tab-body .hui-tab-item").eq($(this).index()).height()+54
+        $(".hui-tab-body").css("height",currentIndex);
+    });
+
+    $(function(){
+        sltHide();
+        Num.init();
+        Num.handle();
+    });
+
+    $(".goodsPage-item").eq(0).show().siblings().hide();
+
+    function sltShow(){
+        $(".mask").fadeIn("slow");
+        $(".sltBox").css("bottom",0);
+    };
+
+    /**
+	 * 规格的点击事件
+     */
+    $(".buyBtn").click(function(){
+        sltShow();
+        $(".specBtn").show();
+        setTimeout(function(){ $(".numBox").show(); }, 400);
+        //关闭弹出层
+        $(".closeBtn").click(function(){
+            sltHide();
+            $(".specBtn").hide();
+            $(".numBox").hide();
+        });
+        $(".specBtn-item.buyNow").attr("num",goodsId);
+        $(".specBtn-item.addCart").attr("num",goodsId);
+    });
+
+    /**
+	 * “立即购买”的点击事件
+     */
+    $(".buyNow").click(function(){
+        var goodsId = $(this).attr("num");
+        if (!activity){
+            hui.alert("该商品活动还没开始，请留意活动开始时间！");
+            return;
+        }
+        console.log(goodsId);
+        if(!isLogin()){noLogin();return;}
+
+        var ishas = $(this).hasClass("buyyel");
+        if(ishas) {
+            hui.alert("该规格已售罄~,请选择其他规格！");
+            return;
+        }
+
+        var num = Number($("input[name=numValue]").val());//商品数量
+        var an = $(".spec-list").length;
+        var sn = $(".spec-item.active").length;
+        if(an != sn) {
+            hui.toast("请选择商品规格");
+            return;
+        }
+
+        var goodsNum = num;
+        if(num <= 0){
+            //hui.toast("请选择购买数量!");
+            hui.toast("该商品的起卖量是"+salesVolume);
+            $("input[name=numValue]").val(salesVolume);
+        } else if(num < salesVolume){
+            //hui.toast("购买数量要大于起卖量!");
+            hui.toast("该商品的起卖量是"+salesVolume);
+            $("input[name=numValue]").val(salesVolume);
+        } else if(num > distributionStock){
+            hui.toast("最大订单数量为"+distributionStock);
+
+        } else{
+            var quantity = $(this).attr("residual");
+            if (Number(num) > Number(quantity)) {
+                hui.toast("最大订单数量为:"+quantity);
+                $("input[name=numValue]").val(quantity);
+                return;
+            }
+            if (goodsId != null && quantity > 0) {
+                shopSeq = shopSeq == null ? 0 : shopSeq;
+                supplierSeq = supplierSeq == null ? 0 : supplierSeq;
+                var url = "/localQuickPurchase/distribution/html/placeOrder.jsp"+
+                    "?goodsId="+goodsId+"&shareSeq="+ shareSeq +"&quantity="+goodsNum+"&seq="+seq+"&shopSeq="+shopSeq+"&spec="+spec+"&sku="+orderSku+"&isActivityGoods=1";
+                window.location.href=url;
+            } else {
+                hui.alert("该规格已售罄~,请选择其他规格！");
+            }
+        }
+    });
+
+    /**
+	 * 下单数量：最大下单数量 和 最小下单数量 的限制
+     * @type {{num: number, maxNum: number, init: Num.init, handle: Num.handle}}
+     */
+    var Num = {
+        num:salesVolume == null ? 1 : salesVolume,
+        maxNum:999,
+        init:function(){
+            $("input[name=numValue]").val(Num.num);
+        },
+        handle:function(){
+            $("input[name=numValue]").change(function(){
+                if(!checkNum($(this).val())){$(this).val(0);}
+                if($(this).val()>=Num.maxNum){$(this).val(Num.maxNum);}
+                Num.num = $(this).val();
+            });
+            $(".nbox-reduce").click(function(){
+                if(!checkNum(Num.num)){$("input[name=numValue]").val(0);}
+                if(Num.num==salesVolume){return;}
+                var numNum = $("input[name=numValue]").val();
+                numNum--;
+                Num.num = numNum;
+                if(numNum < salesVolume){
+                    hui.toast("购买数量不能小于起卖量");
+                    return;
+                }
+                $("input[name=numValue]").val(numNum);
+            });
+            $(".nbox-add").click(function(){
+                if(!checkNum(Num.num)){$("input[name=numValue]").val(0);}
+                if(Num.num>=Num.maxNum){hui.toast("已经是最大购买量");return;}
+                var numNum = $("input[name=numValue]").val();
+                numNum++;
+                Num.num = numNum;
+                if(numNum > Num.maxNum){
+                    hui.toast("购买量不能大于999");
+                    return;
+                }
+                $("input[name=numValue]").val(numNum);
+            });
+            function checkNum(n){
+                var reg = /^[0-9]\d*$/;
+                if(reg.test(n)){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
+    };
+
+    $(function() {
+        //分享弹出层：图标“×”的点击事件
+        $("#closeShare").click(function() {
+            hiddend();
+        });
+        function hiddend() {
+            $("html,body").css("overflow", "visible");
+            hui.dialogClose();
+            $(".share-block").slideUp(200);
+            $(".ewmcode").hide();
+        }
+        //点击分享弹窗以外的地方隐藏弹窗
+        $("body").on("click", "#hui-mask", function() {
+            hiddend();
+        });
+
+        //返回上一步的点击事件
+        $("body").on("click",".go-back",function() {
+            var jumpUrl = "/localQuickPurchase/distributionVA/index";
+            var returnAddressUrl = document.referrer;
+            if (returnAddressUrl == ""
+                || returnAddressUrl.indexOf("login") > 0
+                || returnAddressUrl.indexOf("Login") > 0) {
+                window.location.href = jumpUrl;
+            } else {
+                hui.back();
+            }
+        });
+    });
+
+</script>
+<script type="text/babel">
+
+    class GoodsAttr {
+        constructor(options) {
+            this.settings = {
+                // 商品列表
+                goodsList: [],
+
+                // 此功能作用区块范围 - jquery对象
+                jqWrap: $('#wrap'),
+                // 高亮（选中）className
+                activeCls: 'active',
+                // 禁用className
+                disabledCls: 'disabled',
+                // 每个质数项的属性名
+                primeAttr: 'data-prime',
+                // 每个属性行的 className
+                rowCls: 'attr-row',
+
+                // 成功匹配到商品
+                success(product) {
+                    console.info(product);
+                },
+            };
+
+            this.settings.goodsList = options.goodsList;
+            this.settings.jqWrap = options.jqWrap;
+            this.settings.success =  options.success;
+            const settings = this.settings;
+
+            // 乘积初始值
+            this.multiplyResult = 1;
+
+            // 所有属性行的集合
+            this.jqRows = settings.jqWrap.find('.' + settings.rowCls);
+            // 所有选项集合
+            this.jqItems = settings.jqWrap.find('[' + settings.primeAttr + ']');
+
+            // 未找到行或项
+            if (this.jqRows.length === 0 || this.jqItems.length === 0) {
+                throw 'No line|items found';
+            }
+
+            // 执行初始化
+            this.init();
+
+            // 绑定事件
+            this.bindEvent();
+        }
+
+        // 初始化
+        init() {
+            // 1.禁用所有非选中项
+            this.disableAll();
+            // 2.计算乘积
+            this.multiplys();
+            // 3.每行处理
+            this.rowHandle();
+            // 4.返回结果重
+            this.resultHandle();
+        }
+
+        // 绑定事件
+        bindEvent() {
+            const self = this;
+            const settings = this.settings;
+
+            settings.jqWrap.on('click', '[' + settings.primeAttr + ']', function () {
+
+                if ($(this).hasClass(settings.activeCls)) {
+                    $(this).removeClass(settings.activeCls);
+                } else if($(this).hasClass(settings.disabledCls)) {
+                    return;
+                } else {
+                    $(this).addClass(settings.activeCls).siblings().removeClass(settings.activeCls);
+                }
+                self.init();
+            });
+        }
+
+        // 置灰所有未选中项
+        disableAll() {
+            const self = this;
+            this.jqItems.each(function (index, item) {
+                if (!$(item).hasClass(self.activeCls)) {
+                    $(item).addClass(self.disabledCls)
+                }
+            });
+        }
+
+        // 选中项乘积
+        multiplys() {
+            this.multiplyResult = 1;
+
+            const self = this;
+            const settings = this.settings;
+            const $actives = settings.jqWrap.find('.' + settings.activeCls);
+            $actives.each(function (index, item) {
+                self.multiplyResult *= $(item).attr(settings.primeAttr);
+            });
+        }
+
+        // 每行属性处理
+        rowHandle() {
+            const self = this;
+            const settings = this.settings;
+
+            // 遍历每一行
+            self.jqRows.each(function (index, item) {
+                // 当前行所有项
+                let $items = $(item).find('[' + settings.primeAttr + ']');
+                // 当前行的质数
+                let currentRowPrime = $(item).find('.' + settings.activeCls).attr(settings.primeAttr) || 1;
+                // 其他所有行选中项的乘积
+                let otherRowPrimeMultiply = self.multiplyResult / currentRowPrime;
+                // 给当前行可用项去除禁用
+                self.removeDisable($items, otherRowPrimeMultiply);
+            });
+        }
+
+        // 给一行可用项去除禁用
+        removeDisable($items, otherRowPrimeMultiply) {
+            const self = this;
+            const settings = this.settings;
+            $items.each(function (index, item) {
+                let prime = $(item).attr(settings.primeAttr);
+                let list = settings.goodsList;
+                let can = false;
+                for (let i = 0; i < list.length; i++) {
+                    if(list[i].productNumber % (prime * otherRowPrimeMultiply) === 0) {
+                        can = true;
+                    }
+                }
+                if (can) {
+                    $(item).removeClass(settings.disabledCls);
+                } else {
+                    $(item).addClass(settings.disabledCls);
+                }
+            });
+        }
+
+        // 选中项乘积对应商品列表中的索引 不存在返回-1
+        multiplyIndex() {
+            // 计算乘积对应的key
+            let idx = -1;
+            let list = this.settings.goodsList;
+            let hasProduct = false;
+            for(let i = 0; i < list.length; i++) {
+                idx = i;
+                if(list[i].productNumber == this.multiplyResult) {
+                    hasProduct = true;
+                    break;
+                }
+            }
+            return hasProduct ? idx : -1;
+        }
+
+        //结果处理
+        resultHandle() {
+            const index = this.multiplyIndex();
+            const settings = this.settings;
+
+            if (index > -1) {
+                const product = settings.goodsList[index];
+                if (typeof settings.success === 'function') {
+                    settings.success(product);
+                }
+            } else {
+                if (typeof settings.fail === 'function') {
+                    settings.fail();
+                }
+            }
+        }
+    }
+    //商品规格
+    var goodsAttr1 = new GoodsAttr({
+        jqWrap: $('#wrap1'),
+        goodsList: goodsSkuList,
+        success(product) {
+            orderSku = product.sku;
+            getPriceForSelectSku(orderSku);
+        }
+    });
+</script>
+</body>
+</html>

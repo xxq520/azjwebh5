@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>赠送记录</title>
+    <link rel="stylesheet" type="text/css" href="/localQuickPurchase/coupons/css/mescroll.min.css">
+    <link rel="stylesheet" type="text/css" href="/localQuickPurchase/coupons/css/hui.css">
+    <link rel="stylesheet" type="text/css" href="/localQuickPurchase/coupons/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/localQuickPurchase/coupons/css/giveRecord.css">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-touch-callout:none;
+            -webkit-user-select:none;
+            -webkit-tap-highlight-color:transparent;
+        }
+        body{background-color: white}
+        ul{list-style-type: none}
+        a {text-decoration: none;color: #18B4FE;}
+
+        /*模拟的标题*/
+        .header{
+            z-index: 9990;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            background-color: white;
+        }
+        .header .btn-left{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding:12px;
+            line-height: 22px;
+        }
+        .header .btn-right{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0 12px;
+        }
+        /*说明*/
+        .notice{
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+            color:#555;
+        }
+        .btn-change{
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 14px;
+            padding: 3px 15px;
+            text-align: center;
+            border: 1px solid #FF6990;
+            border-radius: 20px;
+            color: #FF6990;
+        }
+        .btn-change:active{
+            opacity: .5;
+        }
+        /*列表*/
+        .mescroll{
+            position: fixed;
+            top: 44px;
+            bottom: 0;
+            height: auto;
+        }
+        /*展示上拉加载的数据列表*/
+        .data-list li{
+            position: relative;
+            padding: 10px 8px 10px 120px;
+            border-bottom: 1px solid #eee;
+        }
+        .data-list .pd-img{
+            position: absolute;
+            left: 18px;
+            top: 18px;
+            width: 80px;
+            height: 80px;
+        }
+        .data-list .pd-name{
+            font-size: 16px;
+            line-height: 20px;
+            height: 40px;
+            overflow: hidden;
+        }
+        .data-list .pd-price{
+            margin-top: 8px;
+            color: red;
+        }
+        .data-list .pd-sold{
+            font-size: 12px;
+            margin-top: 8px;
+            color: gray;
+        }
+        .header {
+            width: 100%;
+            height: 1.9555rem;
+            position: fixed;
+            background: #fff;
+            top: 0;
+            left: 0;
+            z-index: 99;
+            border-bottom: 1px solid #ddd;
+        }
+        .header p {
+            height: 100%;
+            position: relative;
+            display: flex;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header img {
+            position: absolute;
+            left: 0.4444rem;
+            top: 50%;
+            margin-top: -0.4888rem;
+            width: 0.9777rem;
+            height: 0.9777rem;
+        }
+        .header p span {
+            color: #333;
+            font-size: 0.8rem;
+        }
+        .header p a{
+            position: absolute;
+            top: 50%;
+            right: .4444rem;
+            margin-top:-.3333rem;
+            font-size: .6222rem;
+        }
+        #hui-back {
+            width: 25px;
+            height: 25px;
+            font-family: "hui-font";
+            line-height: 44px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="giveRecord">
+        <!-- 头部导航 -->
+        <!--<header class="hui-header">
+            <div id="hui-back" ></div>
+            <h1 style="color:#333">赠送记录</h1>
+        </header>-->
+        <div class="header">
+            <p><img src="/localQuickPurchase/activity/images/back.jpg" id="hui-back"><span class="fs36">赠送记录</span></p>
+        </div>
+        <!-- 底部内容 -->
+       <!-- <div class="content">
+            <table width="100%">
+                <tr>
+                    <td>赠送对象</td>
+                    <td>赠送金额</td>
+                    <td>赠送时间</td>
+                    <td>状态</td>
+                </tr>
+                <tr>
+                    <td>我是小可爱</td>
+                    <td>￥100.00</td>
+                    <td>2018-10-18</td>
+                    <td class="unuse">未使用</td>
+                </tr>
+                <tr>
+                    <td>我是小可爱</td>
+                    <td>￥100.00</td>
+                    <td>2018-10-18</td>
+                    <td class="use">已使用</td>
+                </tr>
+                <tr>
+                    <td>我是小可爱</td>
+                    <td>￥100.00</td>
+                    <td>2018-10-18</td>
+                    <td class="reback">已退回</td>
+                </tr>
+            </table>
+        </div>-->
+        <!--滑动区域-->
+        <div id="mescroll" class="mescroll content">
+            <!--展示上拉加载的数据列表-->
+            <!--<table width="100%">
+                <tr>
+                    <td>赠送对象</td>
+                    <td>赠送金额</td>
+                    <td>赠送时间</td>
+                    <td>状态</td>
+                </tr>
+            </table>-->
+            <table width="100%" class="tabList" id="dataList">
+                <tr>
+                    <td>赠送对象</td>
+                    <td>赠送金额</td>
+                    <td>赠送时间</td>
+                    <td>状态</td>
+                </tr>
+                <!--<tr>
+                    <td>我是小可爱</td>
+                    <td>￥100.00</td>
+                    <td>2018-10-18</td>
+                    <td class="unuse">未使用</td>
+                </tr>
+                <tr>
+                    <td>我是小可爱</td>
+                    <td>￥100.00</td>
+                    <td>2018-10-18</td>
+                    <td class="use">已使用</td>
+                </tr>
+                <tr>
+                    <td>我是小可爱</td>
+                    <td>￥100.00</td>
+                    <td>2018-10-18</td>
+                    <td class="reback">已退回</td>
+                </tr>-->
+            </table>
+        </div>
+        
+    </div>
+    <script type="text/javascript" src="/localQuickPurchase/coupons/js/mescroll.min.js"></script>
+    <script type="text/javascript" src="/localQuickPurchase/coupons/js/hui.js"></script>
+    <script type="text/javascript" src="/localQuickPurchase/js/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="/common/js/common.js"></script>
+    <script type="text/javascript" src="/localQuickPurchase/coupons/js/giveRecord.js"></script>
+</body>
+</html>

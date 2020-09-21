@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/agreement.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="topBar">
+            <div class="back_btn" onclick="getBackClick()">
+                <img src="./img/comeback@2x.png" alt="">
+            </div>
+            <div class="title">用户协议</div>
+        </div>
+        <!-- 提示标题 -->
+        <div class="tip">
+            <img src="./img/tishi@2x.png" alt="">
+        </div>
+        <div class="textBox">
+            <div class="text">
+                <!--<img class="imgUrl" src=""/>-->
+                <!--<img class="imgUrl" src="./img/20190109100400.jpg"/>-->
+            </div>
+            <div class="save">
+                <div class="save_logo">
+                    <img src="./img/save@2x.png" alt="">
+                </div>
+                <span class="downloadAgreement">保存到本地</span>
+            </div>
+        </div>
+        <!-- 评价标题 -->
+        <div class="pinjia">
+            <img src="./img/pingjia@2x.png" alt="">
+        </div>
+        <div class="pinlunBox">
+            <p class="yiwen">以上方案是否解决了您的问题？</p>
+            <div class="muzhi">
+                <div class="good">
+                    <img src="./img/nice@2x.png" alt="">
+                    <p>有用</p>
+                </div>
+                <div class="fenjie"></div>
+                <div class="bad">
+                    <img src="./img/error@2x.png" alt="">
+                    <p>无用</p>
+                </div>
+            </div>
+        </div>
+        <div class="linkto">
+            <p class="noques">没找到相关问题？&nbsp;<span>联系客服</span></p>
+            <div class="gofor">
+                <img src="./img/gofor@2x.png" alt="">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+<script src="./js/jquery-3.3.1.min.js"></script>
+<script src="/localQuickPurchase/distributionApp/js/common.js"></script>
+<script src="./js/userAgreement.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distribution/js/toolUtils.js"></script>
+<script>
+    $(function () {
+        $('.good').click(function () {
+            if ($(this).find('img').attr('src') == './img/nice@2x.png') {
+                $(this).find('img').attr('src', './img/nice2@2x.png');
+                $(this).find("p").css("color", "red");
+                /*清空无用的*/
+                $('.bad').find('img').attr('src', './img/error@2x.png');
+                $('.bad').find("p").css("color", "#888888");
+                /*保存用户的满意度*/
+                saveAgreementSatisfaction(1);
+            } else {
+                $(this).find('img').attr('src', './img/nice@2x.png');
+                $(this).find("p").css("color", "#888888");
+                saveAgreementSatisfaction(0);
+            }
+        });
+        $('.bad').click(function () {
+            if ($(this).find('img').attr('src') == './img/error@2x.png') {
+                $(this).find('img').attr('src', './img/error2@2x.png');
+                $(this).find("p").css("color", "red");
+                /*清空有用的*/
+                $('.good').find('img').attr('src', './img/nice@2x.png');
+                $('.good').find("p").css("color", "#888888");
+                saveAgreementSatisfaction(2);
+            } else {
+                $(this).find('img').attr('src', './img/error@2x.png');
+                $(this).find("p").css("color", "#888888");
+                saveAgreementSatisfaction(0);
+            }
+        });
+    })
+</script>

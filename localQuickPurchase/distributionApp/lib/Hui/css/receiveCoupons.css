@@ -1,0 +1,166 @@
+html,
+body,
+div,
+ul,
+li,
+p,
+img,
+a,
+span ,i{
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+}
+
+img {
+}
+a{
+    text-decoration:none;
+    color:#999;
+}
+li {
+    list-style: none;
+}
+body{background-color:#fff !important;}
+.container {
+    /*width: 100%;*/
+/*     border: 1px solid #ccc; */
+}
+
+.swiper1 {
+    width: 100%;
+}
+
+.swiper1 .selected {
+    color: #ec5566;
+}
+
+.swiper1 .swiper-slide {
+    text-align: center;
+    font-size: .62rem;
+    height: 2rem;
+    line-height: 2rem;
+}
+
+.swiper2 {
+    width: 100%;
+}
+
+.swiper2 .swiper-slide {
+    height: calc(100vh - 92px);
+    background-color: #f5f5f5;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+}
+
+.coupons-list .coupons-item {
+    width: 15.6rem;
+    height: 5.42rem;
+    margin: .49rem auto 0;
+    background: url('/localQuickPurchase/distributionApp/images/bgReceive1.png') no-repeat center;
+    background-size: contain;
+}
+
+.coupons-list .left {
+    float:left;
+    width: 11.16rem;
+    padding: .33rem .62rem;
+    box-sizing: border-box;
+}
+
+.coupons-list .coupons-title {
+    text-align: left;
+    font-size: .67rem;
+    margin-bottom:.33rem;
+}
+
+.coupons-list .img-box {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: nowrap;
+    width:3.29rem;
+    height:3.29rem;
+    justify-content: space-between;
+}
+.coupons-list .img-box img{
+	width:100%;
+}
+.coupons-list .yhq-img {
+    width: 140px;
+    height: 140px;
+}
+.coupons-list .right{
+    float:right;
+    width:4.44rem;
+    height:5.42rem;
+    font-size:.44rem;
+    color:#fffbbb;
+    padding:.44rem 0;
+    box-sizing: border-box;
+}
+.coupons-list .desc{
+    margin-bottom:.44rem;
+}
+.coupons-list .yen {
+    font-size: .53rem;
+    color: #fffbbb;
+}
+.coupons-list .price{
+    font-size:.78rem;
+}
+.coupons-list .btns {
+    display:inline-block;
+    border:1px solid #fffbbb;
+    width:3.24rem;
+    height:1.07rem;
+    border-radius:1.33rem;
+    line-height:1.07rem;
+    font-weight:bold;
+    font-size:.53rem;
+    color: #fffbbb;
+    margin-bottom:.22rem;
+}
+.coupons-list .lingquan{
+    background-color:#fffbbb;
+    color:#e4393c;
+}
+.coupons-list .used,
+.coupons-list .overdue{
+    background-image: url('/localQuickPurchase/distributionApp/images/bg-usedReceive.png');
+    color:#fff;
+}
+.coupons-list .used .right,
+.coupons-list .overdue .right{
+    position:relative;
+   padding-top:.89rem;
+   color:#fff;
+}
+.coupons-list .used .yen,
+.coupons-list .overdue .yen {
+    color:#fff;
+}
+.coupons-list .used .btns,
+.coupons-list .overdue .btns {
+   display:none;
+}
+.coupons-list .used .used-seal,
+.coupons-list .overdue .overdue-seal {
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-top:-2.16rem;
+    margin-left:-2.16rem;
+    width:4.32rem;
+    height:4.32rem;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+}
+.coupons-list .used .used-seal{
+    background-image:url('/localQuickPurchase/distributionApp/images/used-bg.png');
+}
+.coupons-list .overdue .overdue-seal{
+    background-image:url('/localQuickPurchase/distributionApp/images/overdue-bg.png');
+}

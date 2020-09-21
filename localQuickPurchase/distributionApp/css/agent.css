@@ -1,0 +1,53 @@
+html{height: 100%;}
+body{height: 100%;}
+.container{width: 100%;min-width: 320px;max-width: 640px;margin: 0 auto;overflow-x: hidden;background: #FFFFFF;height: 100%;}
+.container .header{position: absolute; z-index:99;top:0;width:100%;min-width: 320px;max-width: 640px;height: 44px;line-height: 44px;background: #e43a3d;font-size: 0.75rem;color: #FFFFFF;text-align: center;}
+
+.container .header .get-back{ height: 44px; line-height: 44px; width:15%; position: absolute; left:0.5rem ; top: 0; text-align: left; color: #fff; font-size: 0.8rem;}
+.container .header .get-back i{ color: #fff;}
+.container .content{padding-top: 44px;padding-bottom: 2.04rem;height: 100%;}
+.container .content .agentTitle{padding-top: 17px;}
+.container .content .agentTitle .agentTitle-red{display: inline-block;vertical-align: top;margin-top:0.36rem;margin-left: 0.5rem;width: 0.11rem;height: 0.625rem;background: #ed1414;}
+.container .content .agentTitle .agentTitle1{display: inline-block;margin-top: 0.10rem;font-size: 0.625rem;color: #ED1414;}
+.container .content .agentApply{margin-top:7px;}
+.container .content .agentApply li{width: 100%;margin-top: 20px;}
+.container .content .agentApply li .firstLi{margin-left: 2.25rem;}
+.container .content .agentApply li .firstLi .firstLi-boxTetx{display: inline-block;vertical-align: top;margin-top: 0.37rem;color: #E43A3D;font-size: 0.59rem;}
+.container .content .agentApply li .firstLi .firstLi-boxTetx span{font-size: 0.59rem;color:#212121;}
+.container .content .agentApply li .firstLi .firstLi-input{display: inline-block;margin-left: 10px;width: 8.75rem;height: 1.46rem;}
+.container .content .agentApply li .firstLi .firstLi-input input{padding-left: 0.3rem;border: none;outline: none;width:7.0rem;height: 0.65rem;font-size: 0.59rem;color: #CCCCCC;background:url(../img/agentImg.png) no-repeat right center; width:8.74rem; height:1.46rem; background-size: 1.08rem,1.40rem;border: 1px solid #CCCCCC;color: #212121;}
+.container .content .agentApply li .secondLi{margin-left: 1.73rem;}
+.container .content .agentApply li .secondLi .secondLi-text{display: inline-block;vertical-align: top;margin-top: 0.37rem;color: #E43A3D;font-size: 0.59rem;}
+.container .content .agentApply li .secondLi .secondLi-text span{font-size: 0.59rem;color:#212121;}
+.container .content .agentApply li .secondLi .second-input{display: inline-block;margin-left: 7px;width: 8.75rem;height: 1.46rem;border: 1px solid #CCCCCC;}
+.container .content .agentApply li .secondLi .second-input input{vertical-align: top;margin-top: 0.36rem;margin-left: 0.41rem;border: none;outline: none;width:8.25rem;height: 0.75rem;font-size: 0.59rem;color: #212121;}
+.container .content .agentApply li .thirdLi{margin-left: 0.54rem;}
+.container .content .agentApply li .thirdLi .thirdLi-text{display: inline-block;vertical-align: top;margin-top: 0.37rem;color: #E43A3D;font-size: 0.59rem;}
+.container .content .agentApply li .thirdLi .thirdLi-text span{font-size: 0.59rem;color:#212121;}
+.container .content .agentApply li .thirdLi .third-input{display: inline-block;margin-left: 7px;width: 8.75rem;height: 1.46rem;border: 1px solid #CCCCCC;}
+.container .content .agentApply li .thirdLi .third-input input{vertical-align: top;margin-top: 0.35rem;margin-left: 0.40rem;border: none;outline: none;width:8.25rem;height: 0.75rem;font-size: 0.59rem;color: #212121;}
+.container .content .agentApply li .fourLi{margin-left: 2.25rem;}
+.container .content .agentApply li .fourLi .fourLi-text{margin-top: 0.37rem;color: #E43A3D;font-size: 0.59rem;}
+.container .content .agentApply li .fourLi .fourLi-text span{font-size: 0.59rem;color:#212121;}
+.container .content .agentApply li .fourLi .fourLi-input{margin-top: 10px;}
+.container .content .agentApply li .fourLi .fourLi-input textarea{margin-left: 10px;width:90%;padding-top:0.42rem;padding-left: 10px;padding-right: 15px;border: none;outline: none;resize: none;width: 11.52rem;height: 3.33rem;border: 1px solid #CCCCCC;font-size: 0.59rem;color: #212121;}
+.container .content .tips{margin-top: 10px;margin-left: 2.25rem;width: 11.52rem;font-size: 0.625rem;color: #E43A3D;padding-bottom: 2.7rem;}
+.container .content .tips span{font-size: 0.59rem;color: #212121;}
+.container .submit{position:absolute;bottom:0;margin-top: 55px;width: 100%;height: 2.04rem;line-height: 2.04rem;background: #E43A3D;font-size: 0.75rem;color: #FFFFFF;text-align: center;}
+.container .content .agentApply li .fiveLi{margin-left: 2.25rem;}
+.container .content .agentApply li .fiveLi .fiveLi-text{display: inline-block;vertical-align: top;margin-top: 0.37rem;color: #E43A3D;font-size: 0.59rem;}
+.container .content .agentApply li .fiveLi .fiveLi-text span{font-size: 0.59rem;color:#212121;}
+.container .content .agentApply li .fiveLi .fiveLi-input{display: inline-block;margin-left: 10px;width: 8.75rem;height: 1.46rem;border: 1px solid #CCCCCC;}
+.container .content .agentApply li .fiveLi .fiveLi-input input{vertical-align: top;margin-top: 0.35rem;margin-left: 0.40rem;border: none;outline: none;width:8.25rem;height: 0.75rem;font-size: 0.59rem;color: #212121;}
+.container .content .agentApply li  .sixLi{margin-left: 0.91rem;}
+.container .content .agentApply li .sixLi .sixLi-text{display: inline-block;vertical-align: top;margin-top: 0.37rem;color: #E43A3D;font-size: 0.59rem;}
+.container .content .agentApply li .sixLi .sixLi-text span{font-size: 0.59rem;color:#212121;}
+.container .content .agentApply li .sixLi .sixLi-input{display: inline-block;margin-left: 10px;width: 8.75rem;height: 1.46rem;border: 1px solid #CCCCCC;}
+.container .content .agentApply li .sixLi .sixLi-input input{vertical-align: top;margin-top: 0.37rem;margin-left: 0.40rem;border: none;outline: none;width:8.25rem;height: 0.75rem;font-size: 0.59rem;color: #212121;}
+.mark{position: fixed;display: none;top: 0;left: 0;height: 100%;width: 100%;background: rgba(0,0,0,0.5);z-index: 100;}
+.mark .submitSuceess{position: absolute;top:0;bottom: 0;left: 0;right: 0;width: 11.46rem;height: 6.25rem;margin: auto;background: #FFFFFF;}
+.mark .submitSuceess .submitImg{margin: 0 auto;margin-top:1.5rem ;width: 2rem;height:2rem;}
+.mark .submitSuceess .submitText{margin-top: 0.42rem;font-size: 0.71rem;color: #E43A3D;text-align: center;}
+#level1{margin-left: 1.6rem;}
+
+

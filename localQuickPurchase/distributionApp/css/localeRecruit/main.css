@@ -1,0 +1,276 @@
+@font-face
+{
+    font-family: myFirstFont;
+    src: url('../font/pangfang.ttf')
+}
+*{margin: 0;padding: 0}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,input{margin:0;padding:0;border:0;font-family:"myFirstFont";cursor:pointer;-webkit-tap-highlight-color:transparent}
+html{font-size:20px;}
+body{margin: 0 auto;min-width: 320px;max-width: 640px;}
+a{text-decoration:none;color:#212121;}
+img{max-width:100%;vertical-align:top;}
+li{list-style-type:none;}
+i{font-style:normal;}
+@media screen and (max-width:320px){html{font-size:20px !important;}}
+@media screen and (min-width:320px){html{font-size:20px;}}
+@media screen and (min-width:340px){html{font-size:21.25px;}}
+@media screen and (min-width:360px){html{font-size:22.5px;}}
+@media screen and (min-width:380px){html{font-size:23.75px;}}
+@media screen and (min-width:400px){html{font-size:25px;}}
+@media screen and (min-width:440px){html{font-size:27.5px;}}
+@media screen and (min-width:480px){html{font-size:30px;}}
+@media screen and (min-width:520px){html{font-size:32.5px;}}
+@media screen and (min-width:560px){html{font-size:35px;}}
+@media screen and (min-width:600px){html{font-size:37.5px;}}
+@media screen and (min-width:640px){html{font-size:40px;}}
+@media screen and (min-width:680px){html{font-size:42.5px;}}
+@media screen and (min-width:720px){html{font-size:45px;}}
+@media screen and (min-width:750px){html{font-size:46.875px;}}
+input[type="button"],input[type="submit"],input[type="reset"]{-webkit-appearance: none;}
+input:active,input:focus{
+    outline: none;
+}
+textarea{-webkit-appearance:none;}
+/*背景色*/
+.bg_light {
+    background: #f5f5f5;
+}
+.bg_white{
+    background: white;
+}
+.bg_orange{
+    background: #fe8713;
+}
+.bg_light_yellow{background: #deb887 !important;}
+/*字体颜色*/
+.color_green{color: #78cc72;}
+.color_red{color: #d71618;}
+.color_gray{color:#999999}
+.color_gray2{color:#666666}
+.color_darkred{color: #e43a3d}
+.color_darkgray{color: #8a8a8a}
+.color_white{color: white}
+.color_orange{color: #fb954a}
+/*字体大小*/
+.font-sm{
+    font-size: 0.512rem; /*24*/
+}
+.font-md{
+    font-size: 0.6rem; /*28*/
+}
+.font-md-3{
+    font-size: 0.55rem; /*26*/
+}
+.font-md-2{
+    font-size: 0.64rem; /*30*/
+}
+.font-lg{
+    font-size: 0.68rem; /*32*/
+}
+.font-weight{
+    font-weight: 600;
+}
+.pull-left{
+    float: left;
+}
+.pull-right{
+    float: right !important;
+}
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
+.mini-pad{
+    padding-top: 1px;
+}
+.no-margin{
+    margin: 0 !important;
+}
+.margin-t-3{
+     margin-top: 0.3rem;
+ }
+.margin-t-5{
+    margin-top: 0.5rem;
+}
+.margin-l-5{
+    margin-left: 5% !important;
+}
+.margin-l-2{
+    margin-left: 2%;
+}
+.margin-l-16{
+    margin-left: 20% !important;
+}
+.padding-t-1{
+    padding-top: 0.1rem;
+}
+.padding-t-2{
+    padding-top: 0.2rem;
+}
+.padding-t-4{
+    padding-top: 0.4rem !important;
+}
+.no-padding{
+    padding: 0;
+}
+.no-border{
+    border-bottom: none !important;
+}
+.border-red{
+    border: 1px solid #e4393c;
+}
+/*头部样式*/
+#hui-back:before {
+    content: "\e6a5";
+    font-size: 20px;
+    color: #212121;
+}
+.hui-header{
+    border-bottom: 1px solid #cccccc;
+}
+.hui-header h1{
+    color: #212121;
+}
+/*底部样式*/
+#hui-footer a{
+    width: 20%;
+    text-align: center;
+}
+#hui-footer a img{
+    height: 1rem;
+    padding-top: 0.18rem;
+}
+.hui-footer-text{
+    font-weight: 600;
+    padding-top: 0;
+}
+#hui-footer .active{
+    color:#e43a3d;
+}
+.footer-btn{
+    width: 100%;
+    height:2.1rem ;
+    background: #333333;
+    text-align: center;
+    line-height: 2.1rem;
+    font-size: 0.68rem;
+    color: white;
+    position: fixed;
+    bottom: 0;
+}
+.footer-red-btn{
+    background: #E43A3D;
+    color: white;
+}
+.line-through{
+    text-decoration: line-through;
+}
+/*爱之家协议书*/
+.main_container{
+    font-size: 0.512rem;
+    margin-top: 44px;
+    margin-bottom: 55px;
+}
+
+
+/*action sheet*/
+#hui-action-sheet{
+    font-size: 0.68rem;
+}
+
+/*单行溢出*/
+.overflow{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+.mutiply{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+/*dialog样式更改*/
+#hui-dialog-in{
+    width: 65%;
+    border-radius: 10px !important;
+}
+#hui-dialog-btn-line{
+    height:1.8rem;
+}
+#hui-dialog-btn-line > div{
+    width: 48%;
+    color: #e43a3d;
+    background: white;
+    font-size: 0.62rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    margin-top: 0.5rem;
+}
+#hui-dialog-btn-line > div:first-child{
+    border-right: 1px solid #eeeeee;
+}
+#hui-dialog-btn-line{
+    border-top: 1px solid #eeeeee;
+    width: 90%;
+    margin:auto;
+}
+
+/*表单验证提示文字上下抖动效果*/
+@-webkit-keyframes shake {
+    0%{
+        -webkit-transform:translate(0px, 4px);
+    }
+    25%{
+        -webkit-transform:translate(0px, -4px);
+    }
+    50%{
+        -webkit-transform:translate(0px, 0px);
+    }
+    75%{
+        -webkit-transform:translate(0px, -4px);
+    }
+    100%{
+        -webkit-transform:translate(0px, 4px);
+    }
+}
+@keyframes shake {
+    0%{
+        transform:translate(0px, 4px);
+    }
+    25%{
+        transform:translate(0px, -4px);
+    }
+    50%{
+        transform:translate(0px, 0px);
+    }
+    75%{
+        transform:translate(0px, -4px);
+    }
+    100%{
+        transform:translate(0px, 4px);
+    }
+}
+.msgtips{display:none;}
+.yellowtips{font-size:.65rem;color:#ffb266;text-align:center;padding:1.5rem 0 1rem;}
+.shake{-webkit-animation:shake 0.5s infinite;animation:shake 0.5s infinite;}
+
+/*按钮增加*/
+.hui-black{background:#333!important;color:#FFFFFF!important;}
+
+
+/*设置宽度*/
+.w20 {width:20% !important;}
+.w25 {width:25% !important;}
+.w30 {width:30% !important;}
+.w50 {width:50% !important;}
+.w100 {width:100% !important;}
+/*分销商版本*/
+.distribution-footer a{
+    width: 20% !important;
+}
+

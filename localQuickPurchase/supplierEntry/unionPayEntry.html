@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商家入驻</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/supplierEntry.css?v=2">
+    <link rel="stylesheet" href="../activity/lib/Hui/css/hui.css">
+</head>
+<body>
+<div class="supplier_warp">
+    <!-- 头部 -->
+    <div class="head"><a class="arrow back" onclick="goBack(this)"></a>品牌商家入驻</div>
+    <!-- 入驻进度 -->
+    <div class="progress">
+        <p>入驻进度</p>
+        <div class="progress_box">
+            <span class="circular current"></span>
+            <span class="line"></span>
+            <span class="circular current"></span>
+            <span class="line"></span>
+            <span class="circular"></span>
+        </div>
+        <p class="text">
+            <span>品牌入驻</span>
+            <span>银联入驻</span>
+            <span>完成</span>
+        </p>
+    </div>
+    <!-- 表单内容 -->
+    <div class="content">
+        <ul class="info">
+            <li>
+                <div class="info-title">注册类型：</div>
+                <div class="info-contorl">
+                    <input type="text" id="merType"  name="merType"  placeholder="请选择类型" readonly>
+                    <i class="arrow right"></i>
+                </div>
+            </li>
+        </ul>
+        <ul class="info marigTo20">
+            <li>
+                <div class="info-title">银行卡账号：</div>
+                <div class="info-contorl"><input type="text" name="bankCard" placeholder="请填写银行卡号" id="bankCard">
+                </div>
+            </li>
+            <li>
+                <div class="info-title">账户类型：</div>
+                <div class="info-contorl">
+                    <input type="text" id="bankAcctType"  name="bankAcctType"  placeholder="请选择账户类型" readonly>
+                    <i class="arrow right"></i>
+                </div>
+            </li>
+            <li>
+                <div class="info-title">银行卡户名：</div>
+                <div class="info-contorl"><input type="text" name="bankUser" placeholder="请填写银行卡户名" id="bankUser">
+                </div>
+            </li>
+            <li class="addresschoice">
+                <div class="info-title">银行所在地区:</div>
+                <div class="info-contorl">
+                    <input type="text" id="region" class="region2"  name="region"  placeholder="请选择地区" readonly>
+                    <i class="arrow right"></i>
+                </div>
+            </li>
+            <li>
+                <div class="info-title">开户行支行搜索：</div>
+                <div class="info-contorl" style="width: 47%;">
+                    <input type="text" name="bankSearch" placeholder="请输入支行关键字" id="bankSearch">
+                </div>
+                <button class="info-title bankSearch-but" onclick="bankSearch(this)">搜索</button>
+            </li>
+            <li class="">
+                <div class="info-title ">营业地址路名:</div>
+                <div class="info-contorl road">
+                    <input type="text" name="road" placeholder="请输入营业地址路名" id="road">
+                </div>
+            </li>
+            <<li class="">
+                <div class="info-title ">营业地址门牌:</div>
+                <div class="info-contorl houseNo">
+                    <input type="text" name="houseNo" placeholder="请输入营业地址门牌" id="houseNo">
+                </div>
+            </li>
+            <li class="brandInfo">
+                <div class="info-title">营业地址补充信息:</div>
+                <div class="info-contorl"><input type="text" name="addrExt" placeholder="请填写补充信息" id="addrExt">
+                </div>
+            </li>
+            <li>
+                <div class="info-title">开户行支行名称:</div>
+                <div class="info-contorl">
+                    <input type="text" name="bankName" placeholder="请填写支行名称" id="bankName">
+                </div>
+            </li>
+            <li>
+                <div class="info-title">开户支行行号:</div>
+                <div class="info-contorl"><input type="text" name="bankNo" placeholder="请输入开户支行行号" id="bankNo">
+                </div>
+            </li>
+            <li>
+                <div class="info-title">统一社会信用代码:</div>
+                <div class="info-contorl"><input type="text" name="socialCode" placeholder="请输入社会信用代码" id="socialCode">
+                </div>
+            </li>
+        </ul>
+        <!-- 上传图片 -->
+        <ul class="uploadinfo">
+            <li class="imgfileList2">
+                <div class="contorl-title">上传营业执照：</div>
+                <div class="uploadbox">
+                    <div class="picbox"><img id="imgfileList2" src="./img/1587469330.jpg"/></div>
+                    <div class="descript">
+                        <p>1、请上传营业执照的正面照片</p>
+                        <p>2、上传的照片必须清晰</p>
+                        <div class="btn-box">
+                            <input type="file" accept="image/*" onchange="uploadFile(this)" class="upload-input">
+                            <button>上传图片</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li  class="imgfileList78">
+                <div class="contorl-title merType0">上传开户许可证：</div>
+                <div class="contorl-title merType1" style="display: none">上传银行卡照：</div>
+                <div class="uploadbox">
+                    <div class="picbox"><img id="imgfileList78" src="./img/1587469330.jpg"/></div>
+                    <div class="descript">
+                        <p  class="merType0">1、请上传开户许可证</p>
+                        <p class="merType1" style="display: none">1、请上传银行卡照</p>
+                        <p>2、上传的照片必须清晰</p>
+                        <div class="btn-box">
+                            <input type="file" accept="image/*" onchange="uploadFile(this)" class="upload-input">
+                            <button>上传图片</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="imgfileListF1">
+                <div class="contorl-title">上传收银台照：</div>
+                <div class="uploadbox">
+                    <div class="picbox"><img id="imgfileListF1" src="./img/1587469330.jpg"/></div>
+                    <div class="descript">
+                        <p>1、请上传收银台照的正面照片</p>
+                        <p>2、上传的照片必须清晰</p>
+                        <div class="btn-box">
+                            <input type="file" accept="image/*" onchange="uploadFile(this)" class="upload-input">
+                            <button>上传图片</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="imgfileList24">
+                <div class="contorl-title">上传经营场景照片：</div>
+                <div class="uploadbox">
+                    <div class="picbox"><img id="imgfileList24" src="./img/1587469330.jpg"/></div>
+                    <div class="descript">
+                        <p>1、请上传经营场景照片</p>
+                        <p>2、上传的照片必须清晰</p>
+                        <div class="btn-box">
+                            <input type="file" accept="image/*" onchange="uploadFile(this)" class="upload-input">
+                            <button>上传图片</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="imgfileList79">
+                <div class="contorl-title">上传门店照片：</div>
+                <div class="uploadbox">
+                    <div class="picbox"><img id="imgfileList79" src="./img/1587469330.jpg"/></div>
+                    <div class="descript">
+                        <p>1、请上传门店照片的正面照片</p>
+                        <p>2、上传的照片必须清晰</p>
+                        <div class="btn-box">
+                            <input type="file" accept="image/*" onchange="uploadFile(this)" class="upload-input">
+                            <button>上传图片</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="imgfileListI1">
+                <div class="contorl-title">上传室内照片：</div>
+                <div class="uploadbox">
+                    <div class="picbox"><img id="imgfileListI1" src="./img/1587469330.jpg"/></div>
+                    <div class="descript">
+                        <p>1、请上传门店的室内照片</p>
+                        <p>2、上传的照片必须清晰</p>
+                        <div class="btn-box">
+                            <input type="file" accept="image/*" onchange="uploadFile(this)" class="upload-input">
+                            <button>上传图片</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="imgfileListE1">
+                <div class="contorl-title">上传授权证书：</div>
+                <div class="uploadbox">
+                    <div class="picbox"><img id="imgfileListE1" src="./img/1587469330.jpg"/></div>
+                    <div class="descript">
+                        <p>1、请上授权证书照片</p>
+                        <p>2、上传的照片必须清晰</p>
+                        <p>3、有泛账户必传</p>
+                        <div class="btn-box">
+                            <input type="file" accept="image/*" onchange="uploadFile(this)" class="upload-input">
+                            <button>上传图片</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="imgfileListZ1">
+                <div class="contorl-title">上传法人手持证件照片：</div>
+                <div class="uploadbox">
+                    <div class="picbox"><img id="imgfileListZ1" src="./img/1587469330.jpg"/></div>
+                    <div class="descript">
+                        <p>1、请上传法人手持证件照片</p>
+                        <p>2、上传的照片必须清晰</p>
+                        <div class="btn-box">
+                            <input type="file" accept="image/*" onchange="uploadFile(this)" class="upload-input">
+                            <button>上传图片</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <button class="btn-bottom" id="submitBtn">下一步</button>
+    </div>
+</div>
+
+<!-- 区域选择 -->
+<div class="windowArea">
+    <div class="region_box">
+        <p class="title">请选择</p>
+        <ul class="region setup2">
+            <li class="shopProvince finish">
+                <i></i>
+                <span>请选择省</span>
+            </li>
+            <li class="shopCity">
+                <i></i>
+                <span>请选择市</span>
+            </li>
+            <li class="shopArea">
+                <i  class="last"></i>
+                <span>请选择县/区</span>
+            </li>
+            <!--<li class="shopStreet">
+                <i class="last"></i>
+                <span>请选择街道</span>
+            </li>-->
+        </ul>
+
+        <div class="Selection">
+            <div class="title">
+                <p class="isShow">选择省份/地区</p>
+                <p >选择城市</p>
+                <p >选择县/区</p>
+            </div>
+            <div class="box">
+                <ul class="shopProvinceData isShow" type="1">
+                     <li class="current"> 暂不选择 </li>
+                </ul>
+                <ul class="shopCityData" type="2">
+                    <li class="current"> 暂不选择 </li>
+                </ul>
+                <ul class="shopAreaData" type="3">
+                    <li class="current"> 暂不选择 </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+<script src="../../common/lib/jquery/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/common/js/common.js"></script>
+<script type="text/javascript" src="/common/js/tag.js?v=2"></script>
+<script src="../activity/lib/Hui/js/hui.js"></script>
+<script src="../activity/lib/Hui/js/hui-picker.js"></script>
+<script src="./js/supplierEntry.js?v=1"></script>
+<script>
+    $(function(){
+        // 获取银行所在地区
+        getShopRegion(1,0);
+        /*var merTypeData=[{"value":merTypeEnterprise,"text":"企业商户"},
+            {"value":merTypeEnterprise,"text":"企业商户"},
+            {"value":merTypePersonal,"text":"个人工商户"},
+            {"value":merTypesmall,"text":"小微商户"}];
+        var picker1 = new huiPicker('#merType', function(){
+            var val = picker1.getVal(0);
+            var txt = picker1.getText(0);
+            hui('#merType').attr("data-id",val);
+            hui('#merType').val(txt);
+            merTypeNeedData(val);
+            setBrandSquareSupplierInfo();
+        });
+        picker1.bindData(0,merTypeData);*/
+
+        // 点击下一步
+        var bankAcctTypeData = [{"value":"0","text":"个人账户"},
+            {"value":"0","text":"个人账户"},
+            {"value":"1","text":"公司账户"}]
+        var pickerBankAcctType = new huiPicker('#bankAcctType', function(){
+            var val = pickerBankAcctType.getVal(0);
+            var txt = pickerBankAcctType.getText(0);
+            hui('#bankAcctType').attr("data-id",val);
+            hui('#bankAcctType').val(txt);
+            bankAcctTypeNeedData(val);
+            setBrandSquareSupplierInfo();
+        });
+        pickerBankAcctType.bindData(0,bankAcctTypeData);
+        $('#submitBtn').click(function(){
+            var brandSquareSupplierInfo = getViewdata(getBrandSquareSupplierInfo());
+            brandSquareSupplierInfo.step ="2";
+            brandSquareSupplierInfo.temp = "0";
+            brandSquareSupplierInfo.isSubmit="0";
+            submitCompanyInfo(brandSquareSupplierInfo);
+        })
+        reappearData();
+    })
+</script>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .hui-button.J-submit-but {
+            background: #999;
+            color: #fff;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>注册</title>
+    <link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/sry.css">
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>注册</h1>
+</header>
+<div class="main_container hui-common-padding">
+    <form id="register">
+        <div class="hui-form margint generalform">
+            <div class="hui-form-items">
+                <input oninput="colorOnchange(this)" type="tel" id="mobile"
+                       maxlength="11" class="hui-input hui-input-clear font-md"
+                       name="phone" placeholder="请输入手机号码" checkType="phone" />
+            </div>
+            <div class="hui-form-items">
+                <input oninput="colorOnchange(this)" type="password" id="pwd"
+                       class="hui-input hui-pwd-eye font-md" name="userpw"
+                       placeholder="请输入密码(不能低于六位)" checkType="string" checkData="1," maxlength="12" />
+            </div>
+            <div class="hui-form-items">
+                <input oninput="colorOnchange(this)" type="password" id="pwd1"
+                       class="hui-input hui-pwd-eye font-md" name="userpw1"
+                       placeholder="请输入确认密码" checkType="string" checkData="1," maxlength="12"/>
+            </div>
+            <div class="hui-form-items img-code-con">
+                <input type="text" class="hui-input" name="yzm" value="" maxlength="4" id="imgCodeInput"/>
+                <div class="img-code" id="imgCode">
+                    <img src="" width="" />
+                </div>
+            </div>
+            <div class="hui-form-items">
+                <input oninput="colorOnchange(this)" type="text" id="captcha"
+                       class="hui-input font-md" name="smscode" placeholder="请输入验证码" checkType="string" checkData="1," />
+                <button type="button" class="hui-button hui-fl J-code-but" state="sent">获取验证码</button>
+            </div>
+            <div style="color: #7ace6a;margin-bottom: .5rem;" id="referees">邀请手机号码</div>
+            <!--推荐人手机号  -->
+            <div class="hui-form-items" id="showReferees">
+                <input oninput="colorOnchange(this)" type="tel" id="referrerMobile"
+                       maxlength="11" class="hui-input hui-input-clear font-md"
+                       name="phone" onblur="referrerMobileonBlur(this)" placeholder="请输入推荐人手机号码" checkType="phone" />
+            </div>
+            <div style="color:red;margin-bottom: .5rem;" id="referrerErrorMsg"></div>
+
+            <button type="button" onclick="registerf();" class="hui-button hui-button-large J-submit-but zhucebingdenglu">注册并登录</button>
+            <p class="goswitch">
+                <span>已有账号？</span><a class="toRegist" href="javascript:void(0);">>><i>马上登录</i></a>
+            </p>
+            <p class="yellowtips msgtips"></p>
+            <div class="agreementtips">
+                注册代表您已阅读并同意<a href="../static/userProtocol.html">《爱之家商城用户服务协议》</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="/common/lib/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui-form.js"></script>
+<script type="text/javascript" src="/common/js/common.js" ></script>
+<script type="text/javascript" src="/common/js/token.js"></script>
+<script type="text/javascript" src="/upms/static/js/loading.js"></script>
+<script type="text/javascript" src="/upms/static/js/register.js?v=2"></script>
+<script type="text/javascript" src="/upms/static/js/sry.js?v=2"></script>
+<script type="text/javascript" src="/common/js/tag.js"></script>
+<script type="text/javascript">
+    if(getQueryString("shareSeq") != null && getQueryString("shareSeq")  != ""){
+        shareSeq = getQueryString("shareSeq"); //分享人seq
+        setCookie("shareSeq",shareSeq,1);
+    }
+    $("#mobile").blur(function(){
+        var userPhone = $("input[name=phone]").val();
+        //var myreg=/^[1][3,4,5,7,8,9][0-9]{9}$/;
+        if($(this).val().length>0){
+            if(!isPoneAvailable($(this).val())){
+                hui.toast('手机号码格式不正确');
+                $(this).focus();
+                return false;
+            }
+        }else{
+            //hui.toast('请输入手机号码');
+            $(this).focus();
+            return false;
+        }
+
+        $.ajax({
+            type : "get",//定义提交的类型
+            url : "/upms/basic/ifRegister",
+            dataType : "json",//设置返回值得类型
+            data : {
+                "mobile" : userPhone
+            },
+            async : true,//是否异步请求，false为同步
+            success : function(data) {//成功返回值执行函数
+                if(data.code == 1000) {
+                    var referrer = document.referrer;
+                    if (referrer.indexOf("jump.html") > -1){
+                        setCookie("referrer",referrer,365);
+                    }
+                    hui.confirm("您已经注册,是否去登录!", ['取消','确认'], function(){
+                        loginPage();
+                    });
+                    return;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log('error');
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            }
+        });
+
+    });
+
+    $("#pwd").blur(function(){
+        var userpw = $("input[name=userpw]").val();
+        if(userpw.length < 6){
+            hui.toast("密码长度为6-12位");
+            return;
+        }
+    });
+    $("#pwd1").blur(function(){
+        var userpw1 = $("input[name=userpw1]").val();
+        if(userpw1.length < 6){
+            hui.toast("密码长度为6-12位");
+            return;
+        }else if(!ifRegular(userpw1)){
+            hui.toast("密码只能由数字加英文组成 !");
+            return;
+        }
+        var userpw = $("input[name=userpw]").val();
+        if (userpw1 != userpw) {
+            hui.toast("两次密码输入不一致");
+            return;
+        }
+    });
+
+    /*马上注册*/
+    $(".toRegist").on("click",function() {
+        hui.back();
+    });
+
+    /*====================================================  */
+
+    /*手动输入手机号失去焦点事件 */
+    function referrerMobileonBlur(element){
+        var $this = $(element);
+        manual($this);
+        return null;
+    }
+
+    /* 手动输入推荐人手机号*/
+    function manual($this){
+        /*manualMobile 为空直接返回,弹出提示,默认会绑定到平台 */
+        var manualMobile = $this.val();
+        if(manualMobile == ''){
+            $(".J-submit-but").css({"background":"#d52c2c","color":"#fff"})
+            return false;
+        }
+        /* 检验手机号是否输入正确*/
+        if(!isPoneAvailable(manualMobile)){
+            hui.toast('邀请人手机号码格式不正确');
+            $this.focus();
+            return false;
+        }
+        return true;
+    }
+
+
+    /*初始化推荐人手机号 */
+    function initReferrerInfo(){
+        if(!checkShareIsNull()){
+            return false;
+        }
+        /*不为空查询推荐人的手机号 */
+        var shareMobile = getMobileByShareSeq(shareSeq);
+        if(shareMobile == null || shareMobile == '') {
+            return false;
+        }
+        $("#referrerMobile").val(shareMobile);
+        $("#referrerMobile").attr("disabled","disabled");
+    }
+
+    //判断shareSeq是否为空
+    function checkShareIsNull(){
+        if(shareSeq == null || shareSeq == '' || shareSeq == 0){
+            return false;
+        }
+        return true;
+    }
+
+    /* 根据seq查询用户信息,返回角色类型跟seq*/
+    function getMobileByShareSeq(shareSeq){
+        var result = null;
+        $.ajax({
+            type : "get",//定义提交的类型
+            url : "/upms/user/getMobileBySeq",
+            dataType : "json",//设置返回值得类型
+            data : {
+                "seq" : shareSeq
+            },
+            async : false,//是否异步请求，false为同步
+            success : function(data) {//成功返回值执行函数
+                if(data.code==1000){
+                    result = data.data;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log('error');
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            }
+        });
+        return result;
+    }
+
+    /* 根据手机号查询用户信息,返回角色类型跟seq*/
+    function checkReferrer(mobileNo){
+        var result = null;
+        $.ajax({
+            type : "get",//定义提交的类型
+            url : "/upms/user/checkReferrer",
+            dataType : "json",//设置返回值得类型
+            data : {
+                "mobile" : mobileNo
+            },
+            async : false,//是否异步请求，false为同步
+            success : function(data) {//成功返回值执行函数
+                    result = data;
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log('error');
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            }
+        });
+        return result;
+    }
+
+
+    /* 判断用户是否填写手机号*/
+    function getAffirmRegisterType(){
+        return false;
+    }
+
+    initReferrerInfo();
+
+
+
+
+    /* =============================================================================== */
+
+
+    function colorOnchange(t){
+        var id = $(t).attr("id");
+        var val = $(t).val();
+
+        if(id == "mobile"){
+            if(isPoneAvailable(val)){
+                $(".J-submit-but").css({"background":"#d52c2c","color":"#fff"})
+            }else{
+                $(".J-submit-but").css({"background":"#999","color":"#fff"})
+            }
+        }else if(id == "pwd"){
+            var _pwd=$("#pwd").val().length
+            if(_pwd > 5){
+                $(".J-submit-but").css({"background":"#d52c2c","color":"#fff"})
+            }else{
+                $(".J-submit-but").css({"background":"#999","color":"#fff"})
+            }
+        }else if(id == "pwd1"){
+            var _pwd=$("#pwd1").val().length
+            if(_pwd > 5){
+                $(".J-submit-but").css({"background":"#d52c2c","color":"#fff"})
+            }else{
+                $(".J-submit-but").css({"background":"#999","color":"#fff"})
+            }
+        }else if(id == "captcha"){
+            var _pwd=$("#captcha").val().length
+            if(_pwd > 3){
+                $(".J-submit-but").css({"background":"#d52c2c","color":"#fff"})
+            }else{
+                $(".J-submit-but").css({"background":"#999","color":"#fff"})
+            }
+        }else if(id == "referrerMobile"){
+            if (val != null && val != "") {
+                if(isPoneAvailable(val)) {
+                    $(".J-submit-but").css({"background":"#d52c2c","color":"#fff"})
+                }else{
+                    $(".J-submit-but").css({"background":"#999","color":"#fff"})
+                }
+            } else {
+                $(".J-submit-but").css({"background":"#d52c2c","color":"#fff"})
+            }
+        }
+    }
+</script>
+</body>
+</html>

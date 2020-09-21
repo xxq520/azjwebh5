@@ -1,0 +1,282 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>用户管理</title>
+	<link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+    <link rel="stylesheet" href="/upms/static/css/main.css">
+    <link rel="stylesheet" href="/upms/static/css/order.css">
+	<link rel="stylesheet" href="/common/lib/mescroll/css/mescroll.min.css">
+	<link rel="stylesheet" href="/common/lib/swiper/css/swiper-3.3.1.min.css">
+</head>
+<style>
+.title-container .hui-tab-title{width:80%;}
+.act {background-color:black;color:white}
+.msg-container{background-color:white;}
+.datas{margin-top: 10px;width: 100%}
+.prent{background-color: white;padding: 0rem 0rem 0rem 0rem;width: 100%}
+.til{display: none;background-color: white;border: 0px black solid;width: 80%;margin: 1rem 1rem 1rem 1.1rem;}
+.til tr td {text-align: center;width:6%;border: 1px black solid;height: 1.5rem;font-size: .6rem;}
+#hasMessage{width: 100%;font-size:0.68rem;}
+.mescroll {
+    width: 100%;
+    height: 70%;
+    overflow-y: auto;
+}
+.search_box {padding:.5rem;height:1.6rem;position:relative;overflow:hidden;}
+.search_box .search_con {width:100%;height:100%;float:left;display:block;position:relative;border-radius:0.8rem;}
+.search_box .search_con:before {content:'';position:absolute;width:.8rem;height:.8rem;display:blcok;background:url(/upms/static/images/classfiyImg1.png) no-repeat center center;background-size:100% 100%;top:.4rem;left:.6rem;}
+.search_box .search_con input {width:84%;height:100%;line-height:1.8rem;padding-left:1.8rem;}
+.search_box .search_con .search_btn {
+	width:16%;
+    line-height: 1.6rem;
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+    height: 1.6rem;
+    color: #fff;
+    background: #e4393c;
+    text-align: center;
+    border-radius:0 .8rem .8rem 0;
+}
+.notice-img img{
+	height: 2.2rem;
+    border-radius: 4rem;
+}
+</style>
+<body class="bg_light">
+<header class="hui-header">
+    <div id="hui-back"><a onclick="history()"
+				class="get-back mui-icon mui-icon-arrowleft"></a></div>
+    <h1 id="titleName">用户管理</h1>
+</header>
+<div class="main_container">
+	<div class="search_box">
+		<div class="search_con">
+			<input type="text" id="mobile" name="keyword"/>
+			<div class="search_btn" onclick="searchFromMobile();">搜索</div>
+		</div>
+	</div>
+  <!--   <div class="hui-tab">
+        <div class="title-container">
+            <div class="hui-tab-title">
+                <div id = "putong">普通用户</div>
+                <div id = "feixiao">分销用户</div>
+            </div>
+        </div>
+        
+        通知tab
+        <div class="hui-tab-body">
+            <div class="sss hui-tab-item hui-list no-padding" id="hasMessage">
+            </div>
+            消息tab
+            <div class="hui-tab-item hui-list no-padding" id="hasFMessage">
+            </div>
+        </div>
+        
+    </div> -->
+    <div>
+    <div class="prent" >
+   		<table class="til"  >
+   		   <tr><td class="title act" state="0">VIP用户</td><td class="title" state="1">网络店主</td></tr>
+   		</table>
+   		</div>
+   		<div class="datas">
+   		<div id="mescroll" class="mescroll">
+		    <!--<p class="notice">下拉刷新: 添加新数据到列表顶部</p>-->
+   		<table id="hasMessage">
+   		</table>
+		</div>
+		<!-- <div class="drp_bottom font-sm person" id="morn" >下拉加载更多</div> -->
+<!--    		<div class="drp_bottom font-sm dis" style="disPlay:none">已有<span class="distributorNum" >0</span>个用户成为网络店主</div>
+   		<div class="drp_bottom font-sm person" style="disPlay:none">已有<span class="personNum" >0</span>个VIP用户</div> -->
+   		<!-- <table id="hasFMessage" style="display: none;width:100%">
+   		</table> -->
+    </div>
+    </div>
+  <!--    <input type="text" id="mobile" value="搜索" />
+    <input type="button" onclick="searchFromMobile();" value="搜索" /> -->
+</div>
+</body>
+</html>
+<script type="text/javascript" charset="utf-8" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/lib/jquery.min.js" ></script>
+<script type="text/javascript" charset="utf-8" src="/common/lib/mescroll/js/mescroll.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/lib/swiper/js/swiper-3.3.1.min.js"></script>
+<script type="text/javascript" src="/common/js/token.js" ></script>
+<script type="text/javascript" src="/common/js/userRole.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/js/common.js"></script>
+<script type="text/javascript">
+    //返回上一页
+    if (isRoleAgent()) {
+        $("#titleName").html("VIP管理");
+        $(".mescroll").css("height", "83%");
+    } else {
+        $(".til").css("display", "block");
+    }
+
+    var pageIndex = 1;
+    var pageSize = 10;
+    var hasNext = true;//数据是否有下一页
+    var searchMobile = "";
+    var isFrist = false;
+    var frist = true;
+    var queryType = vip; // 请求类型
+
+    eleName = "personNum";
+
+    //按手机号查询
+    function searchFromMobile() {
+        var searchMobileValue = $("#mobile").val();
+        searchMobile = searchMobileValue;
+        $("#hasMessage").html("");
+        pageIndex = 1;
+        hasNext = true;
+        if (queryType == vip) {
+            queryType = vip;
+            init();//加载vip数据
+        } else {
+            queryType = distributor;
+            init();//加载分销商数据
+        }
+    }
+
+    //查询普通用户
+    $(function () {
+        $(document).on("click", ".title", function () {
+            $(".title").css("background-color", "white");
+            $(".title").css("color", "black");
+            $(this).css("background-color", "black");
+            $(this).css("color", "white");
+            if ($(this).attr("state") == 0) {
+                eleName = "personNum";
+                queryType = vip;
+                $(".dis").css("display", "none");
+            } else {
+                eleName  = "distributorNum";
+                queryType = distributor;
+                $(".person").css("display", "none");
+            }
+            $("#hasMessage").html("");
+            hasNext = true;
+            pageIndex = 1;
+            init();
+        });
+    });
+
+    function initCount() {
+        $("." + eleName).html($(".msg-container").length);
+    }
+
+    function init() {
+        var temp = {
+            type: 'GET',
+            url: '/upms/user/findSubordinate',
+            dataType: 'json',
+            data : {"queryType": queryType,"pageIndex":pageIndex,"mobile":searchMobile},
+            async: false,	//是否异步请求，false为同步
+            success: function (data) {
+                if(data.code == 1000) {
+					var rows = data.data;
+					var total = rows.length;
+					var _html = "";
+                    for (let i = 0; i < rows.length; i++) {
+                       var subordinate = rows[i];
+                        _html += '<div class="msg-container">';
+                        _html += '<div class="pull-left notice-img"><img src="' + subordinate.userImg + '" onerror="this.src=\'/common/images/520home_head.png\'"></div>';
+                        _html += '<div class="msg_date pull-left">';
+                        _html += '<span class="pull-left font-lg">' + subordinate.userName + '</span>';
+                        _html += '</div>';
+                        _html += '<div class="padding-t-2 msg-detail"><p>绑定日期：<span>' + subordinate.bindingTime + '</span></p>';
+                        _html += '<p>手机号码 ：<span>' + subordinate.mobile + '</span></p></div></div>';
+					}
+
+                    isFristPage();
+                    pageIndex++;
+                    if (total == 0) {
+                        hasNext = false;
+                    }
+                    if (pageIndex > 1) {
+                        frist = false;
+                    }
+                    $("#hasMessage").append(_html);
+					showUserNum(hasNext);
+                }
+            },
+            error: function (data) {
+                hui.toast(data.message);
+            }
+        };
+        refresh(temp);
+    }
+
+function isFristPage() {
+    if (pageIndex == 1) {
+        isFrist = true;
+    } else {
+        isFrist = false;
+    }
+}
+
+function showUserNum(hasNext) {
+    if (!hasNext) {
+        var _hint = "";
+        if (queryType == vip) {
+            _hint += '<div class="drp_bottom font-sm person" style="">已有<span class="personNum"></span>个VIP用户</div>';
+        } else {
+            _hint += '<div class="drp_bottom font-sm dis" style="">已有<span class="distributorNum"></span>个用户成为网络店主</div>';
+		}
+        $("#hasMessage").append(_hint);
+        initCount();
+        return;
+    } else {
+        if (queryType == vip) {
+            $(".person").css("display", "none");
+        } else {
+            $(".dis").css("display","none");
+		}
+    }
+}
+
+
+var mescroll = new MeScroll("mescroll", { //第一个参数"mescroll"对应上面布局结构div的id
+    //如果您的下拉刷新是重置列表数据,那么down完全可以不用配置,具体用法参考第一个基础案例
+    //解析: down.callback默认调用mescroll.resetUpScroll(),而resetUpScroll会将page.num=1,再触发up.callback
+    down: {
+        callback: downCallback, //下拉刷新的回调,别写成downCallback(),多了括号就自动执行方法了
+        isBounce: false
+    },
+    up: {
+        callback: upCallback, //上拉加载的回调
+        isBounce: false //如果您的项目是在iOS的微信,QQ,Safari等浏览器访问的,建议配置此项.解析(必读)
+    }
+});
+    	
+ //4. 处理回调 :
+  var tMothod = "5";
+
+ //下拉刷新的回调
+function downCallback() {
+    $("#hasMessage").html("");
+    pageIndex = 1;
+    hasNext = true;
+    searchMobile = $("#mobile").val();
+	init();//加载数据
+    mescroll.endSuccess(); //无参
+    mescroll.endErr();
+}
+
+ //上拉加载的回调 page = {num:1, size:10}; num:当前页 默认从1开始, size:每页数据条数,默认10
+function upCallback(page) {
+	if (hasNext) {
+		if (!isFrist) {
+            init();//加载数据
+        }
+	}
+    isFristPage();
+    mescroll.endErr();
+    mescroll.endSuccess(); //无参
+}
+
+</script>

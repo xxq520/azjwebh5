@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name = "format-detection" content = "telephone=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>历史搜索</title>
+		<link rel="stylesheet" href="/goods/css/hui/hui.css" />
+		<link rel="stylesheet" href="/goods/css/main.css" />
+		<link rel="stylesheet" href="/goods/css/hupeng.css" />
+		<style>
+			#hui-dialog-in{border-radius:0px !important;}
+			#hui-dialog-btn-line{width: 100%;}
+			#hui-dialog-btn-line > div{background: #E4393C;color: #FFFFFF;height:1.8rem;padding-top: 0.5rem;margin-top: 0;width: 50%;box-sizing: border-box;}
+		.container .historyContent .historyContent-list ul li{font-size:0.67rem}
+		.container .classifiyHeader .header-center1{width: 67%;}
+		.hotSearch ul{ padding-left: 0.64rem;padding-right: 0.64rem;}
+		.hotSearch ul li{float: left;
+		    padding-left: 0.64rem;
+		    padding-right: 0.64rem;
+		    padding-bottom: 0.51rem;
+		    padding-top: 0.51rem;
+		    font-size: 0.55rem;
+		    color: #212121;
+		    background: #F5F5F5;
+		    margin-right: 0.39rem;
+		    margin-top: 0.42rem;
+		    border-radius: 1rem;
+	        font-size: 0.67rem;}
+	        .container .classifiyHeader .header-center1 input {font-size : 0.61rem;height: 0.8rem;}
+		</style>
+	</head>
+	<body onload="document.getElementById('searchInputId').focus();">
+		<div class="container">
+			<header class="classifiyHeader">
+				<div id="header-text1" class="hui-icons  hui-icons-left color_gray pull-left" >
+				<!-- <a href="javascript:;" onClick="javascript :history.go(-1)" class="back-ico"><i class="hui-icons"></i></a> -->
+				</div>
+				<div class="header-center1">
+					<img class="header-search" src="/goods/images/classfiyImg1.png" />
+					<input class="searchInput" id="searchInputId" placeholder="请输入搜索内容"  />
+					<input type="hidden" value="${keyword}" id="method1">
+					<img class="header-delete" src="/goods/images/classfiyImg2.png" />
+				</div>
+				<div class="header-right1" onclick="searchDetailClick()"><!-- <a href="searchDetail.html">搜索</a> -->搜索</div>
+			</header>
+			<div class="historyContent hotSearch">
+				<div class="historyContent-title">
+					<p>热门搜索</p>
+				</div>
+				<ul class="container hotwordContent">
+						<li class="recently-item"><a href="searchDetail?keyword=零食"><i class="weui-icon-search recently-search-icon"></i>零食<i class="arrow-right"></i></a>
+						</li>
+						<li class="recently-item"><a href="searchDetail?keyword=正装"><i class="weui-icon-search recently-search-icon"></i>正装<i class="arrow-right"></i></a>
+						</li>
+						<li class="recently-item"><a href="searchDetail?keyword=男装"><i class="weui-icon-search recently-search-icon"></i>男装<i class="arrow-right"></i></a>
+						</li>
+						<li class="recently-item"><a href="searchDetail?keyword=面膜"><i class="weui-icon-search recently-search-icon"></i>面膜<i class="arrow-right"></i></a>
+						</li>
+				</ul>
+			</div>
+			<div class="historyContent">
+				<div class="historyContent-title">
+					<p>历史搜索</p>
+					<img class="deleteHistory" src="/goods/images/classfiyImg7.png" />
+				</div>
+				<div class="historyContent-list">
+					<ul class="recently-search-list container">
+						<!-- <li>车载摆件</li>
+						<li>干花花束薰衣草</li>
+						<li>打底衫 长袖 秋冬</li>
+						<li>车载摆件</li>
+						<li>干花花束薰衣草</li>
+						<li>打底衫 长袖 秋冬</li>
+						<li>车载摆件</li>
+						<li>干花花束薰衣草</li>
+						<li>打底衫 长袖 秋冬</li>
+						<li>车载摆件</li>
+						<li>干花花束薰衣草</li>
+						<li>打底衫 长袖 秋冬</li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/goods/js/jquery.min.js" ></script>
+	<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/tag.js"></script>
+	<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js?v=1"></script>
+	<script type="text/javascript" src="/goods/js/sry.js"></script>
+	<script type="text/javascript" src="/goods/js/hui/hui.js" ></script>
+	<script type="text/javascript" src="/common/js/userRole.js" ></script>
+	<script type="text/javascript" src="/common/js/token.js" ></script>
+	<script type="text/javascript" src="/goods/js/historySearch.js" ></script>
+	<script type="text/javascript">
+		hui('.hui-icons').click(function(){
+			// 部分原始app 返回原生界面
+			 try{
+				 window.action.app_back();
+			 }catch (e) {
+			 }
+	         hui.Back();
+		});
+		
+		function searchDetailClick(){
+			keyword = $(".searchInput").val();
+		    if(keyword == ""){
+		    	hui.toast("请输入关键字");
+		    	return;
+		    }
+		    saveHistorysearch(keyword);
+		    window.location.href = "searchDetail.html?keyword=" + keyword;
+		}
+		$(function(){
+			$.ajax({
+				type:'GET',
+				dataType:'json',
+				url:'/goods/hotWord/api/findHotWords',
+				data:{
+					'pageIndex' : 1,
+					'pageSize':10
+				},
+				async : false,
+				success:function(result){
+						if(result.code==1000){
+							$(".hotwordContent").html("");
+							var _list = result.data.rows;
+							if(_list  == null ||  _list.length == 0){
+								$(".hotSearch").hide();
+							}else{
+								for(var i = 0;i < _list.length; i++){
+									var hotword = _list[i];
+									var _html = "<li class='recently-item'><a href='searchDetail.html?keyword=" + hotword.hotWordValue + "'>"
+											+"<i class='weui-icon-search recently-search-icon'></i>" + hotword.hotWordValue + "<i class='arrow-right'>"
+											+"</i></a></li>";
+									$(".hotwordContent").append(_html);
+								}
+							}
+							
+						}
+				}
+			});
+		});
+
+		 $(".header-delete").on('click',function(){
+			$(".searchInput").val('');
+		});
+	</script>
+</html>

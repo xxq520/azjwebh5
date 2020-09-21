@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分享</title>
+</head>
+<body>
+
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js"></script>
+<script>
+    var goodsId = getQueryString("goodsId");
+    var shareSeq = getQueryString("shareSeq");
+    var s = getQueryString("s");
+    //秒杀商品的跳转链接
+    var url = "";
+    if(s == 1){
+        url = "/localQuickPurchase/distributionVA/seckill/sgDetail?goodsId="+ goodsId +"&distributorSeq=0&shareSeq="+shareSeq +"&checkShare=1";
+    }else{
+        url = "/localQuickPurchase/distributionVA/goodsDetail/" + goodsId +"/0/"+shareSeq+"?shareSeq="+ shareSeq + "&checkShare=1";
+    }
+    location.href = url;
+</script>
+</html>

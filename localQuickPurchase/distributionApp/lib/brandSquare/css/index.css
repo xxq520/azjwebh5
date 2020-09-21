@@ -1,0 +1,178 @@
+/* 头部导航区域 */
+#app .hui-header {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    top: 0px;
+    left: 0px;
+    z-index: 19;
+    background: #db0020;
+}
+
+#app .hui-header .ricon{
+    width: 1.0667rem /* 48/45 */;
+    height: 1.1111rem /* 50/45 */;
+    margin: auto .444rem;
+}
+#app .hui-header #hui-back {
+    margin: .3333rem /* 15/45 */ 0;
+    
+}
+#app .hui-header #hui-back:before {
+    font-size: 25px;
+    line-height: 50px;
+}
+#app .hui-header #hui-header-sreach {
+    width: 10.6667rem /* 480/45 */;
+    height: 1.2222rem /* 55/45 */;
+    margin: 15px auto;
+    border-radius: 20px;
+    display: flex;
+    background: #FFFFFF;
+    align-items: center;
+}
+#app .hui-header #hui-header-sreach #sreach-icon {
+    width: .6667rem;
+    height:.6667rem ;
+    margin-left: 1.1111rem /* 50/45 */;
+}
+#app .hui-header #hui-header-sreach input {
+    width: 130%;
+}
+/* banner */
+#app .banner{
+    margin-bottom: .4444rem;
+    display: inline-block;
+}
+/* floor */
+#app .floor {
+    position: relative;
+}
+/* 分享赚钱 */
+#app .floor .share{
+    width: 1.4667rem;
+    height: 2.5333rem;
+    position: fixed;
+    top: 70%;
+    right: .2rem;
+}
+#app .brand{
+    margin-bottom: .4444rem;
+    background: #ffffff;
+}
+#app .brand .hui-list-text{
+    border-bottom: 1px solid #f0f0f0;
+    margin-left: 0px;
+    padding-left:.4444rem;
+}
+#app .brand .hui-list-text .hui-list-text-content span{
+    border-left: 8px solid #ff3143;
+    padding-left: 10px;
+    font-size: .7111rem;
+    color: #333;
+}
+#app .brand .hui-list-text .hui-list-info{
+    font-size: .5778rem;
+    color: #666;
+}
+#app .brand .content ul{
+    /*overflow: hidden;*/
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: .4444rem .4444rem 0 .4444rem;
+}
+#app .brand .content ul li{
+    width: 22%;
+    margin-left: 4%;
+    /*float: left;*/
+    /*padding-left: .7556rem;*/
+    /*padding-top: .5333rem;*/
+    padding-bottom: .4444rem;
+}
+#app .brand .content ul li:nth-child(1),#app .brand .content ul li:nth-child(5){
+    margin-left: 0%;
+    /*padding-left: .4444rem;*/
+}
+#app .brand .content ul li div{
+    font-size: .5778rem;
+    color: #666;
+    text-align: center;
+}
+#app .brand .content ul li a{
+    display: block;
+}
+/* 热卖商品 */
+#app .brand .goodsList .goods{
+    border-bottom: 1px solid #f0f0f0;
+    padding: .4222rem;
+    overflow: hidden;
+}
+#app .brand .goodsList .goods .pic{
+    width: 4.4444rem;
+    /* height: 4.4444rem; */
+    float: left;
+}
+#app .brand .goodsList .goods .rContent{
+    padding-left: .5rem;
+    overflow: hidden;
+}
+#app .brand .goodsList .goods .rContent .goodsName {
+    font-size: .5778rem;
+    color: #212121;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+     margin-bottom: 1rem;
+}
+#app .brand .goodsList .goods .rContent .bottom
+.price{
+    display: block;
+    float: left;
+}
+#app .brand .goodsList .goods .rContent .bottom{
+    margin-bottom: 0;
+}
+#app .brand .goodsList .goods .rContent .bottom
+.price span:first-child {
+    font-size: .4444rem;
+    color: #ff3143;
+}
+#app .brand .goodsList .goods .rContent .bottom
+.price span:first-child i{
+    font:.6667rem;
+    color: #ff3143;
+}
+#app .brand .goodsList .goods .rContent .bottom
+.price span:nth-child(2) {
+    display: block;
+    font-size: .5333rem;
+    color: #999;
+    text-decoration: line-through;
+}
+#app .brand .goodsList .goods .rContent .bottom .btn {
+    float: right;
+}
+#app .brand .goodsList .goods .rContent .bottom .btn
+.follow {
+    font-size: .4444rem;
+    color: #ff9c54;
+    text-align: right;
+    margin-bottom: .0667rem;
+}
+#app .brand .goodsList .goods .rContent .bottom .btn
+i {
+    font-size: .4444rem;
+    color: #ff9c54;
+}
+#app .brand .goodsList .goods .rContent .bottom .btn
+.goBtn{
+    display: block;
+    font-size: .5778rem;
+    color: #fff;
+    background: #ff3143;
+    padding: .2222rem .4444rem ;
+    border-radius: 5px;
+    border-style: none;
+}

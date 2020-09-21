@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name = "format-detection" content = "telephone=no">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>个人中心</title>
+		<link rel="stylesheet" href="../static/common/css/comfirmUpgrade.css">
+		<link rel="stylesheet" href="../static/common/lib/Hui/css/hui.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../static/css/pj.css"/>
+	</head>
+	<style>
+		.hui-list{padding:0;}
+		.container .hotSaleContent{margin-top:0;}
+		.good-amount-box>span,.good-amount-box>div{float: left;font-size: 0.7rem;color:#333;text-align: center;}
+		.good-amount-box{height: 1.4rem;}
+		#hui-dialog-btn-line > div{width:42%;color:#fff;}
+		#hui-dialog{height:200px}
+		.spec {
+		    min-height: 0.6rem;
+		    line-height: 0.6rem;
+		    overflow: hidden;
+		    margin-top: 0.4rem;
+		 }
+		 .spec span {
+		    font-size: 0.55rem;
+		    color: #999999;
+		 }
+		
+		 #hui-dialog-btn-line{
+			padding:0;
+		 }
+	</style>
+	<body class="bg_white">                                                                                                                                                                                 
+		<header class="hui-header">
+			<div id="hui-back"></div>
+			<h1>购物车  <span id="good_num">(0)</span></h1>
+			<div class="handle-btns">
+				<span id="btn_del" class="handle-btn handle-edit j-handle-edit">移除</span>
+				<span id="msg" class="handle-btn handle-edit j-handle-edit"><img style="height: 1.8rem;width: 1.8rem;" src="../static/images/customer.png"></span>
+			</div>
+		</header>
+		<div class="hui-wrap" style="padding-bottom: 60px;">
+			<div class="goods-list edit-check">
+<!-- 				 <li class="goods-list-item">
+					<div class="check-box" onclick="selItem(this)">
+						<div class="btn-check">
+						</div>
+					</div>
+					<div class="good-content">
+						<div class="good-pic">
+							<img src="../img/myl.png" alt="" />
+						</div>
+						<div class="good-info">
+							<h4 class="good-name">高级清香品牌沐浴露</h4>
+							<div class="good-des">维维山楂柠檬自然果园精选鲜果果肉鲜 榨多汁山楂柠檬饮料500ML</div>
+							<div class="good-price-info">
+								<div class="good-price color_red">
+									<span class="rmb">￥</span><span class="price-num">100.00</span>
+								</div>
+								<div class="good-num-handle">
+									<div class="good-amount-box">
+										<span class="btn-muins">-</span>
+										<div class="amount-num">
+											<input type="text" class="amount-inp" />
+										</div>
+										<span class="btn-add">+</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</li>
+				<li class="goods-list-item">
+					<div class="check-box" onclick="selItem(this)">
+						<div class="btn-check">
+						</div>
+					</div>
+					<div class="good-content">
+						<div class="good-pic">
+							<img src="../img/myl.png" alt="" />
+						</div>
+						<div class="good-info">
+							<h4 class="good-name">高级清香品牌沐浴露</h4>
+							<div class="good-des">维维山楂柠檬自然果园精选鲜果果肉鲜 榨多汁山楂柠檬饮料500ML</div>
+							<div class="good-price-info">
+								<div class="good-price color_red">
+									<span class="rmb">￥</span><span class="price-num">100.00</span>
+								</div>
+								<div class="good-num-handle">
+									<div class="good-amount-box"><span class="btn-muins">-</span>
+
+										<div class="amount-num">
+											<input type="text" class="amount-inp" />
+										</div>
+										<span class="btn-add">+</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</li>
+				<li class="goods-list-item">
+					<div class="check-box" onclick="selItem(this)">
+						<div class="btn-check">
+						</div>
+					</div>
+					<div class="good-content">
+						<div class="good-pic">
+							<img src="../img/myl.png" alt="" />
+						</div>
+						<div class="good-info">
+							<h4 class="good-name">高级清香品牌沐浴露</h4>
+							<div class="good-des">维维山楂柠檬自然果园精选鲜果果肉鲜 榨多汁山楂柠檬饮料500ML</div>
+							<div class="good-price-info">
+								<div class="good-price color_red">
+									<span class="rmb">￥</span><span class="price-num">100.00</span>
+								</div>
+								<div class="good-num-handle">
+									<div class="good-amount-box"><span class="btn-muins">-</span>
+
+										<div class="amount-num">
+											<input type="text" class="amount-inp" />
+										</div>
+										<span class="btn-add">+</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</li>
+				<li class="goods-list-item">
+					<div class="check-box" onclick="selItem(this)">
+						<div class="btn-check">
+						</div>
+					</div>
+					<div class="good-content">
+						<div class="good-pic">
+							<img src="../img/myl.png" alt="" />
+						</div>
+						<div class="good-info">
+							<h4 class="good-name">高级清香品牌沐浴露</h4>
+							<div class="good-des">维维山楂柠檬自然果园精选鲜果果肉鲜 榨多汁山楂柠檬饮料500ML</div>
+							<div class="good-price-info">
+								<div class="good-price color_red">
+									<span class="rmb">￥</span><span class="price-num">100.00</span>
+								</div>
+								<div class="good-num-handle">
+									<div class="good-amount-box"><span class="btn-muins">-</span>
+
+										<div class="amount-num">
+											<input type="text" class="amount-inp" />
+										</div>
+										<span class="btn-add">+</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</li>
+				<li class="goods-list-item">
+					<div class="check-box" onclick="selItem(this)">
+						<div class="btn-check">
+						</div>
+					</div>
+					<div class="good-content">
+						<div class="good-pic">
+							<img src="../img/myl.png" alt="" />
+						</div>
+						<div class="good-info">
+							<h4 class="good-name">高级清香品牌沐浴露</h4>
+							<div class="good-des">维维山楂柠檬自然果园精选鲜果果肉鲜 榨多汁山楂柠檬饮料500ML</div>
+							<div class="good-price-info">
+								<div class="good-price color_red">
+									<span class="rmb">￥</span><span class="price-num">100.00</span>
+								</div>
+								<div class="good-num-handle">
+									<div class="good-amount-box"><span class="btn-muins">-</span>
+
+										<div class="amount-num">
+											<input type="text" class="amount-inp" />
+										</div>
+										<span class="btn-add">+</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</li> --> 
+			</div>
+			 <div class="recommend">
+				<div class="recommend-title">
+					<div class="line-box">
+						<div class="line"></div>
+					</div>
+					<h3 class="title-txt">为你推荐</h3>
+					<div class="line-box">
+						<div class="line"></div>
+					</div>
+				</div>
+				<div class="recommend-goods">
+					<div class="goods-content">
+					<!-- 	<div class="recommend-good-item">
+							<div class="recommend-good-pic">
+								<img src="../../images/moreImg1.png" alt="" />
+							</div>
+							<div class="recommend-good-name">維维山楂柠檬自然果园精 选果果肉鲜榨...</div>
+							<div class="recommend-sale">
+								<div class="recommend-good-price txt-red">
+									<span class="rmb">￥</span>
+									<span class="price-num">28.50</span>
+								</div>
+								<div class="recommend-good-car" onclick="addCart()"></div>
+							</div>
+						</div>
+						<div class="recommend-good-item">
+							<div class="recommend-good-pic">
+								<img src="../../images/moreImg1.png" alt="" />
+							</div>
+							<div class="recommend-good-name">維维山楂柠檬自然果园精 选果果肉鲜榨...</div>
+							<div class="recommend-sale">
+								<div class="recommend-good-price txt-red">
+									<span class="rmb">￥</span>
+									<span class="price-num">28.50</span>
+								</div>
+								<div class="recommend-good-car" onclick="addCart()"></div>
+							</div>
+						</div>
+						<div class="recommend-good-item">
+							<div class="recommend-good-pic">
+								<img src="../../images/moreImg1.png" alt="" />
+							</div>
+							<div class="recommend-good-name">維维山楂柠檬自然果园精 选果果肉鲜榨...</div>
+							<div class="recommend-sale">
+								<div class="recommend-good-price txt-red">
+									<span class="rmb">￥</span>
+									<span class="price-num">28.50</span>
+								</div>
+								<div class="recommend-good-car" onclick="addCart()"></div>
+							</div>
+						</div>
+						<div class="recommend-good-item">
+							<div class="recommend-good-pic">
+								<img src="../../images/moreImg1.png" alt="" />
+							</div>
+							<div class="recommend-good-name">維维山楂柠檬自然果园精 选果果肉鲜榨...</div>
+							<div class="recommend-sale">
+								<div class="recommend-good-price txt-red">
+									<span class="rmb">￥</span>
+									<span class="price-num">28.50</span>
+								</div>
+								<div class="recommend-good-car" onclick="addCart()"></div>
+							</div>
+						</div>-->
+					 	</div>
+					<div class="loadmore">
+						<!-- <span id="btn_loadmore">查看更多></span> -->
+					</div> 
+				</div>
+			</div>
+
+		</div>
+		<div class="calc-box">
+			<div class="pull-left">
+				<div id="sel_all" class="sel-all"></div>
+				<span>全选</span>
+			</div>
+			<div class="pull-right">
+				<div class="heji">
+					合计：
+					<div class="hejishu txt-red"><span class="rmb">￥</span><span class="heji-num">0.00</span></div>
+				</div>
+				<div class="edit-btns">
+					<div id="to_pay" class="to-pay">去结算 <!-- <span class="sel-total">(0)</span> --></div>
+					<!-- <div id="btn_del" class="btn-del">确认删除</div> -->
+				</div>
+			</div>
+		</div>
+<!-- 		<div id="hui-footer"> -->
+<!-- 			<%@ include file="../../common/footer.jsp" %> -->
+<!-- 		</div> -->
+	</body>
+	<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+	<script type="text/javascript" src="/common/lib/jquery.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/common/lib/Hui/js/hui-tab.js" ></script>
+	<script type="text/javascript" src="/common/lib/Hui/js/hui-refresh-load-more.js" ></script>
+	<script type="text/javascript" src="/common/js/common.js?v=32" ></script>
+	<script type="text/javascript" src="../static/js/shopCar.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/common/js/tag.js"></script>
+	<script type="text/javascript" src="/common/js/bottomTag.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/common/js/footer.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		$("#nav-car").addClass("active");
+		$("#nav-car").find("img").attr("src","../static/images/car_01.png");
+	
+		$(function(){
+			if (userName == "") {
+				window.location.href = "/localQuickPurchase/distributionVA/login/passwordLogin";
+			} else {
+				//每个页面有请求这个,所以这个注释掉.因为请求了两次
+				initFindCart(); //初始化查询购物车
+			}
+		});
+		//编辑
+		/* $(".j-handle-edit").on("click", function() {
+			var $self = $(this);
+			$self.toggleClass("on-edit");
+			if($self.hasClass("on-edit")) {
+				$self.text("取消");
+				$("#to_pay").hide();
+				$("#btn_del").show();
+				activeBtn("#btn_del");
+			} else {
+				$self.text("编辑");
+				$("#to_pay").show();
+				$("#btn_del").hide();
+				activeBtn("#to_pay");
+			}
+		}) */
+		
+		//判断是否选择中item
+		function checkSelItem() {
+			return $(".goods-list-item.checked").length > 0;
+		}
+		
+		//激活/禁用操作按钮
+		function activeBtn(id) {
+			if(checkSelItem()) {
+				$(id).addClass("active")
+			} else {
+				$(id).removeClass("active")
+			}
+		}
+		
+		//自动识别操作按钮
+		function setBtn(){
+			if($(".j-handle-edit").hasClass("on-edit")){
+				activeBtn("#btn_del")
+			}else{
+				activeBtn("#to_pay")
+			}
+		} 
+		
+		//如果菜单栏地部为普通用户将w20调整w25
+		if(distributorType == 1 && consumer != 2){
+			var w20 = $(".w20");
+			var length = w20.length;
+			for(var i = 0;i < length; i++){
+				w20[i].setAttribute("class","w25");
+			}
+		}
+		
+		//获取用户的上一级seq
+		var mydSeq;
+		$("body").on('click','#nav-home-seq',function(){
+			var url = "${path}/distributionVA/goodmanage/"+mydSeq;
+			window.location.href=url;
+		});
+	</script>
+</html>

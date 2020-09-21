@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="email=no" />
+		<title>主页</title>
+		<link rel="stylesheet" type="text/css" href="/common/lib/swiper/css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/goods/css/hui/hui.css"/>
+		<link rel="stylesheet" type="text/css" href="/goods/css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="/goods/css/funing.css"/>
+		<link rel="stylesheet" type="text/css" href="/goods/css/index-n.css"/>
+		<link rel="stylesheet" type="text/css" href="/goods/css/order.css"/>
+		<link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/comfirmUpgrade.css">
+
+		<style>
+			.hui-swipe-indicator{
+				width:100% !important;
+				text-align:center;
+				flex:0 !important;
+				display: flex !important;
+				justify-content: center;
+			}
+			.hui-swipe-indicators{
+				width:0.5777rem !important;
+				background:#E4DDD9 !important;
+			}
+			.hui-swipe-indicator .hui-swipe-indicator-active{
+				width:0.5777rem !important;
+				background:#FE0246 !important;
+			}
+			.swiper-wrapper{
+				height:inherit;
+			}
+			.swiper-slide{
+				height:inherit;
+			}
+			#hui-dialog-msg {
+				font-size: 15px;
+				text-align: left;
+				line-height: normal;
+			}
+			.msg span{
+				display: block;
+				position: absolute;
+				left: 0.0rem;
+				top: 0.1rem;
+				width: 6px;
+				height: 6px;
+				background: #e4393c;
+				border-radius: 50%;
+			}
+			.hui-list li{height : 2.1333rem !important}
+
+			.scancode .set-goods-3 {
+				height: 8.5rem;
+			}
+			.search-box a{
+				display: inline-flex;
+			}
+            .hui-tab-title {
+                background: #fff!important;
+                height: 65px;
+            }
+            .hui-tab-title div span {
+                line-height: 20px;
+            }
+		</style>
+	</head>
+	<body>
+
+		<div class="scancode" style="display: none;" id="distributorScancode">
+		<div class="set-goods-3" >
+			<div class="set-goods-3-title" style="padding-top: 0.3rem;">
+				选择升级方式
+				<img src="/localQuickPurchase/distributionApp/images/closeIco.png" style="padding-top: 15px;"/>
+			</div>
+			<div class="set-goods-3-content">
+				<ul class="hui-list">
+					<li id="agent_choice" data-type="1"  data-id="1">
+						<span class="pull-left font-md-3 color_gray2">为我招募20位网络店主</span>
+						<div  class="pull-right" style="height: 100%;">
+							<img  src="/localQuickPurchase/distributionApp/images/check2.png" />
+						</div>
+
+					</li>
+					<li id="agent_choice"  data-type="1" data-id="2">
+						<span class="pull-left font-md-3 color_gray2">一次性购买5000元商品</span>
+						<div class="pull-right" style="height: 100%;">
+							<img  src="/localQuickPurchase/distributionApp/images/check2.png" />
+						</div>
+					</li>
+				</ul>
+				<div class="set-goods-3-bottom">
+					<button class="set-button-left">取消</button>
+					<button class="set-button-right" id="commit">提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<div class="container">
+			<div class="header">
+				<p>
+					<span class="logo" id="one_agent_store">
+						<img id="logo" src="/goods/images/520SHQLogo.png" onerror="this.src='/goods/images/520SHQLogo.png'"/>
+					</span>
+					<span class="search-box">
+						<img src="/goods/images/search.png"/>
+						<a href="/goods/goods/classify/historySearch.html" ><input  id="searchKey" readonly="readonly" placeholder="搜索商品"/></a>
+						<img style="visibility: hidden;" src="/goods/images/camera.png" class="camera"/>
+					</span>
+					<span class="msg">
+						<img src="/goods/images/msg.png"/>
+						<!-- <span class="msg-tips">4</span> -->
+						<span style="display:none"></span>
+					</span>
+				</p>
+			</div>
+			<div class="main">
+				<!-- <div class="brand mgTop wBg">
+					<div class="brand-top common">
+						<span class="ct">品牌广场</span>
+						<span class="more">更多 <img src="images/right.png"/></span>
+					</div>
+					<div class="brand-box hui-swipe" id="swipe2">
+						<div class="hui-swipe-items">
+							<div class="brand-box-item hui-swipe-item">
+								<div class="brand-banner"><img src=""></div>
+								<div class="brand-list">
+									<div class="brand-item">
+										<div class="brand-img"><img src=""></div>
+										<div class="brand-desc">
+											<p class="brand-price pcolr">￥700000</p>
+											<p class="selled">已售：0</p>
+										</div>
+									</div>
+									<div class="brand-item">
+										<div class="brand-img"><img src=""></div>
+										<div class="brand-desc">
+											<p class="brand-price pcolr">￥700000</p>
+											<p class="selled">已售：0</p>
+										</div>
+									</div>
+									<div class="brand-item">
+										<div class="brand-img"><img src=""></div>
+										<div class="brand-desc">
+											<p class="brand-price pcolr">￥700000</p>
+											<p class="selled">已售：0</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="brand-box-item hui-swipe-item">
+								<div class="brand-banner"><img src=""></div>
+								<div class="brand-list">
+									<div class="brand-item">
+										<div class="brand-img"><img src=""></div>
+										<div class="brand-desc">
+											<p class="brand-price pcolr">￥700000</p>
+											<p class="selled">已售：0</p>
+										</div>
+									</div>
+									<div class="brand-item">
+										<div class="brand-img"><img src=""></div>
+										<div class="brand-desc">
+											<p class="brand-price pcolr">￥700000</p>
+											<p class="selled">已售：0</p>
+										</div>
+									</div>
+									<div class="brand-item">
+										<div class="brand-img"><img src=""></div>
+										<div class="brand-desc">
+											<p class="brand-price pcolr">￥700000</p>
+											<p class="selled">已售：0</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+
+			</div>
+
+		</div>
+		<script type="text/javascript" src="/common/lib/jquery.min.js"></script>
+		<script type="text/javascript" src="/common/js/token.js"></script>
+		<script type="text/javascript" src="/common/js/userRole.js"></script>
+		<script type="text/javascript" src="/common/js/tag.js"></script>
+		<script type="text/javascript" src="/common/js/common.js?v=32" ></script>
+		<script type="text/javascript" src="/common/lib/swiper/js/swiper.min.js"></script>
+		<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+		<script type="text/javascript" src="/common/lib/Hui/js/hui-swipe.js"></script>
+		<script type="text/javascript" src="/goods/js/leftTime.min.js"></script>
+		<script type="text/javascript" src="/goods/js/index-n.js"></script>
+		<script type="text/javascript" src="/common/js/footer.js"></script>
+		<script type="text/javascript" src="/goods/js/upgradeDialog.js"></script>
+		<script type="text/javascript" src="/common/js/bottomTag.js"></script>
+		<script type="text/javascript">
+
+            //信息盒子
+            $(document).on('click', '.msg', function() {
+                if(isRoleVip() || isRoleConsumer()){
+                    window.location.href="/localQuickPurchase/distributionVA/messageTwo";
+                } else {
+                    window.location.href="/localQuickPurchase/distributionVA/messageThree";
+                }
+            });
+            //从搜索记录中查找记录并赋值
+            var historySearch = getHistoryRides();//.split(',')
+            var historyHort = historySearch[0];
+            if(historyHort == null || historyHort == ""){
+                historyHort = "搜索商品";
+            }
+            document.getElementById("searchKey").setAttribute("placeholder",historyHort);
+            //获取搜索关键字
+            //获取关键字
+            function getHistoryRides(){
+                var historyWord = "";
+                var checkHistory = {
+                    type:'post',
+                    dataType:'json',
+                    url:'/goods/hotWord/history',
+                    async : false,
+                    success:function(data){
+                        if(data.code == 1000){
+                            historyWord = data.data;
+                        }
+                    }
+				}
+               if(!isLogin()){$.ajax(checkHistory);return historyWord;}
+               refresh(checkHistory);
+                return historyWord;
+            }
+
+            //跳转520到首页
+            $(document).on("click","#one_agent_store",function(){
+                var urlApp = "shq://com.hanfujia.shq";
+                var urlIndex = "http://a.vmall.com/app/C10248694?shareTo=com.tencent.mobileqq&shareFrom=appmarket";
+                // 判断是否是app
+                var u = navigator.userAgent;
+                var isappwebview = u.indexOf('app_webview') > -1
+                if(isappwebview){
+                    // 退出登录后给app调用方法
+                    window.action.jumpShq();
+                }else{
+                    function isInstalled(){
+                        var originHref = location.href;
+                        var url = originHref.substring(originHref.indexOf('//')+2);
+                        var schemeUrl = urlApp;
+                        window.location=schemeUrl;//打开某手机上的某个app应用
+                        setTimeout(function(){
+                            window.location=urlIndex;//如果超时就跳转到app下载页
+                        },500);
+                    }
+                    var downlink = document.querySelector('#one_agent_store');
+                    downlink.addEventListener('click',function(){
+                        isInstalled();
+                    },false)
+                }
+            });
+            //首页头像展示
+            var headImg=getCookie("headImg");
+            if(headImg != null && headImg != "" && headImg != "null"){
+                $("#logo").attr("src", headImg);
+            }
+		</script>
+
+		<script type="text/javascript">
+    /*        //这里报错会使页面空白
+            $(function(){
+                try{
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    $("body").append(unescape("%3Cspan style='display:none;'  id='cnzz_stat_icon_1275444738'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1275444738' type='text/javascript'%3E%3C/script%3E"));
+                }catch (e) {}
+            });*/
+
+            $('.popup').on("webkitAnimationEnd animationend").css("transform","translateY(-50%)").css("webkitTransform","translateY(-50%)");
+		</script>
+	</body>
+</html>

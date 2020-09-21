@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/income.css">
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/lib/Hui/css/hui.css">
+    <title>爱之家</title>
+</head>
+<style>
+
+    .positionContent{font-size: .8rem;color: #999;text-align: center;margin-top:1.8888rem;/*position: absolute;top: 40%;left: 50%;transform: translate(-50%,-50%)*/}
+    /*.hui-list li{height: inherit!important; line-height: inherit!important; }*/
+</style>
+<body>
+    <div class="income">
+        <div class="header">
+            <a ><img class="goBack" src="./img/android/drawable-hdpi/fanhui.png" alt=""></a></span>
+            <div id="headerMessage">待收收益明细</div>
+        </div>
+        <div class="search">
+            <form class="search_box">
+            <span class="searh_img"><img src="./img/android/drawable-hdpi/sousuoa.png"  alt=""/></span>
+            <input id="textOrder" type="text" placeholder="按订单号搜索" class="search"/>
+            <div id="searchOrderno">搜索</div>
+            <!--<button>搜索</button>-->
+            </form>
+        </div>
+        <div class="hui-wrap">
+
+            <div id="refreshContainer" class="hui-refresh">
+                <div class="hui-refresh-icon"></div>
+                <div class="hui-refresh-content hui-list" id="list">
+                    <div class="order_details">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+        <!--<div class="order_details">
+            <ul>-->
+                <!-- <li>
+                     <div class="li_item">
+                         <p><span>一天世界晴</span>
+                             <span class="icon bg_icon">
+                                 <img src="./img/android/drawable-hdpi/zunxiang.png" alt="">
+                             </span>
+                         </p>
+                         <p>收益：<span class="colorR">+999.99</span></p>
+                     </div>
+                     <div  class="li_item orderNum">
+                         <span>订单号：3201888888888888888</span>
+                         <span>2018-11-02</span>
+                     </div>
+                     <div class="li_item porduct_name">
+                         <span>商品：【大兵推荐】笑工优选鲜竹酒5年竹香...</span>
+                         <span class="phoneNum">138******9999</span>
+                     </div>
+                     <div class="li_item btn">
+                         <button class="invitation">邀请TA身份升级</button>
+                         <button class="give">赠送红包</button>
+                     </div>
+                 </li>
+                 <li>
+                     <div class="li_item">
+                         <p><span>一天世界晴</span>
+                             <span class="icon bg_icon">
+                                 <img src="./img/android/drawable-hdpi/zunxiang.png" alt="">
+                             </span>
+                         </p>
+                         <p>收益：<span class="colorR">+999.99</span></p>
+                     </div>
+                     <div  class="li_item orderNum">
+                         <span>订单号：3201888888888888888</span>
+                         <span>2018-11-02</span>
+                     </div>
+                     <div class="li_item porduct_name">
+                         <span>商品：【大兵推荐】笑工优选鲜竹酒5年竹香...</span>
+                         <span class="phoneNum">138******9999</span>
+                     </div>
+                     <div class="li_item btn">
+                         <button class="invitation">邀请TA身份升级</button>
+                         <button class="give">赠送红包</button>
+                     </div>
+                 </li>-->
+            <!-- </ul>
+         </div>-->
+    </div>
+
+
+    <!-- 弹框 -->
+    <div class="windowM" >
+        <div class="modal_mgs modal-dialog">
+            <div class="close"></div>
+            <p class="mgs_title">邀请TA升级</p>
+           <div class="mgs_con upgrade">
+              <!--div class="li">
+                  <div class="li_item">
+                      <span class="icon"></span>
+                      <div class="item_text">
+                          <p>邀请代理商</p>
+                          <p>xxxxxxxxxxxxxxx</p>
+                      </div>
+                  </div>
+                  <div class="li_item">
+                        <span class="icon"></span>
+                        <div class="item_text">
+                            <p>邀请代理商</p>
+                            <p>xxxxxxxxxxxxxxx</p>
+                        </div>
+                    </div>
+              </div>
+              <div class="li">
+                    <div class="li_item">
+                        <span class="icon"></span>
+                        <div class="item_text">
+                            <p>邀请代理商</p>
+                            <p>xxxxxxxxxxxxxxx</p>
+                        </div>
+                    </div>
+                    <div class="li_item">
+                          <span class="icon"></span>
+                          <div class="item_text">
+                              <p>邀请代理商</p>
+                              <p>xxxxxxxxxxxxxxx</p>
+                          </div>
+                      </div>
+                </div>-->
+           </div>
+        </div>
+
+        <div class="Reconfirm modal_mgs twiceContent">
+            <!--<p class="mgs_con" id="twiceContent">是否邀请TA成为代理商?</p>
+            <div class="list_btn ReconfirmBtn">
+                <button class="cancel">否</button>
+                <button class="sure ">是</button>
+            </div>-->
+        </div>
+
+    </div>
+
+    <!--  -->
+
+</body>
+</html>
+<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="/common/lib/jquery/js/jquery.min.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui-refresh-load-more.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/loading.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/js/common.js?v=32"></script>
+<script src="./js/earnings.js"></script>
+<script>
+//弹框 
+
+/*返回*/
+$('.goBack').click(function () {
+    window.history.go(-1);
+})
+</script>

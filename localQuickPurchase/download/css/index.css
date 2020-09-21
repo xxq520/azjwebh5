@@ -1,0 +1,245 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Microsoft YaHei", arial;
+    /*color:#212121;*/
+    word-wrap: break-word;
+}
+
+html {
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    width: 100%
+}
+
+li {
+    list-style-type: none;
+}
+
+i {
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea {
+    outline: none;
+}
+
+textarea {
+    border: none;
+    resize: none;
+}
+
+#app {
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:320px) {
+    html {
+        font-size: 20px !important;
+    }
+}
+
+@media screen and (min-width:320px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width:340px) and (max-width:360px) {
+    html {
+        font-size: 21.25px;
+    }
+}
+
+@media screen and (min-width:360px) and (max-width:370px) {
+    html {
+        font-size: 22.5px;
+    }
+}
+
+@media screen and (min-width:370px) and (max-width:400px) {
+    html {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width:400px) and (max-width:440px) {
+    html {
+        font-size: 25px;
+    }
+}
+
+@media screen and (min-width:440px) and (max-width:480px) {
+    html {
+        font-size: 27.5px;
+    }
+}
+
+@media screen and (min-width:480px) and (max-width:520px) {
+    html {
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width:520px) and (max-width:560px) {
+    html {
+        font-size: 32.5px;
+    }
+}
+
+@media screen and (min-width:560px) and (max-width:600px) {
+    html {
+        font-size: 35px;
+    }
+}
+
+@media screen and (min-width:600px) and (max-width:640px) {
+    html {
+        font-size: 37.5px;
+    }
+}
+
+@media screen and (min-width:640px) {
+    html {
+        font-size: 40px !important;
+    }
+}
+input{
+    outline:none;
+    border:0;
+    -webkit-appearance: none;
+    border-radius:0;
+}
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    border: 0;
+    -webkit-appearance: none;
+}
+
+textarea {
+    -webkit-appearance: none;
+}
+
+.hui-header{
+    background-color:#db0020;
+    color:#222;
+    height:44px;
+    font-size:16px;
+    border-bottom:1px solid #adadad;
+}
+header img {
+    margin-top: 44%;
+}
+@media (-webkit-min-device-pixel-ratio:2),
+(min-device-pixel-ratio:2) {
+    .bd-bot:after {
+        transform: scaleY(0.5);
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio:3),
+(min-device-pixel-ratio:3) {
+    .bd-bot:after {
+        transform: scaleY(0.3333);
+    }
+}

@@ -1,0 +1,82 @@
+.container{
+	background: #F5F5F5;
+	position: relative;
+	height:100vh;
+}
+.header{
+	width: 100%;
+	height: 1.9555rem;
+	position: fixed;
+	background: #fff;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	border-bottom:1px solid #ddd;
+}
+.header p{
+	height: 100%;
+	position: relative;
+	display: flex;
+	display: -webkit-box;
+ 	display: -moz-box;
+  	display: -ms-flexbox;
+  	display: -webkit-flex;
+	align-items: center;
+	justify-content: center;
+}
+.header p span{
+	color: #333;
+}
+.header img{
+	position: absolute;
+	left: 0.4444rem;
+	top: 50%;
+	margin-top: -0.4888rem;
+	width: 0.9777rem;
+	height: 0.9777rem;
+}
+
+.main{
+	padding-top: 2.4222rem;
+	position:relative;
+}
+.invoice{
+	background: #fff;
+}
+.invoiceStatus{
+	
+	font-size: 0.6222rem;
+	border-bottom:1px solid #ddd ;
+	padding: 0 .4444rem;
+	height: 1.9555rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.invoiceStatus .status{
+	color:#f00;
+}
+.invoiceP{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	height: 1.9555rem;
+	font-size: 0.6222rem;
+	padding: 0 0.4444rem;
+}
+.invoiceP .download{
+	display: inline-block;
+	border: 1px solid #f00;
+	padding: .0555rem .2222rem;
+	border-radius:25px;
+	color:#f00;
+	margin-left: 0.4444rem;
+}
+.invoiceP .sendEmail{
+	display: inline-block;
+	border: 1px solid #f00;
+	padding: .0555rem .2222rem;
+	border-radius:25px;
+	color:#f00;
+	margin-left: 0.4444rem;
+}

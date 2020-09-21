@@ -1,0 +1,194 @@
+
+body {
+    background: #f5f5f5 !important;
+}
+#invite .hui-header {
+    background: #fff;
+    border-bottom: 0.02px solid #000
+}
+#invite .hui-header h1{
+    color: #333;
+}
+
+#invite #hui-back:before {
+    color: #333;
+}
+
+#invite html {
+    height: 100%
+}
+
+#invite .swiper-container {
+    margin-top: 16%;
+    height: 80% !important;
+    width: 100%;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    perspective: 1200px
+}
+
+#invite .swiper-wrapper {
+    /*margin-top: 1rem;*/
+}
+
+#invite .swiper-slide {
+    /*position: relative;*/
+    width: 80%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d
+}
+#invite .swiper-slide .proxy {
+    width: 100%;
+    /*height: 22rem;*/
+    background-image: url("../../images/exclusiveInvite/1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#invite .swiper-slide .proxy2 {
+    background-image: url("../../images/exclusiveInvite/2.png");
+}
+#invite .swiper-slide .proxy3 {
+    background-image: url("../../images/exclusiveInvite/3.png");
+}
+#invite .swiper-slide .proxy4 {
+    background-image: url("../../images/exclusiveInvite/4.png");
+}
+#invite .swiper-slide .proxy5 {
+    background-image: url("../../images/exclusiveInvite/5.png");
+}
+
+#invite .swiper-slide .ewm {
+
+    display: block;
+    position: absolute;
+
+}
+#invite .swiper-slide .vv1 {
+    width: 28%;
+    top: 48%;
+    left: 36%;
+}
+
+#invite .swiper-slide .e1 {
+    width: 47%;
+    top: 60%;
+    left: 26%;
+}
+
+#invite .swiper-slide .e2 {
+    width:37%;
+    top: 73%;
+    left: 57%;
+}
+#invite .swiper-slide .e3 {
+    width:38%;
+    top: 52%;
+    left: 31%;
+}
+#invite .swiper-slide .e4 {
+    width:38%;
+    top: 59%;
+    left: 31%;
+}
+#invite .swiper-slide .e5 {
+    width:38%;
+    top: 55%;
+    left: 31%;
+}
+#invite .swiper-slide .e6 {
+    width:38%;
+    top: 61%;
+    left: 31%;
+}
+#invite .swiper-slide .e7 {
+    width:38%;
+    top: 95%;
+    left: 31%;
+}
+
+/* #invite #pagination {
+    position: absolute;
+    bottom: 100px;
+    width: 100%
+} */
+/* 微信名称及二维码 */
+#invite .swiper-container .swiper-wrapper .swiper-slide .name{
+    font-size: .6rem /* 27/45 */;
+    color: #fff;
+    position: absolute;
+    top: 53%;
+    left: 37%;
+}
+#invite .swiper-container .swiper-wrapper .swiper-slide .n1{
+    width:100%;
+    left:0;
+    text-align: center;
+}
+#invite .swiper-container .swiper-wrapper .swiper-slide .n25{
+    top: 65%;
+    left: 30%;
+    padding: 0 2px;
+    overflow: hidden;
+    word-break: break-all;
+}
+#invite .swiper-container .swiper-wrapper .swiper-slide .n3{
+    width:100%;
+    top: 75%;
+    left:0;
+    text-align: center;
+}
+#invite .swiper-container .swiper-wrapper .swiper-slide .n4{
+    top: 50%;
+    width:100%;
+    left:0;
+    text-align: center;
+}
+#invite .swiper-container .swiper-wrapper .swiper-slide .n5{
+    color: #000;
+    top: 50%;
+    width:100%;
+    left:0;
+    text-align: center;
+}
+#invite .swiper-container .swiper-wrapper .swiper-slide .n6{
+    top: 56%;
+    width:100%;
+    left:0;
+    text-align: center;
+}
+/* 底部按钮区域 */
+#invite .ivtBtn {
+    /*position: fixed;*/
+    bottom: .4444rem /* 20/45 */;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.6rem .2667rem ;
+}
+#invite .ivtBtn .btn{
+    display: block;
+    font-size: .7111rem;
+    color:#fff;
+    background: #ff3143;
+    width: 48% /* 333/45 */;
+    height: 1.8889rem /* 85/45 */;
+    border-radius: 8px;
+    border-style: none;
+}
+#invite .ivtBtn .btn:first-child{
+    background-color: #ff9408;
+    float: left;
+}
+#invite .ivtBtn .btn:nth-child(2){
+    background-color: #f32f19;
+    float: right
+}
+
+
+
+
+
+

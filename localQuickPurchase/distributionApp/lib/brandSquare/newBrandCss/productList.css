@@ -1,0 +1,400 @@
+.contenner {
+    width: 100%;
+    box-sizing: border-box;
+
+}
+/* 头部 搜索 */
+.contenner .header {
+    width: 100%;
+    height: 2.2222rem;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+
+.contenner .header .back_btn{
+    width: 2.2222rem;
+    height: 2.2222rem;
+    /* position: relative; */
+    text-align: center;
+    line-height: 2.2222rem;
+
+
+}
+
+.contenner .header .back_btn img {
+    width: .4444rem;
+    height: .8rem;
+
+}
+.header .search_box {
+    /* position: relative; */
+    margin: .4889rem .5556rem;
+    width: 11.1111rem;
+    height: 1.2444rem;
+    background-color: #f2f2f2;
+    border-radius: .6222rem;
+    padding: .2222rem .6667rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border-radius: .6222rem;
+    align-items: center;
+
+
+}
+
+.header .search_box  .search {
+    /* margin: .4889rem .5556rem; */
+    width: 85%;
+    /* height: 1.2444rem; */
+    background-color: #f2f2f2;
+    /* border-radius: .6222rem; */
+    box-sizing: border-box;
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 0; */
+    display: block;
+    /* position: relative; */
+
+}
+
+.header .search:focus {
+    outline: none;
+}
+
+.header .search_box  .search::after {
+    content: '';
+    width: .5778rem;
+    height: .5778rem;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.header .search_box .searh_img {
+    width: .5778rem;
+    height: .5778rem;
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: .1111rem; */
+
+
+}
+/* tab 栏 商品列表 */
+.productList {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* .productList .ul {
+    width: 100%;
+    overflow: hidden;
+    margin:  0 0.5333rem;
+    box-sizing: border-box; */
+
+/* } */
+.plNavbar {
+
+    height: 1.6rem;
+    display: flex;
+
+ overflow: auto;
+    font-size: .6222rem;
+    color: #888888;
+     padding: 0 .5333rem;
+    line-height: 1.6rem;
+    text-align: center;
+}
+
+
+ .plNavbart .nav_Li {
+    /* display: inline-block; */
+    float: right;
+    margin:  0 .3333rem;
+    padding: 0 .1333rem;
+    text-align: center;
+
+}
+
+.productList .plNavbar .active {
+    color: #db0020;
+    border-bottom: .0889rem solid #db0020;
+}
+
+/*产品列表 */
+
+.productList .plContent {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    display: none;
+}
+.productList .plContent.selected {
+    display: block;
+}
+
+
+.productList .plContent .sort_nav {
+    /* width: 100%; */
+    /* height: 1.6444rem; */
+   margin: 0 .5333rem;
+    line-height: 1.6444rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-size: .5778rem;
+    color: #989898;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eeeeee;
+
+}
+/* 综合排序 */
+.productList .plContent .sort_nav .sort_Li {
+    width: 33.33%;
+    text-align: center;
+    height: 1.6444rem;
+    line-height: 1.6444rem;
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: nowrap; */
+    align-items: center;
+    align-content: center;
+}
+.productList .plContent .sort_nav .sort_Li .icon_img {
+    width: .4444rem;
+    height: 1.6444rem;
+    /* background-color: red; */
+    display: block;
+    margin-left: .4444rem;
+    position: relative;
+}
+
+.productList .plContent .sort_nav .sort_Li .icon_img img {
+    width: .2667rem;
+    height: .2rem;
+    display: block;
+    position: absolute;
+}
+/*  */
+.productList .plContent .sort_nav .sort_Li .icon_img img.up {
+    top: .5333rem;
+    left: -.1111rem;
+    /* background: url('../img/up.png'); */
+}
+
+/* 综合 图标样式 */
+.productList .plContent .sort_nav .sort_Li .icon_img  .img_up {
+    bottom : 0.65rem;
+    left: -.1111rem;
+
+}
+
+.productList .plContent .sort_nav .sort_Li .icon_img img.down {
+    bottom: 0.55rem;
+    left: -.1111rem;
+    /* background: url('../img/down.png'); */
+}
+
+
+/* 销量价格 三角图标 */
+.productList .plContent .sort_nav .sort_Li .icon_img div {
+    width:0;
+    height:0;
+    border-right: .1333rem solid transparent;
+    border-left: .1333rem solid transparent;
+    border-bottom: .2rem solid #989898;
+    position: absolute;
+}
+.productList .plContent .sort_nav .sort_Li .icon_img  div.icon_up {
+    top: 0.55rem;
+    left: -.1111rem;
+}
+.productList .plContent .sort_nav .sort_Li .icon_img  div.icon_down {
+    bottom: 0.55rem;
+    left: -.1111rem;
+    transform: rotate(180deg);
+}
+
+/* 点击改变图标 */
+.productList .plContent .sort_nav .sort_Li .icon_img img.rotate {
+    transform: rotate(180deg);
+    bottom: 0.8rem;
+}
+
+/* 当前选中样式 */
+.productList .plContent .sort_nav .sort_active {
+    color: #ff9003;
+}
+
+/* 点击显示下拉 */
+.plContent .drop_down {
+    position: absolute;
+    top: 1.6667rem;
+    left: 0;
+    background-color: rgba(133, 133, 133, 0.5);
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+   display: none;
+}
+
+/* 切换显示隐藏 */
+.plContent .current {
+    display: block;
+}
+.plContent .drop_down ul {
+    width: 100%;
+    text-align: left;
+    border-bottom:  1px solid #eeeeee;
+    padding: 0 1.1111rem;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.plContent .drop_down li{
+    line-height: 2rem;
+    font-size: .5778rem;
+    color: #989089;
+    height: 2rem;
+    border-bottom: .0222rem solid #eeeeee;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+
+.plContent .drop_down li:last-child{
+    border-bottom: none;
+}
+
+
+.plContent .drop_down li .icon_img {
+    width: .6667rem;
+    height: .4889rem;
+    float: right;
+    display: none;
+}
+/* 当前选中样式 */
+.plContent .drop_down li.active {
+    color: #ff9003;
+}
+
+/* 当前选中显示img */
+.plContent .drop_down li .icon_img.img_active {
+    display: block;
+}
+
+
+/* 产品列表 */
+.productList .plContent .productDet {
+    width: 100%;
+    padding:  .5333rem;
+    box-sizing: border-box;
+}
+.productList .plContent .productDet li {
+    width: 100%;
+    margin-bottom: .6444rem;
+    overflow:hidden;
+    /* display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap; */
+}
+
+.productList .plContent .productDet li:last-child{
+    margin-bottom: 0;
+}
+
+.productList .plContent .productDet li img {
+    width: 6.0222rem;
+    /* width: 33.33%; */
+    height: 6.0222rem;
+    display: block;
+    float: left;
+    margin-right: .4889rem;
+}
+
+
+.productList .plContent .productDet li .productInfo .title {
+    font-size: .6222rem;
+    color: #333333;
+    overflow:hidden;
+
+text-overflow:ellipsis;
+display:-webkit-box;
+-webkit-box-orient:vertical;
+-webkit-line-clamp:2;
+
+}
+
+.productList .plContent .productDet li .productInfo  .price {
+    margin-top: .5rem;
+    font-size: .5778rem;
+    color: #989898;
+
+}
+
+.productList .plContent .productDet li .productInfo  .price .special {
+    color: #db0020;
+    font-size: .6222rem;
+    text-decoration: none;
+    margin-right: .4444rem;
+    display: inline;
+}
+.productList .plContent .productDet li .productInfo  .price .text_line {
+    text-decoration: line-through;
+}
+.productList .plContent .productDet li .productInfo  .Stock {
+    margin-top: .5rem;
+    font-size: .5333rem;
+    color: #888888;
+}
+
+.productList .plContent .productDet li .productInfo  .Stock span {
+    /*margin-left: .4444rem;*/
+}
+
+.productList .plContent .productDet li .productInfo .label {
+    /*
+    display: inline-block; */
+     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-between;*/
+    margin-top: .7778rem;
+    position: relative;
+}
+
+
+
+.hotSaleGoods {
+    font-size: .4889rem;
+    color: #ff9003;
+    /*height: .6667rem;*/
+    box-sizing: border-box;
+    border: .0444rem solid #ff9003;
+    border-radius: .3333rem;
+    /*line-height: .5333rem;*/
+    text-align: center;
+    margin-top: .1111rem;
+    margin-left: 0.1rem;
+    padding: 1px 4px;
+}
+
+.commissionPrice {
+    font-size: .5333rem;
+    color: #db0020;
+    height: .8889rem;
+    border-radius: .4444rem;
+    background-color: #fcf6ea;
+    text-align: center;
+    line-height: .8rem;
+    position: absolute;
+    right: 0;
+}
+

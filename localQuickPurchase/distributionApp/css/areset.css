@@ -1,0 +1,54 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,input{margin:0;padding:0;border:0;font-family:"Microsoft YaHei",arial;color:#212121;}
+html{font-size:20px;}
+a{text-decoration:none;}
+img{max-width:100%;vertical-align:top;}
+li{list-style-type:none;}
+i{font-style:normal;}
+input ,button{outline: none;  border: none;}
+*{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box; -webkit-appearance: none;}
+@media screen and (max-width:320px){html{font-size:20px !important;}}
+@media screen and (min-width:320px){html{font-size:20px;}}
+@media screen and (min-width:340px) and (max-width:360px){
+ html{font-size: 21.25px;}
+}
+@media screen and (min-width:360px) and (max-width:370px){
+ html{font-size: 22.5px;}
+}
+@media screen and (min-width:370px) and (max-width:400px){
+ html{font-size: 24px;}
+}
+@media screen and (min-width:400px) and (max-width:440px){
+ html{font-size: 25px;}
+}
+@media screen and (min-width:440px) and (max-width:480px){
+ html{font-size: 27.5px;}
+}
+@media screen and (min-width:480px) and (max-width:520px){
+ html{font-size: 30px;}
+}
+@media screen and (min-width:520px) and (max-width:560px){
+ html{font-size: 32.5px;}
+}
+@media screen and (min-width:560px) and (max-width:600px){
+ html{font-size: 35px;}
+}
+@media screen and (min-width:600px) and (max-width:640px){
+ html{font-size: 37.5px;}
+}
+@media screen and (min-width:640px){html{font-size:40px !important;}}
+input[type="button"],input[type="submit"],input[type="reset"]{border:0,-webkit-appearance: none;}
+textarea{-webkit-appearance:none;}
+
+/*图标字体开始*/
+@font-face {
+	font-family: 'fontello';
+	src: url('../font/fontello.eot');
+	src: url('../font/fontello.eot?23036015#iefix') format('embedded-opentype'),
+	   	 url('../font/fontello.woff?23036015') format('woff'),
+	   	 url('../font/fontello.ttf?23036015') format('truetype'),
+	   	 url('../font/fontello.svg?23036015#fontello') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+.font-ico{font-family:"fontello";font-style:normal;font-weight:normal;speak:none;display: inline-block;text-decoration:inherit;vertical-align:top;}*/
+/*图标字体结束*/

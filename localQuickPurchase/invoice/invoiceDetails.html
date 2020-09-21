@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/hui.css">
+		<link rel="stylesheet" href="css/invoiceDetails.css">
+		<title>发票详情</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<p><img src="images/back.jpg" class="back" onclick="backPage()"/><span class="fs36">发票详情</span></p>
+			</div>
+			<div class="main">
+				<div class="invoice">
+					<!--<p class="invoiceStatus">发票状态：<span class="status">已开发票</span></p>
+					<p class="invoiceP">订单编号：<span class="orderNum">554554554554554</span></p>
+					<p class="invoiceP">下单时间：<span class="orderTime">2018-09-08 12:00:00</span></p>
+					<p class="invoiceP">发票类型：<span class="invoiceType">电子发票</span>
+						<span class="download" onclick="downloadInvoice()">下载发票</span>
+						<span class="sendEmail" onclick="sendEmail()">发送邮箱</span>
+					</p>
+					<p class="invoiceP">发票抬头：<span class="title">个人</span></p>
+					<p class="invoiceP">发票内容：<span class="content">商品明细</span></p>-->
+				</div>
+			</div>
+		</div>
+		<script src="/localQuickPurchase/invoice/js/jquery-1.11.3.min.js"></script>
+		<script src="/localQuickPurchase/distributionApp/js/common.js" type="text/javascript"></script>
+		<script type="text/javascript" src="/localQuickPurchase/invoice/js/invoiceDetails.js"></script>
+		<script src="/localQuickPurchase/invoice/js/hui.js"></script>
+		<script>
+			var email = '';
+			var emailReg = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
+			function downloadInvoice(){
+				window.location = 'http://p2.music.126.net/tt8xwK-ASC2iqXNUXYKoDQ==/109951163606377163.jpg';
+			}
+			function sendEmail(){
+				hui.prompt('请输入邮箱地址', ['取消','确定'], function(mail){
+					email = mail;
+					$('#hui-dialog-input').val(email);
+					if(mail == ''){
+						hui.toast('邮箱地址不能为空');
+					}else if(!emailReg.test(mail)){
+						hui.toast('请输入正确的邮箱格式');
+					}
+					console.log(email);
+				},'例如：123@123.com',function(){
+					return false;
+				})
+			}
+		</script>
+	</body>
+</html>

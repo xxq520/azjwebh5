@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <link rel="stylesheet" href="css/voucher.css"/>
+    <link rel="stylesheet" href="css/indexCoupon.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/receiveCoupons.css">
+    <link rel="stylesheet" href="css/card.css">
+    <title>NewStyle</title>
+    <style>
+        .swiper-wrapper{
+            height: 8%;
+        }
+
+        .noData{
+            margin-bottom: 10px;
+            z-index: 21;
+            color: black;
+        }
+        @media (-webkit-min-device-pixel-ratio: 2){
+            #hui-dialog{transform:scale(2) translateX(-25%);}
+        }
+        @media (-webkit-min-device-pixel-ratio: 3){
+            #hui-dialog{transform:scale(3) translateX(-25%);}
+        }
+
+        .swiper1{
+            margin-top: 2rem;
+            background: #fff;
+        }
+
+        .couponInfoDetail p{
+            font-size: 0.6rem;
+            color: #494949;
+            margin-bottom: 0.65rem;
+        }
+
+        .nocards{
+            height: 5.9111rem;
+            width: 6.6666rem;
+            margin-top: 7.5555rem;
+            margin-left: 5.5555rem;
+        }
+
+        .item-desc p{
+            margin: 4px auto;
+        }
+        .main .coupon-list .coupon-item .item-title p .info3 {
+            color: #FF0000;
+        }
+
+        .revicePadding{
+            padding: 0 0 !important;
+        }
+        .useVoucher {
+            position: absolute;
+            left: 84%;
+            font-size: 12px;
+            margin-top: 0rem;
+            color: crimson;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <!--返回导航栏-->
+    <div class="header"><p><span class="fs36">我的消费券</span><img class="back" onclick="backPersonalCenter()" src="/localQuickPurchase/distributionApp/images/back.png"/>
+        <span class="useVoucher" onclick="userVoucher()" >使用明细</span></p></div>
+
+    <!--选择滑动菜单栏-->
+    <div class="swiper-container swiper1">
+        <div class="swiper-wrapper">
+            <span class="swiper-slide selected mark0">已获得</span>
+            <span class="swiper-slide mark1">未使用</span>
+            <span class="swiper-slide mark2">使用中</span>
+            <span class="swiper-slide mark3">已使用</span>
+            <span class="swiper-slide mark4">已失效</span>
+        </div> run
+    </div>
+
+    <!--优惠券信息content-->
+    <div class="swiper-container swiper2">
+        <div class="swiper-wrapper">
+
+            <!----------已获得----------->
+            <div class="swiper-slide swiper-no-swiping" id="swiperMark0">
+                <div class="main">
+                    <img class="nocards couponsNull0" src="/localQuickPurchase/distributionApp/images/coupons_null@2x.png" style="display: none;">
+                    <div class="coupon-list ulList0">
+                        <!--
+                        <div class="coupon-item">
+                            <div class="item-title">
+                                <p><span class="titleclor fs30">520xxx优惠券</span><span class="fs16 infoclor info">使用说明 ></span></p>
+                                <div class="item-imgs">
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare02.jpg"/>
+                                    </div>
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare07.jpg"/>
+                                    </div>
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare03.jpg"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-desc">
+                                <p class="texcen"><span class="fs20 redclor fw7">￥</span><span class="fs70 redclor fw7">520</span></p>
+                                <p class="fs22 redclor texcen">满1688可使用</p>
+                                <p class="fs22 useclor texcen gouse">去使用</p>
+                                <p class="fs18 redclor texcen">2018.5.30到期</p>
+                                <span class="top-disc"></span>
+                                <span class="bot-disc"></span>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <!----------未使用----------->
+            <div class="swiper-slide swiper-no-swiping" id="swiperMark1">
+                <div class="main">
+                    <img class="nocards couponsNull1" src="/localQuickPurchase/distributionApp/images/coupons_null@2x.png" style="display: none;">
+                    <div class="coupon-list ulList1">
+                        <!--
+                        <div class="coupon-item">
+                            <div class="item-title">
+                                <p><span class="titleclor fs30">520xxx优惠券</span><span class="fs16 infoclor info">使用说明 ></span></p>
+                                <div class="item-imgs">
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare02.jpg"/>
+                                    </div>
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare07.jpg"/>
+                                    </div>
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare03.jpg"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-desc">
+                                <p class="texcen"><span class="fs20 redclor fw7">￥</span><span class="fs70 redclor fw7">520</span></p>
+                                <p class="fs22 redclor texcen">满1688可使用</p>
+                                <p class="fs22 useclor texcen gouse">去使用</p>
+                                <p class="fs18 redclor texcen">2018.5.30到期</p>
+                                <span class="top-disc"></span>
+                                <span class="bot-disc"></span>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <!----------锁定中----------->
+            <div class="swiper-slide swiper-no-swiping" id="swiperMark2">
+                <div class="main">
+                    <img class="nocards couponsNull2" src="/localQuickPurchase/distributionApp/images/coupons_null@2x.png" style="display: none;">
+                    <div class="coupon-list ulList2">
+                        <!--
+                        <div class="coupon-item outdatebg">
+                            <div class="item-title">
+                                <p><span class="titleclor titleclor2 fs30">520xxx优惠券</span><span class="fs16 infoclor infoclor2 info info2">使用说明 ></span></p>
+                                <div class="item-imgs op">
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare02.jpg"/>
+                                    </div>
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare07.jpg"/>
+                                    </div>
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare03.jpg"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-desc outdatebg2">
+                                <p class="texcen"><span class="fs20 redclor grayclor fw7">￥</span><span class="fs70 redclor grayclor fw7">520</span></p>
+                                <p class="fs22 redclor texcen grayclor">满1688可使用</p>
+                                <p class="fs22 useclor texcen gouse gouse2 useclor2">去使用</p>
+                                <p class="fs18 redclor texcen grayclor">2018.5.30到期</p>
+                                <span class="top-disc"></span>
+                                <span class="bot-disc"></span>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <!---------已过期------------>
+            <div class="swiper-slide swiper-no-swiping" id="swiperMark3">
+                <div class="main">
+                    <img class="nocards couponsNull3" src="/localQuickPurchase/distributionApp/images/coupons_null@2x.png" style="display: none;">
+                    <div class="coupon-list ulList3">
+                        <!--
+                        <div class="coupon-item outdatebg">
+                            <div class="item-title">
+                                <p><span class="titleclor titleclor2 fs30">520xxx优惠券</span><span class="fs16 infoclor infoclor2 info info2">使用说明 ></span></p>
+                                <div class="item-imgs op">
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare02.jpg"/>
+                                    </div>
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare07.jpg"/>
+                                    </div>
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare03.jpg"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-desc outdatebg2">
+                                <p class="texcen"><span class="fs20 redclor grayclor fw7">￥</span><span class="fs70 redclor grayclor fw7">520</span></p>
+                                <p class="fs22 redclor texcen grayclor">满1688可使用</p>
+                                <p class="fs22 useclor texcen gouse gouse2 useclor2">去使用</p>
+                                <p class="fs18 redclor texcen grayclor">2018.5.30到期</p>
+                                <span class="top-disc"></span>
+                                <span class="bot-disc"></span>
+                                <img src="/localQuickPurchase/distributionApp/images/outdate@2x.png" class="outpic"/>
+                                <img src="/localQuickPurchase/distributionApp/images/used@2x.png" class="usepic usepic2"/>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+
+            <!---------已使用-------------->
+            <div class="swiper-slide swiper-no-swiping" id="swiperMark4">
+                <div class="main">
+                    <img class="nocards couponsNull4" src="/localQuickPurchase/distributionApp/images/coupons_null@2x.png" style="display: none;">
+                    <div class="coupon-list ulList4">
+                        <!--
+                        <div class="coupon-item outdatebg">
+                            <div class="item-title">
+                                <p><span class="titleclor titleclor2 fs30">520xxx优惠券</span><span class="fs16 infoclor infoclor2 info info2">使用说明 ></span></p>
+                                <div class="item-imgs op">
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare02.jpg"/>
+                                    </div>
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare07.jpg"/>
+                                    </div>
+                                    <div class="item-img">
+                                        <img src="/localQuickPurchase/distributionApp/images/brandSquare03.jpg"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-desc outdatebg2">
+                                <p class="texcen"><span class="fs20 redclor grayclor fw7">￥</span><span class="fs70 redclor grayclor fw7">520</span></p>
+                                <p class="fs22 redclor texcen grayclor">满1688可使用</p>
+                                <p class="fs22 useclor texcen gouse gouse2 useclor2">去使用</p>
+                                <p class="fs18 redclor texcen grayclor">2018.5.30到期</p>
+                                <span class="top-disc"></span>
+                                <span class="bot-disc"></span>
+                                <img src="/localQuickPurchase/distributionApp/images/outdate@2x.png" class="outpic outpic2"/>
+                                <img src="/localQuickPurchase/distributionApp/images/used@2x.png" class="usepic"/>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--------------优惠券弹出层-------774------>
+    <div class="container PopContent" style="display: none;">
+        <div class="header PopHead" style="display: none;">
+            <p><img class="backReturn" src="/localQuickPurchase/distributionApp/images/back.png"/><span class="fs36">优惠券说明</span></p>
+        </div>
+        <div class="detail-main padTop">
+            <div class="coupon-box">
+                <div class="coupon-info">
+                    <p class="fs28 redclor texcen title popCouponName">520XXX优惠券</p>
+                    <p class="fs20 redclor texcen time popTimeLine">2018-07-31到期</p>
+                    <p class=" texcen price"><span class="fs40 fw7 redclor popPriceInfo1">￥</span><span class="fs80 fw7 redclor popPriceInfo2">520</span></p>
+                    <p class="fs32 redclor texcen manjian popMinSpendMoney">满1688可使用</p>
+                </div>
+                <div class="useinfo">
+                    <p class="use-title"><img src="/localQuickPurchase/distributionApp/images/useinfo@2x.png"/><span class="fs32 redclor">使用说明</span></p>
+                    <div class='couponInfoDetail' id="couponInfoUL">
+                        <!--<p>说明测试</p>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/js/common.js?v=32"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    var accumulativeSign = 1;
+    //全局标识
+    var overallSituation = "";
+
+    $(function () {
+        for(var i = 0;i <= 4;i++) {
+            $.ajax({
+                type: 'GET',
+                url: '/localQuickPurchase/couponCardBagAction/findVoucherByUserSeq',
+                async: false,
+                data: {
+                    userSeq: userSeq,
+                    voucherStatus: i
+                },
+                success: function (data) {
+                    if (data.code != 200) {
+                        var noCoupons = ".couponsNull" + i;
+                        $(noCoupons).css("display","block");
+                        return;
+                    }
+                    var couponsList = data.data;
+                    if (couponsList == null) {
+                        var noCoupons = ".couponsNull" + i;
+                        $(noCoupons).css("display","block");
+                        return;
+                    }
+                    if (couponsList.code != "200") {
+                        var noCoupons = ".couponsNull" + i;
+                        $(noCoupons).css("display","block");
+                        return;
+                    }
+                    var dataStr = couponsList.result;
+                    if (dataStr == null) {
+                        var noCoupons = ".couponsNull" + i;
+                        $(noCoupons).css("display","block");
+                        return;
+                    }
+                    var dataList = dataStr.dedeuctibleViceDetials;
+                    console.log(dataList);
+                    if (dataList.length > 0) {
+                        for(var j = 0; j < dataList.length;j++) {
+                            //未使用2222
+                            var listStr1 = "";
+
+                            listStr1 = getCouponHTML(i,dataList[j].balance,dataList[j].usedBalance
+                                ,dataList[j].validayEnd,dataList[j].id,dataList[j].giveSeq,dataList[j].userSeq
+                                ,dataList[j].status,dataList[j].formCode);
+
+                            $(listStr1).appendTo(".ulList"+i);
+                        }
+
+                    } else {
+                        var noCoupons = ".couponsNull" + i;
+                        $(noCoupons).css("display","block");
+                    }
+                }
+            });
+        }
+
+
+
+        function setCurrentSlide(ele, index) {
+            $(".swiper1 .swiper-slide").removeClass("selected");
+            ele.addClass("selected");
+            //swiper1.initialSlide=index;
+        }
+
+        var swiper1 = new Swiper('.swiper1', {
+            //					设置slider容器能够同时显示的slides数量(carousel模式)。
+            //					可以设置为number或者 'auto'则自动根据slides的宽度来设定数量。
+            //					loop模式下如果设置为'auto'还需要设置另外一个参数loopedSlides。
+            slidesPerView: 3,
+            paginationClickable: true, //此参数设置为true时，点击分页器的指示点分页器会控制Swiper切换。
+            spaceBetween: 10, //slide之间的距离（单位px）。
+            freeMode: true, //默认为false，普通模式：slide滑动时只滑动一格，并自动贴合wrapper，设置为true则变为free模式，slide会根据惯性滑动且不会贴合。
+            loop: false, //是否可循环
+            onTab: function (swiper) {
+                var n = swiper1.clickedIndex;
+            }
+        });
+        swiper1.slides.each(function (index, val) {
+            var ele = $(this);
+            ele.on("click", function () {
+                setCurrentSlide(ele, index);
+                swiper2.slideTo(index, 500, false);
+                //mySwiper.initialSlide=index;
+            });
+        });
+
+        var swiper2 = new Swiper('.swiper2', {
+            freeMode: true, //设置为true 滑动会自动贴合
+            direction: 'horizontal', //Slides的滑动方向，可设置水平(horizontal)或垂直(vertical)。
+            loop: false,
+            //					effect : 'fade',//淡入
+            //effect: 'cube', //方块
+            //effect : 'coverflow',//3D流
+            //					effect : 'flip',//3D翻转
+            autoHeight: true, //自动高度。设置为true时，wrapper和container会随着当前slide的高度而发生变化。
+            onSlideChangeEnd: function (swiper) { //回调函数，swiper从一个slide过渡到另一个slide结束时执行。
+                var n = swiper.activeIndex;
+                setCurrentSlide($(".swiper1 .swiper-slide").eq(n), n);
+                swiper1.slideTo(n, 500, false);
+            }
+        });
+    });
+    $(".swiper-slide").on("scroll",function(){
+        console.log(this.scrollTop);
+        var $ul = $(this).find(".coupons-list");
+        var top = this.scrollTop + 10;
+        var _scrollheight = this.scrollHeight;
+        var _height = $(this).height();
+        //console.log(_height);
+        var _maxtop =  _scrollheight - _height;
+        console.log(_maxtop);
+        if(top >= _maxtop){
+            var box = $(this)
+            if(box.hasClass("nodata")){
+                return;
+            }
+            if(box.hasClass("loading")){
+                return;
+            }
+            box.addClass("loading");
+
+            var markID = $(this).attr("id");
+            if (markID == "swiperMark0") {
+                markID = 0;
+                if(markID == overallSituation){
+                    accumulativeSign++;
+                }else{
+                    overallSituation = markID;
+                    accumulativeSign = 2;
+                }
+            }else if(markID == "swiperMark1"){
+                markID = 1;
+                if(markID == overallSituation){
+                    accumulativeSign++;
+                }else{
+                    overallSituation = markID;
+                    accumulativeSign = 2;
+                }
+            }else if(markID == "swiperMark2"){
+                markID = 2;
+                if(markID == overallSituation){
+                    accumulativeSign++;
+                }else{
+                    overallSituation = markID;
+                    accumulativeSign = 2;
+                }
+            }else if(markID == "swiperMark3"){
+                markID = 3;
+                if(markID == overallSituation){
+                    accumulativeSign++;
+                }else{
+                    overallSituation = markID;
+                    accumulativeSign = 2;
+                }
+            }else if(markID == "swiperMark4"){
+                markID = 4;
+                if(markID == overallSituation){
+                    accumulativeSign++;
+                }else{
+                    overallSituation = markID;
+                    accumulativeSign = 2;
+                }
+            }
+            //请求写这里
+            $.ajax({
+                type: 'GET',
+                url: '/localQuickPurchase/couponCardBagAction/findVoucherByUserSeq',
+                async: false,
+                data: {
+                    userSeq: userSeq,
+                    voucherStatus: markID,
+                    pageIndex : accumulativeSign
+                },
+                success:function(data){
+                    if(data.code == 200){
+                        var couponsList = data.data;
+                        if (couponsList != null) {
+                            var dataStr = couponsList.result;
+                            var dataList = dataStr.dedeuctibleViceDetials;
+                            console.log(dataList);
+                            console.log("本页返回")
+                            console.log(dataList);
+                            if(dataList.length > 0){
+                                for(var j = 0; j < dataList.length;j++) {
+                                    //未使用2222
+                                    var listStr1 = getCouponHTML(markID, dataList[j].balance,dataList[j].usedBalance
+                                            ,dataList[j].validayEnd,dataList[j].id,dataList[j].giveSeq,dataList[j].userSeq
+                                            ,dataList[j].status,dataList[j].formCode);
+                                    $(listStr1).appendTo(".ulList" + markID);
+                                }
+                            }else{
+                                box.addClass("nodata");
+                                box.append("<div class='noData'>没有数据了......</div>");
+                            }
+                        }
+                    }else{
+                        box.addClass("nodata");
+                        box.append("<div class='noData'>没有数据了</div>");
+                    }
+                    box.removeClass("loading");
+                }
+            });
+            console.log(accumulativeSign);
+        }
+
+    })
+
+
+    /**
+     * balance 有效消费券金额
+     * usedBalance 已使用金额
+     * validayEnd 到期日期
+     * couponsId 消费券ID
+     * status 消费券状态 1.未使用，2.使用中，3.已用完，4.已过期
+     * formCode 赠送来源 0 百业 1 爱之家
+     */
+    function getCouponHTML(markSign,balance,usedBalance,validayEnd,couponsId,giveSeq,userSeq,status,formCode){
+
+        var couponHTML = "";
+        var couponDesStr = "";
+        var sendTimeEndStrCut = getSendTimeEndStrCut(validayEnd);
+        var contentImg = "/localQuickPurchase/distributionApp/images/application_agent1.png";
+
+        var priceLeftStr = "￥";
+        
+        //判断消费券状态
+        if (status == 3 || status == 4) {
+            markSign = status;
+        }
+        //如果status=5 相当于过期
+        if (status == 5) {
+            markSign = 4;
+        }
+
+        var hidenStr = "<div class='hidenPlaceHrefUrl' style='display:none'>"+"couponsHrefUrlStr"+"</div>"+
+            "<div class='couponDes' style='display:none'>"+couponDesStr+"</div>"+
+            "<div class='couponId' style='diaplay:none'>"+couponsId+"</div>"
+        if(markSign == 0){//772
+            couponHTML += "<div class='coupon-item'>";
+            couponHTML += "<div class='item-title'>";
+            couponHTML += "<p><span class='titleclor titleclor2 fs30 couponName'>"+'百业惠盟专区消费券'+"</span>";
+            couponHTML += "<span class='fs16 infoclor infoclor2 info3'>全品类</span>";
+            // couponHTML += "<span class='fs16 infoclor infoclor2 info info2'>使用说明 ></span></p>";
+            couponHTML += "<div class='item-imgs'>";
+            couponHTML += "<div class='item-img'>";
+            couponHTML += "<img src='"+contentImg+"'/>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+            couponHTML += "<div class='item-desc revicePadding'>";
+            couponHTML += "<p class='texcen'><span class='fs20 redclor fw7 priceInfo1'>金额:"+priceLeftStr+"</span><span class='fs70 redclor fw7 priceInfo2'>"+balance+"</span></p>";
+            // couponHTML += "<p class='fs22 redclor texcen minSpendMoney'>"+'百业惠盟专区'+"</p>";
+            if (usedBalance != null && usedBalance > 0.0) {
+                couponHTML += "<p class='fs22 redclor texcen minSpendMoney'>已使用:"+usedBalance+"</p>";
+            }
+            couponHTML += "<p class='fs22 useclor texcen gouse' onclick='goUse()'>去使用</p>";
+            couponHTML += "<p class='fs18 redclor texcen timeLine'>"+sendTimeEndStrCut+"</p>"+
+                hidenStr;
+            // couponHTML += "<p class='fs18 redclor texcen timeLine ' onclick='jumpCoupons("+giveSeq+","+userSeq+")'>回赠</p>";
+            couponHTML += "<span class='top-disc'></span>";
+            couponHTML += "<span class='bot-disc'></span>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+        }else if(markSign == 1){
+            couponHTML += "<div class='coupon-item'>";
+            couponHTML += "<div class='item-title'>";
+            couponHTML += "<p><span class='titleclor titleclor2 fs30 couponName'>"+'百业惠盟专区消费券'+"</span>";
+            couponHTML += "<span class='fs16 infoclor infoclor2 info3'>全品类</span>";
+            // couponHTML += "<span class='fs16 infoclor infoclor2 info info2'>使用说明 ></span></p>";
+            couponHTML += "<div class='item-imgs'>";
+            couponHTML += "<div class='item-img'>";
+            couponHTML += "<img src='"+contentImg+"'/>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+            couponHTML += "<div class='item-desc revicePadding'>";
+            couponHTML += "<p class='texcen'><span class='fs20 redclor fw7 priceInfo1'>金额:"+priceLeftStr+"</span><span class='fs70 redclor fw7 priceInfo2'>"+balance+"</span></p>";
+            // couponHTML += "<p class='fs22 redclor texcen minSpendMoney'>"+couponsTypeDesc+"</p>";
+            couponHTML += "<p class='fs22 useclor texcen gouse' onclick='goUse(this)'>去使用</p>";
+            couponHTML += "<p class='fs18 redclor texcen timeLine'>"+sendTimeEndStrCut+"</p>"+
+                hidenStr;
+            // couponHTML += "<p class='fs18 redclor texcen timeLine ' onclick='jumpCoupons("+giveSeq+","+userSeq+")'>回赠</p>";
+            couponHTML += "<span class='top-disc'></span>";
+            couponHTML += "<span class='bot-disc'></span>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+        }else if(markSign == 2){
+            couponHTML += "<div class='coupon-item'>";
+            couponHTML += "<div class='item-title'>";
+            couponHTML += "<p><span class='titleclor titleclor2 fs30 couponName'>"+'百业惠盟专区消费券'+"</span>";
+            couponHTML += "<span class='fs16 infoclor infoclor2 info3'>全品类</span>";
+            // couponHTML += "<span class='fs16 infoclor infoclor2 info info2'>使用说明 ></span></p>";
+            couponHTML += "<div class='item-imgs'>";
+            couponHTML += "<div class='item-img'>";
+            couponHTML += "<img src='"+contentImg+"'/>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+            couponHTML += "<div class='item-desc revicePadding'>";
+            couponHTML += "<p class='texcen'><span class='fs20 redclor fw7 priceInfo1'>金额:"+priceLeftStr+"</span><span class='fs70 redclor fw7 priceInfo2'>"+balance+"</span></p>";
+            couponHTML += "<p class='fs22 redclor texcen minSpendMoney'>已使用:"+usedBalance+"</p>";
+            couponHTML += "<p class='fs22 useclor texcen gouse' onclick='goUse(this)'>去使用</p>";
+            couponHTML += "<p class='fs18 redclor texcen timeLine'>"+sendTimeEndStrCut+"</p>"+
+                hidenStr;
+            // couponHTML += "<p class='fs18 redclor texcen timeLine ' onclick='jumpCoupons("+giveSeq+","+userSeq+")'>回赠</p>";
+            couponHTML += "<span class='top-disc'></span>";
+            couponHTML += "<span class='bot-disc'></span>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+        }else if(markSign == 3){
+            couponHTML += "<div class='coupon-item outdatebg'>";
+            couponHTML += "<div class='item-title'>";
+            couponHTML += "<p><span class='titleclor titleclor2 fs30 couponName'>百业惠盟专区消费券</span>";
+            couponHTML += "<span class='fs16 infoclor infoclor2 info3'>全品类</span>";
+            // couponHTML += "<span class='fs16 infoclor infoclor2 info info2'>使用说明 ></span></p>";
+            couponHTML += "<div class='item-imgs op'>";
+            couponHTML += "<div class='item-img'>";
+            couponHTML += "<img src='"+contentImg+"'/>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+            couponHTML += "<div class='item-desc outdatebg2'>";
+            couponHTML += "<p class='texcen'><span class='fs20 redclor grayclor fw7 priceInfo1'>金额:"+priceLeftStr+"</span><span class='fs70 redclor grayclor fw7 priceInfo2'>"+balance+"</span></p>";
+            // couponHTML += "<p class='fs22 redclor texcen grayclor minSpendMoney'>"+couponsTypeDesc+"</p>";
+            couponHTML += "<p class='fs22 redclor texcen minSpendMoney' style='color: #929292'>已使用:"+usedBalance+"</p>";
+            couponHTML += "<p class='fs18 redclor texcen grayclor timeLine'>"+sendTimeEndStrCut+"</p>"+
+                hidenStr;
+            // couponHTML += "<p class='fs18 redclor texcen timeLine' onclick='jumpCoupons("+giveSeq+","+userSeq+")'>回赠</p>";
+            couponHTML += "<span class='top-disc'></span>";
+            couponHTML += "<span class='bot-disc'></span>";
+            couponHTML += "<img src='/localQuickPurchase/distributionApp/images/outdate@2x.png' class='outpic'/>";
+            couponHTML += "<img src='/localQuickPurchase/distributionApp/images/used@2x.png' class='usepic usepic2'/>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+        }else if(markSign == 4){
+            couponHTML += "<div class='coupon-item outdatebg'>";
+            couponHTML += "<div class='item-title'>";
+            couponHTML += "<p><span class='titleclor titleclor2 fs30 couponName'>百业惠盟专区消费券</span>";
+            couponHTML += "<span class='fs16 infoclor infoclor2 info3'>全品类</span>";
+            // couponHTML += "<span class='fs16 infoclor infoclor2 info info2'>使用说明 ></span></p>";
+            couponHTML += "<div class='item-imgs op'>";
+            couponHTML += "<div class='item-img'>";
+            couponHTML += "<img src='"+contentImg+"'/>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+            couponHTML += "<div class='item-desc outdatebg2'>";
+            couponHTML += "<p class='texcen'><span class='fs20 redclor grayclor fw7 priceInfo1'>金额:"+priceLeftStr+"</span><span class='fs70 redclor grayclor fw7 priceInfo2'>"+balance+"</span></p>";
+            // couponHTML += "<p class='fs22 redclor texcen grayclor minSpendMoney'>"+couponsTypeDesc+"</p>";
+            couponHTML += "<p class='fs22 redclor texcen minSpendMoney' style='color: #929292'>已使用:"+usedBalance+"</p>";
+            couponHTML += "<p class='fs18 redclor texcen grayclor timeLine'>"+sendTimeEndStrCut+"</p>"+
+                hidenStr;
+            // couponHTML += "<p class='fs18 redclor texcen timeLine' onclick='jumpCoupons("+giveSeq+","+userSeq+")'>回赠</p>";
+            couponHTML += "<span class='top-disc'></span>";
+            couponHTML += "<span class='bot-disc'></span>";
+            couponHTML += "<img src='/localQuickPurchase/distributionApp/images/outdate@2x.png' class='outpic outpic2'/>";
+            couponHTML += "<img src='/localQuickPurchase/distributionApp/images/used@2x.png' class='usepic'/>";
+            couponHTML += "</div>";
+            couponHTML += "</div>";
+        }
+        return couponHTML;
+    }
+
+    //点击去使用跳转到专区
+    function goUse(){
+        location.href = "/localQuickPurchase/coupons/html/wyf.html";
+    }
+    function getSendTimeEndStrCut(validayEnd) {
+        if(validayEnd == ""){
+            return "无";
+        }
+        var sendTimeEndStrCut = validayEnd.substring(0,4);
+        var state = 2119 - sendTimeEndStrCut;
+        if (state < 20) {
+            return "长期有效";
+        }
+        return validayEnd.substring(0,11) + "到期";
+    }
+
+    //赠送优惠券回赠的跳转
+    function jumpCoupons(giveSeq,userSeq){
+        if (giveSeq != null && userSeq != null){
+            window.location.href = "/localQuickPurchase/coupons/html/inviteFriends.html?giftSeq="+userSeq+"&receiveSeq="+giveSeq;
+        }
+    }
+
+    //点击优惠券左边部分隐藏列表,显示详情773
+    $(document).on('click',".info",function(){
+        console.log($(this).parent().parent().parent().find(".timeLine").html());
+        var couponItem = $(this).parent().parent().parent();
+
+        var couponName = $(this).parent().find(".couponName").html(); //优惠券名称
+        var timeLine = couponItem.find(".timeLine").html();//期限
+        var priceInfo1 = couponItem.find(".priceInfo1").html(); //优惠券金额
+        var priceInfo2 = couponItem.find(".priceInfo2").html(); //优惠券金额
+        var minSpendMoney = couponItem.find(".minSpendMoney").html(); //满足多少
+        var couponDes = couponItem.find(".couponDes").html(); //文案
+
+        //重新赋值
+        $(".popCouponName").text(couponName);
+        $(".popTimeLine").text(timeLine);
+        $(".popPriceInfo1").text(priceInfo1);
+        $(".popPriceInfo2").text(priceInfo2);
+        $(".popMinSpendMoney").text(minSpendMoney);
+
+        if(couponDes == "undefined" || couponDes == "" || couponDes == null){
+            document.getElementById("couponInfoUL").innerHTML = "<p>无</p>";
+        }else{
+            document.getElementById("couponInfoUL").innerHTML = couponDes;
+        }
+
+        //展示
+        $(".swiper1").css("display","none");
+        $(".swiper2").css("display","none");
+        $(".PopContent").css("display","block");
+        $(".PopHead").css("display","block");
+        //$(".detailReturn").addClass("top","8%");
+    });
+
+
+
+    $(".backReturn").click(function(){
+        //展示
+        $(".swiper1").css("display","block");
+        $(".swiper2").css("display","block");
+        $(".PopContent").css("display","none");
+        $(".PopHead").css("display","none");
+        //$(".hui-header").css("margin-top","3%");
+        //$(".hui-header h1").css("margin-top","3%");
+    });
+    /*返回*/
+    function backPersonalCenter(){
+        try{
+            // 调app原生返回
+            window.action.app_back();
+        }catch(e){
+
+        }
+        setTimeout(function(){
+            javascript:history.go(-1);
+        }, 200);
+    }
+    /*使用明细*/
+    function userVoucher() {
+        window.location.href = "/localQuickPurchase/voucher/voucherUse.html";
+    }
+</script>
+</body>
+</html>

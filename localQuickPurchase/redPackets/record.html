@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>邀请记录~~</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url('./azj_lhb_yqjl_bg_1.png');
+            background-size: 100% 100%;
+        }
+        .mainBox {
+            color: #444;
+            padding-top: 50px;
+            height: 100%;
+          
+        }
+        .mint-header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-image: url("./azj_lhb_bgimage_tab.png");
+            background-size: 100% 100%;
+            z-index: 1000;
+        }
+        .mint-header-title {
+            font-size: 16px;
+        }
+        .mintui {
+            font-size: 24px;
+        }
+        .tavnav{
+            display: flex;
+            align-self: center;
+            justify-content: space-around;
+            width: 100%;
+            height: 40px;
+            background-color: #FDEDF1;
+            border-top: 1px solid #FD2352;
+             border-bottom: 1px solid #FD2352;
+            box-sizing: border-box;
+
+        }
+           .tavnav div{
+           display: flex;
+           align-self: center;
+           }
+           .maix ul li {
+
+               display: flex;
+                align-items: center;
+               justify-content: space-around;
+               padding: 0  15px;
+               box-sizing: border-box;
+               width: 100%;
+               font-size: 12px;
+               height: 35px;
+           }
+            .maix ul li p{
+
+             text-align: center;
+            }
+            .footer{
+                padding: 15px;
+                text-align: center;
+                color: #999;
+            }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <div v-cloak class="mainBox">
+            <header class="mint-header">
+                <mt-button icon="back" slot="left" @click="goback"></mt-button>
+                <h1 class="mint-header-title">邀请记录</h1>
+            </header>
+            <div class="tavnav">
+                <div> 受邀人</div>
+                <div>注册时间</div>
+                <div> 记录</div>
+            </div>
+            <div class="maix" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading"
+                infinite-scroll-distance="3">
+                <ul>
+                    <li v-for="item in List" class="merchandise">
+                        <p style="width: 28%;"> {{item.rewardName}} </p>
+                        <p style="flex: 1;" >{{item.createTime}}</p>
+                        <p  style="width: 15%;" v-if="item.type==3">红包+1</p>
+                        <p  style="width: 15%;" v-if="item.type==1">邀请+1</p>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="footer" v-if="loadend">没有更多了~</div>
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./index.js"></script>
+    <script src="./jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/common/js/common.js?v=32"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                pageNum: 1,
+                seq: seq,
+                List: [],
+                pageSize: 10,
+                loading: false,
+                loadend :false
+            },
+
+            mounted: function () {
+
+
+            },
+            methods: {
+                jiequ: function (val) {
+                    if (val.length > 24) {
+                        return val.substring(0, 24) + '...'
+                    } else {
+                        return val
+                    }
+                },
+
+                //上拉加载
+                loadMore: function () {
+                    this.loading = true;
+                    let param = {
+                        seq: this.seq,
+                        pageNum: this.pageNum,
+                        pageSize: this.pageSize,
+                    }
+                    var that = this;
+                    $.ajax({
+                        type: "post", //定义提交的类型9
+                        url: "/localQuickPurchase/red/packet/reward/details",
+                        dataType: "json", //设置返回值得类型
+                        contentType: "application/json;charset=utf-8",
+                        data: JSON.stringify(param),
+                        success: function (res) {
+
+                            console.log(res, '98')
+                            if (res.code == 200) {
+                                if (that.pageNum > res.data.pages) {
+                                    that.loading = true;
+                                    that.loadend = true;
+                                    return false;
+                                };
+                                that.pageNum++;
+                                that.List = that.List.concat(res.data.list);
+                                that.loading = false;
+                                console.log(that.List, '21')
+                            }
+                        }
+                    })
+                },
+                // 返回上层
+                goback: function () {
+                    window.history.go(-1)
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>

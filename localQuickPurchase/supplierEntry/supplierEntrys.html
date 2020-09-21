@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商家入驻</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/supplierEntry.css?v=3">
+    <link rel="stylesheet" href="../activity/lib/Hui/css/hui.css">
+    <link rel="stylesheet" type="text/css" href="../distributionApp/css/brandSquare/iosSelect.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .picture-viewer-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(50, 50, 50, .5);
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            -webkit-animation: enlargeIn .3s linear;
+            animation: enlargeIn .3s linear;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="supplier_warp step-1">
+        <!-- 头部 -->
+        <div class="head "><a href="javascript:;" style="cursor: pointer;" onclick="goBack(this)"
+                class="arrow back"></a>
+            <p class="ruzhu">
+                企业商户入驻
+            </p>
+        </div>
+        <!-- 入驻进度 -->
+        <div class="progress">
+            <p>入驻进度</p>
+            <div class="progress_box">
+                <span class="circular current"></span>
+                <span class="line"></span>
+                <span class="circular"></span>
+                <span class="line"></span>
+                <span class="circular"></span>
+                <span class="line"></span>
+                <span class="circular"></span>
+                <span class="line"></span>
+                <span class="circular"></span>
+            </div>
+            <p class="text">
+                <span class="c2">企业信息</span>
+                <span>法人信息</span>
+                <span>银行信息</span>
+                <span>经营信息</span>
+                <span>完成</span>
+            </p>
+        </div>
+        <!-- 表单内容 -->
+        <div class="content">
+            <p class="content-tips"><span>温馨提示:</span>品牌商只需入驻一次,如有疑问，请联系客服</p>
+            <ul class="info marigTo20  qyname">
+                <li class="importantType" style="display: none;">
+                    <div class="info-title">注册类型<span style="color: red">*</span>：</div>
+                    <div class="info-contorl">
+                        <input type="text" id="mType" class="mType" name="merType" placeholder="请选择类型" readonly>
+                        <i class="arrow right"></i>
+                    </div>
+                </li>
+                <li class="facePublic pnionPay qyname " style="display: none;">
+                    <div class="info-title">企业名称<span style="color: red">*</span>:</div>
+                    <div class="info-contorl">
+                        <input type="text" id="enterpriseName" name="enterpriseName" placeholder="请输入企业名称">
+                    </div>
+                </li>
+
+                <li class="facePublic pnionPay">
+                    <div class="info-title">统一社会信用代码<span style="color: red">*</span>:</div>
+                    <div class="info-contorl"><input type="text" name="socialCode" placeholder="请输入社会信用代码"
+                            id="socialCode">
+                    </div>
+                </li>
+             
+                <li class="shoplevel pnionPay" style="height: auto;">
+                    <div class="info-title1">
+                        <div>社会信用代码有效期<span style="color: red">*</span>：</div>
+                        <div style="text-align: center;"> <input type="checkbox" id="changqi"
+                                onchange="changetime1(this)"> 长期有效 </div>
+                    </div>
+                    <div class="info-con">
+                        <div class="timess">
+                            <p>开始时间:</p> <input type="text" id="socialCodesStart" name="socialCodesStart"
+                                class="layui-input" placeholder="请输入开始日期">
+                        </div>
+                        <div class="timess">
+                            <p>结束时间:</p><input type="text" id="socialCodeEnd" name="socialCodeEnd" class="layui-input"
+                                placeholder="请输入结束日期">
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+            <ul class="info marigTo20">
+                <li class="pnionPay1 importantType">
+                    <div class="info-title">营业执照类型<span style="color: red">*</span>：</div>
+                    <div class="info-contorl">
+                        <input type="text" id="businessType" name="businessType" placeholder="请选择营业执照类型" readonly>
+                        <i class="arrow right"></i>
+                    </div>
+                </li>
+                <li class="addresschoice brandInfo">
+                    <div class="info-title">注册地区<span style="color: red">*</span>:</div>
+                    <div class="info-contorl">
+                        <input type="text" id="region1" class="region1" name="region" placeholder="请选择地区" readonly>
+                        <i class="arrow right"></i>
+                        <!-- <input type="hidden" id="province">
+                        <input type="hidden" id="city">
+                        <input type="hidden" id="area">
+                        <input type="hidden" id="street"> -->
+                    </div>
+                </li>
+                <li class="brandInfo">
+                    <div class="info-title ">注册地址<span style="color: red">*</span>:</div>
+                    <div class="info-contorl road">
+                        <input type="text" class="enterpriseAddress" name="enterpriseAddress"
+                            onchange="changeEntAddress(this)" placeholder="(与营业执照地址一致)" id="enterpriseAddress">
+                    </div>
+                </li>
+                <!-- <li class="brandInfo">
+                    <div class="info-title">实际经营地址：</div>
+                    <div class="info-contorl"><input type="text" class="actualAddress" name="actualAddress"
+                            onchange="changeAddress(this)" placeholder="请填写实际经营地址" id="actualAddress">
+                    </div>
+                </li> -->
+                <li class="pnionPay">
+                    <div class="info-title ">地址路名<span style="color: red">*</span>:</div>
+                    <div class="info-contorl road">
+                        <input type="text" name="road" maxlength="50" placeholder="(如'北京路')" id="road">
+                    </div>
+                </li>
+                <li class="pnionPay">
+                    <div class="info-title ">地址门牌<span style="color: red">*</span>:</div>
+                    <div class="info-contorl houseNo">
+                        <input type="text" name="houseNo" maxlength="6" placeholder="（如'168号'）" id="houseNo">
+                    </div>
+                </li>
+
+                <li class="brandInfo pnionPay">
+                    <div class="info-title">补充信息:</div>
+                    <div class="info-contorl"><input type="text" name="addrExt" placeholder="请填写补充信息" id="addrExt">
+                    </div>
+                </li>
+            </ul>
+            <!-- 点击上传 -->
+            <ul class="uploadinfo qyname">
+                <li class="imgfileList2 pnionPayImg">
+                    <div class="contorl-title">营业执照<span style="color: red">*</span></div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox">
+                            <img id="imgfileList2" src="./img/1587469330.jpg" />
+                        </div>
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn-bottom" id="nextBtn">下一步</button>
+        </div>
+    </div>
+    <div class="supplier_warp step-2" style="display: none;">
+        <!-- 头部 -->
+        <div class="head "><a class="arrow back" onclick="lastBtn(this)"></a>
+            <p class="ruzhu">
+                企业商户入驻
+            </p>
+        </div>
+        <!-- 入驻进度 -->
+        <div class="progress">
+            <p>入驻进度</p>
+            <div class="progress_box">
+                <span class="circular current "></span>
+                <span class="line "></span>
+                <span class="circular current"></span>
+                <span class="line"></span>
+                <span class="circular"></span>
+                <span class="line"></span>
+                <span class="circular"></span>
+                <span class="line"></span>
+                <span class="circular"></span>
+            </div>
+            <p class="text">
+                <span>企业信息</span>
+                <span>法人信息</span>
+                <span>银行信息</span>
+                <span>经营信息</span>
+                <span>完成</span>
+            </p>
+        </div>
+        <!-- 表单内容 -->
+        <div class="content">
+            <ul class="info marigTo20">
+                <li class="pnionPay">
+                    <div class="info-title">法人姓名<span style="color: red">*</span>:</div>
+                    <div class="info-contorl"><input type="text " name="legalName" id="legalName" class="legalName"
+                            onchange="changeName(this)" placeholder="请输入法人姓名">
+                    </div>
+                </li>
+                <li class="shoplevel brandInfo legalSexType miniShop" style="display: none;">
+                    <div class="info-title">法人性别<span style="color: red">*</span>:</div>
+                    <div class="info-contorl">
+                        <input type="text" id="legalSexType" name="legalSexType" placeholder="法人性别" readonly>
+                        <i class="arrow right"></i>
+                    </div>
+                </li>
+                <li class="shoplevel pnionPay">
+                    <div class="info-title">法人身份证号码<span style="color: red">*</span>:</div>
+                    <div class="info-contorl"><input type="text" id="idCard" name="idCard" placeholder="请输入法人身份证号码">
+                    </div>
+                </li>
+                <li class="shoplevel pnionPay" style="height: auto;">
+                    <div class="info-title1">
+                        <div> 法人身份证有效期<span style="color: red">*</span>：</div>
+                        <div style="text-align: center;"> <input type="checkbox" id="changqi1"
+                                onchange="changetime(this)"> 长期有效 </div>
+                    </div>
+                    <div class="info-con">
+                        <div class="timess">
+                            <p>开始时间:</p> <input type="text" id="idCardStart" name="idCardStart" class="layui-input"
+                                placeholder="请输入开始日期">
+                        </div>
+
+                        <div class="timess">
+                            <p>结束时间:</p><input type="text" id="idCardEnd" name="idCardEnd" class="layui-input"
+                                placeholder="请输入结束日期">
+                        </div>
+                    </div>
+                </li>
+                <li class="shoplevel brandInfo legalOccupation miniShop" style="display: none;">
+                    <div class="info-title">法人职业<span style="color: red">*</span>:</div>
+                    <div class="info-contorl">
+                        <input type="text" id="legalOccupation" name="legalOccupation" placeholder="法人职业" readonly>
+                        <i class="arrow right"></i>
+                    </div>
+                </li>
+
+                <!--微小型商户必填性别-->
+
+                <li class="pnionPay">
+                    <div class="info-title">法人手机号码<span style="color: red">*</span>:</div>
+                    <div class="info-contorl"><input type="tel" id="mobile" name="mobile" placeholder="请输入法人手机">
+                    </div>
+                </li>
+                <li class="pnionPay">
+                    <div class="info-title">法人邮箱<span style="color: red">*</span>:</div>
+                    <div class="info-contorl"><input type="text" id="legalEmail" name="legalEmail"
+                            placeholder="请输入法人邮箱">
+                    </div>
+                </li>
+
+            </ul>
+
+
+
+            <!-- 点击上传 -->
+            <ul class="uploadinfo">
+                <div class="contorl-title">法人代表身份证正反面照<span style="color: red">*</span></div>
+                <li class="imgfileList57 pnionPayImg">
+                    <div class="contorl-title">法人证件(正面照)：</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileList57" src="./img/1587469330.jpg" />
+                        </div>
+                        <!--<p class="plus">+</p>-->
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+                <li class="imgfileList58 pnionPayImg">
+                    <div class="contorl-title">法人证件(国徽面)：</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileList58" src="./img/1587469330.jpg" />
+                        </div>
+                        <!--<p class="plus">+</p>-->
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn-bottom" id="nextBtn1">下一步</button>
+        </div>
+
+    </div>
+    <!-- <div style="display: none;">
+     
+    
+   
+    </div> -->
+    <div class="supplier_warp step-3" style="display: none;">
+        <div class="head "><a class="arrow back" onclick="lastBtn1(this)"></a>
+            <p class="ruzhu">
+                企业商户入驻
+            </p>
+        </div>
+        <!-- 入驻进度 -->
+        <div class="progress">
+            <p>入驻进度</p>
+            <div class="progress_box">
+                <span class="circular current "></span>
+                <span class="line "></span>
+                <span class="circular current"></span>
+                <span class="line"></span>
+                <span class="circular current"></span>
+                <span class="line"></span>
+                <span class="circular"></span>
+                <span class="line"></span>
+                <span class="circular"></span>
+            </div>
+            <p class="text">
+                <span>企业信息</span>
+                <span>法人信息</span>
+                <span>银行信息</span>
+                <span>经营信息</span>
+                <span>完成</span>
+            </p>
+        </div>
+
+        <div class="content">
+            <ul class="info marigTo20">
+                <li class="pnionPay importantType">
+                    <div class="info-title">账户类型<span style="color: red">*</span>：</div>
+                    <div class="info-contonextBtnrl">
+                        <input type="text" id="bankAcctType" style="text-align: center;" name="bankAcctType"
+                            placeholder="请选择账户类型" readonly>
+                        <i class="arrow right"></i>
+                    </div>
+                </li>
+                <!--审核拒绝之后，为了兼容以前没有的字段所以允许修改-->
+                <li class="pnionPay b1 ">
+                    <div class="info-title account">账号（公账）<span style="color: red">*</span>：</div>
+                    <div class="info-contorl"><input type="text" name="bankCard" placeholder="请填写对公账号" id="bankCard">
+                    </div>
+                </li>
+                <li class="pnionPay">
+                    <div class="info-title accountName">户名<span style="color: red">*</span>:</div>
+                    <div class="info-contorl"><input type="text" name="bankUser" placeholder="请填写对公户名" id="bankUser">
+                    </div>
+                </li>
+                <li class="pnionPay">
+                    <div class="info-title">预留手机号码<span style="color: red">*</span>:</div>
+                    <div class="info-contorl"><input type="tel" id="reservePhone" name="reservePhone"
+                            placeholder="请输入预留手机号">
+                    </div>
+                </li>
+                <li class="addresschoice">
+                    <div class="info-title">银行所在地区<span style="color: red">*</span>:</div>
+                    <div class="info-contorl">
+                        <input type="text" id="region2" class="region2" name="region" placeholder="请选择地区" readonly>
+                        <i class="arrow right"></i>
+                    </div>
+                </li>
+                <li class="pnionPay">
+                    <div class="info-title">开户行支行搜索<span style="color: red">*</span>：</div>
+                    <div class="info-contorl" style="width: 47%;">
+                        <input type="text" name="bankSearch" placeholder="请输入搜索支行关键字" id="bankSearch">
+                    </div>
+                    <button class="info-title bankSearch-but" onclick="bankSearch(this)">搜索</button>
+                </li>
+                <li class="pnionPay">
+                    <div class="info-title">开户行支行名称<span style="color: red">*</span>:</div>
+                    <div class="info-contorl">
+                        <input type="text" name="bankName" placeholder="请搜索支行获取支行名称" id="bankName" readonly>
+                    </div>
+                </li>
+                <li class="pnionPay">
+                    <div class="info-title">开户支行行号<span style="color: red">*</span>:</div>
+                    <div class="info-contorl"><input type="text" name="bankNo" placeholder="请搜索支行获取号" id="bankNo"
+                            readonly>
+                    </div>
+                </li>
+
+            </ul>
+            <ul class="uploadinfo">
+                <li class="imgfileList78 pnionPayImg">
+                    <div class="contorl-title bankAcctTitle">银行开户许可证（或个体工商户和小微商个人银行卡）<span style="color: red">*</span>
+                    </div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileList78" src="./img/1587469330.jpg" />
+                        </div>
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn-bottom" id="nextBtn2">下一步</button>
+        </div>
+    </div>
+    <div class="supplier_warp step-4" style="display: none;">
+        <div class="content">
+            <div class="head "><a class="arrow back" onclick="lastBtn2(this)"></a>
+                <p class="ruzhu">
+                    企业商户入驻
+                </p>
+            </div>
+            <!-- 入驻进度 -->
+            <div class="progress">
+                <p>入驻进度</p>
+                <div class="progress_box">
+                    <span class="circular current "></span>
+                    <span class="line "></span>
+                    <span class="circular current"></span>
+                    <span class="line"></span>
+                    <span class="circular current"></span>
+                    <span class="line"></span>
+                    <span class="circular current"></span>
+                    <span class="line"></span>
+                    <span class="circular"></span>
+                </div>
+                <p class="text">
+                    <span>企业信息</span>
+                    <span>法人信息</span>
+                    <span>银行信息</span>
+                    <span>经营信息</span>
+                    <span>完成</span>
+                </p>
+            </div>
+            <ul class="info marigTo20">
+                <li class="brandInfo">
+                    <div class="info-title">店铺名称<span style="color: red">*</span>：</div>
+                    <div class="info-contorl">
+                        <input type="text" onchange="checkStoreNameOrBrand()" id="storeName" name="storeName"
+                            placeholder="请输入店铺姓名">
+                    </div>
+                </li>
+                <li class="brandInfo">
+                    <div class="info-title">商家品牌<span style="color: red">*</span>：</div>
+                    <div class="info-contorl"><input type="text" id="storeBrand" onchange="checkStoreNameOrBrand()"
+                            name="storeBrand" placeholder="请输入店铺品牌">
+                    </div>
+                </li>
+                <li class="shoplevel brandInfo">
+                    <div class="info-title">商家类型<span style="color: red">*</span>:</div>
+                    <div class="info-contorl">
+                        <input type="text" id="storeType" name="storeType" placeholder="请选择店铺类型" readonly>
+                        <i class="arrow right"></i>
+                    </div>
+                </li>
+                <li class="shoplevel brandInfo">
+                    <div class="info-title">经营类型<span style="color: red">*</span>:</div>
+                    <div class="info-contorl">
+                        <input type="text" id="operateType" name="operateType" placeholder="请选择经营类型" readonly>
+                        <i class="arrow right"></i>
+                    </div>
+                </li>
+
+                <li class="pnionPay1 importantType mccCode">
+                    <div class="info-title">行业编码<span style="color: red">*</span>：</div>
+                    <div class="info-contorl">
+                        <span class="showMccCode"></span>
+                        <input type="text" id="mccCode" name="mccCode" placeholder="请选择行业编码" readonly>
+                        <i class="arrow right"></i>
+                    </div>
+                </li>
+                <div style="display: none;">
+                    <li class="brandInfo">
+                        <div class="info-title">联系人名称<span style="color: red">*</span>：</div>
+                        <div class="info-contorl"><input type="text" name="linkName" placeholder="请输入联系人名称"
+                                id="linkName">
+                        </div>
+                    </li>
+                    <li class="brandInfo">
+                        <div class="info-title">联系人电话<span style="color: red">*</span>：</div>
+                        <div class="info-contorl"><input type="text" name="linkMobile" placeholder="请输入联系人电话"
+                                id="linkMobile">
+                        </div>
+                    </li>
+
+                </div>
+
+                <!-- <li class="brandInfo">
+                      <div class="info-title">店铺管理人姓名:</div>
+                      <div class="info-contorl"><input type="custName" name="custName" placeholder="请输入店铺管理人姓名"
+                              id="custName">
+                      </div>
+                  </li>
+                  <li class="brandInfo">
+                      <div class="info-title">店铺管理人邮箱:</div>
+                      <div class="info-contorl"><input type="custEmail" name="email" placeholder="请输入店铺管理人邮箱"
+                              id="custEmail">
+                      </div>
+
+                                <li class="brandInfo">
+                                    <div class="info-title">邮寄联系人<span style="color: red">*</span>：</div>
+                                    <div class="info-contorl"><input type="text" name="mailUser" placeholder="请输入联系人"
+                                            id="mailUser">
+                                    </div>
+                                </li>
+                                <li class="brandInfo">
+                                    <div class="info-title">邮寄联系人电话<span style="color: red">*</span>：</div>
+                                    <div class="info-contorl"><input type="tel" name="mailMobile"
+                                            placeholder="请输入邮寄联系人电话" id="mailMobile">
+                                    </div>
+                                </li>
+                                <li class="brandInfo">
+                                    <div class="info-title">邮寄地址<span style="color: red">*</span>：</div>
+                                    <div class="info-contorl"><input type="email" name="mailAddress"
+                                            placeholder="请输入邮寄地址" id="mailAddress">
+                                    </div>
+                                </li>
+                  </li> -->
+                <li class="brandInfo" style="display: none">
+                    <div class="info-title">店铺管理人手机:</div>
+                    <div class="info-contorl">
+                        <input type="tel" name="custPhone" id="custPhone">
+                    </div>
+                </li>
+                <!--微小商户必传是否有经营场所-->
+                <li class="shoplevel brandInfo havingFixedBusiAddr  miniShop" style="display: none">
+                    <div class="info-title">是否有经营场所<span style="color: red">*</span>:</div>
+                    <div class="info-contorl">
+                        <input type="text" id="havingFixedBusiAddr" name="havingFixedBusiAddr" placeholder="请选择是否有经营场所"
+                            readonly>
+                        <i class="arrow right"></i>
+                    </div>
+                </li>
+            </ul>
+            <ul class="uploadinfo">
+                <div class="contorl-title">品牌及产品资质<span style="color: red">*</span>：</div>
+                <li class="imgfileListX1 pnionPayImg">
+                    <div class="contorl-title ">商标注册证书(或至少6个月以上的商标注册受理通知书)商标转让证明(如有)
+                    </div>
+                    <div class="uploadListTwo">
+                    </div>
+                </li>
+                <li class="imgfileListE1 pnionPayImg">
+                    <div class="contorl-title">商标授权书照片<span style="color: red">*</span>:</div>
+                    <div class="uploadListSix">
+                    </div>
+                </li>
+            </ul>
+            <ul class="uploadinfo  ">
+                <div class="contorl-title">行业资质 ：</div>
+                <li class="imgfileListH1 brandInfoImg">
+                    <div class="contorl-title">
+                        食品生产（经营）许可证、化妆品生产许可证、药品生产（经营）许可证、医疗器械生产（经营）许可证、化妆品生产批文（备案）、3C论证证书等（需提交特殊行业资质的类目请参考
+                        <span onclick="jumpStandard()">“华项商家入驻资质标准”</span>）(上传其一即可)
+                    </div>
+                    <div class="uploadListFive">
+                    </div>
+                </li>
+
+            </ul>
+            <ul class="uploadinfo">
+                <li class="imgfileListPicturesOfOperatingCommodities pnionPayImg miniShop">
+                    <div class="contorl-title">上传经营商品图片<span style="color: red">*</span>:</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileListPicturesOfOperatingCommodities"
+                                src="./img/1587469330.jpg" /></div>
+
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+
+                <li class="imgfileListF1 pnionPayImg">
+                    <div class="contorl-title">上传前台照<span style="color: red">*</span>:</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileListF1" src="./img/1587469330.jpg" />
+                        </div>
+
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+                <li class="imgfileList24 pnionPayImg">
+                    <div class="contorl-title">上传经营场景照片<span style="color: red">*</span>:</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileList24" src="./img/1587469330.jpg" />
+                        </div>
+
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+                <li class="imgfileList79 pnionPayImg">
+                    <div class="contorl-title">上传门店照片<span style="color: red">*</span>:</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileList79" src="./img/1587469330.jpg" />
+                        </div>
+
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+                <li class="imgfileListI1 pnionPayImg">
+                    <div class="contorl-title">上传办公场所照片<span style="color: red">*</span>:</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileListI1" src="./img/1587469330.jpg" />
+                        </div>
+
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+                <li class="imgfileListZ1 pnionPayImg">
+                    <div class="contorl-title">上传法人手持证件照片<span style="color: red">*</span>:</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileListZ1" src="./img/1587469330.jpg" />
+                        </div>
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            <ul class="uploadinfo miniShop" style="display: none;">
+                <div class="contorl-title">微小商户至少上传一张<span style="color: red">*</span>：</div>
+                <li class="imgfileListLeasingAgreement pnionPayImg">
+                    <div class="contorl-title">租赁协议</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileListLeasingAgreement" src="./img/1587469330.jpg" />
+                        </div>
+                        <!--<p class="plus">+</p>-->
+                        <!--./img/1587469330.jpg 爱之家默认图片-->
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+                <li class="imgfileListSecurities pnionPayImg">
+                    <div class="contorl-title">产权证明：</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileListSecurities" src="./img/1587469330.jpg" /></div>
+                        <!--<p class="plus">+</p>-->
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+                <li class="imgfileListQualificationCertificate pnionPayImg">
+                    <div class="contorl-title">执业资质证照：</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileListQualificationCertificate" src="./img/1587469330.jpg" />
+                        </div>
+                        <!--<p class="plus">+</p>-->
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+
+                <li class="imgfileListThirdPartyCertification pnionPayImg">
+                    <div class="contorl-title">第三方证明：</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileListThirdPartyCertification" src="./img/1587469330.jpg" />
+                        </div>
+                        <!--<p class="plus">+</p>-->
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+                <li class="imgfileListCertificationMaterialsOfOtherMicroAndSmallMerchants pnionPayImg">
+                    <div class="contorl-title">其它微小型商户证明材料：</div>
+                    <div class="newUpload uploadbox">
+                        <div class="picbox"><img id="imgfileListCertificationMaterialsOfOtherMicroAndSmallMerchants"
+                                src="./img/1587469330.jpg" /></div>
+                        <!--<p class="plus">+</p>-->
+                        <input type="file" accept="image/*" onchange="uploadFile(this,1)" class="upload-input">
+                        <button class="btn"><img class="img" src="./img/azj_mine1.png" />
+                            <p>点击上传</p>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- 
+            <ul class="uploadinfo">
+                <li class="imgfileListX1 brandInfoImg">
+                    <div class="contorl-title  contorl-title4">商标注册证书（或至少6个月以上的商标注册受理通知书）,商标转让证明（如有）<span
+                            style="color: red">*</span></div>
+                    <div class="contorl-title contorl-titleX1" style="display: none">品牌商标注册证书和销售授权书，商标转让证明（如有）<span
+                            style="color: red">*</span></div>
+                    <div class="uploadListTwo">
+                    </div>
+                </li>
+
+                <li class="imgfileListC1 brandInfoImg" style="display: none;">
+                    <div class="contorl-title">产品质检报告（1年以内具有CMA资质第三方检测机构出具）</div>
+                    <div class="uploadListThree">
+                    </div>
+                </li>
+                <li class="imgfileListJ1 brandInfoImg" style="display: none;">
+                    <div class="contorl-title">报关单、进口货物检验检疫证证明（进口商品）</div>
+                    <div class="uploadListFour">
+                    </div>
+                </li>
+            </ul> -->
+            <!--行业资质-->
+            <div class="text-aqua">
+                <ul class="info marigTo20">
+                    <li class="proofCode-li">
+                        <div class="info-title">图形验证码<span style="color: red">*</span>:</div>
+                        <div class="info-contorl" style="width: 44%;">
+                            <input type="text" style="text-align: center;" name="verifyCode" placeholder="请输入图形验证码"
+                                id="verifyCode">
+                        </div>
+                        <div class="img-code" id="imgCode">
+                            <img onclick="refreshImgCode()" src="" alt="">
+                        </div>
+                    </li>
+                    <li class="proofCode-li">
+                        <div class="info-title">短信验证码<span style="color: red">*</span>:</div>
+                        <div class="info-contorl" style="width: 44%;">
+                            <input type="text" style="text-align: center;" name="proofCode" placeholder="请输入短信验证码"
+                                id="proofCode">
+                        </div>
+                        <button class="path_p_btn" id="code" sendstate="1">获取验证码</button>
+                    </li>
+                </ul>
+                <p class="agree">
+                    <span class="tabtaggle">
+                        <span class="agreeCheck check">
+                            <span class="point"></span>
+                        </span>
+                        <span class="checkAgreement fs26">我已阅读并同意了<span style="color:blue;"
+                                class="checkAgreement fs26 readAgreement"
+                                onclick="popupShow()">《爱之家入驻服务协议》</span></span>
+                    </span>
+                </p>
+                <button class="btn-bottom submitBtn" id="submitBtn-2" style="background: rgb(200, 200, 200);"
+                    disabled="disabled">提交</button>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- 区域选择 -->
+    <div class="windowArea">
+        <div class="region_box region_box1" style="display: none">
+            <p class="title">请选择</p>
+            <ul class="region setup1">
+                <li class="finish">
+                    <i></i>
+                    <span>请选择省</span>
+                </li>
+                <li class="">
+                    <i></i>
+                    <span>请选择市</span>
+                </li>
+                <li>
+                   <i class="last"></i>
+                    <span>请选择县/区</span>
+                </li>
+                <!-- <li>
+                    <i class="last"></i>
+                    <span>请选择街道/镇</span>
+                </li> -->
+            </ul>
+
+            <div class="Selection">
+                <div class="title">
+                    <p class="isShow">选择省份</p>
+                    <p>选择城市</p>
+                    <p>选择县/区</p>
+                    <p>选择街道/镇</p>
+                </div>
+                <div class="box">
+                    <ul class="provinceData isShow" type="1">
+                        <li class="current"> 暂不选择 </li>
+                    </ul>
+                    <ul class="cityData" type="2">
+                        <li class="current"> 暂不选择 </li>
+                    </ul>
+                    <ul class="areaData" type="3">
+                        <li class="current"> 暂不选择 </li>
+                    </ul>
+                    <!-- <ul class="streetData" type="4">
+                        <li class="current"> 暂不选择 </li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+        <div class="region_box region_box2" style="display: none">
+            <p class="title">请选择</p>
+            <ul class="region setup2">
+                <li class="shopProvince finish">
+                    <i></i>
+                    <span>请选择省</span>
+                </li>
+                <li class="shopCity">
+                    <i></i>
+                    <span>请选择市</span>
+                </li>
+                <li class="shopArea">
+                    <i class="last"></i>
+                    <span>请选择县/区</span>
+                </li>
+                <!--<li class="shopStreet">
+                    <i class="last"></i>
+                    <span>请选择街道</span>
+                </li>-->
+            </ul>
+
+            <div class="Selection">
+                <div class="title">
+                    <p class="isShow">选择省份/地区</p>
+                    <p>选择城市</p>
+                    <p>选择县/区</p>
+                </div>
+                <div class="box">
+                    <ul class="shopProvinceData isShow" type="1">
+                        <li class="current"> 暂不选择 </li>
+                    </ul>
+                    <ul class="shopCityData" type="2">
+                        <li class="current"> 暂不选择 </li>
+                    </ul>
+                    <ul class="shopAreaData" type="3">
+                        <li class="current"> 暂不选择 </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" style="display: none;">
+        <div class="popup-box">
+            <p class="title">520爱之家品牌广场服务协议</p>
+            <div class="popup-text fs28">
+                <p>本协议由广州华项科技有限公司(以下简称“甲方”)及同意并承诺遵守本协议规定使用 爱之家商城（以下简称“520商城”；此前亦曾称“520爱之家”，同样生效，以下同）服务的商家(以下简称“乙方”)共同缔结。
+                </p>
+                <p class="ptitle">一、协议生效和适用范围</p>
+                <p>（一）当乙方点击确认本协议或使用 520商城时，即表示乙方已充分阅读、理解并接受本协议的全部内容，并与甲方就使用
+                    520商城服务一事达成一致。本协议自乙方上传相关执照、证明并点击确认本协议之时起生效。如果乙方不同意本协议或其中任何条款约定，乙方应立即停止使用本 520商城及服务。</p>
+                <p>（二）本协议内容包括协议正文以及所有
+                    520商城已经发布的或将来可能发布的各类规则、操作流程。甲方(520商城)有权以修改、更新等方式不时调整本协议和相关规则的内容，相关内容将公布于网站上或以其他方式通知乙方。除非乙方明示并通知甲方不愿接受调整后的内容，否则调整后的内容将于公布之日或通知另行指定的日期开始生效。如果乙方不同意本
+                    520商城所公布的任何条款约定，乙方应立即停止使用本 520商城及服务并及时通知甲方。</p>
+                <p class="ptitle">二、申请条件</p>
+                <p>（一）申请使用服务的乙方(商家)必须同时满足以下条件:</p>
+                <p>1. 必须持有中华人民共和国合法有效营业执照。</p>
+                <p>2. 食品行业必须持有《食品生产许可证》、《食品经营许可证》，其他行业须提供其行业的生产许可证明（无此规定的行业除外）。</p>
+                <p>3. 注册商标需由国家商标总局颁发的商标注册证或商标注册申请受理通知书。</p>
+                <p>4. 必须持有合法的生产（加工）经营资质，提供由第三方权威机构出具的最新的产品检验报告。</p>
+                <p>5. 乙方须提供开户许可证（银行对公账户）、行业许可证、特殊行业证明(特殊行业)等。</p>
+                <p>6. 根据中华人民共和国对不同行业性质经营要求，甲方要求乙方提供相应法定证件和证明，乙方必须无条件支持与配合。</p>
+                <p>7. 上述证明文件，乙方须提交复印件并加盖公章(或原件彩扫件，发证机关的章为红色彩扫),上传至甲方 520商城规定空间，经甲方审核并通过后，方能正式开通乙方账户。</p>
+                <p>（二）信息变更的通知：协议期内，上述信息（包括相关证明文件）的任何变更乙方都应及时通知甲方，如上述信息变更后使得乙方不再具备履行本协议的情形出现时，甲方有权立即终止或暂停执行本协议，并由乙方独自承担全部责任。
+                </p>
+                <p>（（三）责任条款：乙方同意为其未及时的通知或更新其信息承担全部责任，并保证其向甲方提供的全部证明文件有效、真实、准确且不存在超过时效问题（即保证所有证明文件在整个协议履行期间都处于有效期内）。如因上述原因发生纠纷或被相关国家主管机关处罚，乙方应当独自承担全部责任，如给甲方（包括其合作伙伴、代理人、职员、客户、用户等）造成损失的，乙方同意赔偿其全部损失。
+                </p>
+                <p class="ptitle">三、乙方供货产品基本要求</p>
+                <p>（一）消费者下单后 36小时内，乙方须提交发货的物流订单号、实际发货并保证在下单后消费者可查询物流流转的相关详细信息。</p>
+                <p>（二）乙方向消费者供货的零售价由乙方自行决定并以表格形式（即产品报价单）上报至甲方，甲方有权进行审核并提出零售价建议且乙方须要遵守甲方的零售价定价规则(包括但不仅限于不得高于乙方产品在其它任何销售渠道的零售价)，乙方须予以接受。否则，甲方有权拒绝发布或删除该产品信息，并有权单方面终止协议。
+                </p>
+                <p>（三）乙方在甲方平台上传产品的，原则上应先提供产品报价单供甲方进行审核。但若乙方未提供报价单，则只要其上传的产品经甲方审核通过的即视为双方已确认就相关产品达成合作。</p>
+                <p>（四）在保证乙方利益的前提下，甲方在合作过程中有权根据市场发展需求或相关政策的变化调整产品的销售价，乙方同意接受甲方对产品销售价所做的调整。</p>
+                <p>（五）乙方可根据实际情况设置销售产品的供应量含日供应量，但乙方必须确保在此供应范围之内任何批次货周期可供应产品的供应量，如乙方供应量有变化，应及时更新准确的信息。</p>
+                <p>（六）乙方可自行设置乙方产品包邮或不包邮，但乙方须保证在确保安全和性价比优势的前提下安排发货，以确保产品运输途中安全并送达至消费者。如运输途中出现意外，乙方有责任配合向运输方索赔及乙方有责任承担损失。
+                </p>
+                <p class="ptitle"> 四、费用结算</p>
+                <p>（一）甲方根据乙方在爱之家商城网店达成交易的销售总额（具体以甲方网站后台数据为准），以平台届时发布的服务费扣费费率，按比例向乙方收取技术服务费,由甲方向乙方开具相对应的技术服务费发票。</p>
+                <p>（二）根据《消费者保护法》等法律法规关于消费者七天无理由退换货之规定(如遇有国家法律法规或政策调整，则按调整后的国家法律法规或政策执行)，双方约定按以下方式进行结算:
+                    结算方式原则上采取银联分账的方式（即用户确认收货后 7 天内无异议的，乙方可自行在其在银联开设的虚拟账户中进行提现）；若没有成功入驻银联分账系统的则按以下方式进行结算：</br>
+                    以当月的 30 号为结算日，即计算自当月 1号到当月 15号的应结货款，在甲乙双方核对确认数量和金额无误后付清乙方前述货款。</br>
+                    以次月的 15号为结算日，即计算自上月 16号到上月最后一天的应结货款，在甲乙双方核对确认数量和金额无误后付清乙方前述货款。</br>
+                    本条款所指工作日、对账日、结算日如遇节假日、非工作日，则甲方有权顺延，并不视为甲方违约。</p>
+                <p>（三）基于甲方接入第三方支付机构，当乙方客户使用对公账户支付(B2B)交易金额人民币≦2000 元时，乙方须向第三方支付机构支付人民币
+                    10元/笔手续费；同时，当乙方每个订单清算时(无提现金额限制、无支付方式限制)，须向第三方支付机构支付人民币
+                    1元/笔清算资金划扣费。因此，无论甲乙双方以何种合作方式合作，前述费用均由乙方自行承担。同时，乙方在使用服务过程中所产生的一切费用均由乙方自行承担。</p>
+                <p>（四）税款与发票：双方应各自按照有关法律法规和国家政策的规定向有关的税务机关纳税。乙方为消费者提供的商品或服务，由乙方根据当地税务部门的规定向消费者提供发票，甲方不负责提供发票。</p>
+                <p class="ptitle">五、乙方(商家)的声明与保证</p>
+                <p>（一）乙方符合本协议的申请条件，且向甲方提供真实、合法、准确、有效的资料，在相关资料实际变更时，乙方需及时更新有关注册资料。</p>
+                <p>（二）乙方承诺遵守本协议以及所有公示于甲方网站的规则和流程。</p>
+                <p>（三）乙方有合法的权利缔结本协议，使用服务。</p>
+                <p>（四）乙方保证每天及时更新爱之家商城商城库存信息和提供优质服务。乙方将按照不低于《中华人民共和国产品质量法》、《中华人民共和国消费者权益保护法》及其它法规、部门规章和国家强制性标准规定的要求，出售商品并提供“三包”等售后服务。如因乙方原因造成用户或消费者依法律规定或
+                    520商城规则退换货，由此产生的费用由乙方承担，包括但不限于退换货产生的所有费用、退款手续费等等。</p>
+                <p>（五）乙方在甲方 520商城上出售的商品，有义务按照买家（及消费者）实际支付的金额为买家开具发票（即乙方默认产品销售价为其开票价），相关税费应按国家相关规定由乙方自行承担，差价部分由甲方开具
+                    6%的服务费发票给乙方进行相应的税费抵扣。除非乙方明确提出书面异议，否则视为同意此项约定，且后续乙方不得再因税费问题向甲方主张任何责任。</p>
+                <p>（六）乙方保证在进行交易的过程中遵守诚实信用的原则，不在交易过程中采取不正当竞争行为，不扰乱网上交易的正常秩序，不从事与网上交易无关的行为。</p>
+                <p>（七）乙方同意不对甲方 520 商城上任何数据作商业性利用，包括但不限于在未经甲方事先书面批准的情况下，以复制、传播或向他方披露等方式使用在甲方 520商城上其他消费者展示的任何资料。</p>
+                <p>（八）乙方保证在使用服务时实施的所有行为均遵守国家法律、法规和甲方 520商城的相关规定以及各种社会公共利益或公共道德。如有违反导致任何法律后果的发生，乙方将以自己的名义独立承担所有相应的法律责任。
+                </p>
+                <p>（九）乙方承诺拥有合法的权利和资格上传有关产品销售信息并进行销售，且前述行为未对任何第三方合法权益，包括但不限于第三方知识产权、物权等构成侵害。如因乙方行为导致甲方遭受任何第三方提起的索赔，诉讼或行政责任，乙方将承担全部责任并使甲方免责，同时甲方有权单方面解除协议。前述情形下，造成消费者或甲方损失或对甲方声誉造成影响的，乙方负责赔偿。
+                    <p>
+                        <p>（十）乙方承诺在爱之家商城销售的产品销售价格，不能高于乙方在其他网站上的销售价格以及不能高于常规渠道零售价格，且保证产品的运费收取合理，如发现所提供的上架产品高于其它网站或经查实举证高于常规渠道的零售价格或运费收取过高，经沟通乙方仍未及时做出修正，甲方有权拒绝发布或删除该产品信息，并甲方有权单方面终止协议。
+                            <p>
+                                <p>（十一）乙方承诺在买家下订单后
+                                    36小时内或网站公开承诺的时间内发货，并确保其销售的产品生产日期至发货日期不得超过产品保质期的四分之一。一旦消费者拍下产品后，如因乙方原因造成未发货需退款或已发货但因质量问题须需退款时，由此产生的所有费用(包括但不仅限于产品运费、退款手续费等等)由乙方承担。
+                                    <p>
+                                        <p>（十二）乙方承诺在甲方
+                                            520商城出售的产品均为正品，不得出售假货及非原厂正品产品，一旦买家在收到货物后提出以“收到假货或非原厂正品产品”为退货原因的退款申请，或在交易成功后提出“正品保障”赔付申请，乙方应积极配合，并根据甲方的要求在指定期间内提供真实、合法、有效的证据材料，并同意甲方在处理买家的“正品保障”赔付申请或相关退换货申请时，有权以普通或非专业人员的知识水平标准对乙方和买家提交的证据材料进行表面审核，并依据该材料做出判断。
+                                            <p>
+                                                <p>（十三）乙方应确保在 520商城上发布的产品及/或服务享有完全的权利，不得在
+                                                    520商城上销售以下产品或提供以下服务,否则，所造成的一切法律后果由乙方承担，并甲方有权采取收回权限或终止合作等处理措施：</p>
+                                                <p>1.不得传输或发表：煽动抗拒、破坏宪法和法律、行政法规实施的言论，煽动颠覆国家政权，推翻社会主义制度的言论，煽动分裂国家、破坏国家统一的的言论，煽动民族仇恨、民族歧视、破坏民族团结的言论；
+                                                </p>
+                                                <p>2.国家禁止或限制流通的；</p>
+                                                <p>3.侵犯他人知识产权等合法权益的；</p>
+                                                <p>4.质量不合格的伪劣产品的；</p>
+                                                <p>5.其他法律规定的。</p>
+                                                <p>（十四）甲方有权审核乙方提供的产品或服务信息，对不符合法律、法规或甲方有理由相信如果发布将给甲方带来不利影响的产品或服务信息，甲方有权要求乙方进行修改，也有权拒绝发布或删除该信息。
+                                                    <p>（十五）乙方销售的产品发生无正当理由不发货、逾期发货、客户依法律规定提出 7
+                                                        天无理由退换货服务、货不对版或存在质量问题的或因产品质量问题发生争议的，由乙方负责妥善解决，并承担由此而产生的费用与全部法律责任，包括但不仅限于赔偿/补偿、退货、换货并承担退换货运费、退款手续费等，并且甲方有随时终止与乙方协议的权利。
+                                                        <p>（十六）乙方须保证其在正常运营时间的咨询电话及在线形式的客服等及时畅通，且保证针对消费者投诉（配送、服务、商品质量、售后服务问题等）必须在
+                                                            6个小时内给予积极处理，并反馈给消费者满意处理结果，如果消费者不满意，投诉至甲方（520商城），则视为对乙方有效投诉
+                                                            1次，甲方按相应规定处罚(包括但不限于下架产品、终止合作、警告、200元/次罚款；累计投诉三次以上按
+                                                            1000元/次罚款外，并有权责成乙方及时处理好投诉，直到用户满意。
+                                                            <p>（十七）因乙方所销售的产品，在运输、装卸过程中造成产品部分或全部损坏、被盗、短缺、毁损等情况，如有发生以上情况，乙方必须承担维修、换货或退货及其经济责任，且物流费用或退款手续费由乙方承担。
+                                                                <p>（十八）乙方承诺，不会采取任何手段或措施，包括但不限于明示或暗示消费者/用户或通过其它方式转移其可以通过甲方网站在线达成的交易，或达成交易后不经由甲方(520商城)服务收取交易金额，以规避向甲方支付相关费用。否则将视为严重违约，甲方将有权立即终止本协议，并向乙方追讨相关费用和违约金，违约金为乙方在甲方520商城累计销售总额的五倍以上。
+                                                                    <p>（十九）乙方认可并愿意履行 520 商城的客服作为独立的第三方根据其所了解到的争议事实并依据
+                                                                        520
+                                                                        商城规则所作出的调处决定（包括调整相关订单的交易状态、判定将争议款项的全部或部分支付给交易一方或双方等）。如乙方对调处决定不满意，乙方仍有权采取其他争议处理途径解决争议，但通过其他争议处理途径未取得终局决定前，乙方仍应先履行调处决定。
+                                                                        <p>（二十）甲方给予乙方“爱之家商城”之“代理商”待遇，因此乙方有义务优先在甲方“爱之家商城”消费，尤其对于同品牌、同厂家的产品且在甲方“爱之家商城”更有性价比的前提下，乙方有义务优先自甲方“爱之家商城”购买。乙方在此优势的前提下，仍不愿意在甲方平台优先选购，则甲方有权随时终止与乙方的合作，或者有权力变更与乙方的合作权重。
+                                                                            <p>（二十一）乙方应积极推广乙方在甲方零售平台“爱之家商城”上销售的商品信息，以促进乙方产品的销售。
+                                                                                <p class="ptitle">六、甲方的权利和义务</p>
+                                                                                <p>（一）甲方有义务在现有技术上维护整个
+                                                                                    520爱之家商城的正常运行，并努力提升和改进技术，使乙方网上交易活动得以顺利进行；甲方将按“现状”和“可得到”的状态向乙方提供
+                                                                                    520爱之家相关服务
+                                                                                    。甲方依法律固定承担基础保障义务，但无法对由于信息网络设备维护、连接故障，电脑、通讯或其它系统的故障，黑客攻击，计算机病毒侵入或发作，电力故障，罢工，暴乱，火灾，洪水，风暴，爆炸，战争，政府行为，司法行政机关的命令或因第三方原因而给乙方造成的损害结果承担责任。
+                                                                                </p>
+                                                                                <p>（二）甲方有权根据乙方营业执照的经营范围以及乙方对自己店铺经营范围的描述自行决定（调整）乙方在甲方商品类目种类和数量，乙方对此不持任何异议。
+                                                                                </p>
+                                                                                <p>（三）甲方有权对乙方的注册数据及交易行为进行审核与查阅，发现注册数据或交易行为中存在任何问题或怀疑，均有权向乙方发出询问或要求改正的通知，或者直接做出删除等处理；
+                                                                                </p>
+                                                                                <p>（四）甲方不对乙方向买家提供的消费者保障服务内容及提供的正品保障服务内容承担任何保证责任，当发生买家在付款但未收到货，商品与网上描述不符、商品存在质量问题等情形时，乙方应保证买家的权益，对于买家因前述问题提出的退换货要求，乙方应积极处理。
+                                                                                </p>
+                                                                                <p>（五）经国家生效法律文书或行政处罚决定确认乙方存在违法行为，或者甲方有事实依据可以认定乙方存在违法或违反协议行为的，甲方有权在
+                                                                                    520平台（“520平台”包括爱之家商城、520批发网、520生活圈等，以上、以下均同）公布乙方的违法和/或违规行为并做出处罚或停止合作等处理；
+                                                                                </p>
+                                                                                <p>（六）如乙方违反
+                                                                                    520平台的任何规则或本协议中的任何承诺或保证，甲方都有权立刻终止本协议，且按有关规则对乙方酌情进行的处罚。如乙方销售假冒它他人商标的商品、二手商品，或第三方两次以上投诉其商品质量，则甲方除有权立即终止本协议外，还有权向乙方索取因其行为造成对爱之家商城的直接和简介损失。
+                                                                                </p>
+                                                                                <p class="ptitle">七、违约责任及处理</p>
+                                                                                <p>（一）发生如下情形之一的，视为乙方违约：</p>
+                                                                                <p>1.使用 520商城时违反相关法律法规规定的；</p>
+                                                                                <p>2.违背诚信原则、弄虚作假，严重损害甲方(520商城)的声誉；</p>
+                                                                                <p>3.违反本协议、本 520商城规则或本协议补充协议约定的。</p>
+                                                                                <p>（二）违约处理措施</p>
+                                                                                <p>1.甲方可依相关规则约定对乙方及乙方的关联账户采取关闭账户、收回权限、中止或终止合作、5000元以上罚款或根据乙方在甲方
+                                                                                    520商城累计销售总额的五倍以上进行罚款等处理措施，甲方有权直接从应付乙方货款中扣除。如甲方受到的损失大于罚金的数额，则甲方有权继续向乙方追偿。
+                                                                                </p>
+                                                                                <p>2.甲方可对乙方的违约行为处理措施信息，以及其它经国家行政或司法机关生效法律文书确认的违法信息予以公示。
+                                                                                </p>
+                                                                                <p>（三）赔偿责任</p>
+                                                                                <p>如乙方的行为使甲方及/或其关联公司遭受损失（包括直接经济损失、商誉损失及对外支付的赔偿金、和解款、律师费、诉讼费等间接经济损失），乙方应赔偿甲方及/或其关联公司的上述全部损失。
+                                                                                </p>
+                                                                                <p>如乙方的行为使甲方及/或其关联公司遭受第三方主张权利，甲方及/或其关联公司可在对第三人承担金钱给付等义务后就全部损失向乙方追偿。
+                                                                                </p>
+                                                                                <p>（四）特别约定</p>
+                                                                                <p>如乙方向甲方及/或其关联公司的雇员或顾问等提供实物、现金等价物、劳务、旅游等价值明显超出正常商务洽谈范畴的利益，则可视为乙方存在商业贿赂行为。发生上述情形的，甲方可立即终止与乙方的所有合作并向乙方收取违约金及/赔偿金，该等金额以
+                                                                                    520商城因乙方的贿赂行为而遭受的经济损失和商誉损失作为计算依据。
+                                                                                </p>
+                                                                                <p>如乙方因违约导致甲方终止本协议时，出于维护合作秩序的目的，甲方及/或其关联公司可对乙方在其他它议项下的合作采取中止甚至终止协议的措施，并以本协议约定方式通知乙方。
+                                                                                </p>
+                                                                                <p class="ptitle">八、保密条款和知识产权</p>
+                                                                                <p>（一）保密条款。甲乙双方承诺：不向任何第三方泄露双方合作方式、价格等具体内容；双方均不向任何第三方泄露属于双方的技术、商务等机密，除所有权方声明许可或为实现本合同目的（依法律规定）外，否则，违约方须承担由此带来的法律责任。
+                                                                                </p>
+                                                                                <p>（二）知识产权。除非在此明确许可或授予，本协议并不涉及任何技术转让，在甲方爱之家商城与
+                                                                                    520平台相关网站里所包含和涉及所有权利、产权和利益属于甲方独自所有。
+                                                                                </p>
+                                                                                <p class="ptitle">九、争议解决</p>
+                                                                                <p>（一）在双方就本协议项下条款的解释和履行发生争议时，双方应以善意通过协商解决该争议。双方不能自行协商解决的，任何一方均可向甲方所在地的广州市东黄埔区人民法院通过提起诉讼获得裁决。
+                                                                                </p>
+                                                                                <p>（二）本协议的订立、效力、执行、解释及争议的解决均应适用中国法律。</p>
+                                                                                <p class="ptitle">十、其它规定</p>
+                                                                                <p>（一）对于甲方有供货或销售区域限定的货品和规定，乙方必须遵守。</p>
+                                                                                <p>（二）如果本协议有任何一条或多条规定根据任何法律或法规在任何方面被裁定为无效、不合法或不可执行，本协议其余规定的有效性、合法性或可执行性不应因此在任何方面受到影响或损害。双方应通过诚意磋商，争取以法律许可以及双方期望的最大限度内有效的规定取代那些无效、不合法或不可执行的规定，而该等有效的规定所产生的经济效果应尽可能与那些无效、不合法或不能强制执行的规定所产生的经济效果相似。
+                                                                                </p>
+                                                                                <p>（三）520商城现在及将来发布的全部
+                                                                                    520商城规则、公告、说明等，都是本协议不可分割的部分，与本协议具有同等法律效力。
+                                                                                </p>
+                                                                                <p>（四）本协议壹式叁份，甲方持贰份，乙方持壹份，具有同等法律效力。</p>
+                                                                                <p>【以下无正文】</p>
+                                                                                <p
+                                                                                    style="color:black;text-align: right;font-size: .7rem;font-weight: 700;padding-bottom: 1rem">
+                                                                                    广州华项科技有限公司</p>
+                                                                                <p class="ptitle"
+                                                                                    style="text-align: right;">
+                                                                                    版本生效日期:2020年1月7日</p>
+                                                                                <p
+                                                                                    style="color:black;text-align: right;font-size: .5rem;padding-bottom: 1rem">
+
+                                                                                </p>
+            </div>
+            <p class="close" style="background: white;" onclick="popupClose()">确定</p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="../../common/lib/jquery/js/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/loading.js"></script>
+<script type="text/javascript" src="/common/js/common.js"></script>
+
+<script type="text/javascript" src="/common/js/tag.js?v=1"></script>
+<script src="../activity/lib/Hui/js/hui.js"></script>
+<script src="../activity/lib/Hui/js/hui-picker.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/brandSquare/iosSelect.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/order/clipboard.js"></script>
+<script src="./js/picture-viewer.js"></script>
+<script src="./js/supplierEntry.js?v=12"></script>
+<script src="../../common/laydate/laydate.js"></script>
+<script>
+ 
+    function GetRequest() {
+        var url = location.search; //获取url中"?"符后的字串
+        var theRequest = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    };
+    var userType = GetRequest().xtype
+    if (userType == 1) {
+        hui('#mType').val('企业商户');
+        $('.ruzhu').text("企业商户入驻");
+        $('.account').html("账号(公账)<span style='color: red'>*</span>:")
+        $('.miniShop').hide();
+        $('.qyname').show();
+        
+    } else if (userType == 2) {
+        hui('#mType').val('个体工商户')
+        $('.ruzhu').text('个体工商户入驻')
+        $('.account').html("账号(私账)<span style='color: red'>*</span>:")
+        $('.qyname').show();
+        $('.miniShop').hide()
+        
+    } else if (userType == 3) {
+
+        $(".a1").hide();
+        $('.qyname').hide();
+        $('.miniShop').show()
+        $('.account').html("账号(私账)<span style='color: red'>*</span>:")
+        hui('#mType').val('个人商户')
+        $('.ruzhu').text('个人商户入驻')
+     
+    }
+
+    function jumpStandard() {
+        window.open(
+            "http://ngh.520shq.com/Content/EXE/%E5%8D%8E%E9%A1%B9ERP%E4%B8%AA%E4%BA%BA%E7%89%88%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F/%E5%8D%8E%E9%A1%B9%E5%95%86%E5%AE%B6%E5%85%A5%E9%A9%BB%E8%B5%84%E8%B4%A8%E6%A0%87%E5%87%86.pdf"
+        );
+    }
+
+    //初始化店铺类型
+    function getshopType() {
+        //店铺类型
+        $.ajax({
+            url: "/localQuickPurchase/brandSquare/getshopType",
+            type: "get",
+            data: {},
+            async: true,
+            dataType: "json",
+            success: function (response) {
+                if (response.code == 200) {
+                    var type = getType(response.data);
+                    var picker1 = new huiPicker('#storeType', function () {
+                        var val = picker1.getVal(0);
+                        var txt = picker1.getText(0);
+                        hui('#storeType').attr("data-id", val);
+                        hui('#storeType').val(txt);
+                        setBrandSquareSupplierInfo();
+                    });
+                    picker1.bindData(0, type);
+                } else {
+                    hui.toast("获取店铺类型失败,请刷新重试")
+                }
+            }
+        });
+    }
+    //行业类别编码
+    function getMccCode(type) {
+        //行业类别编码
+        var type;
+        if (userType == 1) {
+            type = 1
+
+        } else if (userType == 2) {
+
+            type = 1
+        } else if (userType == 3) {
+            type = 2
+        }
+
+        $.ajax({
+            url: "/localQuickPurchase/brandSquare/getMccCode",
+            type: "get",
+            data: {
+                "type": type
+            },
+            async: true,
+            dataType: "json",
+            success: function (response) {
+                if (response.code == 200) {
+                    var type = getType(response.data);
+                    var picker1 = new huiPicker('#mccCode', function () {
+                        var val = picker1.getVal(0);
+                        var txt = picker1.getText(0);
+                        hui('#mccCode').attr("data-id", val);
+                        hui('#mccCode').val(txt);
+                        setBrandSquareSupplierInfo();
+                    });
+                    picker1.bindData(0, type);
+                } else {
+                    hui.toast("获取行业类别编码失败,请刷新重试")
+                }
+            }
+        });
+    }
+    $(function () {
+        var userName = getUserName();
+        if (userName == null || userName == "") {
+            loginPage();
+            return;
+        }
+        //初始化省级数据
+        region(1, 0, 1);
+        getShopRegion(1, 0);
+        // 点击下一步
+        $('#nextBtn').click(function () {
+            var brandSquareSupplierInfo = getViewdata(getBrandSquareSupplierInfo() == null ? {} :
+                getBrandSquareSupplierInfo());
+            brandSquareSupplierInfo.step = "1";
+            brandSquareSupplierInfo.isSubmit = "1";
+            submitCompanyInfo(brandSquareSupplierInfo);
+        })
+        $('#nextBtn1').click(function () {
+            var brandSquareSupplierInfo = getViewdata(getBrandSquareSupplierInfo() == null ? {} :
+                getBrandSquareSupplierInfo());
+            brandSquareSupplierInfo.step = "1";
+            brandSquareSupplierInfo.isSubmit = "2";
+            submitCompanyInfo(brandSquareSupplierInfo);
+        })
+        $('#nextBtn2').click(function () {
+            var brandSquareSupplierInfo = getViewdata(getBrandSquareSupplierInfo() == null ? {} :
+                getBrandSquareSupplierInfo());
+            brandSquareSupplierInfo.step = "1";
+            brandSquareSupplierInfo.isSubmit = "3";
+
+            submitCompanyInfo(brandSquareSupplierInfo);
+        })
+        // 点击意向信息提交
+        $('#submitBtn').click(function () {
+            var brandSquareSupplierInfo = getViewdata({});
+            if (!validateInfoIntention(brandSquareSupplierInfo)) {
+                return;
+            }
+            if (userType == 1) {
+                brandSquareSupplierInfo.merType = '00';
+            } else if (userType == 2) {
+                brandSquareSupplierInfo.merType = '01';
+            } else if (userType == 3) {
+                brandSquareSupplierInfo.merType = '02';
+            }
+            brandSquareSupplierInfo.step = "2";
+            brandSquareSupplierInfo.isSubmit = "0";
+            brandSquareSupplierInfo.enterType = "h5";
+            console.log(brandSquareSupplierInfo, userType, '95')
+            loadingdate("保存中,请稍后...");
+            $.ajax({
+                type: "POST",
+                url: "/localQuickPurchase/brandSquare/v2/save",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify(brandSquareSupplierInfo),
+                async: true,
+                success: function (data) {
+                    if (data.code == 200) {
+                        clearLoading();
+                        var path = data.data.path;
+                        var password = data.data.password;
+                        var name = data.data.name;
+                        //提交移除缓存数据
+                        localStorage.removeItem("brandSquareSupplierInfo");
+                        window.location.href =
+                            "/localQuickPurchase/distributionVA/brandSquare/supplierRegisterMsg?admissionName=" +
+                            name + "&password=" + password + "&path=" + path;
+                    } else if (data.code == 201) {
+                        clearLoading();
+                        hui.toast("请填写完所有栏目!");
+                    } else if (data.code == 1000) {
+
+                    } else {
+                        clearLoading();
+                        hui.toast(data.message);
+                    }
+                },
+                error: function (respone) {
+                    clearLoading()
+                }
+            })
+        })
+        $('#submitBtn-2').click(function () {
+            if (!$('.agreeCheck').hasClass('active')) {
+                hui.toast("请勾选用户协议");
+                return;
+            }
+            var brandSquareSupplierInfo = getViewdata({});
+            brandSquareSupplierInfo.step = "2";
+            brandSquareSupplierInfo.temp = "0";
+            brandSquareSupplierInfo.isSubmit = "0";
+            brandSquareSupplierInfo.enterType = "pc";
+            submitCompanyInfo(brandSquareSupplierInfo);
+        })
+        applystatus(userName);
+    })
+    var clipboard = new Clipboard('.path_p_btn', {
+        // 点击copy按钮，直接通过text直接返回复印的内容
+        text: function () {
+            var link = $(".copy-btn").text();
+            var backGroundPath = link.substring(link.indexOf(":") + 1, link.length);
+            return backGroundPath;
+        }
+    });
+    clipboard.on('success', function (e) {
+        hui.toast('复制成功!');
+        e.clearSelection();
+    });
+    clipboard.on('error', function (e) {
+        // console.log(e);
+        hui.toast('复制成功!');
+    });
+    //执行一个laydate实
+    laydate.render({
+        elem: '#socialCodesStart', //指定元素
+        trigger: 'click'
+    });
+    laydate.render({
+        elem: '#socialCodeEnd', //指定元素
+        trigger: 'click'
+    });
+    laydate.render({
+        elem: '#idCardStart', //指定元素
+        trigger: 'click'
+    });
+    laydate.render({
+        elem: '#idCardEnd', //指定元素
+        trigger: 'click'
+    });
+</script>

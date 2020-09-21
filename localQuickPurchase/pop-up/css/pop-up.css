@@ -1,0 +1,153 @@
+.showModal {
+    width: 100%;
+    height: 100%;
+    /* position: relative; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: rgba(000, 000, 000, .5);
+}
+
+/* 显示 */
+/* .isSee {
+    display: block;
+} */
+
+.showModal .CouponInfo {
+    /* width: 12.1778rem; */
+    width: 11.7333rem;
+    /* height: 18.6222rem; */
+    position: absolute;
+    /* background: url('./img/bgr2@3x.png') no-repeat; */
+    background-size: 100%;
+    padding-top: 1.2222rem;
+    background-clip: padding-box;
+    margin: auto;
+    margin-top: 7.6222rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: visible;
+}
+
+/* 关闭按钮 */
+.showModal .CouponInfo .iconClose {
+    position: absolute;
+    top: 0;
+    right: -.4rem;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    /* background-color: red; */
+    background: url('../img/cho0se2@2x.png') no-repeat;
+    background-size: 100%;
+    text-align: center;
+    line-height: .8rem;
+    /* background-color: #fff; */
+}
+
+.showModal .CouponInfo .infoBox {
+    /* width: 100%; */
+    width: 11.7333rem;
+    box-sizing: border-box;
+    padding: 1.2rem .6222rem 0;
+    margin-top: 1.0444rem;
+    border: .0889rem solid #eb3349;
+    background-color: #fff;
+    position: relative;
+    overflow: visible;
+
+}
+
+.showModal .CouponInfo .infoBox::after {
+    content: '';
+    width: 2.4444rem;
+    height: 1.7333rem;
+    position: absolute;
+    top: -1.9333rem;
+    left: 2.0667rem;
+    background: url('../img/zhuangshi@2x.png') no-repeat;
+    background-size: 100%;
+}
+
+.showModal .CouponInfo .infoBox::before {
+    content: "";
+    width: 2.4444rem;
+    height: 1.7333rem;
+    position: absolute;
+    /* bottom: -1.9333rem; */
+    bottom: .4444rem;
+    right: -.4444rem;
+    background: url('../img/zhuangshi@2x.png') no-repeat;
+    background-size: 100%;
+
+}
+
+.showModal .CouponInfo .infoBox .topTitle {
+    width: 9.5556rem;
+    height: 1.4444rem;
+    background: url('../img/hudie@2x.png') no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: -1.1rem;
+    left: 1.0444rem;
+    text-align: center;
+    color: #ffffff;
+    font-size: .5333rem;
+
+}
+
+.showModal .CouponInfo .infoBox .topTitle p {
+    line-height: 1.0444rem;
+}
+
+
+.showModal .CouponInfo .infoBox .infoDetail {
+    font-size: .4444rem;
+    text-align: center;
+}
+
+.showModal .CouponInfo .infoBox .infoDetail span {
+    /* display: inline-block; */
+    color: #ffffff;
+    background-color: #f45c43;
+    line-height: .7556rem;
+    position: relative;
+    padding-left: 1.1111rem;
+    padding-right: .5333rem;
+    border-radius: .3556rem;
+
+}
+
+.showModal .CouponInfo .infoBox .infoDetail span i {
+    width: .8222rem;
+    height: .7556rem;
+    /* display: inline-block; */
+    position: absolute;
+    top: -.0667rem;
+    left: 0;
+    background: url('../img/tuoyuan@2x.png') no-repeat;
+    background-size: 100%;
+    font-style: normal;
+    font-size: .2222rem
+}
+
+.showModal .CouponInfo .infoBox .infoDetail p {
+    text-align: left;
+    margin: .5333rem 0;
+}
+
+.pop-upBtn {
+    color: #ffffff;
+    background-color: #f45c43;
+    /* line-height: .7556rem; */
+    font-size: .3rem;
+    width: 3rem;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: .3556rem;
+    margin-bottom: .5rem
+}

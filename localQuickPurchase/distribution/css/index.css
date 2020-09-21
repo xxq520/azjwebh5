@@ -1,0 +1,138 @@
+/****首页样式****/
+@charset "utf-8";
+.indexHeader{
+	position: relative;
+	overflow: hidden;
+}
+.indexHeader .btn-addr{
+	position: absolute;
+	left: 12px;
+	top:0;
+	bottom:0 ;
+	z-index: 10;
+	line-height: 1.9rem;
+}
+.indexHeader span.arrow-bot{
+	line-height: 2.083rem;
+}
+.indexHeader .btn-addr span{
+	color:#FFFFFF;
+	font-size: 0.667rem;
+}
+.indexHeader .search{
+	width:100%;
+	border-radius: 5px;
+	padding:0 10% 0 17%;
+	margin-top:0.4rem;
+	height:1.16rem ;
+	position: relative;
+}
+.indexHeader .search .search-content{
+	background:#FFFFFF;
+	height: 100%;
+	border-radius: 5px;
+	padding-left: 8px;
+	overflow: hidden;
+}
+.indexHeader .search .search-content span{
+	line-height: 1.16rem;
+	font-size: 0.6rem;
+	color:#b2b2b2;
+}
+.indexHeader .search .search-content .search-icon{
+	font-size: 0.6rem;
+	line-height: 1.3rem;
+}
+.indexHeader .link-commen .commen-icon{
+	position: absolute;
+	right:12px;
+	top:0;
+	bottom: 0;
+	z-index: 10;
+	line-height: 1.9rem;
+	color: #FFFFFF;
+	font-size: 1rem;
+}
+.banner{
+	position: relative;
+	padding-top:40%;
+}
+.banner .banner-content{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left:0;
+	top:0;
+	overflow: hidden;
+}
+.hiSlider-wrap,.hiSlider,.hiSlider-item,.hiSlider-item img{height:100%;}
+.hiSlider-item img{width:100%;}
+.shops-tab{height: 1.56rem;border-bottom: 1px solid #cccccc;display: flex;display: -webkit-flex;justify-content: space-between;-webkit-justify-content: space-between;align-items: center;-webkit-align-items: center;}
+.shops-tab .shops-tab-item{height: 1.167rem;width:50%;text-align: center;color:#e4393c;}
+.shops-tab .shops-tab-item .collection-icon{
+	display:inline-block;
+	width:1rem;
+	height: 1rem;
+	background:#ababab;
+	text-align: center;
+	line-height: 1rem;
+	font-size: 0;
+	vertical-align: top;
+	border-radius: 50%;
+	margin-top:0.1rem;
+}
+.shops-tab .shops-tab-item .collection-icon .iconfont{
+	font-size: 0.4rem;
+	color:#eee3e3;
+}
+.shops-tab .shops-tab-item.active .collection-icon{
+	background:#e4393c;
+}
+.shops-tab .shops-tab-item.active .iconfont{
+	color:#ffb600;
+}
+.shops-tab .shops-tab-item.active{color:#e4393c;}
+.shops-tab .shops-tab-item.active span{color:#e4393c;}
+.shops-tab .shops-tab-item span{color:#ababab;font-size: 0.75rem;line-height: 1.167rem;}
+.shops-tab .shops-tab-item:first-child{border-right: 1px solid #CCCCCC;}
+.shop-list-content{display: none;}
+.shop-list-content.active{display: block;}
+.shop-list .shop-item{padding:15px 10px;margin-bottom: 10px;box-shadow: 0 10px 0 0 #e6e6e6;overflow: hidden;}
+.shop-list .shop-item .shop-pic,.shop-list .shop-item .shop-info{float: left;}
+.shop-list .shop-item .shop-pic{width:39.3%;padding-top: 30.3%;position: relative;margin-right: 0.583rem;}
+.shop-list .shop-item .shop-pic img{width: 100%;height: 100%;position: absolute;left:0;top:0;}
+.shop-list .shop-item .shop-info .shop-name,.shop-list .shop-item .shop-info .shop-price{font-size: 0.667rem;margin:0.5rem 0;color:#333333;}
+.shop-list .shop-item .shop-info .shop-price{color: #E4393C;}
+@media only screen and (min-width:320px ) and (max-width:340px) {
+	.shop-list .shop-item .shop-info .shop-name,.shop-list .shop-item .shop-info .shop-price{margin:0.3rem 0;}
+}
+.shop-list .shop-item .shop-info .shop-price .rbm{color:#E4393C;font-size: 0.5rem;}
+.shop-info .shop-handle .btn-price{display: inline-block;vertical-align: middle;width:3rem;height: 1rem;line-height:1rem;font-size: 0.5rem;border:1px solid #E4393C;text-align: center;line-height: 0.8333rem;margin-right: 0.8rem;border-radius: 4px;}
+.shop-info .shop-handle .btn-price:active{color:#E4393C;}
+.shop-info .shop-handle .collect-handle{display: inline-block;}
+.shop-info .shop-handle .collection-icon{
+	display:inline-block;
+	width:1rem;
+	height: 1rem;
+	background:#ababab;
+	text-align: center;
+	line-height: 1rem;
+	font-size: 0;
+	vertical-align: middle;
+	border-radius: 50%;
+}
+.shop-info .shop-handle .grounding{
+	font-size: 0.5rem;
+	color:#666;
+}
+.shop-info .shop-handle .collection-icon .iconfont{
+	font-size: 0.4rem;
+	color:#eee3e3;
+}
+.shop-info .shop-handle.active .collection-icon{
+	background:#e4393c;
+}
+.shop-info .shop-handle.active .iconfont{
+	color:#ffb600;
+}
+.txt-red{color: #E4393C;}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>重设密码</title>
+    <link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/sry.css">
+</head>
+<style>
+    .hui-button.J-submit-but{background: #999;color:#fff;}
+</style>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>输入新密码</h1>
+</header>
+<div class="main_container hui-common-padding">
+    <form id="resetpw">
+        <div class="hui-form margint generalform">
+            <div class="hui-form-items">
+                <input type="password" oninput="colorOnchange(this)" id="passwordOne" class="hui-input hui-input-clear hui-pwd-eye font-md" name="userpw1" maxlength="12" placeholder="请输入新密码" checkType="string" id="pwd" checkData="1," checkMsg="请输入新密码" />
+            </div>
+            <div class="hui-form-items">
+                <input type="password" oninput="colorOnchange(this)" id="passwordTwo" class="hui-input hui-input-clear hui-pwd-eye font-md" name="userpw2" maxlength="12" placeholder="请再次输入新密码" checkType="sameWithId" checkData="pwd" value="" checkMsg="两次密码不一致" />
+            </div>
+            <button type="button" class="hui-button hui-button-large J-submit-but" onclick="determineClick()">确定</button>
+            <p class="yellowtips msgtips"></p>
+            <div class="agreementtips">登录代表您已阅读并同意<a href="userProtocol.html"> 《爱之家商城用户服务协议》</a></div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="/common/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui-form.js"></script>
+<script type="text/javascript" src="/common/js/tag.js"></script>
+<script type="text/javascript">
+
+    var mobile = getQueryString("mobile");
+
+    function determineClick(){
+        //获取用户输入的新密码
+        var userpw1 = $("input[name=userpw1]").val();
+        var userpw2 = $("input[name=userpw2]").val();
+        if(userpw1 == null || userpw1 == ""){
+            hui.toast("请输入新密码！");
+            return;
+        }
+        if(userpw2 == null || userpw2 == ""){
+            hui.toast("请再次输入新密码！");
+            return;
+        }
+        if(userpw1 != userpw2){
+            hui.toast("两次密码不一致");
+            return;
+        }
+        if(userpw1.length<6 || userpw1.length>12){
+            hui.toast("密码的长度为6-12位");
+            return;
+        }
+        if(!ifRegular(userpw1)){
+            hui.toast("密码只能由数字加英文组成 !");
+            return;
+        }
+        $.ajax({
+            type : "POST",//定义提交的类型
+            url : "/upms/user/setPassWord",
+            dataType : "json",//设置返回值得类型
+            data : {
+                "mobile" : mobile,
+                "newPassWord" : userpw1
+            },
+            async : false,//是否异步请求，false为同步
+            success: function (data) {//成功返回值执行函数
+                if (data.code == 1000) {
+                    hui.iconToast('验证通过！');
+                    setTimeout(function () {
+                        //跳转到登录页面
+                        window.top.location.href = "/upms/static/login.html";
+                    }, 1000);
+                } else {
+                    hui.iconToast('验证失败！', 'error');
+                }
+            },
+            error: function() {
+                hui.iconToast('验证失败！','error');
+            }
+        });
+    }
+    //修改登录密码的样式
+    function colorOnchange(t){
+        var id = $(t).attr("id");
+        var val = $(t).val();
+
+        if(id == "passwordOne"){
+            var _pwd=$("#passwordOne").val().length;
+            if(_pwd > 5){
+                $(".J-submit-but").css({"background":"#d52c2c","color":"#fff"})
+            }else{
+                $(".J-submit-but").css({"background":"#999","color":"#fff"})
+            }
+        }else if(id == "passwordTwo"){
+            var _pwd=$("#passwordTwo").val().length;
+            if(_pwd > 5){
+                $(".J-submit-but").css({"background":"#d52c2c","color":"#fff"})
+            }else{
+                $(".J-submit-but").css({"background":"#999","color":"#fff"})
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

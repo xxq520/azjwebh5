@@ -1,0 +1,56 @@
+.kefu-block {
+    width: 100%;
+    height: 6.5rem;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    background: white;
+    display: none;
+}
+
+.kefu-block ul {
+    height: auto;
+}
+
+.scrollsidebar {
+    margin-right: 10px;
+}
+
+/*.hui-text-center {
+    margin-top: 20%;
+}*/
+#closeShare{
+    position:absolute;
+    bottom:0.6666rem;
+    left: 0;
+    width: 100%;
+}
+.kefu-block .bringIn {
+    font-size: 1rem;
+    color: #e4393c;
+    margin: .75rem 0;
+}
+
+.kefu-block .share-content .soshm-item .soshm-item-icon {
+    width: 40%;
+    height: auto;
+    margin-top: 2px;
+}
+
+.serviceFloor li {
+    display: inline-block;
+}
+.serviceFloor {
+    margin-top: 20px;
+}
+.serviceFloor img{
+    width: 60%;
+    height: auto;
+
+}
+.serviceFloor p{
+    font-size: 0.512rem;
+}
+#hui-mask{
+    z-index: 600;
+}

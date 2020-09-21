@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>520惠购节</title>
+    <link rel="stylesheet" href="/localQuickPurchase/activity/css/spike.css">
+    <link rel="stylesheet" href="/localQuickPurchase/activity/css/hui.css">
+    <link rel="stylesheet" href="/localQuickPurchase/activity/css/mescroll.min.css">
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/style.css">
+    <style>
+        .mescroll{
+            top: 6rem;
+            bottom: 0;
+            height: auto; /*如设置bottom:50px,则需height:auto才能生效*/
+        }
+        .share-content {
+            margin-top: 1rem;
+        }
+
+        .share-content .soshm-item {
+            margin: 0;
+            width: 25%;
+        }
+
+        .soshm-item .soshm-item-text {
+            display: block;
+            font-size: 14px;
+            color: #212121;
+            font-size: 0.512rem;
+            margin-top: 4px;
+        }
+
+        .share-block ul {
+            height: auto;
+        }
+        .spike_wrap .productList ul li .img_box i.hg_bg {
+            position: absolute;
+            top: unset;
+            bottom: 0rem;
+            right: 0rem;
+            width: 100%;
+            height: 1rem;
+            background: no-repeat center/100% url("./images/520/hg_bg.png");
+            color: #fff;
+            font-size: .4889rem;
+            transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            text-align: center;
+            line-height: .8rem;
+        }
+        .spike_wrap .countdown .skill span em{
+            width:auto;
+        }
+        .share-block .share-content .soshm-item .soshm-item-icon {
+            width: 40%;
+            height: auto;
+            margin-top: 2px;
+        }
+
+        .soshm-item-icon img {
+            height: auto !important;
+        }
+        .mask {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 23;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            display: none;
+        }
+        .ewmcode {
+            position: fixed;
+            margin-top: 80px;
+            text-align: center;
+            top: 1rem;
+            left: 0;
+            right: 0;
+            width: 80%;
+            margin: 0 auto;
+            z-index: 15;
+            width: 73%;
+            text-align: center;
+        }
+
+        .share-block {
+            position: fixed;
+            z-index: 22;
+        }
+        .share-block ul li img {
+            width: 50%;
+            display: initial!important;
+        }
+        .share-block .bringIn {
+            font-size: 1rem;
+            color: #e4393c;
+            margin: .75rem 0;
+        }
+        .share-block .explain {
+            font-size: .5rem;
+            padding: 0 2rem;
+        }
+        /* 复制提示 */
+        .copy-tips {
+            position: fixed;
+            z-index: 999;
+            top: 30%;
+            left: 50%;
+            margin: 0 0 -20px -80px;
+            background-color: rgba(0, 0, 0, 0.2);
+            filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#30000000,
+            endColorstr=#30000000);
+            padding: 6px;
+        }
+
+        .copy-tips-wrap {
+            padding: 10px 20px;
+            text-align: center;
+            border: 1px solid #F4D9A6;
+            background-color: #FFFDEE;
+            font-size: 14px;
+        }
+        .spike_wrap .countdown{
+            z-index: 11;
+        }
+        .noData .recommend .prodcutList .noGoods{
+            width: 100%;
+            padding: .6667rem 0;
+            box-sizing: border-box;
+            text-align: center;
+            color: #ccc;
+        }
+        .spike_wrap .header{
+            background: unset;
+            position: fixed;
+            top: 0;
+            z-index: 13;
+        }
+        .spike_wrap .b_header{
+            background: no-repeat center/100% url("./images/520/head_bg.png");
+            height: 12rem; margin-top:0rem; width:100%; z-index:10
+        }
+        .spike_wrap .s_header{
+            display: none;
+            background: no-repeat center/100% url("./images/520/head_bg1.png");
+            height: 2rem;
+            width: 100%;
+            z-index:10;
+            margin-top: -1.8rem;
+        }
+        .spike_wrap .header span{ color: #333;display: none;font-size:  0.76rem;}
+        body{ position:relative; width:100%; }
+        .haveData{
+            margin-top: -2.4rem;
+            right: 1%;
+            position: absolute;
+            z-index: 11;
+            font-size: 12px !important;}
+        .spike_wrap .productList ul li .product_info{
+            width: 63%;
+        }
+        .productDet li .img_box img{
+            max-height: 5.1rem;
+            min-height: 5.1rem;
+            max-width: 5.1rem;
+            min-width: 5.1rem;
+        }
+        .plNavbar {
+            width: 40rem;
+            height: 1.6rem;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            font-size: .6222rem;
+            color: #888888;
+            line-height: 1.6rem;
+            text-align: center;
+        }
+        .productList .plNavbar .active {
+            color: #db0020;
+            border-bottom: .0889rem solid #db0020;
+        }
+        .dropload-down {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            font-size: 12px;
+            height: 50px;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        .dropload-noData{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .spike_wrap .productList ul li .img_box {
+            width: 5.1111rem;
+            height: 5.1111rem;
+            border-radius: 0.3rem;
+        }
+        .content_box{
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="spike_wrap">
+    <div class="b_header"></div>
+    <div class="s_header"></div>
+    <div class="header" id="explosiveHeader">
+        <a class="backBtn hui-back" onclick="goBack(this)">
+            <img src="./images/520/back_black.png" alt="">
+        </a>
+        <span>520惠购节</span>
+        <a class="shareBtn">
+            <img src="./images/520/share_black.png" alt="">
+        </a>
+    </div>
+    <!--爆款场次数据-->
+    <div class="haveData" style="display: none">
+        <div class='countdown'>
+            <div class="skill">
+                <span>距结束</span>
+                <span class="time" id="timer">
+                    <em>00</em>
+                    <i> :</i>
+                    <em>00</em>
+                    <i> :</i>
+                    <em>00</em>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- tab栏 -->
+    <div class="productList" style="display: block">
+        <div class="swiper-container" style="display: block">
+            <div class="plNavbar swiper-wrapper">
+
+            </div>
+        </div>
+        <div class="content_box">
+                <ul class="productDet news-list" id="newsList">
+
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
+<!-- 二维码 -->
+<div class="mask">
+    <div class="ewmcode" value="0">
+        <img src="" />
+    </div>
+</div>
+<!--分享弹窗-->
+<div class="share-block hui-text-center dis_share" style="height: auto">
+    <div class="bringIn">分享商品</div>
+    <p class="explain">只要你的好友通过你的链接买此商品，你就能得到此商品的利润哦~</p>
+    <ul class="share-content">
+
+    </ul>
+    <ul class="copyCode" style="overflow: hidden;display: none">
+        <li class="copylink"><img
+                src="/localQuickPurchase/distributionApp/images/share_icon_5.png" />
+            <p>二维码链接</p></li>
+        <li class="shopCode" value="0"><img
+                src="/localQuickPurchase/distributionApp/images/share_icon_4.png" />
+            <p>二维码</p></li>
+        <!--<li class="makePosters" value="0" ><img
+            src="/localQuickPurchase/distributionApp/images/goodsLink.png" />
+        <p>保存海报</p></li>-->
+    </ul>
+    <div class="hui-text-center" style="padding: .5rem 0 1rem;"
+         id="closeShare">
+        <img src="/localQuickPurchase/distributionApp/images/classfiyImg2.png" style="width: 5%!important;display: initial" width="20">
+    </div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="/localQuickPurchase/activity/js/jquery.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/swiper/swiper.js" ></script>
+<script type="text/javascript" src="/localQuickPurchase/distribution/js/zclip/clipboard.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/soshm.js"></script>
+<script type="text/javascript" src="/common/js/tag.js"></script>
+<script type="text/javascript" src="/common/js/common.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/activity/js/hui.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/brandSquare/js/dropload.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/activity/js/countdown.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/activity/js/hui-refresh-load-more.js" ></script>
+<script type="text/javascript" src="/localQuickPurchase/activity/js/520.js?v=1"></script>
+<script>
+    //shareSeq=21?shareSeq=231
+    var shareSeq = getQueryString("shareSeq");
+    if(shareSeq != null && shareSeq != "") {
+        shareSeq = shareSeq.split("?")[0];
+        setCookie("shareSeq", shareSeq, 1);
+    }else{
+        if(seq != 0){
+            window.location.href = window.location.href + "?shareSeq=" + seq;
+        }
+    }
+    /**
+     * 返回上一步操作
+     */
+    function goBack(obj){
+        try {
+            // 调app原生返回
+            window.action.app_back();
+        } catch (e) {
+
+        }
+
+        setTimeout(function(){
+            goHisBack();
+        }, 200);
+    }
+
+    function goHisBack(){
+        var previousUrl = document.referrer;
+        if(previousUrl != "") {
+            if(previousUrl.indexOf("login") != -1){
+                history.go(-3);
+                return;
+            }
+            if(previousUrl.indexOf("distributionVA/classify") != -1){
+                history.go(-1);
+                return;
+            }
+            if(previousUrl.indexOf("annualGoods") != -1){
+                history.go(-1);
+                return;
+            }
+        }
+        window.location.href = "/localQuickPurchase/distributionVA/index";
+    }
+    $(function(){
+        $(window).scroll(function(){
+            var this_scrollTop = $(this).scrollTop();
+            var headHeight = $(".haveData").height() - this_scrollTop;
+            if(this_scrollTop - headHeight > 300 ){
+                $(".header").css({"background":"#fff"});
+                $(".header span").show();
+                $(".s_header").show();
+                $(".b_header").css({"visibility":"hidden"});
+            }else{
+                $(".header").css({"background":"unset"});
+                $(".header span").hide();
+                $(".s_header").hide();
+                $(".b_header").css({"visibility":"visible"});
+            }
+        });
+    });
+    /**
+     * 秒杀商品详情跳转
+     */
+    function robberyNow(thisValue){
+        var goodsId = $(thisValue).attr('id');
+        var share = shareSeq;
+        if (share == null || share == undefined){
+            share = 0;
+        }
+        if (goodsId == null || goodsId == undefined){
+            goodsId = $(thisValue).attr('num');
+        }
+        window.location.href = "/localQuickPurchase/distributionVA/seckill/sgDetail?goodsId=" + goodsId + "&distributorSeq=0&shareSeq="+share;
+    }
+    /**
+     * 普通商品的跳转
+     * @param idInfo
+     */
+    function detailInfo(idInfo) {
+        var goodsId = $(idInfo).attr('id');
+        var isActivityGoods = $(idInfo).attr('isActivityGoods');
+        setCookie("spike",1,365);
+        if (isActivityGoods != null && isActivityGoods == "1"){
+            window.location.href= "/localQuickPurchase/distributionVA/seckill/sgDetail?goodsId=" + goodsId + "&distributorSeq="+seq+"&shareSeq=0";
+        } else {
+            window.location.href="/localQuickPurchase/distributionVA/goodsDetail/"+goodsId+"/0"+"/"+seq;
+        }
+    }
+
+</script>

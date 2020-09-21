@@ -1,0 +1,404 @@
+html,body{
+    background-color:#fcdbe8;
+}
+.container .banner-con{
+    height:7.7778rem;
+    margin-bottom:.8889rem;
+}
+.container .coupon-con{
+    display: -webkit-box;/* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box;/* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox; /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex;/* 新版本语法: Opera 12.1, Firefox 22+ */
+    justify-content: space-between;
+    margin-bottom:.8889rem;
+}
+.container .coupon-item{
+    display:block;
+    width:7.1111rem;
+    height:3.6889rem;
+    padding-top:.3333rem;
+    background:url("../images/qixi/hyq.png") no-repeat top left;
+    background-size:contain;
+}
+.container .coupon-more{
+    display:block;
+    width:1.6889rem;
+    height:3.6889rem;
+    background:url("../images/qixi/gdyhq.png") no-repeat top left;
+    background-size:contain;
+}
+.container .coupon-item span,
+.container .coupon-more span{
+    text-align:center;
+    display:block;
+    color:#fff;
+    font-size:.4889rem;
+}
+.container .coupon-item .text1{
+    font-size:.8444rem;
+    margin-bottom:.1778rem;
+}
+.container .coupon-item .text2{
+    width:5.3333rem;
+    height:.9778rem;
+    line-height:.9778rem;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:.6667rem;
+    background-color:#fff;
+    color:#cb274e;
+}
+.container .coupon-more span{
+    position:relative;
+    padding:.35rem .4rem 0 .2rem;
+    font-size:.5333rem;
+    width: 0.5333rem;
+    line-height:1;
+}
+.container .coupon-more span:after{
+    display:blcok;
+    content:"";
+    position:absolute;
+    right: -0.5rem;
+    top:50%;
+    margin-top:-.15rem;
+    width:.3rem;
+    height:.3rem;
+    border-top:.1rem solid #fff;
+    border-right:.1rem solid #fff;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+.container .nav-con{
+    display: -webkit-box;/* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box;/* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox;/* 混合版本语法: IE 10 */
+    display: -webkit-flex;/* 新版本语法: Chrome 21+ */
+    display: flex;/* 新版本语法: Opera 12.1, Firefox 22+ */
+    justify-content: space-between;
+    background-color:#fa76aa;
+    height:2.2222rem;
+    line-height:2.2222rem;
+    margin-bottom:1.1111rem;
+}
+.container .nav-con span{
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    color:#fff;
+    font-size:.8889rem;
+    text-align:center;
+}
+.container .nav-con span.cur{
+    background-color:#f00260;
+}
+.container .con-item{
+    display:none;
+    padding:0 .6667rem;
+}
+.container .con-body{
+    margin-bottom:.8889rem;
+}
+.container .con-header{
+    /* width:12rem; */
+    height: 2.4667rem;
+    
+    background:url("../images/qixi/fbt.png") no-repeat center;
+    background-size: contain;
+}
+.container .con-header .con-title{
+    color:#fff;
+    font-size:.6667rem;
+    text-align:center;
+    line-height:1.2rem;
+}
+.container .con-list{
+    overflow:hidden;
+    border: 1px solid #fcdbe8;
+    background: linear-gradient(135deg,#fd6ab0, #e9a4df);
+    background-size:contain;
+    padding:.4rem;
+    border-radius:.3333rem;
+    -webkit-border-radius:.3333rem;
+    -moz-border-radius:.3333rem;
+    -ms-border-radius:.3333rem;
+    -o-border-radius:.3333rem;
+}
+.container .con-items{
+    padding-top:.5778rem;
+    background:#fff url("../images/qixi/pb-d.png") no-repeat bottom left;
+    background-size:contain;
+    overflow:hidden;
+    padding-left:.3333rem;
+    padding-right:.3333rem;
+}
+.container .radius-t{
+   border-top-left-radius: .3333rem;
+   border-top-right-radius: .3333rem;
+}
+.container .radius-b{
+    border-bottom-left-radius: .3333rem;
+    border-bottom-right-radius: .3333rem;
+}
+.container .con-items .lf{
+    float:left;
+}
+.container .con-items .rf{
+    float:right;
+}
+.container .con-items:nth-child(2n) .img-con{
+    float:right;
+}
+.container .con-items:nth-child(2n) .prod-con{
+    float:left;
+}
+.container .con-items:last-child{
+    padding-bottom:.2222rem;
+}
+.container .con-items .img-con{
+    width:6rem;
+    height:6rem;
+    text-align:center;
+    padding:0 0 .6666rem;
+}
+.container .con-items .img-con img{
+    height:100%;
+    width:auto;
+}
+.container .con-items .prod-con{
+    width:7.0222rem;
+}
+.container .con-items .prod-name{
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.container .con-items .prod-con p{
+    font-size:.6667rem;
+}
+.container .con-items .n-price{
+    font-size:.8889rem;
+    color:#f00260;
+    margin-right:.2222rem;
+}
+.container .con-items .o-price{
+    font-size:.5778rem;
+    color:#666;
+    text-decoration:line-through;
+}
+.container .con-items .buy-btn{
+    color:#fff;
+    font-size:.5778rem;
+    background-color:#f00260;
+    padding:.2222rem .4444rem;
+    border-radius: .1111rem;
+    -webkit-border-radius: .1111rem;
+    -moz-border-radius: .1111rem;
+    -ms-border-radius: .1111rem;
+    -o-border-radius: .1111rem;
+}
+.container .con-list .more-btn{
+    position:relative;
+    padding:.6667rem 0;
+    text-align:center;
+    font-size:.6667rem;
+    color:#f00260;
+    background:#fff url("../images/qixi/lookmore.png") no-repeat 8.6rem center;
+    background-size:.5333rem ;
+    
+}
+.container .con-list .more-btn a{
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+}
+.zc .con-header{
+    /* width:9.4889rem; */
+    margin-left:auto;
+    margin-right:auto;
+    height:2.2667rem;
+    background-image:url('../images/qixi/bt-d.png');
+    background-position: 4rem center ;
+    margin-bottom:.6667rem;
+}
+.zc .con-header .con-title{
+    line-height:2.8rem;
+}
+.zc .con-list{
+    position:relative;
+    margin-bottom:.8889rem;
+}
+.zc .con-list:nth-child(2n) .img-con{
+    float:right;
+}
+.zc .con-list:nth-child(2n) .prod-con{
+    float:left;
+}
+.zc .mask-con{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(171, 171, 171, .8) url("../images/qixi/yqw.png") no-repeat left top;
+    background-size:5.2rem;
+}
+.zc .con-items{
+    background-image:none;
+    border-radius: .3333rem;
+    -webkit-border-radius: .3333rem;
+    -moz-border-radius: .3333rem;
+    -ms-border-radius: .3333rem;
+    -o-border-radius: .3333rem;
+}
+.zc .con-items .prod-name{
+    margin-bottom:.5778rem;
+}
+.zc .con-items .time-con{
+    margin-bottom:.5778rem;
+}
+.zc .con-items .time-text{
+    font-size:.5333rem;
+    color:#999;
+}
+.zc .con-items .n-price{
+    font-size:.7889rem;
+}
+.zc .con-items i{
+    color:#f76fb1;
+}
+.zc .con-items .inputs{
+    width:.8rem;
+    height:.8rem;
+    background-color:#f76fb1;
+    color:#fff;
+    font-size:.5333rem;
+    text-align:center;
+}
+.more-list .con-item{
+    padding-top:2rem;
+}
+.more-list .con-list{
+    margin-bottom:.8889rem;
+}
+.more-list .con-items:last-child{
+    padding-bottom:1rem;
+    border-bottom-left-radius: .3333rem;
+    border-bottom-right-radius: .3333rem;
+    background-position: 0 5.4rem;
+}
+
+/*分享样式*/
+.share-block {
+    position: fixed;
+}
+.share-content {
+	margin-top: 1rem;
+}
+
+.share-content .soshm-item {
+	margin: 0;
+	width: 25%;
+}
+
+.soshm-item .soshm-item-text {
+	display: block;
+	font-size: 14px;
+	color: #212121;
+	font-size: 0.512rem;
+	margin-top: 4px;
+}
+
+.share-block ul {
+	height: auto;
+}
+
+.share-block .share-content .soshm-item .soshm-item-icon {
+	width: 40%;
+	height: auto;
+	margin-top: 2px;
+}
+
+.soshm-item-icon img {
+	height: auto !important;
+}
+.dis_share  ul li{
+    margin-top: 0.7rem;
+}
+.share-block{
+    width: 100%;
+    height: 6.5rem;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    background: white;
+    display: none;
+}
+.share-block ul{
+    margin-top: 1rem;
+}
+.share-block ul li{
+    width: 25%;
+    float: left;
+    text-align: center;
+    font-size: 0.512rem;
+    margin-top: 1rem;
+}
+.share-block ul li img{
+    width: 50px;
+}
+.hui-text-center img {
+    max-width: 100%;
+    width: auto;
+    vertical-align: top;
+}
+.copy-tips{
+    /* z-index: 100; */
+    color: #fff;
+    position: fixed;
+    z-index: 999;
+    top: 30%;
+    left: 50%;
+    margin: 0 0 -20px -80px;
+    background-color: rgba(0, 0, 0, 0.2);
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#30000000, endColorstr=#30000000);
+    padding: 6px;
+}
+/*二维码样式*/
+.mask {
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0px;
+    filter: alpha(opacity=60);
+    z-index: 1002;
+    left: 0px;
+}
+
+.ewmcode {
+    width: 68%;
+    position: fixed;
+    margin-top: 80px;
+    text-align: center;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1000;
+}

@@ -1,0 +1,210 @@
+body{
+    background:url('../images/bg2.png') no-repeat center;
+    background-size:100% 100%;
+}
+.dbzq .banner-con{
+    margin-bottom:1.1111rem;
+}
+.dbzq .nav-con{
+    padding:0 .4444rem;
+    margin-bottom:.6667rem;
+}
+.dbzq .nav-item{
+    width:3.3333rem;
+    height:1.7778rem;
+    background-color:#1cc4ab;
+    color:#fff;
+    font-size:.6667rem;
+    border-radius:.2222rem;
+    text-align:center;
+    line-height:1.7778rem;
+}
+.dbzq .nav-list .cur{
+    background-color:#15a892;
+}
+.dbzq .jianjie{
+    padding:0 .4444rem;
+    margin-bottom:.8889rem;
+}
+.dbzq .azj-zq .title,
+.dbzq .nav-con-item .title{
+    width:7.5111rem;
+    height:2.2889rem;
+    background:url('../images/m2-title-bgpng.png') no-repeat center;
+    background-size:100% 100%;
+    color:#036a27;
+    font-size:.9333rem;
+    text-align:center;
+    line-height:2.2889rem;
+    margin:0 auto .8889rem;
+    font-weight:bold;
+}
+.dbzq .nav-con{
+    margin-bottom:.8889rem;
+}
+.dbzq .nav-con-item .goods-list{
+    padding:0 .4444rem;
+    display: inherit;
+}
+.dbzq .nav-con-item .goods-item{
+    position:relative;
+    height:5.7778rem;
+    width: auto;
+    margin-bottom:1.1111rem;
+    background-color:#d8dad8;
+}
+.dbzq .nav-con-item .con-l{
+    position:absolute;
+    left:.2222rem;
+    top:.2222rem;
+    width:8rem;
+    height:5.3333rem;
+    background-color:#51996a;
+    color:#fff;
+    padding:0 .4444rem;
+    box-sizing:border-box;
+}
+.dbzq .nav-con-item .con-r{
+    position:absolute;
+    top:50%;
+    right:0;
+    margin-top:-3.3333rem;
+    width:6.4444rem;
+    height:6.4444rem;
+    border:.1111rem solid #51996a;
+} 
+.dbzq .nav-con-item .goods-item:nth-child(2n) .con-l{
+    left:auto;
+    right:.2222rem;
+    padding-left:1rem;
+    
+}
+.dbzq .nav-con-item .goods-item:nth-child(2n) .con-r{
+    left:0;
+    right:auto;
+}
+.dbzq .nav-con-item .goods-desc{
+     text-overflow: -o-ellipsis-lastline;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     display: -webkit-box;
+     -webkit-line-clamp: 2;
+     line-clamp: 2;
+     -webkit-box-orient: vertical;
+     text-indent:.2667rem;
+     padding-top:.2222rem;
+}
+.dbzq .nav-con-item .price-con{
+    font-size:.8889rem;
+    margin:.2222rem 0;
+}
+.dbzq .nav-con-item .fh{
+    font-size:.6222rem;
+}
+.dbzq .nav-con-item .btn{
+    width:4rem;
+    height:1.1111rem;
+    border-radius:1.1111rem;
+    background-color:#fff;
+    color:#246d3d;
+    font-size:.6222rem;
+}
+.dbzq .jj{
+    padding:.4444rem;
+    text-indent:.2667rem;
+    background-color:#a7dab9;
+    font-size:.5778rem;
+    margin-bottom:.8889rem;
+}
+.dbzq .azj-zq{
+    margin-bottom:1rem;
+}
+.dbzq .azj-zq .goods-list{
+    padding:0 .4444rem;
+}
+.dbzq .azj-zq .goods-item{
+    padding:.3333rem;
+    background:url('../images/m2-kuan-bg.png') no-repeat center;
+    background-size:100% 100%;
+}
+.dbzq .azj-zq .con-l{
+    width:6.9111rem;
+    height:6.9111rem;
+    border:.1111rem solid #cbebcb;
+}
+.dbzq .azj-zq .con-r{
+    width:7.1111rem;
+}
+
+.dbzq .azj-zq .goods-desc{
+    padding-top:.4444rem;
+    font-size:.5778rem;
+}
+.dbzq .azj-zq .price-box{
+    margin:.6667rem 0;
+}
+.dbzq .azj-zq .cur-price{
+    font-size:.8444rem;
+    color:#02986c;
+}
+.dbzq .azj-zq .old-price{
+    font-size:.6667rem;
+    color:#6aa594;
+    text-decoration:line-through;
+}
+.dbzq .azj-zq .btn{
+    width:5.5111rem;
+    height:1.6rem;
+    color:#fff;
+    font-size:.5778rem;
+    background:url('../images/m2-btn-bg.png') no-repeat center;
+    background-size:contain;
+}
+.dbzq .download-box{
+    padding:0 .4444rem;
+}
+.dbzq .download-con{
+    height:6.2222rem;
+    background:url('../images/m2-download-bg.png') no-repeat center;
+    background-size:100% 100%;
+    margin-bottom:3rem;
+}
+.dbzq .download-box .box{
+    padding-top:.8889rem;
+}
+.dbzq .download-box .box span{
+    color:#045f44;
+}
+.dbzq .btns{
+    background-color:#38c49a;
+}
+.con-r  img{
+    max-height: 94%;
+    min-width: 94%;
+    max-width: 94%;
+    min-height: 94%;
+}
+.con-l  img{
+    max-height: 94%;
+    min-width: 94%;
+    max-width: 94%;
+    min-height: 94%;
+}
+.dbzq .goods-item{
+    width: 45%;
+}
+@media screen and (width:320px){
+    .dbzq .goods-item{
+        width: 6.5rem;
+    }
+    .dbzq .azj-zq .con-l{
+        width: 6.5rem;
+        height: 6.5rem;
+    }
+    .con-l img {
+        max-height: 6.4rem;
+        min-width: 6.4rem;
+        max-width: 6.4rem;
+        min-height: 6.4rem;
+    }
+}

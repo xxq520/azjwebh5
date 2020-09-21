@@ -1,0 +1,58 @@
+/****订单详情****/
+@charset "utf-8";
+.godosDetail-container{width: 100%;min-width: 320px;max-width: 640px;margin: 0 auto;overflow-x: hidden;height: 100%;}
+.goodsDetail-header{position: absolute;top: 0;left: 0;width:100%;background:#E43A3D;height: 1.83rem;line-height: 1.83rem;z-index: 9999;}
+.goodsDetail-header .get-back{margin-left: 0.42rem;position: absolute;z-index: 100;}
+.goodsDetail-header .get-back i{color: #FFFFFF;}
+.goodsDetail-header .header-text{font-size: 0.75rem;color:#FFFFFF;text-align: center;position: relative;}
+.addr-info{padding-bottom: 12px;border-bottom: 8px solid #e6e6e6;}
+.user-info{height: 1.75rem;line-height: 1.75rem;}
+.user-info span{font-size: 0.67rem;color:#333;}
+.user-info .user-phone{margin:0 10px;}
+.user-info .default-tip{display:inline-block;vertical-align:middle;color:#FFFFFF;background:#E4393C;font-size: 0.5rem;height: 0.8rem;line-height: 0.8rem;padding:0 8px;border-radius: 3px;}
+.addr-detail{font-size: 0.6rem;color:#333;padding-right:15%;position: relative;}
+.addr-tips{font-size: 0.5rem;color:#666;text-align: right;}
+.addr-detail .arrow-right{position: absolute;right: 12px;top:4px;}
+.order-shop{padding:15px 12px;border-bottom:8px solid #e6e6e6;display: flex;display: -webkit-flex;align-items: stretch;-webkit-align-items: stretch;}
+.order-shop .shop-pic{flex:3 3;align-self:flex-start;-webkit-align-self:flex-start;width:30%;padding-top:30%;position: relative;box-shadow: 2px 2px 2px 1px #CCCCCC;}
+.order-shop .shop-pic img{position: absolute;width:100%;height: 100%;left: 0;top: 0;}
+.order-shop .flex-box{flex:7 7;}
+.order-shop .shop-content{padding-left: 15px;overflow: hidden;display: flex;display: -webkit-flex;flex-direction: column;-webkit-flex-direction: column;justify-content: space-between;-webkit-justify-content: space-between;}
+.order-shop .shop-content .shop-name{font-size:0.67rem;color:#212121;margin-bottom:5px;}
+.order-shop .shop-content .shipper{font-size:0.6rem;color:#212121;margin-bottom:5px;}
+.order-shop .shop-content .price{font-size:0.6rem;color:#212121;margin-bottom:5px;}
+.shop-content .shop-buy .shop-price{float:left;font-size:0.67rem;}
+.shop-content .shop-buy .shop-select{float:right;height: 1rem;line-height: 1rem;border:1px solid #4d4d4d;}
+.shop-select .font-ico{font-size: 0.75rem;display: inline-block;width:0.875rem;text-align: center;}
+.shop-select .sel-add{border-left: 1px solid #4d4d4d;}
+.shop-select .sel-minus{border-right: 1px solid #4d4d4d;}
+.shop-select .sel-num{display:inline-block;width:1.8rem;line-height: 0;height: 100%;vertical-align: top;}
+.shop-select .sel-num input{padding:0 5px;text-align: center;display: block;width:100%;height: 100%;}
+.order-settings{padding:15px 12px;}
+.od-title{color:#333;font-size: 0.67rem;padding: 0 12px;border-bottom: 1px solid #e6e6e6;height: 1.86rem;line-height: 1.86rem;}
+.od-row{font-size: 0.6rem;color:#333;padding:15px 0;border-bottom: 1px solid #e6e6e6;position: relative;}
+.od-row::before,.od-row::after{content: "";line-height: 0;display: table;}
+.od-row::after{clear: both;}
+.od-row .od-row-title{float: left;font-size: 0.67rem;color:#333;max-width: 25%;}
+.od-row .od-row-content{float: right;font-size: 0.6rem;color:#333;max-width: 75%;padding-left: 10px;padding-right: 25px;}
+.od-row .arrow-right{position:absolute;right:0;top:50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);}
+.freight{font-size:.67rem;color:#333;margin:0 0 .25rem;text-align:right;}
+.freight i{font-size:.67rem;color:#E4393C;}
+.remask{text-align:right;}
+.remask p{font-size:.55rem;color:#4c4c4c;margin:0 0 .25rem;word-break: break-all;word-wrap: break-word;display:inline-block;max-width:100%;text-align:left;}
+.sub-item{text-align:right;font-size:.67rem;color:#333;}
+.sub-item div{display:inline-block;}
+.sub-item div .t-txt{float:left;}
+.sub-item div .invoiceMsg{padding:0 0 0 3rem;text-align:left;}
+.statistics{padding:15px 0;font-size: 0.67rem;text-align: right;}.statistics .Lamount{font-size:.67rem;color:#333;margin:0 0 .25rem;}
+.statistics .Lamount i{font-size:.67rem;color:#E4393C;}
+.statistics .Lnum{font-size:.67rem;color:#333;margin:0 0 .25rem;}
+.statistics span{font-size: 0.67rem;}
+.statistics .goods-total-money{display: inline;}
+.ly-content{background: #f2f2f2;border:0;resize: none;border-radius: 4px;width:100%;height: 2.5rem;padding:5px 8px;outline: none;}
+.rmb{font-size: 0.5rem!important;color: #E4393C;}
+.od-title{font-size: 0.67rem;color:#333333;}
+.btn-bot{position: absolute;left:0;bottom: 0;width:100%;height: 2.083rem;z-index: 100;background: #e6e6e6;text-align: right;}
+.btn-bot .heji{display: inline-block;font-size: 0.67rem;}
+.btn-bot .heji .heji-num{color:#E4393C;margin-right: 15px;}
+.btn-bot a{display: inline-block;width: 40%;height: 100%;text-align: center;line-height: 2.083rem;color:#FFFFFF;background:#E4393C;font-size: 0.667rem;}

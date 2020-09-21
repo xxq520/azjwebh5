@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>绑定上级</title>
+<link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+<link rel="stylesheet" href="/common/css/main.css">
+<link rel="stylesheet" href="/common/css/style.css">
+<style type="text/css">
+.container {
+	margin-top: 56px;
+}
+
+.container div {
+	background: #FFFFFF;
+}
+
+.bind-up {
+	padding: 0.65rem 12px;
+	font-size: 0.7rem;
+	position: relative;
+}
+
+.bd-bot:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background: #d8d8d8;
+	left: 0;
+	bottom: 0;
+}
+
+.btn-check {
+	width: 0.9rem;
+	height: 0.9rem;
+	background: url(/upms/static/images/check2.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.btn-check.checked {
+	background: url(/upms/static/images/check.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.hui-list li {
+	color: #999999;
+	font-size: 0.65rem;
+}
+
+.hui-list .account-box {
+	background: #f5f5f5;
+	width: 10rem;
+	height: 0.9rem;
+	margin-top: 0.4rem;
+	padding: 0.2rem 0.3rem;
+	border-radius: 0.2rem;
+	line-height: 0.9rem;
+}
+
+.account-num {
+	background: #f5f5f5;
+	color: #999;
+	width: 75%;
+}
+
+.btn-sure {
+	background: #cdcdcd;
+	color: #FFFFFF;
+	width: 2.2rem;
+	text-align: center;
+	font-size: 0.6rem;
+	border-radius: 0.2rem;
+}
+
+#hui-call-back:before {
+			    content: "\e6a5";
+			    font-size: 20px;
+			    color: #212121;
+			    width: 38px;
+			    height: 44px;
+			    font-family: "hui-font";
+			    line-height: 44px;
+			    text-align: center;
+			    position: absolute;
+			    z-index: 20;
+			    left: 0px;
+			    top: 0px;
+			}
+</style>
+</head>
+
+<body class="bg_light">
+	<header class="hui-header">
+	<div id="hui-call-back" onclick="goBack()"></div>
+	<h1>绑定上级</h1>
+	</header>
+	<div class="container">
+		<div class="bind-up" style="margin-top: 10px;">
+			<span>添加您的邀请人代理商账号</span> <span class="btn-check pull-right checked" id="private"></span>
+		</div>
+		<div class="hui-list" >
+			<ul>
+				<li><span class="row-title pull-left">绑定账号</span>
+					<div class="pull-right">
+						<div class="account-box">
+							<input class="account-num" placeholder="请输入代理商手机号" maxlength="11" 
+								onkeyup="keyup(this.value,this);" onafterpaste="cpup(this.value,this);"/> 
+								<span class="btn-sure pull-right" onclick="findAgentInfo()">查询</span>
+						</div>
+					</div></li>
+					<div class="agentInfo" style="display: none">
+						<!-- <li><span class="row-title pull-left">店铺名称</span>
+							<div class="pull-right shopName"></div></li>
+						<li><span class="row-title pull-left">店铺序号</span>
+							<div class="pull-right shopSeq"></div></li> -->
+						<li><span class="row-title pull-left">用户角色</span>
+							<div class="pull-right roleType"></div></li>
+					</div>
+
+				<!--
+					<li>
+						<span class="row-title pull-left">下属店主</span>
+						<div class="pull-right">100人</div>
+					</li>
+					<li>
+						<span class="row-title pull-left">下属VIP</span>
+						<div class="pull-right">100人</div>
+					</li> -->
+			</ul>
+		</div>
+		<div class="bind-up bd-bot">
+			<span>没有邀请者,做平台VIP/网络店主</span> <span class="btn-check pull-right" id="platform"></span>
+		</div>
+	</div>
+
+	<div class="footer-btn">立即绑定</div>
+	<script type="text/javascript" src="/common/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+	<script type="text/javascript" src="/common/lib/Hui/js/hui-form.js"></script>
+	<script type="text/javascript" src="/common/js/token.js"></script>
+	<script type="text/javascript" src="/common/js/common.js"></script>
+	<script type="text/javascript">
+		var agentMobile; //代理商手机号
+		var findCheckFlag = false; //false 没点 true 点了
+		$(function() {
+			$(".btn-check").on("click", function() {
+				var className = $(this).attr("class");
+				console.log(className);
+				if (className.indexOf("checked") > 0) {
+					return console.log("单选,至少一个存在!");
+				}
+				$(this).toggleClass("checked");
+				var id = $(this).attr("id");
+				if (id == "platform") {
+					$("#private").removeClass("checked");
+					$(".hui-list").hide();
+				} else {
+					$("#platform").removeClass("checked");
+					$(".hui-list").show();
+				}
+			});
+		});
+		
+		//确认-查询代理商部分信息
+		function findAgentInfo() {
+			agentMobile = $(".account-num").val().trim();
+			//true 合格, false 不合格
+			if (!isPoneAvailable(agentMobile)) {
+				return hui.iconToast("请输入正确的手机号!","error");
+			}
+			findCheckFlag = true;
+            findInfoByMobile(agentMobile);
+		}
+		
+		function findInfoByMobile(agentMobile) {
+			var findInfo = {
+                type : "GET",//定义提交的类型
+                url : "/upms/user/findInfoByMobile",
+                dataType : "json",//设置返回值得类型
+                data : {"agentMobile" : agentMobile},
+                async : true,//是否异步请求，false为同步
+                success : function(data) {//成功返回值执行函数
+                    if (data.code == 1000) {
+                        var msg = data.data;
+						$(".roleType").html(msg);
+						$(".agentInfo").show();
+                    } else {
+                        $(".agentInfo").hide();
+                        hui.iconToast(data.data,"error");
+                    }
+                },
+                error : function(jqXHR, textStatus, errorThrown) {
+                    hui.alert("服务器错误!");
+                }
+			};
+            refresh(findInfo);
+        }
+		
+		//二次确认
+		$(".footer-btn").on("click", function() {
+			//选项标识
+			var id = $(".checked").attr("id");
+			var confirmMessage;
+			//和平台绑定
+			if (id == "platform") {
+				confirmMessage = "平台";
+				agentMobile = "0"; //0代表平台,后台判断接收到0后
+			} else {
+				if (!findCheckFlag) {
+					return hui.iconToast("请先点击查询并确认您要绑定的代理商!","error");
+				}
+				//和私人代理商绑定
+				agentMobile = $(".account-num").val().trim();
+				//true 合格, false 不合格
+				if (!isPoneAvailable(agentMobile)) {
+					return hui.iconToast("请输入正确的手机号!","error");
+				}
+				confirmMessage = "手机号为" + agentMobile;
+			}
+			hui.confirm("您确认要与"+ confirmMessage +"形成绑定关系吗", ['再想想', '确认绑定'], bindingRole);
+		});
+		
+		//立即绑定
+		function bindingRole() {
+		    var userBind = {
+                type : "post",//定义提交的类型
+                url : "/upms/userBind/autonomousBind",
+                dataType : "json",//设置返回值得类型
+                data : {
+                    "agentMobile" : agentMobile,
+                },
+                async : true,//是否异步请求，false为同步
+                success : function(data) {//成功返回值执行函数
+                    if (data.code == 1000) {
+                        loginOffByBack();
+                        hui.alert("绑定成功,请重新登录!", "去登录", function(){
+                            personalCenter();
+                        });
+                    } else {
+                        hui.iconToast(data.message, "error");
+                    }
+                },
+                error : function(jqXHR, textStatus, errorThrown) {
+                    hui.alert("服务器错误!");
+                }
+			};
+            refresh(userBind);
+		}
+		
+		
+		function goBack(){
+			try{
+				// 调app原生返回  
+				window.action.app_back();
+			}catch(e){
+				
+			}
+			setTimeout(function(){
+				javascript:history.go(-1);
+			}, 200);
+		}
+	</script>
+</body>
+
+</html>

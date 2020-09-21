@@ -1,0 +1,9 @@
+.project
+.settings
+node_modules
+.idea
+.vscode
+package-lock.json
+*.iml
+node_modules
+/build/

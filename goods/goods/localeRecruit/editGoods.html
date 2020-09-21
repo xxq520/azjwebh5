@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>设置招募代理商商品</title>
+	<link rel="stylesheet" href="/goods/css/hui/hui.css">
+	<link rel="stylesheet" href="/goods/css/main.css">
+	<link rel="stylesheet" href="/goods/css/order.css">
+	<link rel="stylesheet" href="/goods/css/hupeng.css" />
+	<style>
+	#hui-back-back img{
+	   width: 9%;
+       margin-top: .3rem;
+       max-width: 100%;
+       vertical-align: top;
+       margin-left: -14.8rem;
+       content: "\e6a5";
+	   font-size: 20px;
+	   color: #f5f5f5!important;
+	}
+	/* 刷新字体大小 */
+	.hui-loading-text,#hui-load-more{font-size:16px;}
+	.set-goods .set_left{padding:0 5px 10px;position:relative;}
+	.set-goods .set_left .set_del{position: absolute;width: 20px;height: 20px;border: none;right: 0px;top: 0;cursor: pointer;}
+	.set-goods .set_left img{width:100%;}
+	.margin-t-3.set-goods-title{text-overflow:ellipsis;white-space: nowrap;overflow:hidden;}
+	.set-goods span{padding:0 5px;width:auto}
+	.hui-refresh{width:100%;height: 80%;overflow: auto;}
+	.set-add{height:1000%}
+	.set-add .set-box{position:fixed;width:95%;height:95%;}
+	.set-add .set-box .set-list {}
+	.set-add .set-box .set-list .set-list-item .item-center{float:none;overflow:initial;padding:0 1.5rem 0 4rem;}
+	.positionContent{font-size: .8rem;color: #999;text-align: center;position: absolute;top: 40%;left: 50%;transform: translate(-50%,-50%)}
+	#hui-load-more{margin-top: -85px;}
+	#hui-dialog{
+		z-index:9999
+	}
+	#hui-dialog-in {
+    	border: 1px solid #ccc;
+	}
+	#hui-dialog-btn-line {
+	    border-top: 1px solid #ccc;
+	}
+	#hui-dialog-btn-line > div:first-child {
+	    border-right: 1px solid #ccc;
+	}
+	#genreId-Goods-ul{border-top:1px solid #ccc;}
+	.positionContent{font-size: .8rem;color: #999;text-align: center;position: absolute;top: 40%;left: 50%;transform: translate(-50%,-50%)}
+	 #hui-back-back:before {
+	    content: "\e6a5";
+	    font-size: 20px;
+	    color: #f5f5f5!important;
+	}
+	#hui-back-back {
+	    width: 38px;
+	    height: 44px;
+	    font-family: "hui-font";
+	    line-height: 44px;
+	    text-align: center;
+	    position: absolute;
+	    z-index: 20;
+	    left: 0px;
+	    top: 0px;
+	}
+	</style>
+</head>
+<body class="bg_light">
+	<header class="hui-header" style="background: #db0020; border-bottom: none;">
+	<div id="hui-back-back" onclick="backClick()" ></div>
+		<h1 style="color: #fff;">设置招募代理商商品</h1>
+	</header>
+	<div class="main_container">
+		<div class="hui-list bg_white store_info font-md">
+			<p>请输入广告标题<span class="color_gray">（10个字以内）</span></p>
+			<input class="margin-t-3" id="activityTitle" maxlength="10" type="text" value=""/>
+		</div>
+		<div id="refreshContainer" class="hui-refresh">
+            <div class="hui-refresh-icon"></div>
+            <div class="hui-refresh-content hui-list bg_white margin-t-5">
+	          	<ul id="investmentGoods" class="set-goods">
+	          		
+				</ul>
+	           
+	        </div>
+		</div>
+	</div>
+	</div>
+	<div class="set-button tofit" onclick="saveActivityTitle()">保存</div>
+	<div class="set-add" style="display:none;">
+		<div class="set-box">
+			<header class="hui-header" style="position: absolute;">
+				<h1 style="color: #e51c39;">添加礼品</h1>
+				<div class="store_icon">
+					<a class="set-edit" id="close" style="color: #e51c39;">取消</a>
+				</div>
+			</header>
+			<div class="set-classify">
+				<ul id="getGenreId">
+				</ul>
+			</div>
+			<div  id="refreshContainerGenreId" class="hui-refresh">
+		       <div class="hui-refresh-icon"></div>
+		       <div class="hui-refresh-content hui-list">
+		           <div id="genreId-Goods-ul" class="set-list"></div>
+		           
+		       </div>
+	    	</div>
+			<div class="set-bottom">
+				<div class="pull-left">
+					<ul class="pull-left-add">
+						
+					</ul>
+				</div>
+				<div class="pull-right" onclick="saveInvestmentGoods()">保存</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="/goods/js/jquery.min.js"></script>
+<script type="text/javascript" src="/goods/js/hui/hui.js"></script>
+<script type="text/javascript" src="/goods/js/hui/hui-refresh-load-more.js" ></script>
+<script type="text/javascript" src="/goods/js/hui/hui-swipe.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js?v=1"></script>
+<script type="text/javascript" src="/goods/js/editGoods.js"></script>
+<script type="text/javascript">
+	$("body").on("click","#close",function(){
+		$("html").css("overflow","visible");
+		$("html").css("height","auto");
+		$("body").css("overflow","visible");
+		$("body").css("height","auto");
+		$(".set-add").fadeToggle("slow");
+    });
+</script>

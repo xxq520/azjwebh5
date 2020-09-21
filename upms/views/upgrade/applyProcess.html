@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>申请列表</title>
+	<link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+	<link rel="stylesheet" href="/upms/static/css/main.css">
+    <link rel="stylesheet" href="/upms/static/css/style.css">
+    <link rel="stylesheet" href="/upms/static/css/sry.css">
+	<link rel="stylesheet" href="/upms/static/css/order.css">
+	<link rel="stylesheet" href="/common/lib/mescroll/css/mescroll.min.css">
+	<link rel="stylesheet" href="/common/lib/swiper/css/swiper-3.3.1.min.css">
+</head>
+<style>
+.title-container .hui-tab-title{width:80%;}
+.act {background-color:black;color:white}
+.msg-container{background-color:white;}
+.datas{margin-top: 10px;width: 100%}
+.prent{background-color: white;padding: 0rem 0rem 0rem 0rem;width: 100%}
+.til{display: none;background-color: white;border: 0px black solid;width: 80%;margin: 1rem 1rem 1rem 1.1rem;}
+.til tr td {text-align: center;width:6%;border: 1px black solid;height: 1.5rem;font-size: .6rem;}
+#hasMessage{width: 100%;font-size:0.68rem;}
+.mescroll {
+    width: 100%;
+    /* height: 63%; */
+    overflow-y: auto;
+}
+
+
+.hui-tab-title{
+	background: #fff;
+}
+.hui-tab-title  div{
+    width: 50% !important;
+    font-size: 0.6rem;
+    border-bottom: 2px solid #F4F5F6;
+}
+.hui-tab-title  div span{
+	display: block;
+    width: 70%;
+    margin: auto;
+    height: 41px;
+	line-height: 41px;
+}
+.hui-tab-active{
+    color: #e43a3d;
+    border-bottom: 2px solid #F4F5F6 !important;
+}
+.hui-tab-active span{
+    color: #e43a3d;
+    border-bottom: 1px solid #e43a3d !important;
+}
+#hui-back-n{width: 38px;
+		    height: 44px;
+		    font-family: "hui-font";
+		    line-height: 44px;
+		    text-align: center;
+		    position: absolute;
+		    z-index: 20;
+		    left: 0px;
+		    top: 0px;
+  		      color: #212121;
+		    }
+		    #hui-back-n:before {
+		    content: "\e6a5";
+		    font-size: 20px;
+		    color: #A7A7A8;
+		    }
+</style>
+<body class="bg_light">
+<header class="hui-header">
+    <div id="hui-back-n"  onclick="goBack(this)"><a href="javascript:void(0);" class="get-back mui-icon mui-icon-arrowleft"></a></div>
+    <h1 id="titleName">申请列表</h1>
+</header>
+
+<div class="main_container">
+    <div>
+         <div class="hui-tab">
+         	 <div class="hui-tab-title">
+	             <div id="0" class="hui-tab-active"><span>申请升级为网络店主</span></div>
+	             <div id="1"><span>申请升级为代理商</span></div>
+	         </div>
+         </div>
+        
+	<!--     <div class="prent" >
+	   		<table class="til"  >
+	   		   <tr><td class="title act" state="0">VIP用户</td><td class="title" state="1">网络店主</td></tr>
+	   		</table>
+	   	</div> -->
+	   	<div class="datas">
+	   		<div id="mescroll" class="mescroll">
+		   		<table id="hasMessage">
+		   		</table>
+			</div>
+	    </div>
+    </div>
+    
+    
+    	<div class="scancode" style="display: none;">
+		<div class="set-goods-3" >
+			<div class="set-goods-3-title" style="padding-top: 0.3rem;">
+				选择升级方式
+				<img src="/upms/static/images/closeIco.png" style="padding-top: 15px;"/>
+			</div>
+			<div class="set-goods-3-content">
+				<ul class="hui-list">
+					<li id="agent_choice" data-type="1"  data-id="1">
+						<span class="pull-left font-md-3 color_gray2">为我招募20位网络店主</span>
+						<div  class="pull-right" style="height: 100%;">
+							<img  src="/upms/static/images/check2.png" />
+						</div>
+					</li>
+					<li id="agent_choice"  data-type="1" data-id="2">
+						<span class="pull-left font-md-3 color_gray2">一次性购买3000元商品</span>
+						<div class="pull-right" style="height: 100%;">
+							<img  src="/upms/static/images/check2.png" />
+						</div>
+					</li>
+					<li id="agent_choice" data-type="1" data-id="3">
+						<span class="pull-left font-md-3 color_gray2">任其选择升级方式</span>
+						<div class="pull-right" style="height: 100%;">
+							<img src="/upms/static/images/check2.png" />
+						</div>
+					</li>
+				</ul>
+				<div class="set-goods-3-bottom">
+					<button class="set-button-left">取消</button>
+					<button class="set-button-right">提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<script type="text/javascript" src="/common/lib/jquery/js/jquery.min.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui-tab.js"></script>
+<script type="text/javascript" src="/common/lib/mescroll/js/mescroll.min.js"></script>
+<script type="text/javascript" src="/common/lib/swiper/js/swiper-3.3.1.min.js"></script>
+<script type="text/javascript" src="/common/js/token.js"></script>
+<script type="text/javascript" src="/common/js/userRole.js"></script>
+<script type="text/javascript" src="/common/js/common.js"></script>
+<script type="text/javascript">
+    var pageIndex = 1;
+    var pageSize = 10;
+    var queryType = vip;
+    var hasNext = true;//数据是否有下一页
+    var first = true;
+    var isFirst = false;
+
+    var auditMobile = "";//被审核人的手机号
+    var id;
+    var ids;
+    var recordType;//0:vip的申请, 1:分销商的申请, 2:普通用户选择
+
+    $(".til").css("display","block");
+    hui.tab('.hui-tab',function(data){
+        if(data == '1'){
+            queryType = distributor;
+        } else{
+            queryType = vip;
+        }
+        $("#hasMessage").html("");
+        pageIndex = 1;
+        hasNext = true;
+        init();
+    });
+
+    function goBack(obj){
+        try{
+            // 调app原生返回
+            window.action.app_back();
+        }catch(e){
+
+        }
+        setTimeout(function(){
+            hui.back();
+        }, 200);
+    }
+
+    function init(){
+        var initRecords = {
+            type : 'GET',
+            dataType : 'json',
+            url : '/upms/applyProcess/findApplyRecords',
+            data : {
+                "pageIndex" : pageIndex,
+                "pageSize" : pageSize,
+                "queryType" : queryType
+            },
+            async : false,	//是否异步请求，false为同步
+            success : function(data){
+                if(data.code == 1000) {
+                    var list = data.data.rows;
+                    var htmlRelations="";//hasNext
+                    for(var i = 0 ;i < list.length ; i++ ){
+                        let id = list[i].id;
+                        let applyTime = list[i].applyTime;
+                        let mobile = list[i].mobile;
+
+                        htmlRelations += '<div class="upagent">';
+                        htmlRelations += '<img class="pull-left" src="/upms/static/images/head.png">';
+                        htmlRelations += '<div class="pull-right upagent_info" >';
+                        htmlRelations += '<div class="margin-t-3">';
+                        htmlRelations += '<span class="font-md pull-left">'+mobile+'</span>';
+                        htmlRelations += '<span class="color_gray2 font-sm pull-right">'+formatDateTime_(applyTime)+'</span></div>';
+                        if(queryType == "ROLE_VIP") {
+                            htmlRelations += '<span class="font-sm color_gray2 margin-t-3">'+mobile+'想成为您的网络店主</span>';
+                            htmlRelations += '<div class="margin-t-5 upagent_btn">';
+                            htmlRelations += '<span class="upagent_btn_agree" ids='+id+' mobile='+mobile+' type="ROLE_VIP">同意</span>';
+                            htmlRelations += '<span class="upagent_btn_refuse relations" ids='+id+' mobile='+mobile+' >拒绝</span>';
+                        } else {
+                            let oneselfChoiceWay = list[i].choiceWay;//分销商用户自己选择的审计方式
+                            htmlRelations += '<span class="font-sm color_gray2 margin-t-3">申请成为代理商</span>';
+                            htmlRelations += '<div class="margin-t-5 upagent_btn">';
+                            htmlRelations += '<span class="upagent_btn_agree" ids='+id+' mobile='+mobile+' type="ROLE_DISTRIBUTOR" oneselfChoiceWay='+oneselfChoiceWay+'>同意</span>';
+                            htmlRelations += '<span class="upagent_btn_refuse dApplications" ids='+id+' mobile='+mobile+' oneselfChoiceWay='+oneselfChoiceWay+'>拒绝</span>';
+                        }
+                        htmlRelations += '</div></div></div>';
+                    }
+                    if(pageIndex > 1){
+                        first = false;
+                    }
+                    hasNext = list.length == 0 ? false : true;
+
+                    if(pageIndex == 1) {
+                        $("#hasMessage").empty();
+                        $("#hasMessage").append(htmlRelations);
+                    } else {
+                        $("#hasMessage").append(htmlRelations);
+                    }
+
+                    if(!hasNext){
+                        if($(".nothing").length == 0) {
+                            var _hint = '<div class="drp_bottom1 font-sm1 person1 nothing" style="padding: 0.65rem 0;text-align: center;width: 100%; font-size: 0.512rem;color: #999999;" id="morn1" >没有更多了</div>';
+                            $("#hasMessage").append(_hint);
+                            $(".dis").css("display","block");
+                            return;
+                        }
+                    }else{
+                        $(".dis").css("display","none");
+                    }
+                    pageIndex ++;
+                }
+            },
+            error : function(data){
+                hui.toast(data.message);
+            }
+        };
+        refresh(initRecords);
+    }
+
+    var mescroll = new MeScroll("mescroll", { //第一个参数"mescroll"对应上面布局结构div的id
+        //如果您的下拉刷新是重置列表数据,那么down完全可以不用配置,具体用法参考第一个基础案例
+        //解析: down.callback默认调用mescroll.resetUpScroll(),而resetUpScroll会将page.num=1,再触发up.callback
+        down: {
+            callback: downCallback, //下拉刷新的回调,别写成downCallback(),多了括号就自动执行方法了
+            isBounce: false
+        },
+        up: {
+            callback: upCallback , //上拉加载的回调
+            isBounce: false //如果您的项目是在iOS的微信,QQ,Safari等浏览器访问的,建议配置此项.解析(必读)
+        }
+    });
+
+    //4. 处理回调 :
+    var tMothod = "5";
+
+    //下拉刷新的回调
+    function downCallback() {
+        $("#hasMessage").html("");
+        pageIndex = 1;
+        hasNext = true;
+
+        init();//加载数据
+        isFirst = true;
+        mescroll.endSuccess(); //无参
+        mescroll.endErr();
+    }
+
+    //上拉加载的回调 page = {num:1, size:10}; num:当前页 默认从1开始, size:每页数据条数,默认10
+    function upCallback(page) {
+        if(!isFirst) {
+            init();//加载分销商数据
+        }
+        isFirst = false;
+        mescroll.endErr();
+        mescroll.endSuccess(); //无参
+    }
+
+    //二次审核弹窗确认
+    function audit(id,operationType,recordType,mobile,oneselfChoiceWay) {
+        let operationMessage = "同意";
+        if(!operationType){
+            operationMessage = "拒绝";
+        }
+        var recordMessage = "成为网络店主";
+        if(recordType == distributor){
+            recordMessage = "成为代理商";
+            if(oneselfChoiceWay == 0){
+                recordMessage = "“为我招募20位网络店主升级方式”成为代理商";
+            }
+            if(oneselfChoiceWay == 1){
+                recordMessage = "“一次性购买3000元商品升级方式”成为代理商";
+            }
+            if(oneselfChoiceWay == null || oneselfChoiceWay == "" || oneselfChoiceWay == "null"){
+                //处理旧数据,默认选择第三种升级方式
+                //recordMessage = "“任其选择升级方式”成为代理商";
+                recordMessage = "升级成为代理商";
+            }
+        }
+        hui.confirm("是否确认"+operationMessage+mobile+"用户"+recordMessage,[ '取消', '确认' ],function() {
+            //审核
+            auditOperation(id,operationType,recordType);
+        },function(){
+
+        });
+    }
+
+    //审核操作
+    function auditOperation(id,operationType,recordType){
+        var applyRecord = {
+            type : "POST",
+            contentType: "application/json;charset=utf-8",
+            url : "/upms/applyProcess/updateApplyRecord",
+            dataType : "json", //设置返回值得类型
+            data : JSON.stringify({
+                "id" : id,
+                "isConsent" : operationType,//0:同意, 1:拒绝
+                "recordType" : recordType//0:vip的申请, 1:分销商的申请, 2:普通用户选择
+            }),
+            async : false, //是否异步请求，false为同步
+            success : function(data) {
+                if(data.code == 1000) {
+                    pageIndex = 1;
+                    init();
+                    hui.toast('操作成功!!!');
+                }
+            },
+		};
+        refresh(applyRecord);
+    }
+
+    $('body').on('click', '.dApplications', function() {
+        let _ids = $(this).attr("ids");
+        let mobile = $(this).attr("mobile");
+        oneselfChoiceWay = $(this).attr("oneselfChoiceWay");
+        audit(_ids, false, distributor, mobile, oneselfChoiceWay);
+    });
+
+    $('body').on('click', '.relations', function() {
+        let _ids = $(this).attr("ids");
+        let mobile = $(this).attr("mobile");
+        audit(_ids, false, vip, mobile);
+    });
+
+    $('body').on('click','.upagent_btn_agree',function(){
+        ids = $(this).attr("ids");
+        auditMobile = $(this).attr("mobile");
+        oneselfChoiceWay = $(this).attr("oneselfChoiceWay");
+        recordType = $(this).attr("type");
+        audit(ids, true, recordType, auditMobile, oneselfChoiceWay);
+    });
+</script>
+</body>
+</html>

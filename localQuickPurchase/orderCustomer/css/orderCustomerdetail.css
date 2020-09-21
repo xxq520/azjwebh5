@@ -1,0 +1,270 @@
+body{
+    color: #333333FF;
+    background: #f7f4f8;
+    font-size:0.53rem;
+}
+.hui-header {
+    border-bottom: 1px solid #e2e2e2 !important;
+    display: flex;
+}
+
+.hui-header h1 {
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+    overflow: hidden;
+    padding: 0px 38px 0px 38px;
+    text-align: center;
+    font-weight: 400;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #212121;
+    flex: 1;
+}
+.shareTop {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    top: 5px;
+    margin-top: 0;
+    right: 7px;
+    background: transparent;
+}
+/*图标字体开始*/
+@font-face {
+    font-family: 'fontello';
+    src: url('../../generalStore/font/fontello.eot?23036015');
+    src:
+            url('../../generalStore/font/fontello.eot?23036015#iefix') format('embedded-opentype'),
+            url('../../generalStore/font/fontello.woff?23036015') format('woff'),
+            url('../../generalStore/font/fontello.ttf?23036015') format('truetype'),
+            url('../../generalStore/font/fontello.svg?23036015#fontello') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-ico {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: bold;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    vertical-align: top;
+    color: #000;
+    font-size: 0.9rem;
+    margin: 0 0 0 .1rem;
+}
+
+/*图标字体结束*/
+.go-back {
+    height: 44px;
+    line-height: 44px;
+    width: 10%;
+    text-align: center;
+    cursor: pointer;
+}
+.flex{
+    display:-webkit-box;
+    display:-moz-box;
+    display:-webkit-flex;
+    display:-moz-flex;
+    display:-ms-flexbox;
+    display:flex
+}
+.flex-x-between{
+    -webkit-box-pack:justify;
+    -moz-justify-content:space-between;
+    -webkit-justify-content:space-between;
+    justify-content:space-between;
+    justify-content: space-between;
+}
+.flex-x-around{
+    -webkit-box-pack:around;
+    -moz-justify-content:space-around;
+    -webkit-justify-content:space-around;
+    justify-content:space-around;
+    justify-content: space-around;
+}
+.order-good-header{
+    font-size:0.6rem;
+    border-bottom: 0.04rem solid rgba(230,230,230,1);
+    height: 2rem;
+    line-height: 2rem;
+    padding:0 0.4rem;
+}
+.order-good-header .buy{
+    font-size:0.6rem;
+    color: #fff;
+    background:rgba(254,144,90,1);
+    padding: 0.15rem;
+    display: inline-block;
+    border-radius: 0.08rem;
+    line-height: 1;
+    margin-right: 0.1rem;
+}
+.order-good-header .order-num{
+    height:0.53rem;
+    font-size:0.55rem;
+    font-weight:normal;
+    color:rgba(102,102,102,1);
+}
+.Pendingrefund{
+    margin-top: 53px;
+    background-color: #fff;
+}
+.order-list{
+    padding:0.6rem 0.53rem;
+
+}
+.order-img{
+
+}
+.goods{
+    padding-left: 0.69rem;
+
+}
+.goods-name{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size:0.58rem;
+    font-family:Hiragino Sans GB;
+    font-weight:normal;
+    color:rgba(51,51,51,1);
+}
+.order-img{
+    width:4.89rem;
+    height:4.89rem;
+    border:0.05rem solid rgba(230,230,230,1);
+}
+.goods-guige{
+    font-size:0.53rem;
+    font-family:Hiragino Sans GB;
+    font-weight:normal;
+    color:rgba(102,102,102,1);
+    margin-top: 0.2rem;
+}
+.goods-num{
+    font-size:0.53rem;
+    font-family:Hiragino Sans GB;
+    font-weight:normal;
+    color:rgba(102,102,102,1);
+    margin-top: 0.2rem;
+}
+.goods-price{
+    font-size:0.53rem;
+    font-family:Hiragino Sans GB;
+    font-weight:normal;
+    color:rgba(228,57,60,1);
+    margin-top: 1.41rem;
+}
+.remarks{
+    height: 2rem;
+    line-height: 2rem;
+    border-top:0.05rem solid rgba(230,230,230,1);
+    width: 93%;
+    margin: 0 auto;
+}
+.remarks span{
+    color: #212121FF;
+}
+.remarks input{
+    width: 80%;
+    margin-left: 0.2rem;
+}
+.remarks input::placeholder{
+    font-size:0.53rem;
+    font-family:Hiragino Sans GB;
+    font-weight:normal;
+    color:#999999FF;
+}
+.order-consignee{
+    position: relative;
+    background-color: #fff;
+    margin-top: 0.4rem;
+    padding: 0.32rem 0.53rem;
+    font-size:0.54rem;
+    font-family:Hiragino Sans GB;
+    font-weight:normal;
+    color:rgba(102,102,102,1);
+}
+
+.order-consignee .opt-bill__btn {
+    position: absolute;
+    top: .65rem;
+    right: .25rem;
+    width: 3rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    font-size: .52rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #666;
+    background-color: #fff;
+
+}
+
+
+.order-consignee div{
+    line-height: 1.1rem;
+}
+.refund{
+    padding: 0 0.53rem;
+    font-size:0.67rem;
+    background-color: #fff;
+    margin-top: 0.4rem;
+}
+.b-bottom{
+    border-bottom: 0.05rem solid rgba(230,230,230,1);;
+}
+.refund-item{
+    height:1.98rem;
+    line-height: 1.98rem;
+}
+.refund-item input{
+    width: 80%;
+}
+.refund-item input::placeholder{
+    font-size:0.58rem;
+    font-family:Hiragino Sans GB;
+    font-weight:normal;
+    color:rgba(153,153,153,1);
+}
+.refund-title{
+    font-size:0.67rem;
+    font-family:Hiragino Sans GB;
+    font-weight:normal;
+    color:rgba(51,51,51,1);
+}
+.change-refund span{
+    font-size:0.58rem;
+    font-family:Hiragino Sans GB;
+    font-weight:normal;
+    color:rgba(102,102,102,1);
+}
+.change-refund img{
+    width:0.76rem;
+    height:0.76rem;
+    margin-top: 0.5rem;
+    margin-left: 0.73rem;
+    margin-right: 0.4rem;
+}
+.determine{
+    width: 100%;
+    height:2rem;
+    line-height: 2rem;
+    font-size:0.76rem;
+    font-family:Hiragino Sans GB;
+    font-weight:normal;
+    color:rgba(255,255,255,1);
+    background:rgba(242,62,77,1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+.edit{
+    margin-bottom: 2rem;
+}

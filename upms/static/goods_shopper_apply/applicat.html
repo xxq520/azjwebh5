@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name = "format-detection" content = "telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+       body{
+           background-color: #f5f5f5;
+       }
+        .mainBox {
+            color: #444;
+            padding-top: 85px;
+            cursor: pointer;
+            background-color: #f5f5f5;
+        }
+
+        .mint-header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-color: #DB0020;
+            color: #fff;
+            z-index: 1000;
+        }
+
+        .mint-header-title {
+            font-size: 16px;
+        }
+
+        .managebtn {
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            list-style-type: none;
+            margin-bottom: 10px;
+            position: fixed;
+            top: 40px;
+            left: 0;
+        }
+
+        .managebtn li {
+            text-align: center;
+            padding: 3px;
+            font-size: 16px;
+            color: #333333;
+            height: 40px;
+            line-height: 40px;
+
+        }
+
+        .managebtn li.hover {
+            color: #ff6e04;
+            position: relative;
+        }
+
+        .managebtn li.hover::after {
+            content: '';
+            width: 70px;
+            height: 1px;
+            background-color: #ff6e04;
+            position: absolute;
+            bottom: 0;
+            left: -7px;
+        }
+
+        .maix {
+            padding: 5px ;
+            border-top: 1px solid #eee;
+            background-color:#f6f6f6 ;
+        }
+
+        .maix li {
+            padding: 6px 2px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            font-size: 14px;
+               background-color:#fff ;
+               margin-bottom: 10px;
+               border-radius: 8px ;
+        }
+         .maix .dropdown {
+             width: 100%;
+             height: 140px;
+             padding: 40px 0;
+         }
+          .maix .dropdown img{
+          width: 100%;
+          height: 100%;
+          }
+        .maix .left {
+            width: 30%;
+            padding: 3px;
+        }
+        .maix .left img {
+        width: 100%;
+        height: 115px;
+        }
+        .maix .right {
+            flex: 1;
+            padding: 2px ;
+            display: flex;
+            flex-direction: column;
+            width: 68%;
+            overflow: hidden;
+
+        }
+
+        .maix .right .name {
+            width: 100%;
+            height: 36px;
+            line-height: 18px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .maix .right .price {
+
+
+            line-height: 20px;
+            display: flex;
+            justify-content: center;
+            color: #db0020;
+        }
+
+        .maix .right .time {
+
+            line-height: 20px;
+            font-size: 12px;
+        }
+
+       
+
+        .maix .right .sales {
+
+            line-height: 20px;
+            display: flex;
+             font-size: 12px;
+
+        }
+        .maix .right .footer {
+        display: flex;
+        
+        }
+        .maix .right .footer .zhan {
+         flex: 1;
+
+        }
+         .maix .right .footer .fimg {
+        margin-top: 8px;
+         display: flex;
+        justify-content: center;
+        align-items: center;
+             width: 50px;
+             height: 50px;
+         }
+         
+         .maix .right .footer .fimg img{
+           width: 98%;
+           max-width: 45px;
+         }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-cloak class="mainBox">
+            <header class="mint-header">
+                <mt-button icon="back" slot="left" @click="goback"></mt-button>
+                <h1 class="mint-header-title">我的活动</h1>
+            </header>
+            <ul class="managebtn">
+                <li :class="{'hover':messagebtn==0}" @click="messagebtnfn(0)">全部
+                </li>
+                <li :class="{'hover':messagebtn==1}" @click="messagebtnfn(1)">已通过
+                </li>
+                <li :class="{'hover':messagebtn==2}" @click="messagebtnfn(2)">进行中
+                </li>
+                <li :class="{'hover':messagebtn==3}" @click="messagebtnfn(3)">已完成
+                </li>
+            </ul>
+            <div class="maix" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading"
+                infinite-scroll-distance="3">
+                <ul>
+                    <li v-for="item in list" class="merchandise">
+                        <div class="left"><img :src="item.goodsAttributeList[0].specificationImg" alt=""></div>
+                        <div class="right">
+                            <div class="name"> {{item.goodsName}}</div>
+
+                            <div class="price">
+                                <p style="width: 45%;">原价：{{item.goodsAttributeList[0].distributionPrice}}</p>
+                                <p style="width: 54%;font-size: 14px;">秒杀价：{{item.goodsAttributeList[0].spikePrice}}
+                                </p>
+                            </div>
+                           <div class="footer">
+                                    <div class="zhan">
+                                        <div class="sales">
+                                            <p style="width:49%;">库存：{{item.stock}}</p>
+                                            <p style="width:49%;">销量：{{item.isDelete}} </p>
+                                        </div>
+                                        <div class="time">开始时间：{{formData(item.startTime)}}</div>
+                                        <div class="time">结束时间：{{formData(item.endTime)}}</div>
+                                    </div>
+                                    <div class="fimg">  
+                                             <img src="./azj_audit.png" alt="" v-if="item.auditStatus==0">
+                                             <img src="./azj_underway.png" alt="" v-if="item.auditStatus==11">
+                                             <img src="./azj_accomplish.png" alt="" v-if="item.auditStatus==12">
+                                        <img src="./shenhe1111.png" alt="" v-if="item.auditStatus==1">
+                                        <img src="./shenhe2.png" alt="" v-if="item.auditStatus==2">
+                                    </div>
+                           </div>
+                        </div>
+                    </li>
+                    <div class="dropdown" v-if="list.length==0"> <img src="./qs.png" alt=""></div>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./index.js"></script>
+    <script src="./jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/common/js/common.js?v=32"></script>
+    <script>
+          jQuery.support.cors = true;
+        var app = new Vue({
+            el: '#app',
+            data: {
+                messagebtn: 0,
+                loading: false,
+                list: [],
+                pageIndex: 1,
+                seq: seq,
+                pageSize: 10,
+                status: 3,
+            },
+
+            mounted:function() {
+                //没有登录的用户强制跳转至未登录个人中心页面
+                (function(){
+                    if (!isLogin()) {
+                        var urlVal = window.location.href;
+                        sltHide();
+                        setCookie("loginRetrunUrl",urlVal);
+                        loginPageUrl();
+                        return;
+                    }
+                })();
+
+            },
+       
+            methods: {
+                formData:function(time) {
+                    if (time) {
+                        var date = new Date(time);
+                        var Y = date.getFullYear();
+                        var M = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+                        var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+                        var h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+                        var m = date.getMinutes() < 10 ? '0' + date.getMinutes() :
+                            date.getMinutes();
+                        var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+                        return Y + '年' + M + '月' + D + '日';
+                    }
+                },
+         
+
+                //选项切换
+                messagebtnfn:function(val) {
+                    if (val == 1) {
+                        this.status = 1
+                    } else if (val == 2) {
+                        this.status = 11
+                    } else if (val == 3) {
+                        this.status = 12
+                    }
+                    else {
+                        this.status = 3
+                    }
+                    this.list = [];
+                    this.messagebtn = val;
+                    this.pageIndex = 1;
+                    this.loadMore();
+                },
+                //上拉加载
+                loadMore:function() {
+                    this.loading = false;
+
+                    var param = {
+                        status: this.status,
+                        shopSeq: this.seq,
+                        pageIndex: this.pageIndex,
+                        pageSize: this.pageSize
+                    };
+                    var that = this;
+                    $.ajax({
+                        type: "post", //定义提交的类型9
+                        // url: "http://192.168.1.84:10000/localQuickPurchase/goods/activity/apply/list",//本地
+                        url: "/localQuickPurchase/goods/activity/apply/list",
+                        dataType: "json", //设置返回值得类型
+                        contentType: "application/json;charset=utf-8",
+                        data: JSON.stringify(param),
+                        async: false, //是否异步请求，false为同步
+                        success: function (res) {
+
+                            console.log(res, '98')
+                            if (res.code == 200) {
+                                if (that.pageIndex > res.data.totalPage) {
+                                    that.loadend = true;
+                                    that.loading = true;
+                                    return false;
+                                };
+
+
+                                that.pageIndex++;
+                                that.list = that.list.concat(res.data.list);
+                                that.loading = false;
+
+                                console.log(that.list, '21')
+                            }
+                        }
+                    })
+                        
+                },
+                // 返回上层
+                goback:function() {
+
+                    window.history.go(-1)
+
+                },
+
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

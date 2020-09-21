@@ -1,0 +1,177 @@
+body{
+	background:#e9e9e9;
+}
+body,
+h1,h2,h3,h4,h5,h6,
+dl,dd,
+p{
+	margin:0;
+}
+h1,h2,h3,h4,h5,h6,
+strong,
+b{
+	font-weight:normal;
+}
+ol,
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+i,
+em{
+	font-style:normal;
+}
+a{
+	text-decoration:none;
+	color:#666;
+	-webkit-tap-highlight-color:transparent;
+}
+img{
+	width:auto;
+	max-width:100%;
+	border:none;
+}
+/**/
+.main{
+	width:100%;
+	max-width:750px;
+	margin:0 auto;
+	background:url('../images/bgimg.png') repeat-y center 10rem, url('../images/bg.png') repeat-y center top;
+	background-size:100% auto;
+	overflow:hidden;
+}
+
+
+.prod-item{
+	overflow:hidden;
+	margin-bottom:2rem;
+}
+.prod-item .prod-til{
+	overflow:hidden;
+}
+.prod-item .prod-til img{
+	display:block;
+	max-width:47%;
+	margin:0 auto;
+}
+
+.prod-list{
+	overflow:hidden;
+	position:relative;
+	width:96%;
+	margin:0 auto;
+	text-align: center;
+}
+.prod-box{
+	position:absolute;
+	left:10%;
+	top:calc(50% - 5rem);
+	width:80%;
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+.prod-img{
+	width:10rem;
+	height:10rem;
+	overflow:hidden;
+}
+.prod-img img{
+	display:block;
+}
+.prod-text{
+	width:calc(100% - 11.5rem);
+	text-align:left;
+	position:relative;
+	height:9rem;
+	padding:0.5rem 0;
+}
+.pt-name{
+	font-size:1.3rem;
+	line-height:1.2em;
+	height:2.38em;
+	overflow:hidden;
+	color:#222;
+	font-weight:bold;
+	margin-bottom:0.4rem;
+}
+.pt-money .stj{
+	font-size:2rem;
+	color:#ff0044;
+	padding-right:0.2rem;
+}
+.pt-money .stj i{
+	font-size:1rem;
+	color:#ff0044;
+}
+.pt-money .scj{
+	font-size:1rem;
+	color:#999;
+	text-decoration: line-through;
+}
+.pt-make{
+	font-size:1rem;
+	color:#ff0044;
+}
+.pt-btn{
+	position: absolute;
+	left: 0;
+	bottom: 0.5rem;
+	padding:0.4rem 1.5rem;
+	float:left;
+	color:white;
+	background:#9a01e1;
+	border:0.15rem solid #e40df7;
+	border-radius:0.4rem;
+	margin-top:0.3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:780px){
+	html
+	{
+		font-size:20px !important;
+	}
+	img
+	{
+		width:100%;
+	}
+}
+@media screen and (max-width:600px){
+	html
+	{
+		font-size:calc((100vw/600)*20) !important;
+	}
+}
+@media screen and (max-width:360px){
+	html
+	{
+		font-size:12px !important;
+	}
+}

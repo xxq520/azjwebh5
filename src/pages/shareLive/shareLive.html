@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui" charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>分享直播</title>
+    <link rel="stylesheet" href="../../../common/lib/Hui/css/hui.css">
+    <script src="../../../localQuickPurchase/distributionApp/lib/jquery.min.js"></script>
+    <script src="../../../common/lib/Hui/js/hui.js"></script>
+
+    <script src="../../../localQuickPurchase/distributionApp/js/clipboard.min.js"></script>
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+    <script src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script>
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function(e) {//防止移动端 点击延迟
+                FastClick.attach(document.body);
+                e.preventDefault()
+            }, false);
+        }
+        if(!window.Promise) {
+            document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+        }
+    </script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script src="../../../common/js/common.js?v=5"></script>
+<script src="../../../localQuickPurchase/distributionApp/js/soshm.js"></script>
+<script src="../../../common/js/share.js"></script>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>赠送红包</title>
+    <link rel="stylesheet" type="text/css" href="/localQuickPurchase/coupons/css/hui.css">
+    <link rel="stylesheet" type="text/css" href="/localQuickPurchase/coupons/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/localQuickPurchase/coupons/css/inviteFriends.css">
+    <style>
+        /* 赠送优惠券弹窗样式   =================== begin ==================== */
+
+        .hint {
+            position: absolute;
+            top: 37%;
+            left: 0;
+            right: 0;
+            width: 84%;
+            margin: auto;
+            margin-top: -0.6rem;
+            background: #fff;
+            border-radius: 6px;
+            /*min-height: 200px;*/
+            z-index: 9999;
+            box-shadow: 0 0 10px 3px #ccc;
+            transition: margin 0.3s ease;
+        }
+
+        .hintIn {
+            -webkit-animation-duration: 0.75s;
+            animation-duration: 0.75s;
+            -webkit-animation-name: bounceIn;
+            animation-name: bounceIn;
+        }
+
+        .hint-head {
+            height: 1.78rem;
+            line-height: 1.78rem;
+            font-size: 0.7rem;
+            position: relative;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .hint-head .btn-close {
+            position: absolute;
+            width: 1.78rem;
+            height: 1.78rem;
+            /* right: 10px; */
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            /* background: url(/localQuickPurchase/distributionApp/images/close.png) no-repeat center right; */
+            background: url(/localQuickPurchase/distributionApp/images/close.png) no-repeat center center;
+            background-size: 0.8rem 0.8rem;
+            z-index: 10;
+        }
+
+        .hint-body {
+            position: relative;
+            padding: 0.8rem 1.2rem;
+        }
+
+        .hint-body .welcome-txt {
+            font-size: 0.8rem;
+        }
+        .hint-body .welcome-txt .hint-color{
+            color: #e4393c;
+        }
+
+        .hint-wel-btns {
+            margin-top: 1rem;
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-around;
+            -webkit-justify-content: space-around;
+            padding-bottom: 0.4444rem;
+        }
+
+        .hint-wel-btns > div {
+            border-radius: 4px;
+            /* width: 48%; */
+            width: 40%;
+            height: 1.33rem;
+            line-height: 1.33rem;
+            font-size: 0.7rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hint-btn-cancel {
+            background: #e4393c;
+        }
+
+        .hint-btn-sure {
+            background: #e4393c;
+        }
+        #back{width:25px; height:25px; font-family:"hui-font"; line-height:44px; text-align:center; flex-shrink:0;}
+        #back:before{content:"\e6a5"; font-size:18px; color:#212121;}
+
+        #btn-title {
+            font-size: 0.8rem;
+        }
+        .hint-title {font-size: 0.8rem}
+        .hint-name {font-size: 0.8rem}
+        .hint-price {font-size: 0.8rem}
+
+        .header {
+            width: 100%;
+            height: 1.9555rem;
+            position: fixed;
+            background: #fff;
+            top: 0;
+            left: 0;
+            z-index: 99;
+            border-bottom: 1px solid #ddd;
+        }
+        .header p {
+            height: 100%;
+            position: relative;
+            display: flex;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header img {
+            position: absolute;
+            left: 0.4444rem;
+            top: 50%;
+            margin-top: -0.4888rem;
+            width: 0.9777rem;
+            height: 0.9777rem;
+        }
+        .header p span {
+            color: #333;
+            font-size: 0.8rem;
+        }
+        .header p a{
+            position: absolute;
+            top: 50%;
+            right: .4444rem;
+            margin-top:-.3333rem;
+            font-size: .6222rem;
+        }
+        #hui-back {
+            width: 25px;
+            height: 25px;
+            font-family: "hui-font";
+            line-height: 44px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        #ivtFrid .content .leaveMgs{
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+        #ivtFrid .content .leaveMgs span {
+            line-height: 1.5rem;
+        }
+        #ivtFrid .content .leaveMgs input {
+            width: 80%;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            padding: 0 .3rem;
+            border:  1px solid #CCCCCC;
+        }
+
+        /* 弹窗选择 */
+        .scancode {
+            background: rgba(0,0,0,0.5);
+            height: 100%;
+            top: 0;
+            width: 100%;
+            position: absolute;
+            z-index: 999;
+            box-sizing: border-box;
+        }
+        .scancode .set-goods-3 {
+            height: 8.5rem;
+            position: fixed;
+            margin: 5.3333rem auto;
+            height: 11rem;
+            width: 13.2rem;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            border-radius: 5px;
+        }
+        .scancode .set-goods-3 .set-goods-3-title {
+            height: 15%;
+            width: 100%;
+            text-align: center;
+            color: #212121;
+            font-size: 0.65rem;
+            line-height: 1.6rem;
+            position: relative;
+        }
+        .scancode .set-goods-3 .set-goods-3-title img {
+            position: absolute;
+            z-index: 99;
+            right: 0;
+            height: 1.72rem;
+            top: 0;
+            padding: 10px;
+        }
+
+        .scancode .set-goods-3 .set-goods-3-content {
+            text-align: center;
+            height: 80%;
+        }
+        .set-goods-3 .set-goods-3-content ul {
+            border: 1px solid #e6e6e6;
+            border-left: none;
+            border-right: none;
+            padding: 0 15px;
+            margin-bottom: 0.65rem;
+        }
+        .hui-list {
+            padding: 0px 10px;
+            position: relative;
+        }
+        .hui-list li {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            display: block;
+        }
+        .set-goods-3 .set-goods-3-content ul li {
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .pull-left {
+            float: left;
+        }
+        .font-md-3 {
+            font-size: 0.55rem;
+        }
+        .color_gray2 {
+            color: #666666;
+            margin-top: .7rem;
+        }
+        .pull-right {
+            float: right !important;
+        }
+        .set-goods-3 .set-goods-3-content ul li img {
+            height: 0.81rem;
+            width: 0.81rem;
+            float: right;
+            margin-top: 0.6rem;
+        }
+        .set-goods-3 .set-goods-3-content ul li:last-child {
+            border-bottom: none;
+        }
+        .scancode .set-goods-3 .set-goods-3-content .set-goods-3-bottom {
+            margin: 0 1.1rem;
+        }
+        .scancode .set-goods-3 .set-goods-3-content .set-goods-3-bottom .set-button-left {
+            width: 5.3rem;
+            height: 1.32rem;
+            text-align: center;
+            line-height: 1.32rem;
+            color: #fff;
+            font-size: 0.65rem;
+            float: left;
+            background: #cccccc;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        .scancode .set-goods-3 .set-goods-3-content .set-goods-3-bottom .set-button-right {
+            width: 5.3rem;
+            height: 1.32rem;
+            text-align: center;
+            float: right;
+            line-height: 1.32rem;
+            color: #fff;
+            background: #e4393c;
+            font-size: 0.65rem;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+        .explain{
+            margin-top: -0.5rem;
+            color: currentColor;
+        }
+        /* 赠送优惠券弹窗样式  ============================= end ======================== */
+    </style>
+</head>
+
+<body>
+<div id="ivtFrid">
+    <!-- 头部导航 -->
+    <!--<header class="hui-header">-->
+    <!--<div id = "back" onclick="backPersonalCenter()"></div>-->
+    <!--<h1 style="color:#333">赠送优惠券</h1>-->
+    <!--<a class="ricon" onclick="giveRecord()">赠送记录</a>-->
+    <!--</header>-->
+    <div class="header">
+        <p><img src="/localQuickPurchase/activity/images/back.jpg" id = "back" onclick="backPersonalCenter()"><span class="fs36">赠送红包</span><a class="ricon" onclick="giveRecord()">赠送记录</a></p>
+    </div>
+    <!-- 底部内容 -->
+    <div class="content">
+        <div class="line person">赠送对象：<div class="name"></div></div>
+        <div class="mwrap">
+            <div class="money">金额：</div>
+            <input type="text" id="cponds" class="hui-input hui-input-clear" name="mm"/>
+            <div class="unit">元</div>
+        </div>
+        <div class="line rest">当前剩余可用金额: <div class="remy" >0.00</div>元</div>
+        <div class="line rest voucher" style="display: none">当前剩余可赠送消费券金额: <div class="deduction" >0.00</div>元</div>
+        <div class="line rest explain"></div>
+        <div class="line tips">赠送后直接从零钱扣取对应的零钱</div>
+        <div class="leaveMgs">
+            <span>留言：</span>
+            <input type="textContent" id="textContent" placeholder="请输入您的留言"/>
+        </div>
+        <button type="button" class="btn" id="btn1">点击赠送</button>
+    </div>
+    <!-- 红包赠送成功后弹窗-->
+    <div id="hint" style="position:fixed;background:rgba(0,0,0,.5);top:0;left:0;width:100%;height:100%;z-index:9999;display: none;">
+        <div  class="hint animated hintIn">
+            <div class="hint-head bd-bot">
+                <!--<b id="btn-close" class="btn-close"></b>-->
+                <b id="btn-title">温馨提示</b>
+            </div>
+            <div class="hint-body bd-bot">
+                <div class="welcome-txt">
+                    <span class="hint-title">已成功的为</span>
+                    <span class="hint-name"></span>
+                    赠送<span class="hint-price"></span>
+                </div>
+                <div class="hint-wel-btns">
+                    <div class="hint-btn-cancel" onclick="backPersonalCenter()">确定</div>
+                    <!--<div class="hint-btn-sure" couponsId="+couponsId+">前往购物</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--选择赠送金额类型-->
+<div class="scancode" style="display: none;" id="distributorScancode">
+    <div class="set-goods-3" >
+        <div class="set-goods-3-title" style="padding-top: 0.3rem;">
+            选择赠送金额类型
+            <img src="/localQuickPurchase/distributionApp/images/closeIco.png" style="width: 13%" />
+        </div>
+        <div class="set-goods-3-content">
+            <ul class="hui-list">
+                <li id="agent_choice" class="agent_choice" onclick="choiceType(this)" data-type="1"  data-id="1">
+                    <span class="pull-left font-md-3 color_gray2">零钱</span>
+                    <div  class="pull-right" style="height: 100%;">
+                        <img  src="/localQuickPurchase/distributionApp/images/check2.png" />
+                    </div>
+
+                </li>
+                <li id="agent_choice" class="agent_choice" onclick="choiceType(this)"  data-type="1" data-id="2">
+                    <span class="pull-left font-md-3 color_gray2">消费券</span>
+                    <div class="pull-right" style="height: 100%;">
+                        <img  src="/localQuickPurchase/distributionApp/images/check2.png" />
+                    </div>
+                </li>
+            </ul>
+            <div class="set-goods-3-bottom">
+                <button class="set-button-left">取消</button>
+                <button class="set-button-right" id="commit">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/localQuickPurchase/coupons/js/hui.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="/common/js/common.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/coupons/js/inviteFriends.js?v=2"></script>
+</body>
+</html>

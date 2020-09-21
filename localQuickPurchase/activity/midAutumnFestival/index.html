@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>爱之家商城中秋专题活动</title>
+	<link rel="stylesheet" href="../lib/Hui/css/hui.css" />
+	<link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+<div class="zhongqiu">
+	<!-- header -->
+	<div class="header">
+		<i class="icons back" onclick="goBack()"></i>
+		<h1>爱之家商城中秋专题活动</h1>
+		<i class="icons share" onclick="share()"></i>
+	</div>
+	<!-- banner -->
+	<div class="banner-con">
+		<img src="./img/banner.png" alt="">
+	</div>
+	<div class="con">
+		<p class="title"><img src="./img/title-img.png" alt=""></p>
+		<ul class="goods-list">
+			<script type="text/html" id="proItem">
+				{{each list as item i}}
+				<li class="goods-item"  onclick="goodsJump('{{item.goodsId}}',0,0)">
+					<div class="img-box">
+						<img src="{{item.thumbnail}}" alt="">
+					</div>
+					<div class="goods-desc">
+						<p class="text">{{item.goodsName}}</p>
+						<p class="price-box"><span class="cur-price">&yen;{{item.goodsProStandard[0].distributionPrice}}</span><span class="old-price">&yen;{{item.goodsProStandard[0].goodsPrice}}</span></p>
+						<button class="buy-btn">立即抢购</button>
+					</div>
+				</li>
+				<!--<div class="pro-item" onclick="goodsJump('{{item.goodsId}}',0,0)">
+					<div class="pro-img"><img src="{{item.thumbnail}}"/></div>
+					<div class="pro-desc">
+						<p class="pro-title limit2 fs30">{{item.goodsName}}</p>
+						<p class="pro-price"><span class="price pricecolr fs36">￥{{item.goodsProStandard[0].distributionPrice}}</span><span class="oldPrice grayclor fs26">￥{{item.goodsProStandard[0].goodsPrice}}</span></p>
+						<p class="go-buy"><span class="go-buy-btn fs30 wclor">立即抢购</span></p>
+					</div>
+				</div>-->
+				{{/each}}
+			</script>
+			<!--<li class="goods-item">
+				<div class="img-box">
+					<img src="./img/goods-img.png" alt="">
+				</div>
+				<div class="goods-desc">
+					<p class="text">八帅阳澄湖大闸蟹券1888型中秋团购送礼螃蟹提货.....</p>
+					<p class="price-box"><span class="cur-price">&yen;99.99</span><span class="old-price">&yen;168.88</span></p>
+					<button class="buy-btn">立即抢购</button>
+				</div>
+			</li>-->
+		</ul>
+	</div>
+</div>
+<!-- 分享弹出层 -->
+<div class="share-block hui-text-center dis_share" style="height: auto">
+	<div class="bringIn">分享活动</div>
+	<ul class="share-content">
+
+	</ul>
+	<ul style="overflow: hidden;">
+		<li class="copylink"><img src="/localQuickPurchase/distributionApp/images/share_icon_5.png">
+			<p>二维码链接</p></li>
+		<li class="shopCode" value="0" onclick="qrCode()"><img src="/localQuickPurchase/distributionApp/images/share_icon_4.png">
+			<p>二维码</p></li>
+		<!-- <li class="makePosters" value="0" ><img
+            src="/localQuickPurchase/distributionApp/images/goodsLink.png" />
+            <p>保存海报</p></li> -->
+	</ul>
+	<div class="hui-text-center" style="padding: 0 0 1rem;" id="closeShare">
+		<img src="/localQuickPurchase/distributionApp/images/classfiyImg2.png" onclick="hiddend()" width="20">
+	</div>
+</div>
+<!-- 二维码 -->
+<div class="mask" onclick="qeCodehiddend()">
+	<div class="ewmcode" value="0">
+		<img src="/localQuickPurchase/shareQRCode/stringQRCode?urlVal=http%3A//192.168.1.191/localQuickPurchase/activity/midAutumnFestival/index.html%3FcheckShare%3D1%26shareSeq%3D4340322%3FcheckShare%3D1%26shareSeq%3D0">
+	</div>
+</div>
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="../lib/Hui/js/hui.js"></script>
+<script src="../lib/Hui/js/hui-refresh-load-more.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js"></script>
+<script src="js/template-web.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distribution/js/zclip/clipboard.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/soshm.js"></script>
+<script src="js/index.js"></script>
+</html>

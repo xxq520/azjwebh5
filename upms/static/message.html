@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name = "format-detection" content = "telephone=no">
+    <title>设置</title>
+    <link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="/common/css/style.css">
+    <style type="text/css">
+        .notice_list{
+            width: 100%;
+            height: 25rem;
+            background: white;
+        }
+        .hui-icons{
+            float: left;
+            width: 1.0rem;
+            margin-left: 0.46rem;}
+        .font-md{position: relative;}
+        .point_list{left:.2rem;top:.0rem;}
+        .positionContent{font-size: 1.2rem;color: #999;text-align: center;position: absolute;top: 40%;left: 50%;transform: translate(-50%,-50%)}
+        .privateChat{overflow: initial;font-size: .8rem;color: #999;text-align: center;position: absolute;top: 40%;left: 50%;transform: translate(-50%,-50%)}
+        .notice_text {
+            display: block;
+            float: left;
+            width: 70%;
+            padding-left: 4%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+<body class="bg_light">
+<header class="hui-header">
+    <div class="hui-icons  hui-icons-left color_gray pull-left"></div>
+    <h1>消息</h1>
+</header>
+<div class="main_container">
+    <div class="hui-tab">
+        <div class="title-container">
+            <div class="hui-tab-title">
+                <div class="systemMessage" onclick="systemMessageClick()">通知</div>
+                <div class="logisticsInformation" onclick="logisticsInformationClick()">物流</div>
+                <div class="privateMessage" onclick="privateMessageClick()">消息</div>
+            </div>
+        </div>
+        <!--通知tab-->
+        <div class="hui-tab-body">
+            <div class="hui-tab-item hui-list no-padding">
+                <div class="notice_list margin-t-3 systemMessageContent">
+                </div>
+            </div>
+            <div class="hui-tab-item hui-list no-padding msgtips">
+                <div class="notice_list margin-t-3 logisticsInformationContent">
+                </div>
+            </div>
+            <!--消息tab-->
+            <div class="hui-tab-item hui-list no-padding msgtips privateChat">
+                <!--没有消息-->
+                <!--  <div class="no_msg">
+                     <img src="../../images/msg_03.png"/>
+                     <div class="font-md privateChat">暂时没有消息哦</div>
+                 </div> -->
+                <!--有消息-->
+                <div class="msg-list margin-t-3">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="/common/lib/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/common/js/common.js?v=32" ></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui-tab.js" ></script>
+<script type="text/javascript" src="../static/js/message.js" ></script>
+<script type="text/javascript">
+    //hui.tab('.hui-tab');
+    hui('.hui-icons').click(function(){
+        // 部分原始app 返回原生界面
+        try{
+            window.action.app_back();
+        }catch (e) {
+        }
+        hui.Back();
+    });
+    var height = window.screen.height -$(".hui-tab-title").height();
+    $(".hui-tab-body").css('height',height);
+    $(".hui-tab-title .systemMessage").addClass('hui-tab-active');
+    $(".hui-tab-title div").click(function(){
+        $(this).addClass('hui-tab-active').siblings("div").removeClass('hui-tab-active');
+        $(".hui-tab-body .hui-tab-item").eq($(this).index()).show().siblings().hide()
+    })
+</script>

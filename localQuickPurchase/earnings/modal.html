@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/income.css">
+    <title>爱之家</title>
+</head>
+<style>
+/* 弹框 */
+.windowM {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,.5);
+	z-index: 1000;
+}
+
+.windowM .modal_mgs {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	/* bottom: 0; */
+	margin: 0 auto;
+	width: 10.9556rem;
+	/* height: 6.2rem; */
+	background-color: #ffffff;
+	border-radius: .2222rem;
+	margin-top: -3.0889rem;
+	text-align: center;
+}
+
+.windowM .modal_mgs .mgs_title{
+	font-size: .7111rem;
+	line-height: 1.7778rem;
+	border-bottom: 1px solid #7d7d7d;
+	box-sizing: border-box;
+}
+
+.windowM .modal_mgs .mgs_con {
+	/* padding: 20px 38px 30px; */
+	padding: .4444rem .8444rem .6667rem;
+	font-size: .6667rem;
+}
+
+.windowM .modal_mgs .list_btn{
+	width: 100%;
+	box-sizing: border-box;
+	/* padding: 0 40px 20px; */
+	padding: 0 .8889rem .4444rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+</style>
+<body>
+   
+
+
+    <!-- 弹框 -->
+    <div class="windowM" >
+        <div class="modal_mgs modal-dialog">
+            <p class="mgs_title">温馨提示</p>
+           <div class="mgs_con">
+                <p > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您的上级正邀请您升级成为 <span>XXX</span>,是否同意升级？</p>
+           </div>
+            <div class="list_btn">
+                <button class="cancel">否</button>
+                <button class="sure">是</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>
+<script src="./js/hui.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script>
+//弹框 
+
+$(function(){
+
+    // 取消
+  $('div .cancel').click(function(){
+      $('.windowM').hide();
+  })
+
+  //确定
+
+  $('.list_btn .sure').click(function(){
+    $('.windowM').hide();
+  })
+
+})
+</script>

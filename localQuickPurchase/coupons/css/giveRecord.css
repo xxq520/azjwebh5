@@ -1,0 +1,45 @@
+body {
+    background: #f5f5f5 !important;
+}
+
+#giveRecord .hui-header {
+    background: #fff;
+    border-bottom: 0.02px solid #000
+}
+
+#giveRecord .hui-header h1 {
+    color: #333;
+}
+
+#giveRecord #hui-back:before {
+    color: #333;
+}
+/* 表格区域 */
+#giveRecord .content{
+    background-color: #fff;
+}
+#giveRecord  tr:first-child td {
+    height: 2.2222rem /* 100/45 */;
+    font-size: .7111rem;
+    color: #333333;
+    border-bottom: 1px solid #e8e8e8;
+}
+/* 未使用 */
+#giveRecord  tr .unuse {
+    color: #039af1;
+}
+/* 已使用 */
+#giveRecord  tr .use {
+    color: #fc1a5f;
+}
+/* 已退回 */
+#giveRecord tr .reback {
+    color: #fc841a;
+}
+#giveRecord td {
+    height: 2.2222rem /* 100/45 */;
+    text-align: center;
+    font-size: .6222rem;
+    color: #666666;
+    border-bottom: 1px solid #e8e8e8;
+}

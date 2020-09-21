@@ -1,0 +1,268 @@
+ body {
+     background-color: rgb(245, 245, 245)
+ }
+
+ .content {
+     overflow: auto;
+     margin: 3rem auto;
+ }
+
+ .topNav {
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 100;
+     width: 100%;
+     height: 2.2222rem;
+     line-height: 2.2222rem;
+     background-color: red;
+     display: flex;
+     justify-content: space-between;
+     text-align: center;
+     margin-bottom: .8rem;
+ }
+
+ .topNav .img {
+     width: .4rem;
+     margin-left: .5333rem;
+     color: #fff;
+     /* height: .4222rem; */
+     transform: rotate(-180deg)
+ }
+
+ .topNav .title {
+     font-size: .8rem;
+     color: #fff;
+ }
+
+ .topNav .edit {
+     font-size: .5778rem;
+     color: #fff;
+     margin-right: .5556rem;
+     padding-top: .15rem
+ }
+
+ .shop_name {
+     width: 100%;
+     height: 1.5111rem;
+     line-height: 1.5111rem;
+     background-color: #fff;
+     margin-bottom: .3rem;
+
+ }
+
+ .shop_name_ul {
+     display: flex;
+     justify-content: flex-start;
+     padding-left: .7rem;
+     position: relative;
+ }
+
+ .shop_name_ul .more {
+     width: .3rem;
+     margin-left: .5rem
+ }
+
+ .shop_name_ul .youhuiq {
+     position: absolute;
+     right: 1.5rem;
+     top: 0;
+     font-size: .5778rem;
+     color: #333333
+ }
+
+ .shop_name_ul .check {
+     display: block;
+     width: .6rem;
+     height: .6rem;
+     border: 1px solid #989898;
+     margin-top: .4rem;
+     /* background-color: red; */
+     border-radius: 3rem;
+
+ }
+
+ .shop_name .name_logo {
+     margin: 0rem .4rem 0 .8rem;
+     width: .7111rem;
+ }
+
+ .shop_name .name_text {
+     font-size: .6667rem;
+     color: #000;
+ }
+
+ /* 店铺下的商品详情 */
+ /* 左边 */
+ .shop_list {
+     display: flex;
+     justify-content: flex-start;
+     margin-bottom: .5rem;
+     margin-right: .5rem
+ }
+
+ .shop_list .left_check {
+     overflow: hidden;
+     padding-left: .5rem;
+     width: 1.7556rem;
+     height: 4.7111rem;
+     line-height: 4.7111rem;
+     text-align: center;
+     background-color: #fff;
+ }
+
+ .shop_list .left_check .check {
+     width: .6rem;
+     height: .6rem;
+     border: 1px solid #989898;
+     margin-top: 1.7rem;
+     margin-left: .25rem;
+     /* background-color: red; */
+     border-radius: 3rem;
+ }
+
+ /* 右边 */
+ .right_detail {
+     width: 14.1333rem;
+     height: 4.7111rem;
+     background-color: #ffffff;
+     border-radius: .2222rem;
+
+ }
+
+ .right_detail .right_big_box {
+     display: flex;
+     padding: .3rem;
+ }
+
+ .goodimg {
+     width: 30%;
+     display: inline-block;
+     width: 4rem;
+     height: 4rem;
+     background-color: pink;
+ }
+
+ .goodText {
+     /* width: 70%; */
+     font-size: .4444rem;
+     display: inline-block;
+     flex: 1;
+     margin-left: .5rem
+ }
+
+ .goodText .text_detail {
+     font-size: .5778rem;
+     text-overflow: -o-ellipsis-lastline;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     display: -webkit-box;
+     -webkit-line-clamp: 2;
+     line-clamp: 2;
+     -webkit-box-orient: vertical;
+ }
+
+ .goodText .guige {
+     font-size: .4889rem;
+     color: #888888;
+     line-height: 1.5rem
+ }
+
+ .goodText .price_num {
+     position: relative;
+ }
+
+ .goodText .price_num .chose_num {
+     position: absolute;
+     right: .3rem;
+     top: 0;
+ }
+
+ .goodText .price_num .hotprice {
+     font-size: .6667rem;
+     color: #db0020
+ }
+
+ .chose_num .jia {
+     width: .6667rem;
+     height: .6667rem;
+ }
+
+ .chose_num .jian {
+     width: .6667rem;
+     height: .6667rem;
+ }
+
+ .price_num {
+     display: flex;
+     justify-content: flex-start;
+ }
+
+ .price_num .chose_num {
+     width: 3.4444rem;
+     display: flex;
+     justify-content: space-around;
+ }
+
+ /* 底部全选 */
+ .botoom_check {
+     background-color: #fff;
+     position: fixed;
+     display: flex;
+     font-size: .7111rem;
+     /* justify-content: flex-start; */
+     width: 100%;
+     border-top: 1px solid #eee;
+     height: 2.1778rem;
+     line-height: 2.1778rem;
+     z-index: 100;
+     left: 0;
+     bottom: 0;
+ }
+
+ .botoom_check .check {
+     width: .6rem;
+     height: .6rem;
+     border: 2px solid #989898;
+     margin-top: .8rem;
+     margin-left: .3rem;
+     /* background-color: red; */
+     border-radius: 3rem;
+ }
+
+ .jiesuan {
+     text-align: center;
+     margin-top: .4rem;
+     width: 3.0667rem;
+     height: 1.3333rem;
+     line-height: 1.3333rem;
+     color: #fff;
+     font-size: .6222rem;
+     background-color: #db0020;
+     border-radius: .6667rem;
+ }
+
+ .active {
+     width: .6rem;
+     background-image: url('../images/yixuan@2x.png');
+     background-size: 100%;
+     background-repeat: no-repeat;
+     display: block;
+     width: 0.8rem;
+     height: .8rem;
+     /* border: px solid #fff; */
+     margin-top: .4rem;
+ }
+
+ .left_check .active {
+     width: .6rem;
+     background-image: url('../images/yixuan@2x.png');
+     background-size: 100%;
+     background-repeat: no-repeat;
+     display: block;
+     width: 0.8rem;
+     height: .8rem;
+     /* border: px solid #fff; */
+     margin-top: 1.7rem;
+     margin-left: .25rem
+ }

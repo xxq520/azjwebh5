@@ -1,0 +1,180 @@
+html{
+	height: 100%;
+}
+body{
+	overflow: hidden;
+    height: 100%;
+}
+.content_comment{
+	flex: 1;
+	overflow-y: scroll;
+    /*height: 100%;*/
+   padding-bottom: 6vh;
+   width:100%;
+}
+.container{
+	position:relative;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+.container .title{
+	padding:.2rem 0 0 .2rem;
+} 
+.container .title p{
+	color: #777777;
+	height: .6rem;
+	line-height: .6rem;
+}
+
+.comment_container li{
+	/*border: 1px solid black;*/
+	word-break: break-word;
+	white-space: pre-wrap;
+	width: 100%;
+	margin-top: .2rem;
+}
+.comment_container li>div{
+	float: left;
+}
+.comment_container li .pic{
+	width: 0.9rem;
+	/*height: 0.8rem;*/
+	/*border: 1px solid red;*/
+	display:inline-block;
+	
+}
+.comment_container .pic img{
+	width: 0.7rem;
+	border-radius: .35rem;
+	margin-left: 0.2rem;
+	
+}
+.comment_container .detail{
+	width: 80%;
+	/*border: 1px solid red;*/
+	padding-left: .2rem;
+	display:inline-block;
+}
+.comment_container .detail .head{
+	height: 0.8rem;line-height: 0.8rem;
+	/*border: 1px solid red;*/
+	width: 100%;
+}
+.detail .head p{
+	float: left;
+}
+.detail .head .name{
+	width: 70%;
+}
+.detail .head .praise{
+	width: 30%;
+	position: relative;
+}
+.detail .praise img{
+	height: .4rem;
+	position: absolute;
+	top: 0.15rem;
+	right: 0.5rem;
+}
+.comment_container .detail .content{
+	line-height: .4rem;
+}
+.comment_container .detail .comment_time{
+	height: .6rem;line-height: .6rem;
+}
+
+.btm_comment{
+	border: 1px solid #DCDCDC;
+	width: 100%;
+	height: 6vh;
+	position: absolute;
+	z-index: 1000;
+	left: 0;
+	background: #fff;
+	bottom: 0;
+}
+.btm_comment img{
+	height: 3vh;
+	width: 2vh;
+	position: relative;
+	top: 10%;
+	left: 4%;
+	margin-right: 6%;
+}
+.btm_comment input{
+	width: 60%;
+	height: 3vh;
+	border-radius:1.5vh ;
+	border: 0;
+	background-color: #dcdcdc;
+	
+}
+.btm_comment span{
+	display: inline-block;
+	line-height: 6vh;
+	width: 25%;
+	text-align: center;
+}
+
+.entry_comment{
+	border: 1px solid #DCDCDC;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: 1000;
+	background-color: white;
+}
+.entry_comment p span{
+	display: inline-block;
+	float: left;
+	height: .6rem;line-height: .6rem;
+	width: 1rem;text-align: center;
+}
+.entry_comment p .send{
+	float: right;
+}
+.entry_comment div textarea{
+	width: 90%;
+	margin-left: 5%;
+	border-radius:5px;
+	min-height: 1rem;
+	background-color: #f2f2f2;
+}
+
+
+
+
+
+
+
+/*清除浮动*/
+.clearfix:after{
+	clear:both;
+	content:'.';
+	display:block;
+	width: 0;height: 0;
+	visibility:hidden;
+}
+/*flex垂直居中*/
+.flex_vertical{
+	display: flex;/*弹性布局，设在父元素上，子元素居中*/
+	display: -webkit-flex;
+	align-items: center;/*垂直居中*/
+	-webkit-align-items: center;
+}
+.none{
+	display: none;
+}
+/*遮罩层*/
+.shade{
+	width: 100%;height: 100%;
+	background-color: black;
+	position: absolute;
+	top: 1px;left: 0;
+	z-index: 998;
+	opacity: 0.6;
+	-webkit-opacity: 0.6;
+}

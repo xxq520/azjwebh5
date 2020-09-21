@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/lib/Hui/css/hui.css">
+    <title>用户协议</title>
+</head>
+<style>
+
+    .positionContent{font-size: .8rem;color: #999;text-align: center;margin-top:1.8888rem;/*position: absolute;top: 40%;left: 50%;transform: translate(-50%,-50%)*/}
+    /*.hui-list li{height: inherit!important; line-height: inherit!important; }*/
+     /*body{
+         background-color: #f5f5f5;
+     }*/
+    .income{
+        border-bottom: 1px solid #EEEEEE;
+        margin-bottom:.3rem;
+    }
+    .header{
+        display: flex;
+        font-size: 1rem;
+        justify-content:flex-start;
+
+    }
+   .header .back{
+       width: 1rem;
+       /*margin: 0 1rem;*/
+       margin-right: 8rem;
+   }
+   .contentBox{
+       padding: 0 .3rem;
+   }
+    .contentList{
+        width: 100%;
+        height: 3rem;
+        line-height:3rem;
+        position: relative;
+        /*background-color: chartreuse;*/
+        border-bottom: 1.5px solid #EEEEEE;
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .proName{
+        margin-top: 0.2rem
+    }
+</style>
+<body>
+    <div class="income">
+        <div class="header">
+            <div class="back" onclick="getBackClick()">
+                <img class="goBack" src="/localQuickPurchase/agreement/img/android/drawable-hdpi/fanhui.png" alt="">
+            </div>
+            <div id="headerMessage">用户协议</div>
+        </div>
+    </div>
+    <div class="order_details">
+        <ul class="contentBox">
+            <!--<li class="contentList">
+                <p class="proName">aaaaa</p>
+                <i class="hui-icons hui-icons-action-sheet"><a></a></i>
+            </li>-->
+        </ul>
+    </div>
+</body>
+</html>
+<script src="/common/lib/Hui/js/hui.js"></script>
+<script src="/common/lib/jquery/js/jquery.min.js"></script>
+<script src="/common/js/common.js"></script>
+<script>
+//返回上一级
+function getBackClick(){
+    try{
+        window.action.app_back();
+    }catch(e){
+
+    }
+    window.history.go(-1);
+}
+
+$(function () {
+    $.ajax({
+        type:'get',
+        url:'/localQuickPurchase/agreementAction/getAgreementListAndUrl',
+        data:{},
+        dataType:"json",
+        async:false,
+        success:function (data) {
+            var code = data.code;
+            if(code == 200){
+                var agreementList = data.data;
+                if(agreementList != null || agreementList.length > 0){
+                    var html = '';
+                    for (var i = 0; i < agreementList.length; i++){
+                        var proName = agreementList[i].proName;
+                        var url = agreementList[i].url;
+                        html += '<li class="contentList" data-url="'+url+'">';
+                        html += '<p class="proName">'+proName+'</p>';
+                        html += '<a class="hui-arrow" href="'+url+'" ></a>';
+                        html += '</li>';
+                    }
+                    $(".contentBox").append(html);
+                }else{
+                    hui.toast("该用户不符合升级条件")
+                }
+            }else {
+                hui.toast("该用户不符合升级条件")
+            }
+        }
+    });
+})
+$("body").on('click', '.contentList', function () {
+    var url = $(this).attr("data-url");
+    window.location.href = url;
+})
+
+</script>

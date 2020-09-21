@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>正在跳转...</title>
+	<link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+	<link rel="stylesheet" href="../static/css/main.css">
+	<link rel="stylesheet" href="../static/css/sry.css">
+<style>
+.hui-button.J-submit-but{background: #999;color:#fff;}
+#hui-icon-toast{width:5rem;padding: 0.6rem 0.4rem;border-radius: 0.3rem;}
+#hui-icon-toast .hui-icons {font-size: 2rem;height: 2rem;line-height: 2rem;}
+#hui-icon-toast .hui-text-center {font-size: 0.8rem;line-height:1.6em;}
+</style>
+</head>
+<body>
+</body>
+<script type="text/javascript" src="/common/lib/jquery.min.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui-form.js"></script>
+<script type="text/javascript" src="/common/js/common.js"></script>
+<script type="text/javascript" src="../static/js/common.js" ></script>
+<script type="text/javascript" src="/common/js/token.js"></script>
+<script type="text/javascript" src="../static/js/login.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var code = getQueryString("code");
+        if(code != null && code != "") {
+            var isSuccess = weChatLogin(code);
+            if (isSuccess) {
+                var bindMsg = bindRelation();
+                if (bindMsg != null && bindMsg != "") {
+                    hui.alert(bindMsg, "确定", function () {
+                        loginRefreshToken();
+                    });
+                    return;
+                }
+                hui.iconToast('登录成功!');
+                loginSuccess();
+            }
+        }
+    });
+</script>
+</html>

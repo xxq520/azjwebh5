@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi">
+	<title>620大促  热销爆款</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="/localQuickPurchase/distributionApp/lib/Hui/css/hui.css">
+	<style type="text/css">
+		body{padding-top:44px;}
+		#hui-back-n{width: 38px;
+		    height: 44px;
+		    font-family: "hui-font";
+		    line-height: 44px;
+		    text-align: center;
+		    position: absolute;
+		    z-index: 20;
+		    left: 0px;
+		    top: 0px;
+  		      color: #212121;
+		    }
+		    #hui-back-n:before {
+		    content: "\e6a5";
+		    font-size: 20px;
+		    color: #A7A7A8;
+		    }
+	</style>
+	
+</head>
+<body>
+<header class="hui-header">
+		<div id="hui-back-n" onclick="goBack(this)"></div>
+		<h1>&nbsp;<!-- 六一特卖专场 --></h1>
+		</header>
+<div class="main">
+	<div class="banner"><img src="images/banner.png"></div>
+	<div class="prod-item" id="item">
+		<div class="prod-til"><img src="images/biaoti.png"></div>
+	</div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/Hui/js/hui.js"></script>
+<script>
+	console.log("活动页面");
+	//引用百度统计
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?57760ed3c8fe28c8a3ac0e142fabdab6";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+
+	})();
+	function jumpGoodsDeteail(str){
+		if(seq ==''|| seq == null){
+			seq = 0;
+		}
+		window.location.href="/localQuickPurchase/distributionVA/goodsDetail/"+str+"/0/"+seq
+	}
+	function goBack(obj){
+		try{
+    		// 调app原生返回  
+    		window.action.app_back();
+    	}catch(e){
+    	}
+    	setTimeout(function(){
+    		hui.back();
+    	}, 200);
+		
+	}
+var pageIndex = 1;	// 初始页码
+var winHeight = document.documentElement.clientHeight//网页可见区域高
+//滚动条在Y轴上的滚动距离
+
+function getScrollTop(){
+　　var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+　　if(document.body){
+　　　　bodyScrollTop = document.body.scrollTop;
+　　}
+　　if(document.documentElement){
+　　　　documentScrollTop = document.documentElement.scrollTop;
+　　}
+　　scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+　　return scrollTop;
+}
+// 底部加载
+function getScrollHeight(){
+　　var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+　　if(document.body){
+　　　　bodyScrollHeight = document.body.scrollHeight;
+　　}
+　　if(document.documentElement){
+　　　　documentScrollHeight = document.documentElement.scrollHeight;
+　　}
+　　scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+　　return scrollHeight;
+}
+ 
+//浏览器视口的高度
+ 
+function getWindowHeight(){
+　　var windowHeight = 0;
+　　if(document.compatMode == "CSS1Compat"){
+　　　　windowHeight = document.documentElement.clientHeight;
+　　}else{
+　　　　windowHeight = document.body.clientHeight;
+　　}
+　　return windowHeight;
+}
+
+$(window).on('scroll',addhtml);
+function addhtml(){
+	//var bodyHeight = document.body.offsetHeight;//(包括边线的宽) 
+	//var  wscreenTop =  window.screenTop;//网页正文部分上
+	//var slltop = document.body.scrollTop;//网页被卷去的高
+	//console.log(window.scrollHeight - window.scrollTop === window.clientHeight);
+	//console.log(window.scrollHeight - window.scrollTop);
+	//console.log(window.clientHeight);
+	if(getScrollTop() + getWindowHeight() == getScrollHeight()){
+	　　　console.log("已经到最底部了！!");
+		pageIndex++
+		console.log(pageIndex)
+		product(pageIndex);
+	　}
+	/* if(bodyHeight - slltop == winHeight){
+		pageIndex++
+		console.log(pageIndex)
+		product(pageIndex);
+	} */
+};
+
+function product(page){
+	$.ajax({
+		url: '/localQuickPurchase/selectionGoods/SelectionGoodsCom',
+		type: 'POST',
+		data: '{"columnName": "620","pageIndex":'+page+',"pageSize":7}',
+		contentType:'application/json;charset=UTF-8',
+		success:function(data){
+			var com = data.data.list;
+			if(com == undefined){
+				$(window).off('scroll',addhtml); // 无产品后不删除加载事件
+				return false;
+			};
+			for(var i=0;i<com.length;i++){
+				(function(i){
+					var listelem = document.createElement('div');
+					listelem.className = 'prod-list';
+					listelem.innerHTML = '<img src="images/list.png" class="listbg">'+
+						'<div class="prod-box">'+
+							'<div class="prod-reb">'+
+								'<div class="prod-img '+( i%2==0?'left':'right' )+'"></div>'+
+								'<div class="prod-text '+( i%2==0?'right':'left' )+'">'+
+									'<p class="pt-name">'+com[i].goodsName+'</p>'+
+									'<p class="pt-money">'+
+										'<span class="stj"><i>¥</i>'+com[i].goodsProStandard[0].distributionPrice
++'</span>'+
+										'<span class="scj">¥'+com[i].goodsProStandard[0].goodsPrice+'</span>'+
+									'</p>'+
+									'<!--<p class="pt-make">赚：¥22</p>-->'+
+									'<a href="javascript:viod(0);" onclick="jumpGoodsDeteail(\''+com[i].goodsId+'\')" class="pt-btn">立即购买</a>'+
+								'</div>'+
+							'</div>'+
+						'</div>';
+					document.getElementById('item').appendChild(listelem);
+					// 图片预加载
+					var img = new Image();
+					img.onload = function(){
+						$(listelem).find('.prod-img').get([0]).appendChild(this);
+					};
+					img.src = com[i].thumbnail;
+
+				})(i)
+			};
+		}
+	})
+};
+product(pageIndex);	// 获取第一页数据
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.loginBox {margin-top: 4rem;padding:.4rem;width:100%;}
+.loginBox .login-item {width:100%;}
+.loginBox .login-item input {width:100%;padding-left:.2rem;border-bottom: 1px solid #ea8082;line-height: 1.8rem;margin-bottom: .6rem;background: #fff;outline: none;font-size: .8rem;display: inline-block;}
+.loginBox .forgetPsw {float:right;}
+.loginBox a {font-size: .8rem;color:#4c4c4c;}
+a.loginBtn {width:90%;height: 2rem;line-height:2rem;padding:0 .4rem;margin:2rem auto 0;font-size:.8rem;color:#fff;text-align:center;display:block;background: url(../images/loginBtn-bg.png);background-size:100% 100%;}
+.registBox {width:100%;padding:.4rem;margin-top: 2.5rem;}
+.registBox .regist-item {width:100%;height:2rem;margin:.4rem 0;border-radius: .1rem;overflow: hidden;text-align: center;position: relative;}
+.registBox .regist-item .regist-input {height:100%;line-height: 2rem;background: #fff;padding-left: .4rem;outline: none;border-radius: .1rem;position: absolute;left:0;top:0;}
+.registBox .regist-item .getCode {width:36%;background: #fc797b;height:2rem;line-height:2rem;padding:0 2%;border-radius: .1rem;font-size: .8rem;color:#fff;position: absolute;right:0;top:0;}
+.left {float:left;}
+.w100 {width:100%;}
+.w60 {width:60%;}
+.registBox .regist-item .registRule {padding-left: 1rem;position: relative;}
+.registBox .regist-item .registRule i {width:.8rem;height:.8rem;position:absolute;display:inline-block;top:0rem;left:0.2rem;background: url(../images/ruleCheck.png);background-size:100% 100%;}
+.registBox .regist-item .registRule i.checked {background: url(../images/ruleChecked.png);background-size:100% 100%;}
+.registBox .regist-item .registRule a {padding-left:.2rem;font-size: .75rem;color:#666;}
+.registBtn input {width:90%;height: 2rem;line-height:2rem;padding:0 .4rem;margin:1.5rem auto 0;font-size:.8rem;color:#fff;text-align:center;display:block;background: url(../images/loginBtn-bg.png);background-size:100% 100%;}
+.registMsg {margin-top: .6rem;}
+.registMsg span {font-size: .75rem;color:#212121;}
+.registMsg a {font-size: .8rem;color:#e4393c;padding-left: .4rem;}
+.resultTip {width:10rem;height:2.4rem;line-height: 2.4rem;border-radius: .5rem;background:rgba(0,0,0,0.7);position: fixed;bottom: 2rem;left:50%;margin-left:-5rem;font-size:.8rem;color:#fff;text-align:center;display: none;}
+.error {height:.8rem;line-height:.8rem;color:#e4393c;display: inline-block;position: absolute;right:0rem;top:.6rem;padding-right:.6rem;font-size: .6rem;}

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name = "format-detection" content = "telephone=no">
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/memberCenter/index.css">
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/lib/Hui/css/hui.css"/>
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/memberCenter/style.css">
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/store.css"/>
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/order.css"/>
+    <script type="text/javascript" src="/common/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/common/lib/Hui/js/hui.js" ></script>
+    <script type="text/javascript" src="/common/js/common.js"></script>
+    <!--  <link rel="stylesheet" href="/localQuickPurchase/distributionApp/lib/mescroll/css/mescroll.min.css">
+      <link rel="stylesheet" href="/localQuickPurchase/distributionApp/lib/mescroll/css/swiper-3.3.1.min.css">-->
+    <title>会员中心</title>
+</head>
+<style>
+    /* 复制提示 */
+    .copy-tips{
+        position:fixed;z-index:999;top:30%;left:50%;margin:0 0 -20px -80px;
+        background-color:rgba(0, 0, 0, 0.2);filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr=#30000000, endColorstr=#30000000);padding:6px;}
+    .copy-tips-wrap{padding:10px 20px;text-align:center;border:1px solid #F4D9A6;
+        background-color:#FFFDEE;font-size:14px;
+    }
+
+    .share-block {
+        position: fixed;
+        width: 100%;
+        height: 10rem;
+        bottom: 0;
+        z-index: 1000;
+        background: white;
+        display: none;
+    }
+    .share-block .share-p {
+        width: 70%;
+        margin: auto;
+        font-size: 0.65rem;
+        margin-top: 0.98rem;
+    }
+
+    #share-vip div{
+        width:25%;
+        margin:0;
+        margin-top:1rem;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+    .soshm-item .soshm-item-text {
+        display: block;
+        font-size: 14px;
+        color: #212121;
+        font-size: 0.512rem;
+        margin-top: 4px;
+    }
+    #share-vip .soshm-item-icon{
+        height:calc((42/45)*2rem);
+        width:calc((42/45)*2rem);
+    }
+    #share-vip img{
+        height:calc((42/45)*2rem);
+        width:calc((42/45)*2rem);
+    }
+    .share-block ul {
+        height: auto;
+    }
+
+    .share-block{
+        width: 100%;
+        height: 10rem;
+        bottom: 0;
+        z-index: 1000;
+        background: white;
+        display: none;
+    }
+    .share-block .share-p{
+        width: 70%;
+        margin: auto;
+        font-size: 0.65rem;
+        margin-top: 0.98rem;
+    }
+    /* .share-block ul{
+        height: 4.2rem;
+    } */
+    .share-block ul li{
+        width: 25%;
+        float: left;
+        text-align: center;
+        font-size: 0.512rem;
+        margin-top: 1rem;
+    }
+    .share-block ul li img{
+        width: 50px;
+    }
+    .nodata{
+        text-align:center;
+        color:#666;
+    }
+    .noting{
+        display:none
+    }
+    /*底部导航栏的样式*/
+    #hui-footer {
+        height: 50px!important;
+    }
+</style>
+
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-top">
+            <img src="/localQuickPurchase/distributionApp/images/store/memberCenter/msg.png" class="msg personal_icon_message">
+        </div>
+        <div class="userInfo">
+            <div class="avatar">
+                <img id="userHeadImg" src="/localQuickPurchase/distributionApp/images/_logo.png">
+            </div>
+            <span class="staffManagement fs22 drpmanage">员工管理</span>
+            <span class="user">
+                    <p class="username fs36 wclor fw700" ></p>
+                    <span class="status fs24 wclor roleName"></span>
+                </span>
+            <div class="progressbox">
+                <p class="progressTitle fs20"><span id="upgradeMsg"><span style="color:#FF9208" id="upgName"></span><span id="upgMsg"></span></span></p>
+                <p class="progress"></p>
+                <img src="/localQuickPurchase/distributionApp/images/store/memberCenter/up.png"/>
+            </div>
+            <p class="hasRight fs22">尊敬的VIP您拥有以下特权</p>
+            <img id="mcEwn" src="/localQuickPurchase/distributionApp/images/store/memberCenter/ewm.png" class="ewm-btn">
+            <img src="/localQuickPurchase/distributionApp/images/store/memberCenter/bg2.png" class="bg2"/>
+        </div>
+    </div>
+    <div class="main">
+        <div class="myRight">
+            <ul class="right-list">
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_bso.png"/></div>
+                    <span class="right-title fs24">正品保证</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_yyj.png"/></div>
+                    <span class="right-title fs24">自营包邮</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_sendout.png"/></div>
+                    <span class="right-title fs24">闪电发货</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_returns.png"/></div>
+                    <span class="right-title fs24">七天换货</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_coupon.png"/></div>
+                    <span class="right-title fs24">超值礼券</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_save.png"/></div>
+                    <span class="right-title fs24">自购省钱</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_rebate.png"/></div>
+                    <span class="right-title fs24">分享返佣</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_below.png"/></div>
+                    <span class="right-title fs24">发展线下</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_kac.png"/></div>
+                    <span class="right-title fs24">生日礼包</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_nameplate.png"/></div>
+                    <span class="right-title fs24">专属铭牌</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_refund.png"/></div>
+                    <span class="right-title fs24">急速退款</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_exclusive.png"/></div>
+                    <span class="right-title fs24">专享特价</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_push.png"/></div>
+                    <span class="right-title fs24">双重提成</span>
+                </li>
+                <li class="right-item">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_ddn.png"/></div>
+                    <span class="right-title fs24">贵宾专线</span>
+                </li>
+                <li class="right-item" id="upgradeIncome">
+                    <div class="right-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/icon_hyzx_commission.png"/></div>
+                    <span class="right-title fs24">加盟佣金</span>
+                </li>
+                <li class="mask">
+                    <img class="maskimg" src="/localQuickPurchase/distributionApp/images/store/memberCenter/mask1.png"/>
+                    <div>
+                        <p><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/up2.png"></p>
+                        <p>升级成为尊享经销商</p>
+                        <p>享受更多特权</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="item1 item fs24">
+                <p>520爱之家商品由中国联合保险承保正品保证险，品质保证，100%正品，假一赔十<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao.png"/></p>
+                <p>520爱之家平台自营商品除偏远地区外，邮费全包。<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao.png"/></p>
+                <p>客户支付成功后，平台会在48时之内安排发货。<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao.png"/></p>
+                <p>从520爱之家购买的商品自签收之日起（按照签收后的第二天开始计算时间），在保证商品完好的情况下7天内可享受无理由退换货（秒杀/活动商品或特殊属性的商品除外）<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao.png"/></p>
+                <p>新人注册520爱之家APP会获得超值优惠券大礼包一份。<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao.png"/></p>
+            </div>
+            <div class="item2 item fs24">
+                <p>爱之家平台的代理商和经销商在平台自己购买商品会比普通用户优惠很多，即刻享受超值优惠<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao.png"/></p>
+                <p>您只需要把爱之家平台商品分享给你的下属好友，好友购买他喜爱的商品即可获得最高45%的返佣。<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao.png"/></p>
+                <p>您只需要把爱之家APP的二维码分享给你的好友，您的好友通过扫二维码注册即可成为你的下属。<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao.png"/></p>
+                <p>爱之家的用户在生日当天可以获得一份超值生日优惠券<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao.png"/></p>
+                <p>客户申请售后通过后，平台会在5个工作日内将款项退回到客户原账户<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao.png"/></p>
+            </div>
+            <div class="item3 item fs24">
+                <p>爱之家APP上不同身份的角色有自己专属的铭牌展示<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao2.png"/></p>
+                <p>爱之家平台的代理商和经销商购买平台商品可以享受超值特价，优惠多多<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao2.png"/></p>
+                <p>经销商招募的VIP会员购买爱之家平台商品即可获得双重收益，最高返佣45%。<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao2.png"/></p>
+                <p>520爱之家平台自营商品除偏远地区外，邮费全包<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao2.png"/></p>
+                <!-- <p>专属一对一的小爱MM服务，为客户营造尊贵的人性化专线体验。<img src="/localQuickPurchase/distributionApp/images/store/memberCenter/sanjiao2.png"/></p> -->
+            </div>
+        </div>
+        <div class="share shareButton">
+            <img src="/localQuickPurchase/distributionApp/images/store/memberCenter/share.png">
+        </div>
+        <div class="VIPArea mgTop">
+            <p class="title"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/VIP.png"/><span class="fs30">会员专享</span><span class="line line1"></span><span class="line line2"></span></p>
+            <!--<div id="mescroll" class="mescroll">-->
+            <div class="brandHotSaleGoods">
+                <ul class="pro-list" id="refreshContainer">
+                    <li class="board">
+                        <img src="/localQuickPurchase/distributionApp/images/store/memberCenter/board.png"/>
+                    </li>
+                    <!--<li class="pro-item">
+                        <div class="pro-img"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/2.png"/></div>
+                        <p class="pro-title limit2 fs24">猪猪猪组合组合租住整租合租和租住整租合租猪猪猪组合组织组合组合组合中猪猪好组装组和组织组合组合组组长组合组织组</p>
+                        <!-- <p class="follow fs18">999人关注</p>
+                        <p class="priceBox">
+                            <span class="price">
+                                <span class="newPrice fs28 rclor">￥299</span>
+                                <span class="oldPrice fs22 c99">￥428</span>
+                            </span>
+                            <span class="goBuy fs22 wclor">立即抢购</span>
+                        </p>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="nodata fs28 noting" style="text-align: center;color: #666;display:none;overflow: inherit; " id="noting">~没有更多了~</div>
+    </div>
+</div>
+<div class="share-mask" style="display: none;">
+    <div class="share-box">
+        <ul class="">
+            <!--<li class="share-title fs32 fw700">邀请有礼</li>-->
+            <li class="share-title"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/title.png"/></li>
+            <li class="share-item shareInvite" shareState=1 qrcode=1 chooseType=0 msgType=1 >
+                <div class="pic"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/share.png"/></div>
+                <div class="share-text">
+                    <p class="fs28 fw700">分享商城给好友</p>
+                    <p class="fs24">将商城链接分享给好友，注册后成为您的下级VIP会员，好友购物您将获得额外收入</p>
+                </div>
+            </li>
+            <li class="share-item shareInvite" shareState=9 msgType=2 qrcode=9 id="dis_invite" chooseType=1>
+                <div class="pic"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/daili.png"/></div>
+                <div class="share-text">
+                    <p class="fs28 fw700">邀请代理商</p>
+                    <p class="fs24">分享此链接给好友，您的好友在平台上注册后购买任意商品，即可成为您的下级代理商</p>
+                </div>
+            </li>
+            <li class="share-item shareInvite" shareState=8 qrcode=8 msgType=3  chooseType=0 id="agent_invite">
+                <div class="pic"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/gonghuo.png"/></div>
+                <div class="share-text">
+                    <p class="fs28 fw700">邀请供货商</p>
+                    <p class="fs24">您的好友通过此链接成功成为本商城的供货商，您将获得188~998元推荐奖金</p>
+                </div>
+            </li>
+            <li class="share-item" id="enterprise" >
+                <div class="pic"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/qiye.png"/></div>
+                <div class="share-text">
+                    <p class="fs28 fw700">邀请企业级经销商</p>
+                    <p class="fs24">分享此链接给好友，帮助好友零成本零风险零投入的成为本商城的企业级代理商</p>
+                </div>
+            </li>
+            <li class="share-item shareInvite" shareState=10 msgType=5 qrcode=10 id="wholesaler" chooseType=0 >
+                <div class="pic"><img src="/localQuickPurchase/distributionApp/images/store/memberCenter/wholesale.png"/></div>
+                <div class="share-text">
+                    <p class="fs28 fw700">邀请成为批发商</p>
+                    <p class="fs24">邀请好友成为520批发网的批发商，更健全的批销网络帮助好友不再为销售额发愁</p>
+                </div>
+            </li>
+            <!--<li class="share-item">
+                <div class="pic"></div>
+                <div class="share-text">
+                    <p class="fs28 fw700">现场招募代理商</p>
+                    <p class="fs24">设置现场招商商品，邀请好友扫码购物，即可现场招募下级代理商</p>
+                </div>
+            </li>-->
+        </ul>
+        <span class="close"><span class="fs24 wclor">关闭</span></span>
+    </div>
+</div>
+
+<div class="share-block" id="share-block1">
+    <p class="share-p" id="vip_context"></p>
+    <p class="share-p" id="recruit_context"></p>
+
+    <ul class="share-content" id="share-vip">
+    </ul>
+
+
+    <ul style="overflow:hidden;">
+        <li class="shopCode" value="0">
+            <img src="/localQuickPurchase/distributionApp/images/share_icon_4.png" />
+            <p>二维码</p>
+        </li>
+        <li class="copylink">
+            <img src="/localQuickPurchase/distributionApp/images/share_icon_5.png" />
+            <p>二维码复制</p>
+        </li>
+
+    </ul>
+    <!--<div class="hui-text-center" id="closeShare" style="padding:0 0 1rem"><img src="/localQuickPurchase/distributionApp/images/classfiyImg2.png" width="20"> </div>-->
+</div>
+<div id="footer">
+    <script type="text/javascript" src="/common/js/footer.js"></script>
+</div>
+</div>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/brandSquare/js/dropload.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/brandSquare/js/TouchSlide.1.1.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/brandSquare/js/mDialogMin.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/soshm.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/clipboard.min.js"></script>
+<script src="/localQuickPurchase/distributionApp/js/store/memberCenter.js"></script>
+<script type="text/javascript">
+    /*加载会员中心时修改下方菜单栏为选中样式*/
+    $("#nav-shop").find("img").attr("src","/localQuickPurchase/distributionApp/images/shop_01.png");
+    $("#nav-shop .hui-footer-text").css("color","#e43a3d");
+
+</script>
+</body>
+</html>

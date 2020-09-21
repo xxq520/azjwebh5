@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百业惠盟-消费券</title>
+    <link rel="stylesheet" href="/localQuickPurchase/activity/css/spike.css">
+    <link rel="stylesheet" href="/localQuickPurchase/activity/css/hui.css">
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/css/style.css">
+    <script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <style>
+        .share-content {
+            margin-top: 1rem;
+        }
+
+        .share-content .soshm-item {
+            margin: 0;
+            width: 25%;
+        }
+
+        .soshm-item .soshm-item-text {
+            display: block;
+            font-size: 14px;
+            color: #212121;
+            font-size: 0.512rem;
+            margin-top: 4px;
+        }
+
+        .share-block ul {
+            height: auto;
+        }
+        .share-block .share-content .soshm-item .soshm-item-icon {
+            width: 40%;
+            height: auto;
+            margin-top: 2px;
+        }
+        .soshm-item-icon img {
+            height: auto !important;
+        }
+        .mask {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 23;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            display: none;
+        }
+        .ewmcode {
+            position: fixed;
+            margin-top: 80px;
+            text-align: center;
+            top: 1rem;
+            left: 0;
+            right: 0;
+            width: 80%;
+            margin: 0 auto;
+            z-index: 15;
+            width: 73%;
+            text-align: center;
+        }
+
+        .share-block {
+            position: fixed;
+            z-index: 22;
+        }
+        .share-block ul li img {
+            width: 50%;
+            display: initial!important;
+        }
+        .share-block .bringIn {
+            font-size: 1rem;
+            color: #e4393c;
+            margin: .75rem 0;
+        }
+        .share-block .explain {
+            font-size: .5rem;
+            padding: 0 2rem;
+        }
+        /* 复制提示 */
+        .copy-tips {
+            position: fixed;
+            z-index: 999;
+            top: 30%;
+            left: 50%;
+            margin: 0 0 -20px -80px;
+            background-color: rgba(0, 0, 0, 0.2);
+            filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#30000000,
+            endColorstr=#30000000);
+            padding: 6px;
+        }
+
+        .copy-tips-wrap {
+            padding: 10px 20px;
+            text-align: center;
+            border: 1px solid #F4D9A6;
+            background-color: #FFFDEE;
+            font-size: 14px;
+        }
+        .spike_wrap .countdown{
+            z-index: 11;
+        }
+        .spike_wrap .header{
+            background: #fff;
+            position: fixed;
+            height:2rem;
+            top: 0;
+            z-index: 13;
+        }
+        .swiper-container{
+            margin-top: 2rem;
+        }
+        .plNavbar {
+            width: 40rem;
+            height: 1.6rem;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            font-size: .6222rem;
+            color: #888888;
+            line-height: 1.6rem;
+            text-align: center;
+        }
+        .plNavbar .active {
+            color: #ff8f00;
+            border-bottom: .0889rem solid #ff8f00;
+        }
+        .spike_wrap .header span{ color: #333;font-size:  0.76rem;}
+        .statementBox {width:100%;height:2.5rem;position: fixed;bottom: 0;left:0;background:#e6e6e6;padding-left:.4rem;}
+        .contentImg{
+            padding-bottom: 3rem;
+        }
+        .statementBox .statement {height: 100%;font-size: .8rem;}
+        .statementBox .statement .statement-price {padding-right: .5rem;}
+        .statementBox .statement .statement-price i {padding-left: .3rem;color:#e4393c;}
+        .statementBox .statement .statement-price em {color:#e4393c;font-size: 1rem;}
+        .statementBox .statement .statement-discount {font-size: .6rem;color:#666;}
+        .statementBox .statement .statement-discount i {color:#666;}
+        .statementBox .statementBtn {height:1.2rem;position: absolute;bottom: 0.65rem;right:0.5rem;background:#ff8f00;border-radius: 1rem}
+        .statementBox .statementBtn .submitBtn {line-height:1.2rem;padding:0 1rem;display:block;color:#fff;overflow: hidden;letter-spacing: .1rem;font-size: 0.8rem;}
+        .poster {position: fixed;left: 0;right: 0;bottom: 12%;width: 20%;margin: 0 auto;border-radius: 1rem;background: rgba(0,0,0,0.3);
+            color: #d4d8d6;height: 1.5rem;line-height: 1.5rem;font-size: 0.6rem;z-index: 10;}
+    </style>
+</head>
+<body>
+<div class="spike_wrap">
+    <div class="header" id="explosiveHeader">
+        <a class="backBtn hui-back" onclick="goBack(this)">
+            <img src="./images/520/back_black.png" alt="">
+        </a>
+        <span>购买消费券</span>
+        <a class="shareBtn" style="visibility: hidden;">
+            <img src="./images/520/share_black.png" alt="">
+        </a>
+    </div>
+    <div class="swiper-container" style="display: block">
+        <div class="plNavbar swiper-wrapper">
+            <!--<div class="nav_Li swiper-slide active" type="1" onclick="selectItem(this)">300元消费券</div>
+            <div class="nav_Li swiper-slide"  type="2" onclick="selectItem(this)">1200元消费券</div>-->
+        </div>
+    </div>
+    <div class="contentImg">
+       <!--<div class="img1">-->
+            <!--<img src="./images/baiye/bg_001.png">-->
+        <!--</div>-->
+        <!--<div class="img2" style="display: none">-->
+            <!--<img src="./images/baiye/bg_004.png">-->
+        <!--</div>-->
+    </div>
+    <div class="statementBox" style="background: #fff;">
+        <div class="statement">
+            <div class="statement-price">合计:<i>¥</i><em class="orPrice"></em></div>
+            <div class="statement-discount" style=""></div>
+        </div>
+        <div class="statementBtn" onclick="toPay(this)">
+            <p class="submitBtn">去支付</p>
+        </div>
+    </div>
+    <div class="poster makePosters" style="display: none;text-align:center;" onclick="makePosters(this)">保存海报</div>
+</div>
+<!-- 二维码 -->
+<div class="mask">
+    <div class="ewmcode" value="0">
+        <img src="" />
+    </div>
+</div>
+<!--分享弹窗-->
+<div class="share-block hui-text-center dis_share" style="height: auto">
+    <div class="bringIn">分享商品</div>
+    <p class="explain">只要你的好友通过你的链接买此商品，你就能得到此商品的利润哦~</p>
+    <ul class="share-content">
+
+    </ul>
+    <ul class="copyCode" style="overflow: hidden;display: none">
+        <li class="copylink"><img
+                src="/localQuickPurchase/distributionApp/images/share_icon_5.png" />
+            <p>二维码链接</p>
+        </li>
+        <li class="shopCode" value="0"><img
+                src="/localQuickPurchase/distributionApp/images/share_icon_4.png" />
+            <p>二维码</p>
+        </li>
+    </ul>
+    <div class="hui-text-center" style="padding: .5rem 0 1rem;"
+         id="closeShare">
+        <img src="/localQuickPurchase/distributionApp/images/classfiyImg2.png" style="width: 5%!important;display: initial" width="20">
+    </div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="/localQuickPurchase/activity/js/jquery.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/swiper/swiper.js" ></script>
+<script type="text/javascript" src="/localQuickPurchase/distribution/js/zclip/clipboard.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/soshm.js"></script>
+<script type="text/javascript" src="/common/js/tag.js"></script>
+<script type="text/javascript" src="/common/js/common.js?v=5"></script>
+<script type="text/javascript" src="/localQuickPurchase/distribution/js/toolUtils.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/activity/js/hui.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/lib/brandSquare/js/dropload.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/activity/js/baiye.js?v=5"></script>
+
+<script>
+
+    /**
+     * 返回上一步操作
+     */
+    function goBack(obj){
+        setTimeout(function(){
+            goHisBack();
+            setCookie("referrer", document.referrer, -1);
+        }, 200);
+    }
+</script>

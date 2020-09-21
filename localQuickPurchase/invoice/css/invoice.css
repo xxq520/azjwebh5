@@ -1,0 +1,216 @@
+
+/* 发票页面开始 */
+.invoice-wrap {
+	width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+
+
+.invoice-wrap .header{
+	position: fixed;
+	top: 0;
+	left: 0;
+    z-index: 3;
+    /* position: relative; */
+	background: #fff;
+	height: 1.9556rem;
+	line-height: 1.9556rem;
+	font-size: .7556rem;
+	color: #212121;
+	width: 100%;
+    text-align: center;
+}
+
+
+.invoice-wrap .header .backBtn{
+    display: inline-block;
+	width: 0.48rem;
+    height: 0.48rem;
+    border-top: 2px solid #212121;
+    border-left: 2px solid #212121;
+    transform: rotate(-45deg);
+    position: absolute;
+    left: 0.7rem;
+    top: 0.7rem;
+
+}
+
+/* 内容 */
+.invoice-wrap .content{
+    margin-top: 1.9556rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: .3111rem .5333rem;
+}
+/* 发票类型选择导航 */
+.invoice-wrap .content .nav{
+    width: 100%;
+    box-sizing: content-box;
+    background-color: #f8f8f8;
+    border-radius: .4444rem;
+    padding: .6667rem 0;
+}
+.invoice-wrap .content .nav h2 {
+    width: 100%;
+    font-size: .6667rem;
+    color: #212121;
+    padding-left: .5111rem;
+    box-sizing: border-box;
+    font-weight: normal;
+}
+
+.invoice-wrap .content .nav ul {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    padding: .6667rem 1.1111rem 0;
+    justify-content: space-between;
+}
+.invoice-wrap .content .nav ul li {
+    height: 1.2rem;
+    line-height: 1.2rem;
+    padding: 0 .8222rem;
+    border: .0222rem solid #999999;
+    color: #999999;
+    font-size: .6222rem;
+    border-radius: .6rem;
+
+}
+/* 选中当前发票类型样式*/
+.invoice-wrap .content .nav ul li.active{
+    color: #e4393c;
+    border: 1px solid #e4393c;
+}
+
+/* 发票内容*/
+.invoice-wrap .content .invoice-type{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.invoice-wrap .content .invoice-type .type-li{
+    display: none;
+}
+.invoice-wrap .content .invoice-type div.current{
+    display: block;
+}
+
+/* 普通发票个人 单位按钮选择 */
+.invoice-wrap .content .invoice-type .type-li .radio{
+    display: flex;
+    justify-content: flex-end;
+    font-size: .6222rem;
+    width: 78%;
+}
+.invoice-wrap .content .invoice-type .type-li .radio span{
+    display: flex;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+
+}
+
+.invoice-wrap .content .invoice-type .type-li .radio span:first-child{
+    margin-right: .9333rem;
+}
+.invoice-wrap .content .invoice-type .type-li .radio span i{
+    width: .6222rem;
+    height: .6222rem;
+    border: 1px solid #999999;
+    border-radius: 50%;
+    margin-right: .2222rem;
+    box-sizing: border-box;
+ 
+
+    
+}
+.invoice-wrap .content .invoice-type .type-li .radio span i.act{
+    background: url('../images/icon_7.png') no-repeat;
+    background-size: 110%;
+    background-position: center;
+    /* border: 1px solid #e4393c; */
+    border: none;
+    width: .6222rem;
+    height: .6222rem;
+    border-radius: 50%;
+}
+
+/* 普通发票 个人与单位 */
+.invoice-wrap .content .invoice-type .type-li .info{
+    display: none;
+}
+
+.invoice-wrap .content .invoice-type .type-li .curr {
+    display: block;
+}
+
+/* 内容 有背景色*/
+.invoice-wrap .content .invoice-type .type-li .infoBgc {
+    width: 100%;
+    background-color: #f8f8f8;
+    border-radius: .4444rem;
+}
+.invoice-wrap .content .invoice-type .type-li .infoBgc .hui-input  {
+    background-color: #f8f8f8;
+}
+.invoice-wrap .content .invoice-type .type-li .hui-form-items {
+    justify-content: space-between;
+}
+.invoice-wrap .content .invoice-type .type-li .hui-input{
+    text-align: right;
+    width: 65%;
+    
+}
+.invoice-wrap .content .invoice-type .type-li .hui-form-items-title{
+    width: 45%;
+}
+/* input获取焦点改变样式 */
+.invoice-wrap .content .invoice-type .type-li  .hui-input[type="text"]:focus,
+.invoice-wrap .content .invoice-type .type-li  .hui-input[type="number"]:focus ,
+.invoice-wrap .content .invoice-type .type-li  .hui-input[type="tel"]:focus{
+    border-radius: .5556rem;
+    background-color: #fff;
+    color: #888888;
+    padding: 0 .4444rem;
+    line-height: 1.1111rem;
+    font-size: .5778rem;
+}
+
+/* 地址 */
+.invoice-wrap .content .invoice-type .type-li .address{
+    margin-top: .6667rem;
+}
+/* 按钮 确定取消 */
+.invoice-wrap .content .invoice-type .type-li .btn{
+   padding: 2.6667rem .5333rem 1.6667rem;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+}
+
+.invoice-wrap .content .invoice-type .type-li .btn button{
+    width: 50%;
+    box-sizing: border-box;
+    height: 1.7778rem;
+    line-height: 1.7778rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.invoice-wrap .content .invoice-type .type-li .btn .submit{
+    border-radius: .8889rem 0 0 .8889rem;
+    border: 1px solid #e4393c;
+    color: #e4393c;  
+}
+
+.invoice-wrap .content .invoice-type .type-li .btn .cancel{
+    border-radius: 0 .8889rem .8889rem 0;
+    background-color: #e4393c;
+    color: #fff;
+}
+
+
+

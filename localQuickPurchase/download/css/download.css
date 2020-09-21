@@ -1,0 +1,70 @@
+/* 顶部header */
+body {
+    background: #fff;
+}
+.download .hui-header{
+    background: #fff;
+}
+.download .hui-header h1{
+    color: #212121;
+    padding: 0px 0px 0px 0px;
+}
+.download .hui-header #hui-black-close:before,
+#hui-header-menu:before {
+    color: #212121;
+}
+.download #hui-black-close::before{
+    font-size: 18px;
+    font-weight: 600;
+}
+/* 内容区域 */
+.wrap{
+    margin-top: 2rem /* 90/45 */;
+}
+.wrap .headIcon{
+    margin-top: 1.7778rem /* 80/45 */;
+    padding: 0 1.6667rem /* 75/45 */;
+}
+.wrap .text{
+    font-size: .7111rem /* 32/45 */;
+    color: #333333;
+    text-align: justify;
+    padding: 0 .8889rem /* 40/45 */;
+    margin-top: .8889rem /* 40/45 */;
+    margin-bottom: 1.1111rem /* 50/45 */;
+}
+.wrap .bottom{
+    padding: 0 .8889rem /* 40/45 */;
+    background-image: url('../images/hbj@2x.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 4.7778rem /* 215/45 */;
+    padding-bottom: 2rem /* 90/45 */;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.wrap .bottom .btn{
+    width: 6.5556rem /* 295/45 */;
+    height: 1.4444rem /* 65/45 */;
+    line-height: 1.4444rem /* 65/45 */;
+    font-size: .6222rem /* 28/45 */;
+    color: #d4182b;
+    text-align: center;
+    padding-right: 15px;
+}
+.wrap .bottom .iphone{
+    background-image: url('../images/pgxz@2x.png');
+    background-size: cover;
+    margin-bottom: 1.1111rem /* 50/45 */;
+    letter-spacing: .0444rem /* 2/45 */;
+}
+.wrap .bottom .android{
+    background-image: url('../images/azxz@2x.png');
+    background-size: cover;
+    letter-spacing: .0444rem /* 2/45 */;
+}
+.wrap .bottom .btn a{
+	display:block;
+	color:#d4182b;
+}

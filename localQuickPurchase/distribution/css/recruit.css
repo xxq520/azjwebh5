@@ -1,0 +1,88 @@
+.global-layout{max-width:640px;min-width:320px;margin:0 auto;}
+.interval-border-b{border-bottom:.5rem solid #dcdcdc;}
+.mui-toast-container{z-index:999999;top:45%;bottom:0;}
+/*涓嬫媺鍔犺浇鏇村*/
+.mui-pull-bottom-pocket, .mui-pull-top-pocket{margin-top:.25rem;}
+.mui-pull-caption{font-size:.55rem;color:#666;font-weight:normal;}
+/*椤堕儴*/
+.headnav{position:relative;background:#e4393c;height:2rem;}
+.headnav .get-back{position:absolute;left:0;top:50%;transform:translate(0,-50%);-ms-transform:(0,-50%);-moz-transform:(0,-50%);-webkit-transform:(0,-50%);-o-transform:(0,-50%);width:.9rem;font-size:1.25rem;color:#fff;width:1.5rem;text-align:center;}
+.headnav .headtitle{line-height:2rem;font-size:.7rem;color:#fff;text-align:center;padding:0 1.5rem;margin:0;}
+/*鎷涘嫙椤甸潰*/
+.sharelayer{position:fixed;width:100%;height:100%;left:50%;top:0;transform:translate(-50%,0);-ms-transform:(-50%,0);-moz-transform:(-50%,0);-webkit-transform:(-50%,0);-o-transform:(-50%,0);min-width:320px;max-width:640px;background:#f9d585 url(../img/sharebg.jpg) no-repeat center 75%;overflow:auto;}
+.sharelayer .share-con{padding:1.5rem .5rem 0;}
+.sharelayer .share-con .tipstxt{text-align:center;font-size:.6rem;color:#f03838;padding:.25rem 0;margin:0;}
+.sharelayer .share-con .ewmcode{width:55%;margin:.25rem auto .5rem;background:#fff;border:.15rem solid #b6b6b6;border-radius:.25rem;padding:2.5%;}
+.sharelayer .share-con .sharebut{text-align:center;overflow:hidden;margin:.5rem 0 .25rem;}
+.sharelayer .share-con .sharebut .but{width:55%;margin:.75rem 22% 0;background:transparent url(../img/butbg.jpg) no-repeat center center;background-size:100% 100%;border:none;font-size:.6rem;color:#fff;height:1.5rem;border-radius:.2rem;}
+.sharelayer .share-con .sharelink{margin:0 3%;background:#fff;border:.15rem solid #fca164;border-radius:.25rem;padding:.25rem .5rem;}
+.sharelayer .share-con .sharelink p{font-size:.55rem;color:#666;word-break:break-all;word-wrap:break-word;line-height:.65rem;margin:0;}
+.sharelayer .share-con .separated-tit{margin:1rem .25rem .75rem;position:relative;}
+.sharelayer .share-con .separated-tit .lineleft{position:absolute;left:0;top:.25rem;width:35%;}
+.sharelayer .share-con .separated-tit .lineright{position:absolute;right:0;top:.25rem;width:35%;}
+.sharelayer .share-con .separated-tit .coarse{display:block;height:.1rem;background:#e4393c;margin:0 0 .15rem;}
+.sharelayer .share-con .separated-tit .fine{display:block;height:1px;background:#e4393c;}
+.sharelayer .share-con .separated-tit .titletxt{text-align:center;font-size:.7rem;color:#e4393c;line-height:.75rem;}
+.sharelayer .share-con .partieslist{padding:0 0 2rem;text-align:center;}
+.sharelayer .share-con .partieslist a{display:inline-block;width:2.5rem;height:2.5rem;margin:0 .65rem;vertical-align:top;}
+
+.sharelayer .share-con .sharelink{margin:0 3%;background:#fff;border:.15rem solid #fca164;border-radius:.25rem;padding:.25rem .5rem;}
+.sharelayer .share-con .sharelink p{font-size:.55rem;color:#666;word-break:break-all;word-wrap:break-word;line-height:.65rem;margin:0;}
+.
+
+/*鎷涘嫙鍒嗛攢鍟�*/
+.recruitbanner{padding:.25rem 0;}
+.recruitbanner img{width:100%;}
+.distributor{box-shadow:0 0 5px #4D4D4D;background:#fff;}/* min-height:10rem; */
+.distributor .distributornav{overflow:hidden;padding:.25rem 0;border-bottom:2px solid #e6e6e6;}
+.distributor .distributornav a{float:left;width:33.33%;line-height:.8rem;text-align:center;border-right:2px solid #e6e6e6;font-size:.6rem;color:#666;}
+.distributor .distributornav a.act{color:#ea5454;}
+.distributor .distributornav a:last-child{border-right:none;}
+/*鎴戠殑鍒嗛攢鍟�*/
+.distributorlist{background:#fff;}
+.distributorlist .listitem{overflow:hidden;padding:.5rem;position:relative;border-bottom:2px solid #e6e6e6;}
+.distributorlist .listitem:last-child{border-bottom:none;}
+.distributorlist .listitem .ltt-img{width:2.5rem;height:2.5rem;border-radius:.2rem;float: left;}
+.distributorlist .listitem .ltt-info{padding:0 0 0 3.5rem;font-size:.6rem;color:#666;position:relative;}
+.distributorlist .listitem .ltt-info .ltti-top{margin:0 0 .25rem;overflow:hidden;padding: 0 4rem 0 0;}
+.distributorlist .listitem .ltt-info .ltti-top .lttit-name{font-size:.7rem;color:#212121;float:left;line-height:.8rem;word-break:break-all;word-wrap: break-word;}
+.distributorlist .listitem .ltt-info .ltti-top .lttit-tel{font-size:.6rem;color:#666;float:left;line-height:.65rem;margin:.15rem 0 0 .25rem;}
+.distributorlist .listitem .ltt-info .ltti-address{font-size:.6rem;color:#666;margin:0;line-height:.8rem;min-height:1rem;margin:.25rem 0;}
+.distributorlist .listitem .ltt-info .ltti-address span{font-size:.6rem;color:#666;float:left;line-height:.8rem;}
+.distributorlist .listitem .ltt-info .ltti-address p{font-size:.6rem;color:#666;padding:0 0 0 2rem;line-height:.8rem;margin:0;}
+.distributorlist .listitem .ltti-but{overflow:hidden}
+.distributorlist .listitem .ltti-but .delbut{float:left;width:40%;font-size:0.55rem;border:1px solid #f84949;color:#e43a3d;padding: .1rem 0;margin:0 5%}
+
+//*寰呭鐞嗙敵璇�*/
+.waitapplylist{background:#fff;}
+.waitapplylist .listitem{padding:.5rem;border-bottom:2px solid #e6e6e6;}
+.waitapplylist .listitem .lt-top{overflow:hidden;margin:0 0 .5rem;position:relative;}
+.waitapplylist .listitem .lt-top .ltt-img{width:2.5rem;height:2.5rem;border-radius:.2rem;float: left;}
+.waitapplylist .listitem .lt-top .ltt-info{padding:0 0 0 3rem;font-size:.6rem;color:#666;}
+.waitapplylist .listitem .lt-top .ltt-info .ltti-top{margin:0 0 .25rem;overflow:hidden;}
+.waitapplylist .listitem .lt-top .ltt-info .ltti-top .lttit-name{font-size:.7rem;color:#212121;float:left;line-height:.8rem;}
+.waitapplylist .listitem .lt-top .ltt-info .ltti-top .lttit-tel{font-size:.6rem;color:#666;float:left;line-height:.65rem;margin:.15rem 0 0 0rem;}
+.waitapplylist .listitem .lt-top .ltt-info .ltti-address{font-size:.6rem;color:#666;margin:0;}
+.waitapplylist .listitem .lt-top .ltt-info .ltti-address span{font-size:.6rem;color:#666;float:left;line-height:.8rem;}
+.waitapplylist .listitem .lt-top .ltt-info .ltti-address p{font-size:.6rem;color:#666;padding:0 0 0 2rem;line-height:.8rem;}
+.waitapplylist .listitem .lt-bottom{padding:0 0 0 3rem;overflow:hidden;}
+.waitapplylist .listitem .lt-bottom .mui-btn{width:40%;margin:0 5%;float:left;border:1px solid #808080;color:#808080;padding:.1rem 0;font-size:.55rem;}
+.waitapplylist .listitem .lt-bottom .mui-btn-danger{border:1px solid #f84949;color:#f84949;}
+/*宸叉嫆缁濈敵璇�*/
+.refuseapplylist{background:#fff;}
+.refuseapplylist .listitem{overflow:hidden;padding:.5rem;position:relative;border-bottom:2px solid #e6e6e6;}
+.refuseapplylist .listitem:last-child{border-bottom:none;}
+.refuseapplylist .listitem .ltt-img{width:2.5rem;height:2.5rem;border-radius:.2rem;float: left;}
+.refuseapplylist .listitem .refuseico{position:absolute;right:.5rem;top:.2rem;width:3rem;}
+.refuseapplylist .listitem .ltt-info{padding:0 0 0 3.5rem;font-size:.6rem;color:#666;margin-top:0.25rem;position:relative;}
+.refuseapplylist .listitem .delbut{font-size:0.55rem;border:1px solid #f84949;color:#e43a3d;position: absolute;top: .5rem;right: 0;padding: .2rem .35rem;}
+.refuseapplylist .listitem .ltt-info .ltti-top{margin:0 0 .25rem;overflow:hidden;padding: 0 2.5rem 0 0;}
+.refuseapplylist .listitem .ltt-info .ltti-top .lttit-name{font-size:.7rem;color:#212121;float:left;line-height:.8rem;word-break: break-all;word-wrap: break-word;}
+.refuseapplylist .listitem .ltt-info .ltti-top .lttit-tel{font-size:.6rem;color:#666;float:left;line-height:.65rem;margin:.15rem 0 0 0rem;}
+.refuseapplylist .listitem .ltt-info .ltti-address{font-size:.6rem;color:#666;margin:0;line-height:.8rem;}
+.refuseapplylist .listitem .ltt-info .ltti-address span{font-size:.6rem;color:#666;float:left;line-height:.8rem;}
+.refuseapplylist .listitem .ltt-info .ltti-address p{font-size:.6rem;color:#666;padding:0 0 0 2rem;line-height:.8rem;}
+/*鎷涘嫙鎸夐挳*/
+.footerinterval{margin:0 0 2.25rem}
+.recruitbut{position:fixed;bottom:0;left:0;width:100%;height:2rem;line-height:2rem;text-align:center;background:#e4393c;font-size:.65rem;color:#fff;}
+.recruitbut .font-ico{font-size:.7rem;color:#fff;margin:0 0 0 .25rem;}

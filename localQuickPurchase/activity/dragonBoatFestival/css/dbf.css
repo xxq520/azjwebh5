@@ -1,0 +1,21 @@
+/*端午节*/
+.share-icon{position: absolute;right: 15px;top:50%;width:20px;height: 22px;background:url(../img/share-icon.png) no-repeat center;background-size: cover;margin-top:-11px;}
+.content{margin-top:44px;padding-bottom: 8rem;position: relative;background:#92ca7f url(../img/dbf_bg_btm.png) no-repeat center bottom;background-size: 100% auto;}
+.bg-top{min-height: 17.5rem;}
+.bg-top img{width: 100%;}
+.good-list{padding:1rem 0.45rem 1.5rem;}
+.good-list .good-item{padding:0.89rem 0.67rem;background:url(../img/dbf_product_bg.png) no-repeat;background-size: 100% 100%;overflow: hidden;margin-bottom: 0.45rem;}
+.good-item .good-thumb{float: left;width:35%;padding-top: 35%;position: relative;background:#fff;border-radius: 0.2rem;}
+.good-item .good-thumb img{position: absolute;left:0;top:0;width:100%;height: 100%;}
+.good-item .good-info{padding-left: 5%;overflow: hidden;}
+.good-name{font-size: 0.7rem;color:#FFFFFF;font-weight: bold;height: 2rem;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;}
+.favourable{color:#0f5d3c;font-size: 0.5rem;margin-top:0.2rem;}
+.supply-num{color:#FFFFFF;font-size: 0.5rem;display: inline-block;padding:0 0.2rem;border:1px dashed #FFFFFF;border-radius: 0.5rem;}
+.pre-price,.pre-price-num,.other-price{display: inline-block;line-height: 1;}
+.pre-price{background:#4a7348;color:#FFFFFF;font-size: 0.5rem;transform: scale(0.9);padding:0.2rem;}
+.pre-price-num{color:#c4ff74;font-size: 1.1rem;}
+.pre-price-num .rmb{font-size: 0.75rem;}
+.other-price .old-price{font-size: 0.4rem;color:#FFFFFF;text-decoration: line-through;}
+.other-price .get-price{display: inline-block;font-size: 0.5rem;background:#FFFFFF;border-radius: 0.4rem;padding:0.1rem 0.3rem;}
+.btn-buy{display: inline-block;background:url(../img/dbf_but.png) no-repeat center;background-size:cover;font-size: 0.5rem;color:#fff;padding:0.2rem 0.6rem;border-radius: 1rem;}
+.btn-buy:hover{color: #FFFFFF;}

@@ -1,0 +1,180 @@
+body {
+	/* width:90%;
+   height:90%; */
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+.m {
+	padding: 0;
+	/* height: 85%; */
+	position: relative;
+}
+
+.toback {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	z-index: 100;
+	font-size: 14px;
+	color: #fff;
+}
+
+.video-js {
+	position: relative;
+}
+
+header {
+	position: relative;
+	height: 44px;
+	text-align: center;
+	background: #e4393c;
+}
+
+header h1 {
+	height: 100%;
+	line-height: 44px;
+	font-size: 16px;
+	color: #fff;
+}
+
+/* .daiLiShangRuHeZhaoMuWangLuoDianZhu {
+	width: 100%;
+}
+.ruHeShangJiWeiDaiLiShang {
+	width: 100%;
+}
+.ruHeZhuCeDengLuHeGouMai{
+	width: 100%;
+}
+.mruHeKaiDian {
+	width: 100%;
+}
+.ruHeTiXian {
+	width: 100%;
+}
+.ruHeTuiKuanTuiHuanHuo {
+	width: 100%;
+}
+.wangLuoDianZhuRuHeZhaoMuYongHu {
+	width: 100%;
+}
+.benDiDaiLiShangTianJiaBenDiShangPin {
+	width: 100%;
+} */
+
+/*
+daiLiShangRuHeZhaoMuWangLuoDianZhu
+ruHeShangJiWeiDaiLiShang
+ruHeZhuCeDengLuHeGouMai
+ruHeKaiDian
+ruHeTiXian
+ruHeTuiKuanTuiHuanHuo
+wangLuoDianZhuRuHeZhaoMuYongHu
+benDiDaiLiShangTianJiaBenDiShangPin
+*/
+
+/* #daiLiShangRuHeZhaoMuWangLuoDianZhu {
+	background-color: #fff;
+	border: #fff;
+	height: 100%;
+	wight: 100%;
+	margin: 0 auto;
+}
+#ruHeShangJiWeiDaiLiShang {
+	background-color: #fff;
+	border: #fff;
+	height: 100%;
+	wight: 100%;
+	margin: 0 auto;
+}
+#ruHeZhuCeDengLuHeGouMai {
+	background-color: #fff;
+	border: #fff;
+	height: 100%;
+	wight: 100%;
+	margin: 0 auto;
+}
+#ruHeKaiDian {
+	background-color: #fff;
+	border: #fff;
+	height: 100%;
+	wight: 100%;
+	margin: 0 auto;
+}
+#ruHeTiXian {
+	background-color: #fff;
+	border: #fff;
+	height: 100%;
+	wight: 100%;
+	margin: 0 auto;
+}
+#ruHeTuiKuanTuiHuanHuo {
+	background-color: #fff;
+	border: #fff;
+	height: 100%;
+	wight: 100%;
+	margin: 0 auto;
+}
+#wangLuoDianZhuRuHeZhaoMuYongHu {
+	background-color: #fff;
+	border: #fff;
+	height: 100%;
+	wight: 100%;
+	margin: 0 auto;
+}
+#benDiDaiLiShangTianJiaBenDiShangPin {
+	background-color: #fff;
+	border: #fff;
+	height: 100%;
+	wight: 100%;
+	margin: 0 auto;
+} */
+
+
+.vItem {margin:10px auto 20px;width:100%;height:auto;overflow:hidden;}
+.vItem .vHeader {line-height:30px;padding:0 10px;overflow:hidden;}
+.vItem .vHeader .vTitle {float:left;font-size:16px;color:#333;}
+.vItem .vHeader .vMsg {float:right;font-size:16px;color:#999;cursor:pointer;}
+.vItem .vedioItem {width:100%;height:180px;overflow:hidden;border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;text-align: center;}
+.msgBox {width:100%;height:300px;padding: 10px 0 20px;position:fixed;border:1px solid #ccc;border-radius:10px 10px 0 0;bottom:-300px;background:#fff;transition:all .5s;z-index:100;}
+.msgBox.toggle {bottom:0!important;}
+.msgBox .msgHeader {height:30px;line-height:30px;overflow:hidden;padding:0 5%;}
+.msgBox .msgHeader .title {font-size:16px;color:#333;float:left;}
+.msgBox .msgTxt {width:90%;height:100px;border:1px solid #ccc;border-radius:10px;margin:20px auto;}
+.msgBox .msgTxt textarea {width:100%;height:100%;border:none;padding:5px;background:rgb(245, 245, 245);outline:none;resize:none;font-size:14px;}
+.msgBox .submitBtn {padding:5px 20px;border:1px solid #666;border-radius:4px;color:#101010;font-size:16px;text-align:center;float:right;margin-right:5%;}
+/* .icoFont {font-size:18px;color:#999;font-weight:600;padding-left:4px;} */
+/* .icoFont2 {font-size:28px;color:#666;font-weight:600;padding-left:4px;} */
+.icoFont{width: .8rem;height: .8rem;vertical-align: middle;background:url(../../images/pinglun.png)no-repeat;background-size: contain;}
+.icoFont2{width: 1.5rem;height: 1.5rem;background:url(../../images/pinglun.png)no-repeat;background-size: contain;}
+.msgBox .msgHeader .icoDown {float:right;}
+.video-js {width:auto;height:100%!important;}
+.vjs-paused .vjs-big-play-button,
+.vjs-paused.vjs-has-started .vjs-big-play-button {
+    display: block;
+}
+.video-js.vjs-playing .vjs-tech {
+    pointer-events: auto;
+}
+#reverse{width: 38px;
+                height: 44px;
+                font-family: "hui-font";
+                line-height: 44px;
+                text-align: center;
+                position: absolute;
+                z-index: 20;
+                left: 0px;
+                top: 0px;}
+#reverse img{width:70%;margin-top: 0.5rem; margin-left:-0.49rem;}
+
+/* 遮罩层 */
+.mask {width:100%;height:100%;position:fixed;top:0;left:0;right:0;bottom:0;display:none;background:rgba(0,0,0,0.5);z-index:100;}

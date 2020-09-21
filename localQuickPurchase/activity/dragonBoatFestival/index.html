@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>端午节活动专场</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="email=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link rel="stylesheet" type="text/css" href="../lib/Hui/css/hui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/dbf.css"/>
+		<style type="text/css">
+			#hui-back-n{width: 38px;
+		    height: 44px;
+		    font-family: "hui-font";
+		    line-height: 44px;
+		    text-align: center;
+		    position: absolute;
+		    z-index: 20;
+		    left: 0px;
+		    top: 0px;
+  		      color: #212121;
+		    }
+		    #hui-back-n:before {
+		    content: "\e6a5";
+		    font-size: 20px;
+		    color: #A7A7A8;
+		    }
+		</style>
+	</head>
+
+	<body>
+		<header class="hui-header">
+			<div id="hui-back-n" onclick="goBack(this)"></div>
+			<h1>端午节活动专场</h1>
+			<!-- <span class="share-icon"></span> -->
+		</header>
+		<div class="content">
+			<div class="bg-top">
+				<img src="img/dbf_bg-top.png"/>
+			</div>
+			<div id="refreshContainer" class="hui-refresh">
+        		<div class="hui-refresh-icon"></div>
+        		<div class="hui-refresh-content hui-list">
+            		<div class="good-list">
+            			
+            			
+					
+            			<!-- <div class="good-item">
+							<div class="good-thumb">
+								<img src="img/goods.png"/>
+							</div>
+							<div class="good-info">
+								<div class="good-name">维维山楂柠檬自自然果然果</div>						
+								<div class="price-box">
+									<div class="pre-price">活动价</div>
+									<div class="pre-price-num"><span class="rmb">¥</span>83</div>
+									<div class="other-price">
+										<div class="old-price"><span class="rmb">¥</span>163</div>
+									</div>
+								</div>
+								<a class="btn-buy">立即购买</a>
+							</div>
+						</div> -->
+					</div>
+        		</div>
+   		 	</div>
+			
+		</div>
+	</body>
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js"></script>
+	<script type="text/javascript" src="../lib/Hui/js/hui.js"></script>
+	<script type="text/javascript" src="../lib/Hui/js/hui-refresh-load-more.js" charset="utf-8"></script>
+	<script>
+		console.log("活动页面");
+		//引用百度统计
+		var _hmt = _hmt || [];
+/*		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?57760ed3c8fe28c8a3ac0e142fabdab6";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+            try{
+                var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                $("body").append(unescape("%3Cspan  style='display:none;'  id='cnzz_stat_icon_1275444738'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1275444738' type='text/javascript'%3E%3C/script%3E"));
+            }catch (e) {
+            }
+		})();*/
+		function jumpGoodsDeteail(str){
+			if(seq ==''|| seq == null){
+				seq = 0;
+			}
+			window.location.href="/localQuickPurchase/distributionVA/goodsDetail/"+str+"/0/"+seq
+		}
+		function goBack(obj){
+			try{
+	    		// 调app原生返回  
+	    		window.action.app_back();
+	    	}catch(e){
+	    	}
+	    	setTimeout(function(){
+	    		hui.back();
+	    	}, 200);
+			
+		}
+		var page = 1;
+		var columnName = "端午节";
+		hui.refresh('#refreshContainer', refresh);
+		hui.loadMore(getMore);
+		function getMore(){
+			$.ajax({
+				url: '/localQuickPurchase/selectionGoods/SelectionGoodsCom',
+				type: 'POST',
+				data: '{"columnName": "'+ columnName +'","pageIndex":'+page+',"pageSize":10}',
+				contentType:'application/json;charset=UTF-8',
+				success:function(result){
+					var com = result.data.list;
+					if(com != null){
+						var  _html = "";
+						for(var i=0;i<com.length;i++){
+							_html += getHtml(com[i])
+						};
+						page ++;
+						$('.good-list').append(_html);
+						//重置加载更多状态
+			            hui.resetLoadMore();
+					} else{
+						hui.endRefresh();
+						hui.endLoadMore(true, '没有更多了...');
+					} 
+					  //结束刷新
+		            hui.endRefresh();
+				},
+				error:function(result){
+					hui.closeLoading();
+		            //hui.upToast('连接服务器失败！');
+		            hui.endRefresh();
+				}
+			})
+		}
+		//下拉刷新
+		function refresh(){
+			page =1;
+			  $('.good-list').html("");
+ 		    $.ajax({
+				url: '/localQuickPurchase/selectionGoods/SelectionGoodsCom',
+				type: 'POST',
+				data: '{"columnName": "'+ columnName +'","pageIndex":'+page+',"pageSize":10}',
+				contentType:'application/json;charset=UTF-8',
+				success:function(result){
+					var com = result.data.list;
+					if(com != null){
+						var  _html = "";
+						for(var i=0;i<com.length;i++){
+							_html += getHtml(com[i])
+						};
+						page ++;
+			            $('.good-list').append(_html);
+			            //重置加载更多状态
+			            hui.resetLoadMore();
+					}else{
+						hui.endRefresh();
+						hui.endLoadMore(true, '没有更多了...');
+					}
+		            //结束刷新
+		            hui.endRefresh();
+		           
+				},
+				error:function(result){
+					hui.closeLoading();
+		            //hui.upToast('连接服务器失败！');
+		            hui.endRefresh();
+				}
+			})
+		   
+		}
+		function getHtml(goodsInfo){
+			var _html = ""
+			if(goodsInfo != null){
+				_html = "<div class='good-item'><div class='good-thumb'><img src='"+ goodsInfo.thumbnail +"'/></div>"+
+	    		"<div class='good-info'><div class='good-name'>"+ goodsInfo.goodsName +"</div>"+					
+	    		"<div class='price-box'>"+
+	    		"<div class='pre-price'>活动价</div>"+
+	    		"<div class='pre-price-num'><span class='rmb'>¥</span>"+ goodsInfo.goodsProStandard[0].distributionPrice +"</div>"+
+	    		"<div class='other-price'><div class='old-price'><span class='rmb'>¥</span>"+ goodsInfo.goodsProStandard[0].goodsPrice +"</div>"+
+	    		"</div></div>"+
+	    		"<a href='javascript:void(0);' onclick='jumpGoodsDeteail(\""+ goodsInfo.goodsId +"\")' class='btn-buy'>立即购买</a></div></div>";
+			}
+			return _html;
+		};
+	</script>
+</html>

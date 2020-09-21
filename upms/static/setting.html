@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name = "format-detection" content = "telephone=no">
+    <title>设置</title>
+    <link rel="stylesheet" href="/common/lib/Hui/css/hui.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="/common/css/style.css">
+    <style type="text/css">
+        .footer-btn{background:#e43a3d}
+    </style>
+</head>
+<body class="bg_light">
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>设置</h1>
+</header>
+<div class="main_container">
+    <div class="hui-list bg_white margin-t-3">
+        <ul>
+            <li><a href="../static/personalinfo.html" class="hui-arrow"><img src="../static/images/1_03.png"/>个人资料</a></li>
+        </ul>
+    </div>
+</div>
+<a href="javascript:void(0)"> <div class="footer-btn" onclick="footerBtnClick()">退出登录</div></a>
+</body>
+<script type="text/javascript" src="/common/lib/jquery.min.js" charset="utf-8"></script>
+<!--<script type="text/javascript" src="/common/js/userRole.js"></script>-->
+<script type="text/javascript" src="/common/js/common.js?v=32" ></script>
+<script type="text/javascript" src="/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript">
+    //退出登录
+    function footerBtnClick(){
+        hui.confirm("确定退出登录么！",['取消','确定'],function(){
+            loginOffByBack();
+            window.location.href="../static/noLogin.html";
+        });
+    }
+
+    $(".activity").click(function(){
+        var _url = "/localQuickPurchase/distributionVA/seckill/activityy";
+        window.location.href = _url;
+    });
+
+</script>
+</html>

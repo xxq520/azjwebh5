@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>售后订单管理</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>爱之家商城售后订单管理</title>
+    <meta name="Description" content="爱之家商城分享">
+    <meta itemprop="image"
+          content="https://ndhimg.520shq.com//UploadFile/small_FXImg/20190307/2019030715032258349.jpeg">
+    <link rel="shortcut icon" href="https://ndhimg.520shq.com//UploadFile/small_FXImg/20190307/2019030715032258349.jpeg"
+          type="image/x-icon">
+    <link rel="icon" href="https://ndhimg.520shq.com//UploadFile/small_FXImg/20190307/2019030715032258349.jpeg"
+          type="image/x-icon">
+    <meta itemprop="name" content="爱之家商城">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="../distributionApp/lib/Hui/css/hui.css">
+    <link rel="stylesheet" href="../distributionApp/css/main.css">
+    <link rel="stylesheet" href="../distributionApp/css/style.css">
+    <link rel="stylesheet" href="css/orderCustomer.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<!--售后订单头部标题及返回按钮-->
+<header class="hui-header topBarsearch"><a href="javascript:;" class="go-back"><i
+        class="tb-left-ico font-ico">&#xe936;</i></a>
+    <h1>售后订单</h1>
+    <div class="shareTop shareBotton" id="shareTops"></div>
+</header>
+<!--待退款或审核通过-->
+<div class="order-status flex flex-x-around">
+    <div class="endingRefund order-statusActive tabbar-nav">待退款</div>
+    <div class="Inaudit tabbar-nav">审核中</div>
+    <div class="auditPass tabbar-nav">审核结果</div>
+</div>
+
+
+<div class="endingRefund-con">
+    <img src="images/icon_search.png" alt="">
+    <input type="text" placeholder="请输入订单号或商品名查询">
+    <button>搜索</button>
+</div>
+
+<!--待退款展示的订单数据-->
+<div class="Pendingrefund">
+    <div class="endingRefund-box"></div>
+</div>
+
+<div class="dropdown" style="display: none"> <img src="./images/qs.png" alt=""></div>
+
+
+<!--
+<div class="Inaudit-box">
+    <div class="endingRefund-box"></div>
+    <div class="dropdown" style="display: none"> <img src="./images/qs.png" alt=""></div>
+
+</div>
+
+<div class="auditPass-box">
+    <div class="endingRefund-box"></div>
+    <div class="dropdown" style="display: none"> <img src="./images/qs.png" alt=""></div>
+
+</div>
+ -->
+<script src="../js/jquery-2.0.0.min.js"></script>
+<script src="../distributionApp/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="../activity/lib/Hui/js/hui-refresh-load-more.js"></script>
+<script type="text/javascript" src="/common/js/common.js" ></script>
+<script src="js/orderCustomer.js"></script>
+</body>
+
+</html>

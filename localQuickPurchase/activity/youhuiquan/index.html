@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>优惠券领取页面</title>
+    <link rel="stylesheet" type="text/css" href="/localQuickPurchase/activity/lib/Hui/css/hui.css"/>
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+    <div class="coupon">
+        <div class="header">
+            <i class="icons back-icon"  onclick="goBack()"></i>
+            <h1>优惠券领取页面</h1>
+            <a href="/localQuickPurchase/distributionVA/shopCar">
+                <i class="icons shopcart"></i>
+            </a>
+            <i class="icons menu"></i>
+        </div>
+        <div class="content">
+            <div class="coupon-list">
+                <!--<div class="coupon-item">
+                    <div class="coupon-left">
+                        <span class="symbol">¥</span>
+                        <span class="money">60</span>
+                    </div>
+                    <div class="coupon-right">
+                        <div class="text-desc">
+                            <p class="text">笑工优选商品专属优惠券</p>
+                            <p class="term">2018.10.20-2018.12.31</p>
+                        </div>
+                        <p class="full-use">满500元使用</p >
+                    </div>
+                    <div class="button-con">
+                        <a href="javascript:void(0);" class="receive" style="display:none;">立即领取</a>
+                        <a href="javascript:void(0);" class="receive received">已领取</a>
+                    </div>
+                </div>-->
+            </div>
+            <div class="btn-con">
+                <a href="javascript:void(0);" onclick="receiveDaBing(this)" class="receive-btn">立即领取</a>
+                <a href="/localQuickPurchase/distributionVA/couponCardBag" style="display:none;"  class="receive-btn look-up">去卡券包查看</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/activity/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js"></script>
+<script type="text/javascript">
+    function goBack(obj){
+        try{
+            // 调app原生返回
+            window.action.app_back();
+        }catch(e){
+        }
+        setTimeout(function(){
+            if(document.referrer == ""){
+                window.location.href="/localQuickPurchase/distributionVA/index";
+            }else{
+                history.go(-1);
+            }
+        }, 200);
+    }
+
+    function findDetailByActBatch(){
+        $.ajax({
+            type : 'GET',
+            url : '/localQuickPurchase/couponCardBagAction/exclusive',
+            async : false,
+            data : {
+                "channel" : "dabing",
+                "page" : 1,
+                "limit" : 50,
+                "deviceType" : "H5"
+            },
+            success: function (data) {
+                if (data.code == 1000) {
+                    var couponsList = data.data;
+                    if (couponsList != null) {
+                        var resultStr = couponsList;
+                        resultStr = eval('(' + resultStr + ')');
+                        if(resultStr != null){
+                            var dataStr = resultStr.result;
+                            dataStr = eval('(' + dataStr + ')');
+                            var dataList = dataStr[1016].datas;
+                            console.log(dataList);
+                            if(dataList.length > 0){
+                                var _html ="";
+                                for (var i = 0; i < dataList.length; i++){
+                                    console.log(dataList[i]);
+                                    if(i==2){
+                                        break;
+                                    }
+                                    var amtSub = dataList[i].amtSub;
+                                    var couponsType = dataList[i].couponsType;
+                                    var amtSubStr='';
+                                    if(couponsType != "3"){
+                                        amtSubStr='<span class="symbol">¥</span><span class="money">'+parseInt(amtSub)+'</span>';
+                                    }else{
+                                        var amtDiscount = dataList[i].amtDiscount;
+                                        amtSubStr='<span class="money">'+amtDiscount/10+'</span><span class="symbol">折</span>';
+                                    }
+                                    var start =  new Date(dataList[i].sendTimeStartStr);
+                                    var sendTimeStartStr = start.Format("yyyy.MM.dd");
+                                    var end =  new Date(dataList[i].sendTimeEndStr);
+                                    var sendTimeEndStr = end.Format("yyyy.MM.dd");
+                                    _html +='<div class="coupon-item"><div class="coupon-left"> '+amtSubStr+' </div>'+
+                                        '<div class="coupon-right"> <div class="text-desc"> <p class="text">'+dataList[i].name+'</p>'+
+                                        '<p class="term">'+sendTimeStartStr+'-'+sendTimeEndStr+'</p></div>'+
+                                    '<p class="full-use">'+dataList[i].couponsTypeDesc+'</p ></div>'+
+                                        '<div class="button-con"><a href="javascript:void(0);" actbatchno="'+dataList[i].actBatchNo+'" onclick="receiceCoupon(this);" class="receive">立即领取</a>'+
+                                         '<span class="hidenPlace" style="display:none">'+dataList[i].couponsId+'</span></div></div>';
+                                   /* _html +='<a href="javascript:void(0);" class="coupon-item">'+
+                                        '<span class="text1">'+dataList[i].couponsTypeDesc +'</span>'+
+                                        '<span class="text2" actbatchno="'+dataList[i].actBatchNo +'" onclick="receiceCoupon(this);">立即领取</span>'+
+                                        '<span class="hidenPlace" style="display:none">'+dataList[i].couponsId +'</span>'+
+                                        '<span class="text3">'+dataList[i].name +'</span>'+
+                                        '</a>';*/
+                                }
+                                $(".coupon-list").append(_html);
+                            }else{
+
+                            }
+                        }else{
+
+                        }
+                    }
+                }
+            }
+        });
+    }
+    /**
+     * 领取优惠券
+     */
+    function receiceCoupon(obj){
+        //当前点击对象id
+        if(seq == 0 || seq == ''){
+            noLogin(0);
+            return ;
+        }
+        var couponsId = $(obj).next()[0].innerText;
+        var actBatchNo = $(obj).attr("actBatchNo");
+        if(couponsId != null && couponsId != ""){
+            $.ajax({
+                type: 'POST',
+                url: '/localQuickPurchase/couponCardBagAction/receiveAllcoupon',
+                async: false,
+                data : {
+                    userSeq : seq,
+                    couponsId : couponsId,
+                    actBatchNo : actBatchNo
+                },
+                success: function (data) {
+                    if (data.code == 200) {
+                        if(data.data.code == "200"){
+                            hui.toast("领取优惠券成功",800);
+                        }else{
+                            hui.toast(data.data.msg,800);
+
+                        }
+                    }else{
+                        hui.toast(data.data.msg,800);
+                    }
+                }
+            });
+        }
+    }
+    /**
+     * 领取优惠券
+     */
+    function receiveDaBing(obj){
+        //当前点击对象id
+        if(seq == 0 || seq == ''){
+            noLogin(0);
+            return ;
+        }
+        $.ajax({
+            type: 'GET',
+            url: '/localQuickPurchase/couponCardBagAction/receive',
+            async: false,
+            data : {
+                'seq' : seq,
+                'mobile' : userName,
+                'channel' : 'dabing',
+                'deviceType':'H5'
+            },
+            success: function (data) {
+                if (data.code == 1000) {
+                    var couponsList = data.data;
+                    if (couponsList != null) {
+                        var resultStr = couponsList;
+                        resultStr = eval('(' + resultStr + ')');
+                        if(resultStr != null){
+                            var dataCode = resultStr.code;
+                            if(dataCode == '200'){
+                                hui.toast("领取优惠券成功",800);
+                            }else{
+                                hui.toast(resultStr.msg,800);
+                            }
+                        }
+                    }
+
+                    $(obj).hide();
+                    $('.look-up').show();
+                }else{
+                    hui.toast(data.msg,800);
+                }
+            }
+        });
+    }
+    $(function () {
+        findDetailByActBatch()
+    })
+</script>
+</html>

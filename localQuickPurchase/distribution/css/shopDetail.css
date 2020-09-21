@@ -1,0 +1,337 @@
+@charset "utf-8";
+/*******商品详情*******/
+.minSale{margin-top:0.2rem;}
+.inventory .minSale,..inventory .minSale span{color:#212121;}
+.saletips{color:#e4393c;margin-top:0.2rem;}
+.godosDetail-container {
+	width: 100%;
+	min-width: 320px;
+	max-width: 640px;
+	margin: 0 auto;
+	overflow-x: hidden;
+	height: 100%;
+}
+
+.goodsDetail-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #E43A3D;
+	height: 1.83rem;
+	line-height: 1.83rem;
+	z-index: 9999;
+}
+
+.goodsDetail-header .get-back {
+	margin-left: 0.42rem;
+	position: absolute;
+	z-index: 100;
+}
+
+.goodsDetail-header .get-back i {
+	color: #FFFFFF;
+}
+
+.goodsDetail-header .header-text {
+	font-size: 0.75rem;
+	color: #FFFFFF;
+	text-align: center;
+	position: relative;
+}
+
+.goodsDetail-header .header-right {
+	float: right;
+	margin-right: 0.42rem;
+}
+
+.goodsDetail-header .header-right .header-share {
+	width: 0.6875rem;
+	height: 0.75rem;
+	vertical-align: middle
+}
+
+.goodsDetail-header .header-right .header-collection {
+	width: 0.79rem;
+	height: 0.75rem;
+	vertical-align: middle;
+}
+/*.goodsDetail-header .extend-handle{position: absolute;top:50%;right:20px;z-index:10;transform:translateY(-50%);color:#FFFFFF;height: 0.75rem;width:10px;}*/
+.goodsDetail-header .extend-handle {
+	position: absolute;
+	right: 12px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	font-size: 0.67rem;
+	color: #FFFFFF;
+}
+
+.goodsDetail-header .extend-handle a, .goodsDetail-header .extend-handle .font-ico
+	{
+	color: #FFFFFF;
+}
+
+.goodsDetail-header .extend-handle .font-ico {
+	vertical-align: middle;
+	margin-right: 0.1rem;
+}
+
+.goodsDetail-header .extend-handle .btn-extend {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../img/shareBtn.png) no-repeat center center;
+	background-size: contain;
+}
+
+.handle-list {
+	position: absolute;
+	right: 10px;
+	top: 1.8rem;
+	padding: 15px 20px;
+	background: #FFFFFF;
+	border-radius: 4px;
+}
+
+.handle-list .handle-item {
+	font-size: 0.6rem;
+	color: #333;
+	padding: 5px 0;
+	border-bottom: 1px solid #e6e6e6;
+	line-height: 1.2rem;
+}
+
+.handle-list .handle-item .font-ico {
+	display: inline-block;
+	vertical-align: middle;
+	width: 0.75rem;
+	margin-right: 4px;
+	margin-top: -0.1rem;
+}
+
+.handle-list .arrow-top {
+	position: absolute;
+	display: block;
+	border: 8px solid transparent;
+	border-bottom-color: #FFFFFF;
+	right: 6px;
+	top: -16px;
+}
+
+.banner {
+	position: relative;
+	padding-top: 60%;
+	box-shadow: 0 0 8px 5px #CCCCCC;
+}
+
+.banner .banner-content {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+}
+
+.hiSlider-wrap, .hiSlider, .hiSlider-item, .hiSlider-item img {
+	height: 100%;
+}
+
+.hiSlider-item img {
+	width: 100%;
+}
+
+.hiSlider-pages a {
+	background: #cccccc;
+	border: 0;
+}
+
+.hiSlider-pages a.active {
+	background: #f61317;
+}
+
+.good-box {
+	padding: 0 10px;
+	background: #FFFFFF;
+}
+
+.good-base-info {
+	padding: 15px 10px;
+	margin-top: 18px;
+	border-bottom: 8px solid #e6e6e6;
+}
+
+.good-style-info {
+	margin: 8px 0;
+	box-shadow: 0 0 0 8px #e6e6e6;
+	padding: 15px 10px;
+}
+
+.clearfix:before, .clearfix:after, .row:before, .row:after {
+	content: "";
+	display: table;
+	*zoom: 1;
+	line-height: 0;
+}
+
+.row:after, .clearfix:after {
+	clear: both;
+}
+
+.row {
+	font-size: 0.75rem;
+	color: #212121;
+}
+
+.row .row-title {
+	float: left;
+}
+
+.row .row-content {
+	width: 100%;
+	padding-left: 2.083rem;
+}
+
+.good-mes {
+	margin-bottom: 18px;
+}
+
+.good-mes .good-name {
+	float: left;
+	width: 83%;
+	font-size: 0.8rem;
+	color: #212121;
+	line-height: 1rem;
+}
+
+.good-mes .good-city {
+	color: #666;
+	font-size: 0.5rem;
+	float: left;
+}
+
+.good-price {
+	margin-bottom: 15px;
+	font-size: 0.75rem;
+}
+
+.good-price .good-price-mes, .good-price .price-type {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.good-price .good-price-mes {
+	margin-right: 10px;
+	font-size: 0.75rem;
+}
+
+.good-price .good-price-mes span {
+	color: #E4393C;
+}
+
+.good-price .price-type {
+	color: #FFFFFF;
+	padding: 4px 8px;
+	background: #E4393C;
+	border-radius: 4px;
+	font-size: 0.5rem;
+}
+
+.good-retail-price, .inventory, .inventory span {
+	font-size: 0.667rem;
+	color: #212121;
+}
+
+.good-retail-price {
+	text-decoration: line-through;
+	margin-bottom: 12px;
+}
+
+.good-detail {
+	padding: 1.35rem 12px 2.083rem;
+}
+
+.good-detail .detail-title {
+	font-size: 0.67rem;
+	text-align: center;
+	margin-bottom: 8px;
+}
+
+.show-detail .detail-msg {
+	margin-bottom: 12px;
+	color: #E4393C;
+	font-size: 0.75rem;
+	text-align: center;
+}
+
+.show-detail .detail-pic {
+	text-align: center;
+}
+
+.shop-select {
+	float: right;
+	height: 1rem;
+	line-height: 1rem;
+	border: 1px solid #4d4d4d;
+}
+
+.shop-select .font-ico {
+	font-size: 0.75rem;
+	display: inline-block;
+	width: 0.875rem;
+	text-align: center;
+}
+
+.shop-select .sel-add {
+	border-left: 1px solid #4d4d4d;
+}
+
+.shop-select .sel-minus {
+	border-right: 1px solid #4d4d4d;
+}
+
+.shop-select .sel-num {
+	display: inline-block;
+	width: 1.8rem;
+	line-height: 0;
+	height: 100%;
+	vertical-align: top;
+}
+
+.shop-select .sel-num input {
+	padding: 0 5px;
+	text-align: center;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+/*.good-addr-info{padding:15px 10px;font-size: 0.75rem;}
+.good-addr-info .row-title,.good-addr-info .row-content{font-size: 0.75rem;}
+.good-addr-info .row{margin-bottom: 12px;}
+.good-addr-info .addr-info{position: relative;}
+.good-addr-info .addr-info .btn-choose-addr{position:absolute;right:0;top:0;color:#4c4c4c;font-size: 0.5rem;}
+.good-addr-info .addr-info .btn-choose-addr .font-ico{vertical-align: baseline;margin-left: 5px;}
+.addr-tips{font-size: 0.5rem;margin-top:10px;}
+.good-tip{display:inline-block;color:#FFFFFF;padding:4px 8px;background:#E4393C;border-radius: 4px;font-size: 0.5rem;}
+.logistics .logistics-tips{font-size: 0.5rem;color:#212121;margin-top:8px;}*/
+.btn-bot {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2.083rem;
+	z-index: 100;
+}
+
+.btn-bot a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	line-height: 2.083rem;
+	color: #FFFFFF;
+	background: #E4393C;
+	font-size: 0.667rem;
+}

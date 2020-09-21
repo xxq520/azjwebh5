@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<title>分类</title>
+<link rel="stylesheet" href="/goods/css/hui/hui.css" />
+<link rel="stylesheet" href="/goods/css/main.css" />
+<link rel="stylesheet" href="/goods/css/hupeng.css" />
+<style>
+	body {
+		overflow-y: hidden;
+	}
+
+	.container .classifiyContent .classifiy-left{
+		padding-bottom:0;
+	}
+
+	.container .classifiyContent .load-prompt {
+		text-align: center;
+		font-size: 0.71rem;
+	}
+
+	.container .classifiyContent .classifiy-left ul li {
+		width: 100%;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	.container .classifiyContent{
+		margin-top: 0;
+	}
+	/*分类增加上拉加载更多*/
+	.hui-wrap {
+		overflow-y: scroll;
+		float: right;
+		width: 73%;
+	}
+
+	.hui-wrap .classifiy-rightImg {
+		width: 100%;
+	}
+
+	.hui-wrap .classifiy-rightImg img {
+		max-width: 100%;
+	}
+
+	.hui-wrap  ul li {
+		float: left;
+		width: 30%;
+		margin-left: 2.5%;
+		background: #FFFFFF;
+		margin-top: 0.3rem;
+		height: auto;
+	}
+
+	.hui-wrap  ul li .right-img {
+		height: 2.17rem;
+		width: 100%;
+		overflow: hidden;
+		text- align: center;
+		margin-top: 0.46rem;
+	}
+
+	.hui-wrap  ul li .right-img img {
+		max-height: 2.17rem;
+	}
+
+	.hui-wrap  ul li .right-title {
+		font-size: 0.59rem;
+		color: #4d4d4d;
+		text-align: center;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	.subclass {
+
+		height: 68%;
+		overflow-y:auto;
+
+	}
+	.container .classifiyHeader{
+		display: flex;
+		align-items: center;
+		height:2.0577rem;
+		margin-top: 0;
+	}
+	.container .classifiyHeader .header-center{
+		margin: 0 auto;
+	}
+	.container .classifiyHeader .header-right{
+		position:relative;
+		overflow:visible;
+	}
+	.header-right span{
+		display: block;
+		position: absolute;
+		left: -0.1rem;
+		top: -0.1rem;
+		width: 6px;
+		height: 6px;
+		background: #e4393c;
+		border-radius: 50%;
+	}
+	.subclass{
+		overflow: auto;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<header class="classifiyHeader">
+		<div class="header-text" id="classifyMark">分类</div>
+		<div class="header-center">
+			<img class="header-search"
+				src="/goods/images/classfiyImg1.png" /> <input
+				placeholder="请输入所需要搜索的商品名称" /> <img class="header-delete"
+				src="/goods/images/classfiyImg2.png" />
+		</div>
+			<!--	<div class="header-right" style="display: none;">
+						<img src="<%=path%>/distributionApp/images/classfiyImg3.png">-->
+
+		<div class="header-right">
+			<script>
+				//代理商和分销商右侧添加消息按钮
+//				if(distributorType == 2 || distributorType == 3){
+//					var message = "<img src='../../images/storeMessage.png' />";
+//					document.write(message);
+//				}
+			</script>
+			<span style="display:none"></span>
+		</div>
+		</header>
+		<div class="classifiyContent">
+			<div class="load-prompt">
+				<p>正在加载,请稍后...</p>
+				<p></p>
+			</div>
+			<div class="classifiy-left" style="display: none;">
+				<ul class="classifiy-ul" id="classUL">
+					<!-- <li>烟酒茶水</li>
+						<li>休闲零食</li>
+						<li>清洁工具</li>
+						<li>男装</li>
+						<li>女装</li>
+						<li>男鞋</li>
+						<li>女鞋</li>
+						<li>饰品</li>
+						<li>皮包箱句</li>
+						<li>户外运动</li>
+						<li>休闲食品</li>
+						<li>户外运动</li>
+						<li>休闲食品</li>
+						<li>户外运动</li>
+						<li>休闲食品</li> -->
+				</ul>
+			</div>
+			<div class="classifiy-right" style="display: none;">
+				<div class="classifiy-rightImg" id="advertisement">
+							<!--<img src="<%=path%>/distributionApp/images/classifiyImg8.png" />-->
+				</div>
+				<div class="subclass">
+					<ul class="goods-ul">
+						<!--<li >
+								<div class="right-img">
+									<img src="<%=path%>/distributionApp/images/classifyImg4.png" />
+								</div>
+								<p class="right-title">苹果</p>
+							</li>-->
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--<div id="hui-footer">-->
+			<!--<%@ include file="../../common/footer.jsp"%>-->
+		<!--</div>-->
+
+	</div>
+	<script src="/goods/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/tag.js"></script>
+	<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/common.js?v=1"></script>
+	<script type="text/javascript" src="/goods/js/sry.js"></script>
+	<script src="/goods/js/hui/hui.js"></script>
+	<script src="/goods/js/classify.js"></script>
+	<script type="text/javascript" src="/common/js/userRole.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/common/js/common.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/common/js/footer.js" charset="utf-8"></script>
+</body>
+<script type="text/javascript">
+    //判断用户类型
+    $("#nav-type").addClass("active");
+    $("#nav-type").find("img").attr("src", "/goods/images/type_01.png");
+
+
+    $("body").on('click', '.classifiy-left  ul li', function () {
+        $(this).css({'color': '#E4393C', 'border-left': '0.13rem solid #E4393C'});
+        $(this).siblings().css({'color': '#212121', 'border-left': '0rem solid #E4393C'});
+    });
+
+    $(".header-delete").on('click', function () {
+        $(".header-center input").val('');
+    });
+    $(".header-center input").on('click', function () {
+        window.location.href = "historySearch.html";
+    });
+
+    //商品分类点击事件
+    $(".classifiy-ul").on('click', 'li', function () {
+        //保存分类id到Cookie里
+        setCookie("categoryId", $(this).attr("value"), 365);
+        getCategoryGoods(true, 1, $(this).attr("value"));
+    });
+    $(".goods-ul").on('click', 'li', function () {
+        var id = $(this).attr("data-id");
+        var genreName = $(this).text();
+        window.location.href = "searchDetail.html?genreId=" + id + "&genreName=" + genreName;
+    });
+
+    //vip用户,分销商用户,代理商用户删除文字
+	if(isRoleVip() || isRoleDistributor() || isRoleAgent()){
+		$("#classifyMark").remove();
+	}
+
+    //消息盒子跳转
+    $(document).on('click', '.header-right', function () {
+        window.location.href = "/localQuickPurchase/distributionVA/messageThree";
+    });
+
+    //获取用户的上一级seq
+    var mydSeq;
+    $("body").on('click', '#nav-home-seq', function () {
+        setCookie("categoryId", "");
+        var url = "${path}/distributionVA/goodmanage/" + mydSeq;
+        window.location.href = url;
+    });
+
+
+</script>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="./style.css">
+    <title>商品申请秒杀</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mainBox {
+            color: #444;
+            padding-top: 40px;
+            transform: none;
+            overflow: auto;
+            cursor: pointer;
+        }
+
+        .mint-header {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-color: #DB0020;
+            color: #fff;
+            z-index: 1000;
+        }
+
+        .picker-items {
+            width: 100%;
+        }
+        .mint-header-title {
+            font-size: 16px;
+        }
+
+        .maix {
+            padding: 10px;
+            border-top: 1px solid #eee;
+            background-color: #f6f6f6;
+        }
+
+        .maix .news {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+            display: flex;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        .maix .news .left {
+            width: 32%;
+
+        }
+
+        .maix .news .left img {
+            width: 100%;
+            height: 110px;
+        }
+
+        .maix .news .right {
+            overflow: hidden;
+            flex: 1;
+            padding: 5px;
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        .maix .news .right .name {
+            overflow: hidden;
+            height: 36px;
+            line-height: 18px;
+        }
+
+        .maix .news .right .sales {
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+        .setPrice {
+            background-color: #fff;
+            padding: 12px 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .setPrice .title {
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 10px;
+
+        }
+
+        .setTime {
+            background-color: #fff;
+            padding: 12px 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .setTime .title {
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 10px;
+
+        }
+
+        .setPrice .content {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        #fxk {
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border: 1px solid #c9c9c9;
+            border-radius: 8px;
+            color: #fff;
+            text-align: center;
+            line-height: 15px;
+            -webkit-appearance: none;
+            appearance: none;
+            outline: none;
+            margin: 0 5px;
+        }
+
+        #fxk[type="checkbox"]:hover {
+            border: 1px solid #43adea;
+        }
+
+        #fxk:checked {
+            color: #fff;
+            background-color: #43adea;
+            border: 1px solid #43adea;
+        }
+
+        #fxk:after {
+            content: "\2713";
+        }
+
+        .setPrice .content .fill {
+            background-color: #f9f9f9;
+            padding: 5px;
+            border-radius: 5px;
+            flex: 1;
+        }
+
+        .setPrice .content .fill .name {
+            line-height: 24px;
+        }
+
+        .setPrice .content .fill .sales {
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+
+            color: #666;
+        }
+
+  
+
+        .setTime .ownTime {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+
+        }
+
+        .setTime .ownTime .numipt {
+            border-radius: 5px;
+            border: 1px solid #c6c6c6;
+            width: 45%;
+            height: 23px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2px 4px;
+            margin-top: 6px;
+            border-radius: 10px;
+        }
+
+        .setTime .ownTime .numipt input {
+            width: 90%;
+            border: none;
+        }
+
+        .setTime .ownTime .numipt img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .setTime .own .title {
+            font-size: .5778rem;
+        }
+
+        .mint-datetime {
+            cursor: pointer;
+        }
+
+        .beizhu {
+            background-color: #fff;
+            padding: 12px 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            margin-bottom: 40px;
+        }
+
+        .beizhu textarea {
+            flex: 1;
+            border: none;
+            height: 70px;
+            padding: 5px 10px;
+            outline: none;
+
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+
+        }
+
+        .footer img {
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        .footer .tixing {
+            width: 72%;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .timeS {
+            display: flex;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+
+        }
+         .setPrice .content .fill .form-item {
+             display: flex;   
+             width: 100%;
+             height: 32px;
+             margin-bottom: 3px;
+             line-height: 32px;
+        }
+         .setPrice .content .fill .form-item input{
+                  width: 120px;
+                  height: 24px;
+                  text-align: center;
+                  border-radius: 12px;
+                  color: #db0020;
+                  flex: 1;
+                  outline: 0;
+                  margin-left: 15px;
+                  line-height: 1.6;
+                  font-size: inherit;
+                      border: 0;
+                      -webkit-box-flex: 1;
+                      -ms-flex: 1;
+         }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-cloak class="mainBox">
+            <header class="mint-header">
+                <mt-button icon="back" slot="left" @click="goback"></mt-button>
+                <h1 class="mint-header-title">秒杀申请</h1>
+            </header>
+            <div class="maix">
+                <div class="news">
+                    <div class="left"><img :src="list.thumbnail" alt=""></div>
+                    <div class="right">
+                        <div class="name"> {{list.goodsName}}</div>
+                        <div class="sales" style="color: #db0020;">原价：{{list.actualPrice}} </div>
+                        <div class="sales"> 库存：{{list.stock}}</div>
+                    </div>
+                </div>
+
+                <div class="setPrice">
+                    <div class="title">价格设置</div>
+                    <div class="content" v-for="item in  specifications">
+                        <input id="fxk" class="check-input" type="checkbox" v-model="item.checked"
+                            @change="checkedOneFn()">
+                        <div class="fill">
+                            <div class="name">规格：{{item.specsName}}</div>
+                            <div class="sales">
+                                <p style="width:40%;">原价：{{item.distributionPrice}}</p>
+                                <p style="width:48%;">库存：{{item.stock}} </p>
+                            </div>
+                       
+
+                            <div class="form-item">
+                                <label style=" color: #DB0020;">秒杀供货价：</label>
+                                <div class="form-input">
+                                    <div class="inputed">
+                                        <input type="number" v-model="item.spikeSupplyPrice"
+                                            autocomplete="off" :attr="{ oninput:
+                                            'if(value.length>8)value=value.slice(0,8)' }">
+                                    </div>
+                                </div>
+                            </div>
+                                 <div class="form-item">
+                                     <label style=" color: #DB0020;">设置秒杀价：</label>
+                                     <div class="form-input">
+                                         <div class="inputed">
+                                             <input type="number" v-model="item.spikePrice"
+                                                 autocomplete="off" :attr="{ oninput:
+                                                 'if(value.length>8)value=value.slice(0,8)' }">
+                                         </div>
+                                     </div>
+                                 </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="setTime">
+                    <div class="title">时间设置</div>
+                    <div class="ownTime">
+                        <div class="timeS">
+                            <label>设置开始时间：</label>
+                            <div class="numipt" @click="openPicker">
+                                <input type="text" placeholder='选择开始时间' v-model="legalCardBegindate"
+                                    onkeyup="this.value=this.value.replace(/\s+/g,'')" readonly="readonly">
+                                <img src="./filter_date.png" alt="">
+                            </div>
+                        </div>
+                        <div class="timeS">
+                            <label>设置结束时间：</label>
+                            <div class="numipt" @click="openPicker2">
+                                <input type="text" placeholder='选择结束时间' v-model="legalCardDeadline"
+                                    onkeyup="this.value=this.value.replace(/\s+/g,'')" readonly="readonly">
+                                <img src="./filter_date.png" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="beizhu">
+                    <div class="title">备注：</div>
+                    <textarea v-model="remarks" placeholder="请输入备注信息"></textarea>
+                </div>
+                <div class="footer">
+                    <img src="./azj_mine_mssq_btn_apply for_1@3x.png" alt="" @click="submit">
+                    <div class="tixing">注:客服将在3个工作日内与您联系，您可以在我的秒杀活动里查看申请情况哦！</div>
+                </div>
+                <mt-datetime-picker ref="picker" type="date" v-model="startTime" year-format="{value} 年"
+                    month-format="{value} 月" date-format="{value} 日" @confirm="handleConfirm" :start-Date="startDate1"
+                    :end-Date="endDate">
+                </mt-datetime-picker>
+                <!-- mint datepicker 结束时间-->
+                <mt-datetime-picker ref="picker2" type="date" v-model="endTime" year-format="{value} 年"
+                    month-format="{value} 月" date-format="{value} 日" @confirm="handleConfirm2" :start-Date="startDate1"
+                    :end-Date="endDate">
+                </mt-datetime-picker>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./index.js"></script>
+    <script src="./jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/common/js/common.js?v=32"></script>
+    <script>
+        jQuery.support.cors = true;
+        $("body").on("touchmove", function () { //body上面绑定touchend事件
+            $('input').each(function (i, v) { //自定义一个.input_box classname ，多个时绑定多个，遍历
+                if ($(this).is(":focus") === true) { //如果当前input框获取到了焦点
+                    $(this).blur(); // 使其失去即可
+                }
+            });
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                list: [],
+                seq: seq,
+                goodsCode: '',
+                supplierSeq: '',
+                specifications: [],
+                startTime: new Date(),
+                endTime: new Date(),
+                startDate1: new Date(),
+                endDate: new Date('2030'),
+                legalCardBegindate: null,
+                legalCardDeadline: null,
+                remarks: '',
+                goodsAttributeList: [],
+                isShow: false,
+            },
+            created: function () {
+                this.goodsCode = localStorage.getItem("killGoodsCode");
+                this.supplierSeq = localStorage.getItem("killSupplierSeq");
+                this.getInfo();
+            },
+            mounted: function () {
+                //没有登录的用户强制跳转至未登录个人中心页面
+                (function(){
+                    if (!isLogin()) {
+                        var urlVal = window.location.href;
+                        sltHide();
+                        setCookie("loginRetrunUrl",urlVal);
+                        loginPageUrl();
+                        return;
+                    }
+                })();
+            },
+
+            methods: {
+                // 输入验证
+
+                //时间选择
+                openPicker: function () {
+                    this.$refs.picker.open();
+                },
+                openPicker2: function () {
+                    this.$refs.picker2.open();
+                },
+                handleConfirm: function (data) {
+                    if (this.isShow) {
+                        if (new Date(data).getTime() <= new Date(this.endTime).getTime()) {
+                            var date = this.formData1(data);
+                            this.legalCardBegindate = date;
+                        } else {
+                            this.startTime = this.legalCardBegindate ? this.legalCardBegindate : new Date();
+                            this.$toast({
+                                message: '开始时间不能大于结束时间！',
+                                duration: 2000,
+                                className: 'counttc'
+                            });
+                        }
+                    } else {
+                        var date = this.formData1(data);
+                        this.legalCardBegindate = date;
+                    }
+                },
+                handleConfirm2: function (data) {
+
+                    if (new Date(data).getTime() >= new Date(this.startTime).getTime()) {
+                        this.isShow = true;
+                        var date = this.formData1(data);
+                        this.legalCardDeadline = date;
+
+                    } else {
+                        this.endTime = this.legalCardDeadline ? this.legalCardDeadline : new Date();
+                        this.$toast({
+                            message: '结束时间不能小于开始时间！',
+                            duration: 2000,
+                            className: 'counttc'
+                        });
+                    }
+                },
+                formData: function (time) {
+                    if (time) {
+                        var date = new Date(time);
+                        var Y = date.getFullYear();
+                        var M = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() +
+                        1;
+                        var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+                        var h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+                        var m = date.getMinutes() < 10 ? '0' + date.getMinutes() :
+                            date.getMinutes();
+                        var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+                        return Y + '年' + M + '月' + D + '日';
+                    }
+                },
+                formData1: function (time) {
+                    if (time) {
+                        var date = new Date(time);
+                        var Y = date.getFullYear();
+                        var M = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() +
+                        1;
+                        var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+                        var h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+                        var m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+                        var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+                        return Y + '-' + M + '-' + D;
+                    }
+                },
+                //字符串截取
+                yingPhone: function (val) {
+
+                    if (val.length > 32) {
+                        return val.substring(0, 32) + '...'
+                    } else {
+                        return val
+                    }
+                },
+                //选项切换
+                checkedOneFn: function () {
+                    var orderNo = [];
+                    for (var i = 0; i < this.specifications.length; i++) {
+                        if (this.specifications[i].checked == true) {
+                            orderNo.push(this.specifications[i]);
+                        }
+                        this.goodsAttributeList = orderNo;
+                    }
+                },
+                //获取数据
+                getInfo: function () {
+                    var param = {
+                        goodsCode : this.goodsCode,
+                        supplierSeq: this.supplierSeq
+                    }
+                    // var param = {
+                    //     goodsCode: '4340077201808101510191019713322',
+                    //     supplierSeq: 4340077,
+
+                    // }
+                    var that = this;
+                    $.ajax({
+                        type: "post", //定义提交的类型9
+                        // url: "http://192.168.1.84:10000/localQuickPurchase/goods/activity/apply/get",//本地
+                        url: "/localQuickPurchase/goods/activity/apply/get",
+                        dataType: "json", //设置返回值得类型
+                        contentType: "application/json;charset=utf-8",
+                        data: JSON.stringify(param),
+                        async: false, //是否异步请求，false为同步
+                        success: function (res) {
+                            console.log(res, '93')
+                            that.list = res.data;
+                            that.specifications = res.data.specsList;
+                        }
+                    })
+
+                },
+                //提交数据
+                submit: function () {
+                    if (this.goodsAttributeList.length == 0) {
+                        this.$toast('请选择要申请秒杀商品的规格');
+                        return false;
+                    };
+
+
+                    for (var i = 0; i < this.specifications.length; i++) {
+                        if (this.specifications[i].checked == true) {
+
+                            if (!this.specifications[i].spikePrice || !this.specifications[i]
+                                .spikeSupplyPrice) {
+                                this.$toast({
+                                    message: "请填写选中规格的秒杀价和供货秒杀价，秒杀价只能为数字！",
+                                    duration: 3000
+                                });
+                                return;
+                            }
+
+                        }
+
+                    }
+                    if (this.legalCardBegindate == '' || this.legalCardBegindate == null) {
+                        this.$toast('请填活动开始时间');
+                        return false;
+                    }
+                    if (this.legalCardDeadline == '' || this.legalCardDeadline == null) {
+                        this.$toast('请填活动结束时间');
+                        return false;
+                    }
+
+                    //  var param = {
+
+                    //   goodsCode: '4340077201808101510191019713322',
+                    //   supplierSeq: 4340077,
+                    //      remarks: this.remarks,
+                    //      endTime: this.legalCardDeadline,
+                    //      startTime: this.legalCardBegindate,
+                    //    goodsAttributeList: this.goodsAttributeList
+                    //  };
+                    var param = {
+                        goodsCode: this.goodsCode,
+                        supplierSeq: this.supplierSeq,
+                        remarks: this.remarks,
+                        endTime: this.legalCardDeadline,
+                        startTime: this.legalCardBegindate,
+                        goodsAttributeList: this.goodsAttributeList
+
+                    }
+                      var that = this;
+                    this.$messagebox({
+                        title: '温馨提示',
+                        message: "是否确认信息无误并提交",
+                        showCancelButton: true,
+                        confirmButtonText: '确定',
+                        closeOnClickModal: false
+                    },function name(action) {
+                        if (action === 'confirm') {
+
+                            $.ajax({
+                                type: "post", //定义提交的类型9
+                                url: "/localQuickPurchase/goods/activity/apply/add",
+                                dataType: "json", //设置返回值得类型
+                                contentType: "application/json;charset=utf-8",
+                                data: JSON.stringify(param),
+                                async: false, //是否异步请求，false为同步
+                                success: function (res) {
+                                    console.log(res, '93')
+                                    if (res.code == 200) {
+                                        that.$messagebox({
+                                            title: '温馨提示',
+                                            message: "您的申请已提交，请耐心等待审核！",
+
+                                        })
+                                    } else {
+                                        that.$toast({
+                                            message: res.data,
+                                            duration: 3000
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    that.$toast({
+                                        message: '您的商品信息填写，请核对后提交',
+                                        duration: 3000
+                                    });
+                                }
+                            })
+                        }
+                    })
+
+
+                },
+                // 返回上层
+                goback: function () {
+                    window.history.go(-1)
+                },
+            }
+
+        })
+    </script>
+</body>
+
+</html>

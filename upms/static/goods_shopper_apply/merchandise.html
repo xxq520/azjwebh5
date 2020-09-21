@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name = "format-detection" content = "telephone=no">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./mescroll.css">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+           body{
+               background-color: #f6f6f6;
+           }
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .mainBox {
+            color: #444;
+            transform: none;
+            cursor: pointer;
+         background-color: #f6f6f6;
+            padding-top: 90px;
+
+        }
+
+
+        .mint-header {
+            width: 100%;
+            background-color: #DB0020;
+            color: #fff;
+           position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .mint-header .mint-button {
+            width: 32px;
+        }
+        .mintui-back:before {
+            content: "\E600";
+            font-size: 22px;
+
+        }
+        .mint-header-title {
+            font-size: 16px;
+        }
+
+
+        .news-list {
+            background-color: #f6f6f6;
+            padding: 10px;
+            box-sizing: content-box;
+        }
+
+        .news-list li {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+            display: flex;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        .news-list .left {
+            width: 32%;
+
+        }
+        .mescroll-downwarp {
+            position: relative;
+            top: 90px;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .news-list .right {
+            flex: 1;
+            padding-left: 5px;
+            display: flex;
+            flex-direction: column;
+            width: 65%;
+            overflow: hidden;
+
+        }
+
+        .news-list .right .name {
+            overflow: hidden;
+            height: 36px;
+            line-height: 18px;
+            margin-bottom: 5px;
+        }
+
+        .news-list .right .sales1 .price {
+            color: #DB0020;
+            line-height: 22px;
+            font-size: 14px;
+            width: 45%;
+         position: relative;
+            top: 5px;
+        }
+
+        .news-list .right .sales {
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                color: #666;
+                justify-content: space-between;
+
+
+            }
+        .news-list .right .sales1 {
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            color: #666;
+            justify-content: space-between;
+            position: relative;
+            padding-bottom: 6px;
+
+        }
+        .news-list .right .shenqing {
+            padding: 2px 8px;
+            font-size: 12px;
+            border-radius: 16px;
+            background-color: #f3072d;
+            color: #fff;
+            display: inline-block;
+            align-self: flex-end;
+
+
+        }
+        .content{
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .news-list .left img {
+            width: 100%;
+            height: 115px;
+        }
+
+        .search-box {
+            height: 50px;
+            background-color: #f6f6f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            padding:6px 10px;
+            box-sizing: border-box;
+            z-index: 1001;
+            position: absolute;
+            top: 40px;
+            left: 0;
+
+        }
+
+
+
+        .search-box img {
+            position: relative;
+            left: 8%;
+            width: 14px;
+            height: 14px;
+        }
+        .mescroll-upwarp{
+            padding: 5px 0;
+
+        }
+        .search-box input {
+            font-size: 0.5333rem;
+            width: 70%;
+            height: 30px;
+            color: #222;
+            display: inline-block;
+            border-radius: 16px 0 0 16px;
+            outline: none;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            text-indent: 4em;
+
+        }
+
+        .search-box .search-btn {
+            background-color: #f3072d;
+            border: 1px solid #ccc;
+            color: #fff;
+            border-radius: 0 16px 16px 0;
+            font-size: 14px;
+            height: 34px;
+            padding: 5px 12px;
+
+
+            outline: none;
+
+        }
+        .mainBox .dropdown {
+            padding: 20px 0;
+            width: 100%;
+            height: 140px;
+        }
+        .mainBox .dropdown img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app" v-cloak>
+    <div class="mainBox " >
+
+            <header class="mint-header">
+                <mt-button icon="back" slot="left" @click="goback"></mt-button>
+                <h1 class="mint-header-title">我的商品</h1>
+                <div class="kill" @click="secKill">秒杀申请 </div>
+            </header>
+
+            <div class="search-box">
+                <img src="./search.png">
+                <input type="text" placeholder="请输出搜索商品名称" v-model="goodsName"  @focus="this.blur()"  class="input_box">
+                <button @click="searchfn" class="search-btn">搜索</button>
+            </div>
+
+
+        <div class="dropdown" v-if="merchandiseList.length==0"> <img src="./shop.png" alt=""></div>
+   <div class="content" v-else>
+        <div ref="mescroll" class="mescroll  ">
+            <ul id="newsList" class="news-list">
+                <li v-for="item in merchandiseList">
+                    <div class="left"><img :src="item.thumbnail" alt=""></div>
+                    <div class="right">
+                        <div class="name"> {{item.goodsName}}</div>
+                        <div class="time" style="color: #666;line-height: 22px;">上架时间：{{formData(item.updateTime)}}</div>
+                        <div class="sales">
+                            <p style="width: 45%;">销量：{{item.sales}}</p>
+                            <p style="width: 54%;">库存：{{item.stock}}</p>
+                        </div>
+
+                        <div class="sales1">
+                            <p class="price" >价格：{{item.actualPrice}}</p>
+                            <p class="shenqing" @click="Special(item.goodsCode,item.supplierSeq )">申请秒杀活动</p>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+</div>
+
+<script src="./vue.js"></script>
+<script src="./index.js"></script>
+<script src="./jquery.min.js"></script>
+<script src="./mescroll.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/js/common.js?v=32"></script>
+<script>
+    jQuery.support.cors = true;
+    $("body").on("touchmove", function() { //body上面绑定touchend事件
+        $(".input_box").each(function (i, v) { //自定义一个.input_box classname ，多个时绑定多个，遍历
+            if($(this).is(":focus") === true){ //如果当前input框获取到了焦点
+                $(this).blur(); // 使其失去即可
+            }
+        });
+    });
+
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            pageIndex: 1,
+            seq: seq,
+            merchandiseList: [],
+            pageSize: 10,
+            loading: false,
+            mescroll: null,
+            goodsName: '',
+            jieliu: true,
+            close: false,
+            changeShow: true,
+
+        },
+
+        mounted:function() {
+
+            //没有登录的用户强制跳转至未登录个人中心页面
+            (function(){
+                if (!isLogin()) {
+                    var urlVal = window.location.href;
+                    sltHide();
+                    setCookie("loginRetrunUrl",urlVal);
+                    loginPageUrl();
+                    return;
+                }
+            })();
+
+
+            this.mescroll = new MeScroll(this.$refs.mescroll, {
+                // 在mounted生命周期初始化mescroll以确保您配置的dom元素能够被找到.
+                down: {
+                    isBoth: false,
+                    auto: true, // 是否在初始化完毕之后自动执行下拉回调callback; 默认true
+                    callback: this.downCallback, // 下拉刷新的回调
+                    isBounce:false
+
+                },
+                up: {
+                    isBoth: false,
+                    auto: false, // 是否在初始化时以上拉加载的方式自动加载第一页数据; 默认false
+                    callback: this.upCallback, // 上拉回调,此处可简写; 相当于 callback: function (page) { upCallback(page);
+
+                },
+                page: {
+                    num: this.pageIndex, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
+                    size: this.pageSize // 每页数据的数量
+                },
+                empty: { //配置列表无任何数据的提示
+                    warpId: "newsList",
+                    // icon : "../res/img/mescroll-empty.png" ,
+                    tip: "亲,暂无相关数据哦~",
+
+                },
+
+            })
+
+        },
+
+
+        methods: {
+
+            //跳转秒杀申请页面
+            secKill:function() {
+                window.location.href = "/upms/static/goods_shopper_apply/applicat.html";
+            },
+            formData:function(time) {
+                if (time) {
+                    var date = new Date(time);
+                    var Y = date.getFullYear();
+                    var M = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+                    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+                    var h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+                    var m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+                    vars = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+                    return Y + '年' + M + '月' + D + '日';
+                }
+            },
+            //申请秒杀活动
+            Special:function(goodsCode,supplierSeq) {
+                localStorage.setItem("killGoodsCode",goodsCode);
+                localStorage.setItem("killSupplierSeq",supplierSeq);
+                window.location.href = "/upms/static/goods_shopper_apply/secKill.html";
+            },
+            searchfn:function() {
+                this.merchandiseList = [];
+                this.pageIndex = 1;
+
+                this.getInfo();
+
+            },
+            //获取商品数据
+
+            //下拉刷新
+            downCallback:function() {
+                this.merchandiseList = [];
+                this.pageIndex = 1;
+                this.goodsName = '';
+                this.getUp();
+            },
+            //上拉加载
+            upCallback:function(page) {
+
+                this.getInfo();
+            },
+            getUp:function(){
+                var param = {
+                    goodsName: this.goodsName,
+                    shopSeq: this.seq,
+                    pageIndex: this.pageIndex,
+                    pageSize: this.pageSize,
+                }
+                var that = this;
+
+                 
+                    $.ajax({
+                        type: "post", //定义提交的类型9
+                        url: "/localQuickPurchase/goods/activity/apply/query",
+                        dataType: "json", //设置返回值得类型
+                        contentType: "application/json;charset=utf-8",
+                        data: JSON.stringify(param),
+                        success: function (res) {
+                            console.log(res, '12')
+                            if (res.code == 200) {
+                                this.merchandiseList = [];
+                                var curPageData = res.data.pageSize; // 接口返回的当前页数据列表
+                                var totalPage = res.data
+                                    .totalPage; // 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
+                                var totalSize = res.data
+                                    .totalCount; // 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
+                                var hasNext = !(that.pageIndex >= res.data
+                                    .totalPage); // 接口返回的是否有下一页 (true/false)
+                                console.log(that.pageIndex,res.data
+                                    .totalPage)
+                                that.mescroll.endSuccess()
+                                console.log(curPageData, hasNext)
+                                that.mescroll.endSuccess(curPageData, hasNext) // 结束下拉刷新,无参
+                                that.pageIndex++;
+                                that.merchandiseList = that.merchandiseList.concat(res.data
+                                    .list);
+
+                            } else {
+                                that.mescroll.endErr()
+
+                            }
+                        },
+                         error: function (a, b, c) {console.log(a,b,c);}
+                    })
+                 
+            },
+            getInfo:function() {
+              var param = {
+                    goodsName: this.goodsName,
+                    shopSeq: this.seq,
+                    pageIndex: this.pageIndex,
+                    pageSize: this.pageSize,
+                }
+                var that = this;
+                    $.ajax({
+                        type: "post", //定义提交的类型9
+                        url: "/localQuickPurchase/goods/activity/apply/query",
+                        dataType: "json", //设置返回值得类型
+                        contentType: "application/json;charset=utf-8",
+                        data: JSON.stringify(param),
+                        success: function (res) {
+                            console.log(res, '12')
+                            if (res.code == 200) {
+                                var curPageData = res.data.pageSize; // 接口返回的当前页数据列表
+                                var totalPage = res.data
+                                    .totalPage; // 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
+                                var totalSize = res.data
+                                    .totalCount; // 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
+                                var hasNext = !(that.pageIndex >= res.data
+                                    .totalPage); // 接口返回的是否有下一页 (true/false)
+                                console.log(that.pageIndex,res.data
+                                    .totalPage)
+                                that.mescroll.endSuccess()
+                                console.log(curPageData, hasNext)
+                                that.mescroll.endSuccess(curPageData, hasNext) // 结束下拉刷新,无参
+                                that.pageIndex++;
+                                that.merchandiseList = that.merchandiseList.concat(res.data
+                                    .list);
+
+                            } else {
+                                that.mescroll.endErr()
+
+                            }
+                        },
+                        error: function (a, b, c) {console.log(a,b,c);}
+                    })
+                
+            },
+
+            // 返回上层
+            goback:function() {
+                // window.history.go(-1);
+                try{
+                    //判断是否是app
+                    var u = navigator.userAgent;
+                    var isappwebview = u.indexOf('app_webview') > -1;
+                    // 如果不是app打开的  则返回首页
+                    if(isappwebview){
+                        try {
+                            //如果没有上一页尝试返回原生
+                            // 调app原生返回  webview
+                            window.action.app_back();
+                        } catch (e) {
+                        }
+                        try {
+                            var json = {'function':'goBack'};
+                            window.webkit.messageHandlers.goBack.postMessage(json);
+                        } catch (e) {
+                        }
+                    }else{
+                        window.location.href = "/upms/static/personalCenter.html";
+                    }
+                }catch(e){
+                }
+            },
+            //跳转商品详情
+
+
+        }
+
+    })
+</script>
+</body>
+
+</html>

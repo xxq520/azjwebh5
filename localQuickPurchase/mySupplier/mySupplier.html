@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=yes"/>
+    <link rel="stylesheet" href="./css/income.css">
+    <link rel="stylesheet" href="/localQuickPurchase/distributionApp/lib/Hui/css/hui.css">
+    <title>爱之家</title>
+</head>
+<style>
+
+    .positionContent{font-size: .8rem;color: #999;text-align: center;margin-top:-2.1112rem;/*position: absolute;top: 40%;left: 50%;transform: translate(-50%,-50%)*/}
+    /*.hui-list li{height: inherit!important; line-height: inherit!important; }*/
+</style>
+<body>
+    <div class="income">
+        <div class="header">
+            <a ><img class="goBack" src="./img/android/drawable-hdpi/fanhui.png" alt=""></a></span>
+            <div id="headerMessage">我的供应商</div>
+        </div>
+        <div class="search">
+            <form class="search_box">
+            <span class="searh_img"><img src="./img/android/drawable-hdpi/sousuoa.png"  alt=""/></span>
+            <input id="textOrder" type="text" placeholder="按供应商手机号搜索" class="search"/>
+            <div id="searchOrderno" onclick="search()">搜索</div>
+            <!--<button>搜索</button>-->
+            </form>
+        </div>
+        <div class="hui-wrap">
+
+            <div id="refreshContainer" class="hui-refresh">
+                <div class="hui-refresh-icon"></div>
+                <div class="hui-refresh-content hui-list" id="list">
+                    <div class="order_details">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript" src="/common/lib/Hui/js/hui.js"></script>
+<script type="text/javascript" src="/common/lib/jquery/js/jquery.min.js"></script>
+<script type="text/javascript" src="/common/lib/Hui/js/hui-refresh-load-more.js"></script>
+<script type="text/javascript" src="/localQuickPurchase/distributionApp/js/loading.js"></script>
+<script type="text/javascript" charset="utf-8" src="/common/js/common.js?v=32"></script>
+<script src="./js/mySupplier.js"></script>
+<script>
+//弹框
+
+/*返回*/
+$('.goBack').click(function () {
+    try{
+        // 调app原生返回
+        window.action.app_back();
+    }catch(e){
+
+    }
+    setTimeout(function(){
+        javascript:history.go(-1);
+    }, 200);
+})
+</script>

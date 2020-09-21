@@ -1,0 +1,199 @@
+@keyframes enlargeIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: perspective(100px) rotateX(0) rotateY(0);
+  }
+  50%{
+    transform: perspective(100px) rotateX(180deg) rotateY(0);
+  }
+  100% {
+    transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+  }
+}
+
+.picture-viewer {
+  cursor: pointer;
+}
+
+.picture-viewer-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(50, 50, 50, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 999;
+  overflow: hidden;
+  animation: enlargeIn 0.3s linear;
+}
+  .cross-container {
+ 
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    right: -50px;
+    top: -50px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(100, 100, 100, 0.5);
+    transition: background-color 0.3s;}
+
+   .cross-container:hover {
+      background-color: rgba(30, 30, 30, 0.5);
+    }
+    .cross-container:hover .cross {
+      transform: rotate(-45deg);
+    }
+    .cross {
+      position: absolute;
+      background: white;
+      height: 1px;
+      width: 21px;
+      left: 20px;
+      top: 70px;
+      transform: rotate(45deg);
+      transition: transform 0.3s;
+    }
+     .cross:after {
+        content: "";
+        position: absolute;
+        background-color: white;
+        height: 21px;
+        width: 1px;
+        top: -10px;
+        left: 10px;
+      }
+
+
+   .image-container img {
+      transition: transform 0.1s;
+      cursor: move;
+      position: absolute;
+      user-select: none;
+      animation: enlargeIn 0.3s linear;
+    }
+   .image-container .loading {
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    
+    }
+   .image-container .loading div {
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        // border-radius: 50%;
+        animation: wave 1s infinite;
+      }
+    .image-container .can-not-load {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 1rem;
+      display: none;
+    }
+  
+  .image-tools {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    border-radius: 3px;
+    background-color: rgba(30, 30, 30, 0.5);
+  }
+
+  .image-tools .tools-item {
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      border: 1px solid white;
+      display: inline-block;
+      margin: 5px 10px;
+      border-radius: 3px;
+    }
+   .image-tools .relocation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+   
+    }
+       .image-tools .relocation:active {
+         transform: scale(1.2);
+       }
+
+       .image-tools .relocation div {
+         width: 5px;
+         height: 5px;
+         border-radius: 50%;
+         background-color: white;
+       }
+  .image-tools .enlarge {
+      position: relative;
+      transition: transform 0.2s;
+  
+      }
+        .image-tools .enlarge:active {
+          transform: scale(1.2);
+        }
+
+        .image-tools .enlarge div {
+          width: 17px;
+          height: 1px;
+          background-color: white;
+          position: absolute;
+          left: 4px;
+          top: 12px;
+        }
+
+        .image-tools .enlarge div::after {
+          content: "";
+          height: 17px;
+          width: 1px;
+          background-color: white;
+          position: absolute;
+          top: -8px;
+          left: 8px;
+          z-index: 9999;
+        }
+        
+  .image-tools .shrink {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    
+    }
+     .image-tools .shrink:active {
+       transform: scale(0.8);
+     }
+
+     .image-tools .shrink div {
+       height: 1px;
+       width: 16px;
+       background-color: white;
+     }
